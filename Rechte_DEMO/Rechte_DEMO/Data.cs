@@ -11,7 +11,7 @@ namespace Rechte_DEMO
     class Data
     {
         string conSting = "Database=DEV-MYSQL-DB;Data Source=eu-cdbr-azure-west-a.cloudapp.net;User Id=b641945ab71d7d;Password=f7464e00";
-
+        //nesch 5.2
         public DataTable loadtest()
         {
             DataTable dt = new DataTable();

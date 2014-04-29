@@ -10,3 +10,6 @@ c:\users\daniel trefzer\documents\visual studio 2012\Projects\Rechte_DEMO\Rechte
 c:\users\daniel trefzer\documents\visual studio 2012\Projects\Rechte_DEMO\Rechte_DEMO\obj\Debug\Rechte_DEMO.exe
 c:\users\daniel trefzer\documents\visual studio 2012\Projects\Rechte_DEMO\Rechte_DEMO\obj\Debug\Rechte_DEMO.pdb
 C:\Users\Daniel Trefzer\documents\visual studio 2012\Projects\Rechte_DEMO\Rechte_DEMO\obj\Debug\Rechte_DEMO.Frm_Crud_test.resources
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Rechte_DEMO\Rechte_DEMO\bin\Debug\Rechte_DEMO.exe.config
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Rechte_DEMO\Rechte_DEMO\obj\Debug\Rechte_DEMO.exe
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Rechte_DEMO\Rechte_DEMO\obj\Debug\Rechte_DEMO.pdb
