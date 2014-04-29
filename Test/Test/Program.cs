@@ -13,6 +13,7 @@ namespace Test
         [STAThread]
         static void Main()
         {
+            //nesch 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

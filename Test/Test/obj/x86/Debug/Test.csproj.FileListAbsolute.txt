@@ -6,3 +6,5 @@ D:\Users\i01002584\documents\visual studio 2010\Projects\Test\Test\obj\x86\Debug
 D:\Users\i01002584\documents\visual studio 2010\Projects\Test\Test\obj\x86\Debug\GenerateResource.write.1.tlog
 D:\Users\i01002584\documents\visual studio 2010\Projects\Test\Test\obj\x86\Debug\Test.exe
 D:\Users\i01002584\documents\visual studio 2010\Projects\Test\Test\obj\x86\Debug\Test.pdb
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Test\Test\obj\x86\Debug\Test.exe
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Test\Test\obj\x86\Debug\Test.pdb
