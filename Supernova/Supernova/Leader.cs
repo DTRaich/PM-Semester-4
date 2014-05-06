@@ -22,13 +22,14 @@ namespace Supernova
 
         public void LoadLogin()
         {
-            FrmLogin login = new FrmLogin();            
-
+            mainPanel.Controls.Clear();
+            FrmLogin login = new FrmLogin();
             mainPanel.Controls.Add(prepareForm(login));
             login.Show();
             
         }
         #endregion
+
         #region privateMethods
 
         /// <summary>
