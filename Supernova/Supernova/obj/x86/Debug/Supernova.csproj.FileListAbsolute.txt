@@ -1,0 +1,8 @@
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\bin\Debug\Supernova.exe
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\bin\Debug\Supernova.pdb
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\Supernova.Properties.Resources.resources
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\GenerateResource.read.1.tlog
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\GenerateResource.write.1.tlog
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\Supernova.exe
+d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\Supernova.pdb
