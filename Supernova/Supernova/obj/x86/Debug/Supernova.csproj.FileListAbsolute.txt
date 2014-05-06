@@ -6,3 +6,11 @@ d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj
 d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\GenerateResource.write.1.tlog
 d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\Supernova.exe
 d:\users\i01002584\documents\visual studio 2010\Projects\Supernova\Supernova\obj\x86\Debug\Supernova.pdb
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.exe
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.pdb
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\bin\Debug\Supernova.exe
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\bin\Debug\Supernova.pdb
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.csprojResolveAssemblyReference.cache
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.FrmMain.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Properties.Resources.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.csproj.GenerateResource.Cache
