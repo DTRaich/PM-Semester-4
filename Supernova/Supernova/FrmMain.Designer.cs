@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.msMenu = new System.Windows.Forms.MenuStrip();
-            this.sStateStrip = new System.Windows.Forms.StatusStrip();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.projekteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sStateStrip = new System.Windows.Forms.StatusStrip();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,26 +45,9 @@
             this.adminToolStripMenuItem});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
-            this.msMenu.Size = new System.Drawing.Size(926, 24);
+            this.msMenu.Size = new System.Drawing.Size(945, 24);
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "menuStrip1";
-            // 
-            // sStateStrip
-            // 
-            this.sStateStrip.Location = new System.Drawing.Point(0, 405);
-            this.sStateStrip.Name = "sStateStrip";
-            this.sStateStrip.Size = new System.Drawing.Size(926, 22);
-            this.sStateStrip.TabIndex = 1;
-            this.sStateStrip.Text = "statusStrip1";
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 24);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(926, 381);
-            this.pnlMain.TabIndex = 2;
-            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // projekteToolStripMenuItem
             // 
@@ -84,14 +67,32 @@
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
+            // sStateStrip
+            // 
+            this.sStateStrip.Location = new System.Drawing.Point(0, 405);
+            this.sStateStrip.Name = "sStateStrip";
+            this.sStateStrip.Size = new System.Drawing.Size(945, 22);
+            this.sStateStrip.TabIndex = 1;
+            this.sStateStrip.Text = "statusStrip1";
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 24);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(945, 381);
+            this.pnlMain.TabIndex = 2;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 427);
+            this.ClientSize = new System.Drawing.Size(945, 427);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.sStateStrip);
             this.Controls.Add(this.msMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.msMenu;
             this.Name = "FrmMain";
             this.Text = "Supernova Version 1.0.0";

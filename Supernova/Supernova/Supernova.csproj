@@ -46,12 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\DataLoad.cs" />
+    <Compile Include="data\ParameterLoad.cs" />
+    <Compile Include="FrmLeading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLeading.Designer.cs">
+      <DependentUpon>FrmLeading.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="helper\ParameterHelper.cs" />
+    <Compile Include="helper\ValidationHelper.cs" />
+    <Compile Include="interfaces\ICriteriaChecking.cs" />
+    <Compile Include="interfaces\IRightChecker.cs" />
+    <Compile Include="Leader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmMain.resx">
@@ -75,6 +88,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sub_Forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
