@@ -9,20 +9,11 @@ using System.Windows.Forms;
 
 namespace Supernova
 {
-    public partial class FrmMain : Form
+    public partial class FrmLogin : Form
     {
-        private Leader leader;
-        public FrmMain()
+        public FrmLogin()
         {
             InitializeComponent();
-
-            leader = new Leader(this.pnlMain);
-        }
-
-        
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-            leader.LoadLogin();
         }
     }
 }

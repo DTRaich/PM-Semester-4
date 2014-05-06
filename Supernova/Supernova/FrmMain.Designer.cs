@@ -39,6 +39,7 @@
             // 
             // msMenu
             // 
+            this.msMenu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projekteToolStripMenuItem,
             this.accountToolStripMenuItem,
@@ -47,7 +48,7 @@
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(945, 24);
             this.msMenu.TabIndex = 0;
-            this.msMenu.Text = "menuStrip1";
+            this.msMenu.Text = "Menu";
             // 
             // projekteToolStripMenuItem
             // 
@@ -82,7 +83,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
-            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // FrmMain
             // 
@@ -96,6 +96,7 @@
             this.MainMenuStrip = this.msMenu;
             this.Name = "FrmMain";
             this.Text = "Supernova Version 1.0.0";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();
             this.ResumeLayout(false);
