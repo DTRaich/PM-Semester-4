@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace Supernova
 {
-    public partial class FrmMain : Form
+    public partial class FrmLeading : Form
     {
-        public FrmMain()
+        public FrmLeading()
         {
             InitializeComponent();
-        }
-
-        private void pnlMain_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

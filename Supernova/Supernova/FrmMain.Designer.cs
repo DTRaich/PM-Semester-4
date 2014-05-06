@@ -31,10 +31,18 @@
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.projekteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // msMenu
             // 
+            this.msMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.projekteToolStripMenuItem,
+            this.accountToolStripMenuItem,
+            this.adminToolStripMenuItem});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(926, 24);
@@ -56,6 +64,25 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(926, 381);
             this.pnlMain.TabIndex = 2;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // projekteToolStripMenuItem
+            // 
+            this.projekteToolStripMenuItem.Name = "projekteToolStripMenuItem";
+            this.projekteToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.projekteToolStripMenuItem.Text = "Projekte";
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Text = "Account";
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
             // 
             // FrmMain
             // 
@@ -68,6 +95,8 @@
             this.MainMenuStrip = this.msMenu;
             this.Name = "FrmMain";
             this.Text = "Supernova Version 1.0.0";
+            this.msMenu.ResumeLayout(false);
+            this.msMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -78,6 +107,9 @@
         private System.Windows.Forms.MenuStrip msMenu;
         private System.Windows.Forms.StatusStrip sStateStrip;
         private System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.ToolStripMenuItem projekteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
     }
 }
 
