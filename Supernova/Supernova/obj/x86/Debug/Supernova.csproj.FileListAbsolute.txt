@@ -14,3 +14,5 @@ C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.FrmMain.resources
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Properties.Resources.resources
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.csproj.GenerateResource.Cache
+D:\Users\i01002584\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.exe
+D:\Users\i01002584\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.pdb
