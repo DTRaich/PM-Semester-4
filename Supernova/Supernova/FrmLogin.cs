@@ -20,32 +20,37 @@ namespace Supernova
             this.lead = l;
         }
 
+        //Button Click Event
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login();
         }
 
+        //Login Method
         private void Login() 
         {
         
+            // Set text-boxes and labels to standard
             txtPassword.BackColor = Color.White;
             txtUsername.BackColor = Color.White;
             lblErrorUsername.Visible = false;
             lblErrorPassword.Visible = false;
 
+            // declare variables
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
+            //checks if username- or password field are empty
             if (String.IsNullOrWhiteSpace(username) || String.IsNullOrEmpty(username))
             {
-                //error anzeigen
+                //Change TextBox Colour and show error label
                 txtUsername.BackColor = Color.Bisque;
                 lblErrorUsername.ForeColor = Color.DarkRed;
                 lblErrorUsername.Visible = true;
 
                 if (String.IsNullOrWhiteSpace(password) || String.IsNullOrEmpty(password))
                 {
-                    //error anzeigen
+                    //Change TextBox Colour and show error label
                     txtPassword.BackColor = Color.Bisque;
                     lblErrorPassword.ForeColor = Color.DarkRed;
                     lblErrorPassword.Visible = true;
@@ -56,7 +61,7 @@ namespace Supernova
             {
                 if (String.IsNullOrWhiteSpace(password) || String.IsNullOrEmpty(password))
                 {
-                   
+                    //Change TextBox Colour and show error label
                     txtPassword.BackColor = Color.Bisque;
                     lblErrorPassword.ForeColor = Color.DarkRed;
                     lblErrorPassword.Visible = true;
@@ -66,6 +71,7 @@ namespace Supernova
                     int pass = 0;
                      try
                      {
+                         //convert password to int
                          pass = Convert.ToInt32(password);
                      }
                      catch (Exception ex)
@@ -75,6 +81,7 @@ namespace Supernova
 
                     DataLoad dl = new DataLoad();
 
+                    // method Logon , checks if user exists
                     int userid = dl.LogOn(username, pass);
 
                     if (userid == -1)
