@@ -51,10 +51,12 @@ namespace Supernova
         public void LoadProjektCreate()
         {
             mainPanel.Controls.Clear();
-            FrmOrderControlling frm = new FrmOrderControlling();
+            List<Form> li = getFormsListNewProject();
+            FrmOrderControlling frm = new FrmOrderControlling(li);
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
+
 
         public void LoadProjektView()
         {
@@ -129,6 +131,12 @@ namespace Supernova
             frm.FormBorderStyle = FormBorderStyle.None;
 
             return frm;
+        }
+
+
+        private List<Form> getFormsListNewProject()
+        {
+            return null;
         }
         #endregion
 

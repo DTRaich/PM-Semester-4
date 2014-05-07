@@ -38,3 +38,11 @@ C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\S
 C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Help.FrmInfo.resources
 C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Help.FrmUserHelp.resources
 C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.General.FrmAfirmative.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Administration.FrmCriteriaWeight.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Administration.FrmDepartmentSpecifikation.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Administration.FrmGeneralBudget.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Administration.FrmUserRights.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.General.FrmAfirmative.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Help.FrmInfo.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Help.FrmUserHelp.resources
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Overview.FrmProjectOverview.resources
