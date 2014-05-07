@@ -66,6 +66,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrderControlling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrderControlling.Designer.cs">
+      <DependentUpon>FrmOrderControlling.cs</DependentUpon>
+    </Compile>
     <Compile Include="helper\ParameterHelper.cs" />
     <Compile Include="helper\ValidationHelper.cs" />
     <Compile Include="interfaces\ICriteriaChecking.cs" />
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrderControlling.resx">
+      <DependentUpon>FrmOrderControlling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
