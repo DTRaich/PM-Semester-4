@@ -24,5 +24,55 @@ namespace Supernova
         {
             leader.LoadLogin();
         }
+
+
+        #region ToolclickEvents
+
+        private void projektErstellenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void projekteAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void kriterienPriorisierenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rechteverwaltungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void abteilungskapazitätenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void benutzerinformationenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void passwordÄndernToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hilfekatalogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void überToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion 
+
     }
 }

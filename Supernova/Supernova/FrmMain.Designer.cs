@@ -30,20 +30,20 @@
         {
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.projekteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sStateStrip = new System.Windows.Forms.StatusStrip();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.projektErstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projekteAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abteilungskapazitätenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfekatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sStateStrip = new System.Windows.Forms.StatusStrip();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,51 +70,19 @@
             this.projekteToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.projekteToolStripMenuItem.Text = "Menu";
             // 
-            // accountToolStripMenuItem
-            // 
-            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.benutzerinformationenToolStripMenuItem,
-            this.passwordÄndernToolStripMenuItem});
-            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.accountToolStripMenuItem.Text = "Account";
-            // 
-            // adminToolStripMenuItem
-            // 
-            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hilfekatalogToolStripMenuItem,
-            this.überToolStripMenuItem});
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.adminToolStripMenuItem.Text = "Hilfe";
-            // 
-            // sStateStrip
-            // 
-            this.sStateStrip.Location = new System.Drawing.Point(0, 405);
-            this.sStateStrip.Name = "sStateStrip";
-            this.sStateStrip.Size = new System.Drawing.Size(945, 22);
-            this.sStateStrip.TabIndex = 1;
-            this.sStateStrip.Text = "statusStrip1";
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 24);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(945, 381);
-            this.pnlMain.TabIndex = 2;
-            // 
             // projektErstellenToolStripMenuItem
             // 
             this.projektErstellenToolStripMenuItem.Name = "projektErstellenToolStripMenuItem";
             this.projektErstellenToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.projektErstellenToolStripMenuItem.Text = "Projekt erstellen";
+            this.projektErstellenToolStripMenuItem.Click += new System.EventHandler(this.projektErstellenToolStripMenuItem_Click);
             // 
             // projekteAnzeigenToolStripMenuItem
             // 
             this.projekteAnzeigenToolStripMenuItem.Name = "projekteAnzeigenToolStripMenuItem";
             this.projekteAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.projekteAnzeigenToolStripMenuItem.Text = "Projekte anzeigen";
+            this.projekteAnzeigenToolStripMenuItem.Click += new System.EventHandler(this.projekteAnzeigenToolStripMenuItem_Click);
             // 
             // adminToolStripMenuItem1
             // 
@@ -131,42 +99,83 @@
             this.kriterienPriorisierenToolStripMenuItem.Name = "kriterienPriorisierenToolStripMenuItem";
             this.kriterienPriorisierenToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.kriterienPriorisierenToolStripMenuItem.Text = "Kriterien priorisieren";
+            this.kriterienPriorisierenToolStripMenuItem.Click += new System.EventHandler(this.kriterienPriorisierenToolStripMenuItem_Click);
             // 
             // rechteverwaltungToolStripMenuItem
             // 
             this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
             this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click);
             // 
             // abteilungskapazitätenToolStripMenuItem
             // 
             this.abteilungskapazitätenToolStripMenuItem.Name = "abteilungskapazitätenToolStripMenuItem";
             this.abteilungskapazitätenToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.abteilungskapazitätenToolStripMenuItem.Text = "Abteilungskapazitäten";
+            this.abteilungskapazitätenToolStripMenuItem.Click += new System.EventHandler(this.abteilungskapazitätenToolStripMenuItem_Click);
+            // 
+            // accountToolStripMenuItem
+            // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.benutzerinformationenToolStripMenuItem,
+            this.passwordÄndernToolStripMenuItem});
+            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.accountToolStripMenuItem.Text = "Account";
             // 
             // benutzerinformationenToolStripMenuItem
             // 
             this.benutzerinformationenToolStripMenuItem.Name = "benutzerinformationenToolStripMenuItem";
             this.benutzerinformationenToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.benutzerinformationenToolStripMenuItem.Text = "Benutzerinformationen";
+            this.benutzerinformationenToolStripMenuItem.Click += new System.EventHandler(this.benutzerinformationenToolStripMenuItem_Click);
             // 
             // passwordÄndernToolStripMenuItem
             // 
             this.passwordÄndernToolStripMenuItem.Name = "passwordÄndernToolStripMenuItem";
             this.passwordÄndernToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.passwordÄndernToolStripMenuItem.Text = "Password ändern";
+            this.passwordÄndernToolStripMenuItem.Click += new System.EventHandler(this.passwordÄndernToolStripMenuItem_Click);
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hilfekatalogToolStripMenuItem,
+            this.überToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.adminToolStripMenuItem.Text = "Hilfe";
             // 
             // hilfekatalogToolStripMenuItem
             // 
             this.hilfekatalogToolStripMenuItem.Name = "hilfekatalogToolStripMenuItem";
             this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hilfekatalogToolStripMenuItem.Text = "Hilfekatalog";
+            this.hilfekatalogToolStripMenuItem.Click += new System.EventHandler(this.hilfekatalogToolStripMenuItem_Click);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
             this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.überToolStripMenuItem.Text = "Über";
+            this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
+            // 
+            // sStateStrip
+            // 
+            this.sStateStrip.Location = new System.Drawing.Point(0, 405);
+            this.sStateStrip.Name = "sStateStrip";
+            this.sStateStrip.Size = new System.Drawing.Size(945, 22);
+            this.sStateStrip.TabIndex = 1;
+            this.sStateStrip.Text = "statusStrip1";
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 24);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(945, 381);
+            this.pnlMain.TabIndex = 2;
             // 
             // FrmMain
             // 
