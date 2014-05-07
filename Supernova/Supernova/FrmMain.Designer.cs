@@ -34,6 +34,16 @@
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.projektErstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projekteAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abteilungskapazitätenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.passwordÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hilfekatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,21 +62,31 @@
             // 
             // projekteToolStripMenuItem
             // 
+            this.projekteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.projektErstellenToolStripMenuItem,
+            this.projekteAnzeigenToolStripMenuItem,
+            this.adminToolStripMenuItem1});
             this.projekteToolStripMenuItem.Name = "projekteToolStripMenuItem";
-            this.projekteToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.projekteToolStripMenuItem.Text = "Projekte";
+            this.projekteToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.projekteToolStripMenuItem.Text = "Menu";
             // 
             // accountToolStripMenuItem
             // 
+            this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.benutzerinformationenToolStripMenuItem,
+            this.passwordÄndernToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // adminToolStripMenuItem
             // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hilfekatalogToolStripMenuItem,
+            this.überToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem.Text = "Admin";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.adminToolStripMenuItem.Text = "Hilfe";
             // 
             // sStateStrip
             // 
@@ -83,6 +103,70 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
+            // 
+            // projektErstellenToolStripMenuItem
+            // 
+            this.projektErstellenToolStripMenuItem.Name = "projektErstellenToolStripMenuItem";
+            this.projektErstellenToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.projektErstellenToolStripMenuItem.Text = "Projekt erstellen";
+            // 
+            // projekteAnzeigenToolStripMenuItem
+            // 
+            this.projekteAnzeigenToolStripMenuItem.Name = "projekteAnzeigenToolStripMenuItem";
+            this.projekteAnzeigenToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.projekteAnzeigenToolStripMenuItem.Text = "Projekte anzeigen";
+            // 
+            // adminToolStripMenuItem1
+            // 
+            this.adminToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kriterienPriorisierenToolStripMenuItem,
+            this.rechteverwaltungToolStripMenuItem,
+            this.abteilungskapazitätenToolStripMenuItem});
+            this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
+            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
+            this.adminToolStripMenuItem1.Text = "Admin";
+            // 
+            // kriterienPriorisierenToolStripMenuItem
+            // 
+            this.kriterienPriorisierenToolStripMenuItem.Name = "kriterienPriorisierenToolStripMenuItem";
+            this.kriterienPriorisierenToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.kriterienPriorisierenToolStripMenuItem.Text = "Kriterien priorisieren";
+            // 
+            // rechteverwaltungToolStripMenuItem
+            // 
+            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
+            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            // 
+            // abteilungskapazitätenToolStripMenuItem
+            // 
+            this.abteilungskapazitätenToolStripMenuItem.Name = "abteilungskapazitätenToolStripMenuItem";
+            this.abteilungskapazitätenToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.abteilungskapazitätenToolStripMenuItem.Text = "Abteilungskapazitäten";
+            // 
+            // benutzerinformationenToolStripMenuItem
+            // 
+            this.benutzerinformationenToolStripMenuItem.Name = "benutzerinformationenToolStripMenuItem";
+            this.benutzerinformationenToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.benutzerinformationenToolStripMenuItem.Text = "Benutzerinformationen";
+            // 
+            // passwordÄndernToolStripMenuItem
+            // 
+            this.passwordÄndernToolStripMenuItem.Name = "passwordÄndernToolStripMenuItem";
+            this.passwordÄndernToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.passwordÄndernToolStripMenuItem.Text = "Password ändern";
+            // 
+            // hilfekatalogToolStripMenuItem
+            // 
+            this.hilfekatalogToolStripMenuItem.Name = "hilfekatalogToolStripMenuItem";
+            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfekatalogToolStripMenuItem.Text = "Hilfekatalog";
+            // 
+            // überToolStripMenuItem
+            // 
+            this.überToolStripMenuItem.Name = "überToolStripMenuItem";
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Text = "Über";
             // 
             // FrmMain
             // 
@@ -112,6 +196,16 @@
         private System.Windows.Forms.ToolStripMenuItem projekteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projektErstellenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem projekteAnzeigenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem kriterienPriorisierenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rechteverwaltungToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abteilungskapazitätenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem benutzerinformationenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem passwordÄndernToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hilfekatalogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
     }
 }
 

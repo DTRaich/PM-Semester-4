@@ -19,3 +19,5 @@ D:\Users\i01002584\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\De
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.FrmLogin.resources
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\bin\Debug\MySql.Data.dll
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.FrmOrderControlling.resources
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.exe
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.pdb
