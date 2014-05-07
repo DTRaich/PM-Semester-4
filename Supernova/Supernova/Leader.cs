@@ -14,7 +14,7 @@ using Supernova.Sub_Forms.Projects;
 
 namespace Supernova
 {
-    class Leader
+    public class Leader
     {
         #region fields
         private Panel mainPanel;
@@ -42,7 +42,7 @@ namespace Supernova
         public void LoadLogin()
         {
             mainPanel.Controls.Clear();            
-            FrmLogin login = new FrmLogin();
+            FrmLogin login = new FrmLogin(this);
             mainPanel.Controls.Add(prepareForm(login));
             login.Show();
             
