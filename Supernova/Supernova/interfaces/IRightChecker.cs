@@ -7,6 +7,6 @@ namespace Supernova.interfaces
 {
     interface IRightChecker
     {
-        public int checkMyRights(int userID, string Formname);
+         int checkMyRights(int userID, string Formname);
     }
 }

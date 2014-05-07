@@ -7,7 +7,7 @@ namespace Supernova.interfaces
 {
     interface ICriteriaChecking
     {
-        public bool checkAndValidateForm();
+        bool checkAndValidateForm();
 
     }
 }

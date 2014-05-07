@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supernova.data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace Supernova
 
         public void LoadLogin()
         {
-            mainPanel.Controls.Clear();
+            mainPanel.Controls.Clear();            
             FrmLogin login = new FrmLogin();
             mainPanel.Controls.Add(prepareForm(login));
             login.Show();
