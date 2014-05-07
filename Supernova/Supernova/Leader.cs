@@ -18,6 +18,7 @@ namespace Supernova
     {
         #region fields
         private Panel mainPanel;
+        private int UserID;
 
         #endregion
 
@@ -27,6 +28,16 @@ namespace Supernova
         }
 
         #region publicMethods
+
+        public void setUserID(int uID)
+        {
+            UserID = uID;
+        }
+        public int getUserID()
+        {
+            return UserID;
+        }
+
 
         public void LoadLogin()
         {
