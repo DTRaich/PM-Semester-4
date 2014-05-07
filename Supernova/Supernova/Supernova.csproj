@@ -180,6 +180,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmCriteriaWeight.resx">
+      <DependentUpon>FrmCriteriaWeight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmDepartmentSpecifikation.resx">
+      <DependentUpon>FrmDepartmentSpecifikation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmGeneralBudget.resx">
+      <DependentUpon>FrmGeneralBudget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmUserRights.resx">
+      <DependentUpon>FrmUserRights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Help\FrmInfo.resx">
+      <DependentUpon>FrmInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Help\FrmUserHelp.resx">
+      <DependentUpon>FrmUserHelp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectOverview.resx">
       <DependentUpon>FrmProjectOverview.cs</DependentUpon>
     </EmbeddedResource>
