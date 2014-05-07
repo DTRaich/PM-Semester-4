@@ -192,6 +192,9 @@
     <EmbeddedResource Include="Sub_Forms\Administration\FrmUserRights.resx">
       <DependentUpon>FrmUserRights.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\General\FrmAfirmative.resx">
+      <DependentUpon>FrmAfirmative.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Help\FrmInfo.resx">
       <DependentUpon>FrmInfo.cs</DependentUpon>
     </EmbeddedResource>

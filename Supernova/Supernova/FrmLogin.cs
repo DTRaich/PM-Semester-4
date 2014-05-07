@@ -13,9 +13,11 @@ namespace Supernova
 {
     public partial class FrmLogin : Form
     {
-        public FrmLogin()
+        private Leader lead;
+        public FrmLogin(Leader l)
         {
             InitializeComponent();
+            this.lead = l;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -25,8 +27,11 @@ namespace Supernova
 
         private void Login() 
         {
+        
             txtPassword.BackColor = Color.White;
             txtUsername.BackColor = Color.White;
+            lblErrorUsername.Visible = false;
+            lblErrorPassword.Visible = false;
 
             string username = txtUsername.Text;
             string password = txtPassword.Text;
@@ -35,11 +40,15 @@ namespace Supernova
             {
                 //error anzeigen
                 txtUsername.BackColor = Color.Bisque;
+                lblErrorUsername.ForeColor = Color.DarkRed;
+                lblErrorUsername.Visible = true;
 
                 if (String.IsNullOrWhiteSpace(password) || String.IsNullOrEmpty(password))
                 {
                     //error anzeigen
                     txtPassword.BackColor = Color.Bisque;
+                    lblErrorPassword.ForeColor = Color.DarkRed;
+                    lblErrorPassword.Visible = true;
                 }
 
             }
@@ -47,8 +56,10 @@ namespace Supernova
             {
                 if (String.IsNullOrWhiteSpace(password) || String.IsNullOrEmpty(password))
                 {
-                    //error anzeigen
+                   
                     txtPassword.BackColor = Color.Bisque;
+                    lblErrorPassword.ForeColor = Color.DarkRed;
+                    lblErrorPassword.Visible = true;
                 }
                 else
                 {
@@ -69,9 +80,12 @@ namespace Supernova
                     if (userid == -1)
                     {
                         // Error werfen
+                        FrmAfirmative UnknownUser = new FrmAfirmative("Diese Login Daten sind uns nicht bekannt \n Bitte überprüfen sie ihre Eingaben.", 'e');
+                        UnknownUser.ShowDialog();
                     }
                     else
                     {
+                        lead.setUserID(userid);
                         InitializeRights();
                     }
 
