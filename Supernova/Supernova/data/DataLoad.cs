@@ -53,6 +53,40 @@ namespace Supernova.data
 
             return retval;
         }
+        public void Logout(int uid)
+        {
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Call LogOut(@userID)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("userID", uid);
+                cmd.Parameters["userID"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
 
         public DataTable loadtest()
         {

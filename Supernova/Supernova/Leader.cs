@@ -133,5 +133,12 @@ namespace Supernova
         #endregion
 
 
+
+        internal void logout()
+        {
+            DataLoad dl = new DataLoad();
+            dl.Logout(UserID);
+            UserID = 0;
+        }
     }
 }

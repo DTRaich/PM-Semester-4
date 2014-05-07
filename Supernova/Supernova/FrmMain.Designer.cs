@@ -36,6 +36,7 @@
             this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abteilungskapazitätenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,7 @@
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,11 +118,18 @@
             this.abteilungskapazitätenToolStripMenuItem.Text = "Abteilungskapazitäten";
             this.abteilungskapazitätenToolStripMenuItem.Click += new System.EventHandler(this.abteilungskapazitätenToolStripMenuItem_Click);
             // 
+            // budgetToolStripMenuItem
+            // 
+            this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
+            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.budgetToolStripMenuItem.Text = "Budget";
+            // 
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.benutzerinformationenToolStripMenuItem,
-            this.passwordÄndernToolStripMenuItem});
+            this.passwordÄndernToolStripMenuItem,
+            this.ausloggenToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.accountToolStripMenuItem.Text = "Account";
@@ -152,14 +160,14 @@
             // hilfekatalogToolStripMenuItem
             // 
             this.hilfekatalogToolStripMenuItem.Name = "hilfekatalogToolStripMenuItem";
-            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.hilfekatalogToolStripMenuItem.Text = "Hilfekatalog";
             this.hilfekatalogToolStripMenuItem.Click += new System.EventHandler(this.hilfekatalogToolStripMenuItem_Click);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.überToolStripMenuItem.Text = "Über";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
@@ -179,11 +187,12 @@
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
             // 
-            // budgetToolStripMenuItem
+            // ausloggenToolStripMenuItem
             // 
-            this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
-            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.budgetToolStripMenuItem.Text = "Budget";
+            this.ausloggenToolStripMenuItem.Name = "ausloggenToolStripMenuItem";
+            this.ausloggenToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.ausloggenToolStripMenuItem.Text = "Ausloggen";
+            this.ausloggenToolStripMenuItem.Click += new System.EventHandler(this.ausloggenToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -197,6 +206,7 @@
             this.MainMenuStrip = this.msMenu;
             this.Name = "FrmMain";
             this.Text = "Supernova Version 1.0.0";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();
@@ -224,6 +234,7 @@
         private System.Windows.Forms.ToolStripMenuItem hilfekatalogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ausloggenToolStripMenuItem;
     }
 }
 

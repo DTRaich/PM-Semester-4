@@ -72,7 +72,18 @@ namespace Supernova
         {
             leader.LoadInfo();
         }
+
+        private void ausloggenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leader.logout();
+            leader.LoadLogin();
+        }
         #endregion 
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            leader.logout();            
+        }
 
     }
 }
