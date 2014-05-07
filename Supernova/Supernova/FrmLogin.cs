@@ -16,8 +16,28 @@ namespace Supernova
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13) {
+ 
+            }
+        }
+
+        private void Login() 
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;            
+               
+            if(!String.IsNullOrWhiteSpace(username) || !String.IsNullOrEmpty(username))
+            {
+                //error anzeigen
+               
+            }
 
         }
     }

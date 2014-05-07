@@ -45,7 +45,6 @@
             this.lblLoginText.Size = new System.Drawing.Size(73, 29);
             this.lblLoginText.TabIndex = 0;
             this.lblLoginText.Text = "Login";
-            this.lblLoginText.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblUsername
             // 
@@ -86,10 +85,12 @@
             // 
             this.btnLogin.Location = new System.Drawing.Point(222, 244);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(100, 19);
+            this.btnLogin.Size = new System.Drawing.Size(100, 27);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnLogin_KeyPress);
             // 
             // FrmLogin
             // 
