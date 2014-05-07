@@ -82,7 +82,7 @@ namespace Supernova
                     DataLoad dl = new DataLoad();
 
                     // method Logon , checks if user exists
-                    int userid = dl.LogOn(username, pass);
+                        int userid = dl.LogOn(username, pass);
 
                     if (userid == -1)
                     {
@@ -92,8 +92,16 @@ namespace Supernova
                     }
                     else
                     {
-                        lead.setUserID(userid);
-                        InitializeRights();
+                        if (userid == -2)
+                        {
+                            FrmAfirmative AlreadyLoggedIn = new FrmAfirmative("Dieser User ist bereits eingeloggt \n Bitte ändern sie die Login Daten.", 'e');
+                            AlreadyLoggedIn.ShowDialog();
+                        }
+                        else
+                        {
+                            lead.setUserID(userid);
+                            InitializeRights();
+                        }
                     }
 
                 }
