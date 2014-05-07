@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Supernova.data;
+using Supernova.Sub_Forms.General;
 
 namespace Supernova
 {
@@ -20,13 +21,6 @@ namespace Supernova
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login();
-        }
-
-        private void btnLogin_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13) {
-                Login();
-            }
         }
 
         private void Login() 
@@ -75,6 +69,14 @@ namespace Supernova
                 }
             }
 
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)   
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //        Login();
+            }
         }
     }
 }
