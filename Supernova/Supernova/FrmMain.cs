@@ -30,32 +30,32 @@ namespace Supernova
 
         private void projektErstellenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            leader.LoadProjektCreate();
         }
 
         private void projekteAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            leader.LoadProjektView();
         }
 
         private void kriterienPriorisierenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            leader.LoadCriteriaWeight();
         }
 
         private void rechteverwaltungToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            leader.LoadUserRights();
         }
 
         private void abteilungskapazitätenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            leader.LoadDepartmentSpezification();
         }
 
         private void benutzerinformationenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void passwordÄndernToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,12 +65,12 @@ namespace Supernova
 
         private void hilfekatalogToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            leader.LoadUserHelp();
         }
 
         private void überToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            leader.LoadInfo();
         }
         #endregion 
 
