@@ -30,3 +30,4 @@ C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\S
 C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.FrmOrderControlling.resources
 C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Properties.Resources.resources
 C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.csproj.GenerateResource.Cache
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Overview.FrmProjectOverview.resources
