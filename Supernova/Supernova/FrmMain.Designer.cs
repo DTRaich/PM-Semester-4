@@ -44,6 +44,7 @@
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,8 @@
             this.adminToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kriterienPriorisierenToolStripMenuItem,
             this.rechteverwaltungToolStripMenuItem,
-            this.abteilungskapazitätenToolStripMenuItem});
+            this.abteilungskapazitätenToolStripMenuItem,
+            this.budgetToolStripMenuItem});
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
             this.adminToolStripMenuItem1.Size = new System.Drawing.Size(175, 22);
             this.adminToolStripMenuItem1.Text = "Admin";
@@ -177,6 +179,12 @@
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
             // 
+            // budgetToolStripMenuItem
+            // 
+            this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
+            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.budgetToolStripMenuItem.Text = "Budget";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +223,7 @@
         private System.Windows.Forms.ToolStripMenuItem passwordÄndernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hilfekatalogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
     }
 }
 
