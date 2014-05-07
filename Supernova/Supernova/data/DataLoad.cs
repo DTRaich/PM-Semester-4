@@ -11,6 +11,48 @@ namespace Supernova.data
     {
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
 
+        public int LogOn(string username, int password)
+        {
+            int retval = -1;
+
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Call LoginUser(@username,@password)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("username", username);
+                cmd.Parameters["username"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("password", password);
+                cmd.Parameters["password"].Direction = ParameterDirection.Input;
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (rdr.Read())
+                {
+                    retval = Convert.ToInt32(rdr[0]);
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return retval;
+        }
 
         public DataTable loadtest()
         {
