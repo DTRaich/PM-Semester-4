@@ -1,6 +1,6 @@
 ﻿namespace Supernova.Sub_Forms.General
 {
-    partial class FrmDelete
+    partial class FrmAfirmative
     {
         /// <summary>
         /// Required designer variable.

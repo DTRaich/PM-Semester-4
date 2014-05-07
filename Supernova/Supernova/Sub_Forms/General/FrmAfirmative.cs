@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Supernova.Sub_Forms.General
 {
-    public partial class FrmDelete : Form
+    public partial class FrmAfirmative : Form
     {
-        public FrmDelete()
+        public FrmAfirmative()
         {
             InitializeComponent();
         }
