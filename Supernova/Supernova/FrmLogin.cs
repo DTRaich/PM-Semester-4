@@ -66,9 +66,23 @@ namespace Supernova
 
                     int userid = dl.LogOn(username, pass);
 
+                    if (userid == -1)
+                    {
+                        // Error werfen
+                    }
+                    else
+                    {
+                        InitializeRights();
+                    }
+
                 }
             }
 
+        }
+
+        private void InitializeRights()
+        {
+            
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)   
@@ -78,5 +92,7 @@ namespace Supernova
                 //        Login();
             }
         }
+
+
     }
 }
