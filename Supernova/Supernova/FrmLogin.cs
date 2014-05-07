@@ -31,12 +31,25 @@ namespace Supernova
         private void Login() 
         {
             string username = txtUsername.Text;
-            string password = txtPassword.Text;            
-               
-            if(!String.IsNullOrWhiteSpace(username) || !String.IsNullOrEmpty(username))
+            string password = txtPassword.Text;
+
+            if (String.IsNullOrWhiteSpace(username) || String.IsNullOrEmpty(username))
             {
                 //error anzeigen
-               
+                txtUsername.BackColor = Color.Bisque;
+
+            }
+            else
+            {
+                if (String.IsNullOrWhiteSpace(password) || String.IsNullOrEmpty(password))
+                {
+                    //error anzeigen
+                    txtPassword.BackColor = Color.Bisque;
+                }
+                else
+                {
+
+                }
             }
 
         }
