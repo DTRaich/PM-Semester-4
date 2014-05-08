@@ -40,12 +40,12 @@
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfekatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,7 @@
             this.projektErstellenToolStripMenuItem,
             this.projekteAnzeigenToolStripMenuItem,
             this.adminToolStripMenuItem1});
+            this.projekteToolStripMenuItem.Enabled = false;
             this.projekteToolStripMenuItem.Name = "projekteToolStripMenuItem";
             this.projekteToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.projekteToolStripMenuItem.Text = "Menu";
@@ -130,6 +131,7 @@
             this.benutzerinformationenToolStripMenuItem,
             this.passwordÄndernToolStripMenuItem,
             this.ausloggenToolStripMenuItem});
+            this.accountToolStripMenuItem.Enabled = false;
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
             this.accountToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.accountToolStripMenuItem.Text = "Account";
@@ -148,6 +150,13 @@
             this.passwordÄndernToolStripMenuItem.Text = "Password ändern";
             this.passwordÄndernToolStripMenuItem.Click += new System.EventHandler(this.passwordÄndernToolStripMenuItem_Click);
             // 
+            // ausloggenToolStripMenuItem
+            // 
+            this.ausloggenToolStripMenuItem.Name = "ausloggenToolStripMenuItem";
+            this.ausloggenToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.ausloggenToolStripMenuItem.Text = "Ausloggen";
+            this.ausloggenToolStripMenuItem.Click += new System.EventHandler(this.ausloggenToolStripMenuItem_Click);
+            // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -160,14 +169,14 @@
             // hilfekatalogToolStripMenuItem
             // 
             this.hilfekatalogToolStripMenuItem.Name = "hilfekatalogToolStripMenuItem";
-            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hilfekatalogToolStripMenuItem.Text = "Hilfekatalog";
             this.hilfekatalogToolStripMenuItem.Click += new System.EventHandler(this.hilfekatalogToolStripMenuItem_Click);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.überToolStripMenuItem.Text = "Über";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
@@ -186,13 +195,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
-            // 
-            // ausloggenToolStripMenuItem
-            // 
-            this.ausloggenToolStripMenuItem.Name = "ausloggenToolStripMenuItem";
-            this.ausloggenToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.ausloggenToolStripMenuItem.Text = "Ausloggen";
-            this.ausloggenToolStripMenuItem.Click += new System.EventHandler(this.ausloggenToolStripMenuItem_Click);
             // 
             // FrmMain
             // 

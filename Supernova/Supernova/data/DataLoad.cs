@@ -94,7 +94,7 @@ namespace Supernova.data
 
             try
             {
-                string commandText = "Call getUserRights(@formname,@user_id)";
+                string commandText = "Call getUserRights(@user_id,@formname)";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;

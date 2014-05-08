@@ -12,6 +12,7 @@ namespace Supernova
     public partial class FrmMain : Form
     {
         private Leader leader;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -35,12 +36,46 @@ namespace Supernova
 
         private void initialRightsMain(int right)
         {
+            projekteToolStripMenuItem.Enabled = true;
+            accountToolStripMenuItem.Enabled = true;
+            
+            switch (right)
+            {
+                case 16: initializeAdmin();
+                    break;
+                case 17: initializeGl();
+                    break;
+                case 18: initializePl();
+                    break;
+                case 19: initializeAl();
+                    break;
+
+            }
+        }
+
+        private void initializeAl()
+        {
+            kriterienPriorisierenToolStripMenuItem.Visible = false;
+            rechteverwaltungToolStripMenuItem.Visible = false;
+            budgetToolStripMenuItem.Visible = false;
+        }
+
+        private void initializePl()
+        {
+            adminToolStripMenuItem1.Visible = false;
+        }
+
+        private void initializeGl()
+        {
+           
+        }
+
+        private void initializeAdmin()
+        {
             throw new NotImplementedException();
         }
 
-        
-
-        
+       
 
         #region ToolclickEvents
 
@@ -92,7 +127,9 @@ namespace Supernova
         private void ausloggenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             leader.logout();
+            resetRights();
             leader.LoadLogin();
+            pnlMain.ControlRemoved +=new ControlEventHandler(pnlMain_ControlRemoved);
         }
 
 
@@ -101,6 +138,18 @@ namespace Supernova
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             leader.logout();            
+          
+        }
+
+        private void resetRights()
+        {
+            projekteToolStripMenuItem.Enabled = false;
+            accountToolStripMenuItem.Enabled = false;
+
+            kriterienPriorisierenToolStripMenuItem.Visible = true;
+            rechteverwaltungToolStripMenuItem.Visible = true;
+            budgetToolStripMenuItem.Visible = true;
+            adminToolStripMenuItem1.Visible = true;
         }
 
     }

@@ -40,7 +40,11 @@ namespace Supernova
 
         public int initialRightsForMain()
         {
-            return 1;  
+            string formname = "FrmMain";
+            DataLoad dl = new DataLoad();
+
+            return dl.UserRight(UserID, formname);
+ 
         }
 
         #region FormLoader
