@@ -103,7 +103,7 @@ namespace Supernova
                         else
                         {
                             lead.setUserID(userid);
-                            InitializeRights();
+                            lead.RemoveLogin();                           
                         }
                     }
 
@@ -112,11 +112,7 @@ namespace Supernova
 
         }
 
-        private void InitializeRights()
-        {
-            
-        }
-
+       
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)   
         {
             if (e.KeyChar == (char)Keys.Enter)

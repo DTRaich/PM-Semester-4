@@ -23,8 +23,24 @@ namespace Supernova
         private void FrmMain_Load(object sender, EventArgs e)
         {
             leader.LoadLogin();
+            pnlMain.ControlRemoved += pnlMain_ControlRemoved;
         }
 
+        void pnlMain_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            int right = leader.initialRightsForMain();
+            initialRightsMain(right);
+            pnlMain.ControlRemoved -= pnlMain_ControlRemoved;
+        }
+
+        private void initialRightsMain(int right)
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+        
 
         #region ToolclickEvents
 
@@ -78,6 +94,8 @@ namespace Supernova
             leader.logout();
             leader.LoadLogin();
         }
+
+
         #endregion 
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)

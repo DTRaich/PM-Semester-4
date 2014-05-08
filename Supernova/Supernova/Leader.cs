@@ -38,7 +38,12 @@ namespace Supernova
             return UserID;
         }
 
+        public int initialRightsForMain()
+        {
+            return 1;  
+        }
 
+        #region FormLoader
         public void LoadLogin()
         {
             mainPanel.Controls.Clear();            
@@ -113,6 +118,7 @@ namespace Supernova
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
+        #endregion
 
         #endregion
 
@@ -138,9 +144,10 @@ namespace Supernova
         {
             return null;
         }
+
         #endregion
 
-
+        #region internal
 
         internal void logout()
         {
@@ -148,5 +155,20 @@ namespace Supernova
             dl.Logout(UserID);
             UserID = 0;
         }
+
+        internal void RemoveLogin()
+        {
+            mainPanel.Controls.Clear();
+        }
+
+        void mainPanel_ControlRemoved(object sender, ControlEventArgs e)
+        {
+
+            mainPanel.ControlRemoved -= mainPanel_ControlRemoved;
+        }
+
+        
+
+        #endregion
     }
 }
