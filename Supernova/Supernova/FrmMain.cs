@@ -72,7 +72,7 @@ namespace Supernova
 
         private void initializeAdmin()
         {
-            throw new NotImplementedException();
+
         }
 
        
