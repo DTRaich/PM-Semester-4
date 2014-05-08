@@ -146,7 +146,21 @@ namespace Supernova
 
         private List<Form> getFormsListNewProject()
         {
-            return null;
+            // Forms
+            FrmBasisData bdata = new FrmBasisData();
+            FrmCostTime cform = new FrmCostTime();
+            FrmRisk frmR = new FrmRisk();
+            FrmStrategie frmS= new FrmStrategie();
+
+            //adden
+
+            List<Form> list = new List<Form>();
+            list.Add(prepareForm(bdata));
+            list.Add(prepareForm(cform));
+            list.Add(prepareForm(frmR));
+            list.Add(prepareForm(frmS));
+
+            return list;
         }
 
         #endregion

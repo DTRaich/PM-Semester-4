@@ -144,6 +144,12 @@
     <Compile Include="Sub_Forms\Projects\FrmBasisData.Designer.cs">
       <DependentUpon>FrmBasisData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sub_Forms\Projects\FrmCostTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Projects\FrmCostTime.Designer.cs">
+      <DependentUpon>FrmCostTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sub_Forms\Projects\FrmRisk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectOverview.resx">
       <DependentUpon>FrmProjectOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Projects\FrmBasisData.resx">
+      <DependentUpon>FrmBasisData.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

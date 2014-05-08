@@ -7,5 +7,6 @@ namespace Supernova.data
 {
     class ParameterLoad
     {
+
     }
 }

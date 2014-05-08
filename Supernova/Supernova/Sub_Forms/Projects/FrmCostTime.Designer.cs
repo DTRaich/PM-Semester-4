@@ -1,6 +1,6 @@
 ﻿namespace Supernova.Sub_Forms.Projects
 {
-    partial class FrmBasisData
+    partial class FrmCostTime
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FrmBasisData
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 262);
-            this.Name = "FrmBasisData";
-            this.Text = "FrmBasisData";
-            this.ResumeLayout(false);
-
+            this.Text = "FrmCostTime";
         }
 
         #endregion
-
-
     }
 }
