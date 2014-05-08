@@ -10,7 +10,7 @@ namespace Supernova.data
     class DataLoad
     {
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
-
+        #region logInLogOUtRights
         public int LogOn(string username, int password)
         {
             int retval = -1;
@@ -86,31 +86,7 @@ namespace Supernova.data
                 }
             }
         }
-
-
-        public DataTable loadtest()
-        {
-            DataTable dt = new DataTable();
-            MySqlConnection connection = new MySqlConnection(conSting);
-
-            try
-            {
-                connection.Open();
-                string comand = "Select * from user";
-                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
-                adap.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return dt;
-        }
-
+        
         public int UserRight(int userID, string formname)
         {
             int right = -1;
@@ -126,7 +102,7 @@ namespace Supernova.data
                 cmd.Parameters.AddWithValue("formname", formname);
                 cmd.Parameters["formname"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("user_id", 1);
+                cmd.Parameters.AddWithValue("user_id", userID);
                 cmd.Parameters["user_id"].Direction = ParameterDirection.Input;
 
                 connection.Open();
@@ -151,5 +127,32 @@ namespace Supernova.data
             }
             return right;
         }
+
+        #endregion
+
+        public DataTable loadtest()
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select * from user";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+
+       
     }
 }
