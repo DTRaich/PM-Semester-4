@@ -102,7 +102,7 @@ namespace Supernova
         public void LoadDepartmentSpezification()
         {
             mainPanel.Controls.Clear();
-            FrmDepartmentSpecifikation frm = new FrmDepartmentSpecifikation();
+            FrmDepartmentOverview frm = new FrmDepartmentOverview(UserID);
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
