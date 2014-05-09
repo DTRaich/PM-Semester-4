@@ -17,7 +17,7 @@ namespace Supernova
 
         private List<Form> formslist;
         Form currentFrm;
-        private int o= 0;
+        private int formNumber = 0;
         ProjektDataDummy projektDaten;
 
         public FrmOrderControlling(List<Form> FormList,ref ProjektDataDummy projektDummy)
@@ -30,22 +30,53 @@ namespace Supernova
 
         private void FrmOrderControlling_Load(object sender, EventArgs e)
         {
-            currentFrm = formslist[o];
+            currentFrm = formslist[formNumber];
             this.pnlControl.Controls.Add(currentFrm);
             currentFrm.Show();
         }
+                
 
-        private void btnMove_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
-            MethodInfo info = currentFrm.GetType().GetMethod("checkAndValidateForm");            
+            MethodInfo info = currentFrm.GetType().GetMethod("checkAndValidateForm");
+
             bool ok = (bool)info.Invoke(currentFrm, null);
             if (ok)
             {
-                o = 0 + 1;
+                formNumber = formNumber + 1;
                 currentFrm.Close();
-                currentFrm = formslist[o];               
+                currentFrm = formslist[formNumber];
                 this.pnlControl.Controls.Add(currentFrm);
                 currentFrm.Show();
+            }
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            formNumber = formNumber - 1;
+            currentFrm.Close();
+            currentFrm = formslist[formNumber];
+            this.pnlControl.Controls.Add(currentFrm);
+            currentFrm.Show();
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(projektDaten.saveProjectDataToDb())
+            {
+                //speichern erfolgreich
+                //wenn dialog result ok form schließen 
+            }
+            else
+            {
+                //Speichern fehlgeschlagen
             }
         }
     }

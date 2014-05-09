@@ -8,6 +8,8 @@ namespace Supernova.objects
     public class ProjektDataDummy
     {
         #region fields 
+        public int ProjectID = 0;
+
         #region basisdaten
         private int lala;
         private string lalaknl;
@@ -24,10 +26,14 @@ namespace Supernova.objects
         #endregion
 
         public ProjektDataDummy()
-        {
-            
+        {            
         }
 
 
+
+        public bool saveProjectDataToDb()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
