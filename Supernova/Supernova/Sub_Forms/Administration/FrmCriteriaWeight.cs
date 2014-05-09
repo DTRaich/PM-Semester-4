@@ -25,7 +25,7 @@ namespace Supernova.Sub_Forms.Administration
             comboBoxColumn.DataSource = li;
 
             comboBoxColumn.ValueType = typeof(int);
-           // dataGridView1.Columns.Add(comboBoxColumn);
+            dataGridView1.Columns.Add(comboBoxColumn);
             DataGridViewCheckBoxColumn cl = new DataGridViewCheckBoxColumn();
             dataGridView1.Columns.Add(cl);
         }

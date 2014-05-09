@@ -10,7 +10,7 @@ namespace Supernova.data
     class DataLoad
     {
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
-        #region logInLogOUtRights
+        #region logInLogOUt---Rights
         public int LogOn(string username, int password)
         {
             int retval = -1;
@@ -130,6 +130,13 @@ namespace Supernova.data
 
         #endregion
 
+        
+        public DataSet loadWholeProjectData(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        
         public DataTable LoadUserData(int UserId)
         {
             DataTable dt = new DataTable();
@@ -137,12 +144,63 @@ namespace Supernova.data
             return dt;
         }
 
-        public DataSet loadWholeProjectData(int id)
+        #region criteria
+        public DataSet LoadCriteriaWeightDataSet()
         {
-            throw new NotImplementedException();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            DataSet ds = new DataSet("CriteriaWeight");
+            DataTable dt = new DataTable("Criterias");
+
+            try
+            {
+                connection.Open();
+                string comand = "Select C_NAME,C_ISACTIVE from criteria";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return ds;
         }
 
+        public DataTable LoadAllCriteriaASList()
+        {
+            DataTable dt = new DataTable("Criterias");
+            //MySqlConnection connection = new MySqlConnection(conSting);
 
+            //try
+            //{
+            //    connection.Open();
+            //    string comand = "Select C_NAME,C_ISACTIVE from user";
+            //    MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+            //    adap.Fill(dt);
+            //}
+            //catch (Exception ex)
+            //{
+            //}
+            //finally
+            //{
+            //    if (connection != null)
+            //    {
+            //        connection.Close();
+            //    }
+            //}
+
+            return dt;
+
+        }
+        #endregion
         public DataTable loadtest()
         {
             DataTable dt = new DataTable();
