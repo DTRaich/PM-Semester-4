@@ -16,10 +16,6 @@ namespace Supernova.Sub_Forms.Administration
             InitializeComponent();
         }
 
-        private void btnChoose_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
     }

@@ -49,6 +49,7 @@
             this.btnChoose.TabIndex = 4;
             this.btnChoose.Text = "Abteilung Laden";
             this.btnChoose.UseVisualStyleBackColor = true;
+            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
             // pnlDepartment
             // 
