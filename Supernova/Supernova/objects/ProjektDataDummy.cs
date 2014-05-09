@@ -13,8 +13,8 @@ namespace Supernova.objects
         public int ProjectID = 0;
 
         #region basisdaten
-        private int lala;
-        private string lalaknl;
+        public int lala;
+        public string lalaknl;
         #endregion
         #region costTime
 
@@ -37,6 +37,7 @@ namespace Supernova.objects
             ProjectID = id;
             DataLoad dl = new DataLoad();
             DataSet projektDataSet = dl.loadWholeProjectData(ProjectID);
+
             if (projektDataSet.Tables[1].Rows.Count > 0)
             {
                 extractProjektData(projektDataSet);
