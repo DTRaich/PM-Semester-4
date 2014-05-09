@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supernova.helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +17,13 @@ namespace Supernova
         private List<Form> formslist;
         Form currentFrm;
         private int o= 0;
+        public ProjektDataDummy projektDummy = new ProjektDataDummy();
 
         public FrmOrderControlling(List<Form> FormList)
         {
             InitializeComponent();
             this.formslist = FormList;
+            
         }
 
         private void FrmOrderControlling_Load(object sender, EventArgs e)

@@ -129,6 +129,7 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblLoginText);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "FrmLogin";
             this.ResumeLayout(false);
             this.PerformLayout();

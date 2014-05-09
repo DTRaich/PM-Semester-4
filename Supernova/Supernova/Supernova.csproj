@@ -73,6 +73,7 @@
       <DependentUpon>FrmOrderControlling.cs</DependentUpon>
     </Compile>
     <Compile Include="helper\ParameterHelper.cs" />
+    <Compile Include="helper\ProjektDataDummy.cs" />
     <Compile Include="helper\ValidationHelper.cs" />
     <Compile Include="interfaces\ICriteriaChecking.cs" />
     <Compile Include="interfaces\IRightChecker.cs" />
