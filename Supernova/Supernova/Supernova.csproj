@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="data\DataLoad.cs" />
+    <Compile Include="data\DataSave.cs" />
     <Compile Include="data\ParameterLoad.cs" />
     <Compile Include="data\ValidationData.cs" />
     <Compile Include="FrmLogin.cs">

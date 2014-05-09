@@ -39,7 +39,7 @@ namespace Supernova
             // declare variables
             string username = txtUsername.Text;
             string password = txtPassword.Text;
-
+            txtPassword.Text = string.Empty;
             //checks if username- or password field are empty
             if (String.IsNullOrWhiteSpace(username) || String.IsNullOrEmpty(username))
             {

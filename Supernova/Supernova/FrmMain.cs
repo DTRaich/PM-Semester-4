@@ -137,7 +137,11 @@ namespace Supernova
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            leader.logout();            
+            if (leader.getUserID() != 0)
+            {
+                leader.logout();         
+
+            }
           
         }
 

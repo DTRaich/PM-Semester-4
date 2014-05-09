@@ -18,7 +18,7 @@ namespace Supernova
     {
         #region fields
         private Panel mainPanel;
-        private int UserID;
+        private int UserID = 0;
 
         #endregion
 

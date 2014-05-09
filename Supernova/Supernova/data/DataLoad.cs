@@ -138,7 +138,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select * from user";
+                string comand = "Select USER_ID,U_NAME,U_FIRSTNAME from user";
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
             }

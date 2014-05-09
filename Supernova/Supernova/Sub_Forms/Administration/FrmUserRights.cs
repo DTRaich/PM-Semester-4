@@ -14,6 +14,7 @@ namespace Supernova.Sub_Forms.Administration
         public FrmUserRights()
         {
             InitializeComponent();
+            // hier user anlegen und Gruppen rechte ziehen können
         }
     }
 }
