@@ -130,6 +130,19 @@ namespace Supernova.data
 
         #endregion
 
+        public DataTable LoadUserData(int UserId)
+        {
+            DataTable dt = new DataTable();
+
+            return dt;
+        }
+
+        public DataSet loadWholeProjectData(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
         public DataTable loadtest()
         {
             DataTable dt = new DataTable();

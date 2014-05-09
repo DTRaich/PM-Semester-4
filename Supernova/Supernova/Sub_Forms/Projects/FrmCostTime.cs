@@ -11,9 +11,17 @@ namespace Supernova.Sub_Forms.Projects
 {
     public partial class FrmCostTime : Form
     {
+        private objects.ProjektDataDummy projektdaten;
+
         public FrmCostTime()
         {
             InitializeComponent();
+        }
+
+        public FrmCostTime(ref objects.ProjektDataDummy projektdaten)
+        {
+            InitializeComponent();
+            this.projektdaten = projektdaten;
         }
     }
 }

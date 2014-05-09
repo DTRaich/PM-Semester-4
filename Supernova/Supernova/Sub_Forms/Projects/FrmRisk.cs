@@ -11,9 +11,17 @@ namespace Supernova.Sub_Forms.Projects
 {
     public partial class FrmRisk : Form
     {
+        private objects.ProjektDataDummy projektdaten;
+
         public FrmRisk()
         {
             InitializeComponent();
+        }
+
+        public FrmRisk(ref objects.ProjektDataDummy projektdaten)
+        {
+            InitializeComponent();
+            this.projektdaten = projektdaten;
         }
     }
 }

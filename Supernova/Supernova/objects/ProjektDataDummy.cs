@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Supernova.helper
+namespace Supernova.objects
 {
     public class ProjektDataDummy
     {
@@ -21,27 +21,13 @@ namespace Supernova.helper
         #region Strategie
 
         #endregion
-
         #endregion
+
         public ProjektDataDummy()
         {
             
         }
-        #region getter/setter
-        #region basisdaten
-        
-        #endregion
-        #region costTime
 
-        #endregion
-        #region Risk
-
-        #endregion
-        #region Strategie
-
-        #endregion
-
-        #endregion
 
     }
 }

@@ -10,6 +10,7 @@ using Supernova.Sub_Forms.General;
 using Supernova.Sub_Forms.Help;
 using Supernova.Sub_Forms.Overview;
 using Supernova.Sub_Forms.Projects;
+using Supernova.objects;
 
 
 namespace Supernova
@@ -19,6 +20,7 @@ namespace Supernova
         #region fields
         private Panel mainPanel;
         private int UserID = 0;
+        public ProjektDataDummy projektdaten = new ProjektDataDummy();
 
         #endregion
 
@@ -61,7 +63,7 @@ namespace Supernova
         {
             mainPanel.Controls.Clear();
             List<Form> li = getFormsListNewProject();
-            FrmOrderControlling frm = new FrmOrderControlling(li);
+            FrmOrderControlling frm = new FrmOrderControlling(li, ref projektdaten);
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
@@ -147,10 +149,10 @@ namespace Supernova
         private List<Form> getFormsListNewProject()
         {
             // Forms
-            FrmBasisData bdata = new FrmBasisData();
-            FrmCostTime cform = new FrmCostTime();
-            FrmRisk frmR = new FrmRisk();
-            FrmStrategie frmS= new FrmStrategie();
+            FrmBasisData bdata = new FrmBasisData(ref projektdaten);
+            FrmCostTime cform = new FrmCostTime(ref projektdaten);
+            FrmRisk frmR = new FrmRisk(ref projektdaten);
+            FrmStrategie frmS = new FrmStrategie(ref projektdaten);
 
             //adden
 

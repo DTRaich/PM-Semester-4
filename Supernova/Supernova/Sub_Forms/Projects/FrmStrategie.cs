@@ -11,9 +11,17 @@ namespace Supernova.Sub_Forms.Projects
 {
     public partial class FrmStrategie : Form
     {
+        private objects.ProjektDataDummy projektdaten;
+
         public FrmStrategie()
         {
             InitializeComponent();
+        }
+
+        public FrmStrategie(ref objects.ProjektDataDummy projektdaten)
+        {
+            InitializeComponent();
+            this.projektdaten = projektdaten;
         }
     }
 }

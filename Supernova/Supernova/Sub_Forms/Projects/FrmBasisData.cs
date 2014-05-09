@@ -12,9 +12,17 @@ namespace Supernova.Sub_Forms.Projects
 {
     public partial class FrmBasisData : Form,ICriteriaChecking
     {
+        private objects.ProjektDataDummy projektdaten;
+
         public FrmBasisData()
         {
             InitializeComponent();
+        }
+
+        public FrmBasisData(ref objects.ProjektDataDummy projektdaten)
+        {
+            InitializeComponent();
+            this.projektdaten = projektdaten;
         }
 
         public bool checkAndValidateForm()
