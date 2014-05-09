@@ -15,5 +15,10 @@ namespace Supernova.Sub_Forms.Help
         {
             InitializeComponent();
         }
+
+        private void tvUserHelp_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            MessageBox.Show(e.Node.Name);
+        }
     }
 }

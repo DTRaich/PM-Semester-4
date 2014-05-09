@@ -46,3 +46,4 @@ C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Help.FrmUserHelp.resources
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Overview.FrmProjectOverview.resources
 C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Projects.FrmBasisData.resources
+C:\Users\Nils\Documents\GitHub\PM-Semester-4\Supernova\Supernova\obj\x86\Debug\Supernova.Sub_Forms.Projects.FrmBasisData.resources

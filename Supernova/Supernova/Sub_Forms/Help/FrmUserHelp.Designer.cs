@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Login");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Erste Schritte", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             this.tvUserHelp = new System.Windows.Forms.TreeView();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
@@ -36,8 +39,15 @@
             // 
             this.tvUserHelp.Location = new System.Drawing.Point(12, 12);
             this.tvUserHelp.Name = "tvUserHelp";
+            treeNode1.Name = "Node0.0";
+            treeNode1.Text = "Login";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "Erste Schritte";
+            this.tvUserHelp.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2});
             this.tvUserHelp.Size = new System.Drawing.Size(186, 353);
             this.tvUserHelp.TabIndex = 0;
+            this.tvUserHelp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvUserHelp_NodeMouseDoubleClick);
             // 
             // richTextBox1
             // 
