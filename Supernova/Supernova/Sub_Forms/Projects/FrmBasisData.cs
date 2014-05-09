@@ -26,5 +26,11 @@ namespace Supernova.Sub_Forms.Projects
         {
 
         }
+
+        // dummy method to test if github works as expected
+        private void testIfGithubWorksAsExpected()
+        {
+
+        }
     }
 }
