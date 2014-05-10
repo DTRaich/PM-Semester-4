@@ -1,4 +1,5 @@
 ﻿using Supernova.data;
+using Supernova.helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,17 +14,20 @@ namespace Supernova.Sub_Forms.Administration
 {
     public partial class FrmCriteriaWeight : Form
     {
+        #region fields
         DataLoad loader = new DataLoad();
+        ParameterHelper parahelp = new ParameterHelper();
+        DataSave saver = new DataSave();
         DataSet criteriaWeightDataSet;
-        DataTable activationSource = new DataTable();        
-
+        DataTable activationSource = new DataTable();
+        DataTable originActivation;
+        #endregion
         public FrmCriteriaWeight()
         {
             
             InitializeComponent();
-            criteriaWeightDataSet = loader.LoadCriteriaWeightDataSet();
-            prepareWeightMatrix();
-            prepareActivation();
+            StartPrepares();
+            
             //activationGrid.DataSource = dl.loadtest();
             //DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
             //List<int> li = new List<int>();
@@ -37,43 +41,39 @@ namespace Supernova.Sub_Forms.Administration
           
         }
 
+        private void StartPrepares()
+        {
+            criteriaWeightDataSet = loader.LoadCriteriaWeightDataSet();
+            prepareWeightMatrix();
+            prepareActivation();
+        }
+
         private void prepareActivation()
         {
             try
             {
-                activationSource = criteriaWeightDataSet.Tables["Criterias"];
-                activationGrid.DataSource = activationSource;
-                DataGridViewCheckBoxColumn activator = new DataGridViewCheckBoxColumn();
-                activator.TrueValue = true;
-                activator.FalseValue = false;
+                activationSource = criteriaWeightDataSet.Tables["Criterias"];                
+                activationSource.Columns.Add("Aktiv", System.Type.GetType("System.Boolean"));                
+                foreach (DataRow dataRow in activationSource.Rows)
+                {
+                    if (dataRow["C_ISACTIVE"].ToString().Equals("1"))
+                    {
+                        dataRow["Aktiv"] = true;  
+                    }
+                    else
+                    {
+                        dataRow["Aktiv"] = false; 
+                    }
+                }
 
-                activationGrid.Columns.Add(activator);
+                activationSource.AcceptChanges();
+                activationGrid.DataSource = activationSource;
                 activationGrid.Columns[0].Visible = false;
                 activationGrid.Columns[2].Visible = false;
                 activationGrid.Columns[1].HeaderText = "Kriterium";
-                activationGrid.Columns[3].HeaderText = "Aktiv";
 
-                activationGrid.ReadOnly = false;
-
-                foreach (DataGridViewRow row in activationGrid.Rows)
-                {
-                    row.Cells[3].Value = true;
-                    row.Cells[3].GetType();
-                    object value = row.Cells[3].Value;
-                }
-
-                   
-                    //     row.Cells[3].Value = true;                         
-                    //}
-                    //else
-                    //{
-                    //    row.Cells[3].Value = false;
-
-                    //}
-
-                
-                activationGrid.EndEdit();
-                
+                originActivation = activationSource.Copy();
+               
             }
             catch (Exception ex)
             {
@@ -87,25 +87,18 @@ namespace Supernova.Sub_Forms.Administration
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            foreach (DataGridViewRow dr in activationGrid.Rows)
-            {
-                foreach (DataGridViewCell dc in dr.Cells)
-                {
-                    object dsd = dc.Value;
-                }
-            }
-        }
+        {            
+            DataTable differenz  = parahelp.CompareTables(originActivation,activationSource);
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    foreach (DataGridViewRow dr in activationGrid.Rows)
-        //    {
-        //        foreach (DataGridViewCell dc in dr.Cells)
-        //        {
-        //            object dsd = dc.Value;
-        //        }
-        //    }
-        //}
+            if (differenz.Rows.Count > 0)
+            {
+                saver.saveCriteriaActivation(differenz);
+            }
+            
+
+            StartPrepares();
+	    }
+        
+     
     }
 }

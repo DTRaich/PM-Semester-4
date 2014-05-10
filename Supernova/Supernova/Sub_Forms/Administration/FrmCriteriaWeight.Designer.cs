@@ -32,7 +32,7 @@
             this.gbactive = new System.Windows.Forms.GroupBox();
             this.gbweight = new System.Windows.Forms.GroupBox();
             this.activationGrid = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveActive = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbactive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activationGrid)).BeginInit();
@@ -55,22 +55,24 @@
             // 
             // gbactive
             // 
-            this.gbactive.Controls.Add(this.button1);
+            this.gbactive.Controls.Add(this.btnSaveActive);
             this.gbactive.Controls.Add(this.activationGrid);
             this.gbactive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbactive.Location = new System.Drawing.Point(3, 3);
+            this.gbactive.Location = new System.Drawing.Point(3, 25);
+            this.gbactive.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
             this.gbactive.Name = "gbactive";
-            this.gbactive.Size = new System.Drawing.Size(264, 333);
+            this.gbactive.Size = new System.Drawing.Size(264, 311);
             this.gbactive.TabIndex = 0;
             this.gbactive.TabStop = false;
-            this.gbactive.Text = "Aktivierung/Deaktivierung von Kriterien";
+            this.gbactive.Text = "Kriterienaktivierung";
             // 
             // gbweight
             // 
             this.gbweight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbweight.Location = new System.Drawing.Point(273, 3);
+            this.gbweight.Location = new System.Drawing.Point(273, 25);
+            this.gbweight.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
             this.gbweight.Name = "gbweight";
-            this.gbweight.Size = new System.Drawing.Size(531, 333);
+            this.gbweight.Size = new System.Drawing.Size(531, 311);
             this.gbweight.TabIndex = 1;
             this.gbweight.TabStop = false;
             this.gbweight.Text = "Kriteriengewichtung";
@@ -85,18 +87,18 @@
             this.activationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.activationGrid.Location = new System.Drawing.Point(9, 19);
             this.activationGrid.Name = "activationGrid";
-            this.activationGrid.Size = new System.Drawing.Size(249, 224);
+            this.activationGrid.Size = new System.Drawing.Size(249, 254);
             this.activationGrid.TabIndex = 0;
             // 
-            // button1
+            // btnSaveActive
             // 
-            this.button1.Location = new System.Drawing.Point(71, 290);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSaveActive.Location = new System.Drawing.Point(183, 279);
+            this.btnSaveActive.Name = "btnSaveActive";
+            this.btnSaveActive.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveActive.TabIndex = 1;
+            this.btnSaveActive.Text = "Speichern";
+            this.btnSaveActive.UseVisualStyleBackColor = true;
+            this.btnSaveActive.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmCriteriaWeight
             // 
@@ -120,7 +122,7 @@
         private System.Windows.Forms.GroupBox gbactive;
         private System.Windows.Forms.GroupBox gbweight;
         private System.Windows.Forms.DataGridView activationGrid;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveActive;
 
     }
 }

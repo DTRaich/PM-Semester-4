@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace Supernova.helper
 {
     class ParameterHelper
     {
+        #region Lists
         public List<string> getAbteilungen()
         {
             return null;
@@ -16,6 +18,13 @@ namespace Supernova.helper
         {
             return null;
         }
+        public List<string> getAllRights()
+        {
+            return null;
+        }
+        #endregion
+
+        #region singelValues
         public string getDepartment(string deparmentName)
         {
             return null;
@@ -25,10 +34,44 @@ namespace Supernova.helper
         {
             return null;
         }
+        #endregion
 
-        public List<string> getAllRights()
+        #region TableComparer
+
+        public DataTable CompareTables(DataTable ursprung, DataTable aenderung)
         {
-            return null;
+            DataTable dt = aenderung.Copy();
+            dt.Clear();
+            DataRow dr;
+            int counter = 0;
+
+            foreach (DataRow row1 in ursprung.Rows)
+            {
+
+                var array1 = row1.ItemArray;               
+                var array2 = aenderung.Rows[counter].ItemArray;
+                counter++;
+
+                if (!array1.SequenceEqual(array2))
+                {
+                    dr = dt.NewRow();
+                    dr.ItemArray = array2;
+                    dt.Rows.Add(dr);
+                 }
+                   
+                }            
+
+            dt.AcceptChanges();
+
+            return dt;
         }
+        #endregion
+
+
+
+
+
+
+
     }
 }

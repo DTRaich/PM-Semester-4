@@ -39,38 +39,59 @@ namespace Supernova.data
         #endregion
 
         #region criteriaMatters
-        public void saveCriteriaActivation(string c_name)
+        public void saveCriteriaActivation(DataTable  differenz)
         {
             MySqlConnection connection = new MySqlConnection(conSting);
-
-            try
+            int c_active;
+            int c_id;
+        
+            foreach (DataRow dr in differenz.Rows)
             {
-                string commandText = "Call SetCriteriaActive(@name)";
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandText = commandText;
-
-                cmd.Parameters.AddWithValue("name", c_name);
-                cmd.Parameters["name"].Direction = ParameterDirection.Input;
-
-
-                connection.Open();
-
-                cmd.ExecuteReader(CommandBehavior.CloseConnection);
-
-                connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-            }
-            finally
-            {
-                if (connection != null)
+                try
                 {
+                  c_id =  Convert.ToInt32(dr["CRITERIA_ID"].ToString());
+                  c_active = Convert.ToInt32(dr["C_ISACTIVE"].ToString());
+                  if (c_active == 1)
+                  {
+                     c_active = 0;
+                 }
+                 else
+                 {
+                    c_active = 1;
+                 }
+    
+                
+                    string commandText = "Call SetCriteriaActive(@id,@active)";
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = commandText;
+
+                    cmd.Parameters.AddWithValue("id", c_id);
+                    cmd.Parameters["id"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("active", c_active);
+                    cmd.Parameters["active"].Direction = ParameterDirection.Input;
+
+
+                    connection.Open();
+
+                    cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
                     connection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                }
+                finally
+                {
+                    if (connection != null)
+                    {
+                        connection.Close();
+                    }
                 }
             }
+            
 
         }
        
