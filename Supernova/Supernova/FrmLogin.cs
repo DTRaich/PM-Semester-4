@@ -115,9 +115,9 @@ namespace Supernova
        
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)   
         {
-            if (e.KeyChar == (char)Keys.Enter)
+           if (e.KeyChar == (char)13)
             {
-                //        Login();
+                Login();
             }
         }
 
