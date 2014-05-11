@@ -19,7 +19,14 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnUserLoad_Click(object sender, EventArgs e)
         {
+            lblErrorText.Visible = false;
             string userload = txtUsernameLoad.Text;
+
+            if (String.IsNullOrWhiteSpace(userload) || String.IsNullOrEmpty(userload)) 
+            {
+                lblErrorText.ForeColor = Color.DarkRed;
+                lblErrorText.Visible = true;
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)

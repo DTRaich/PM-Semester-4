@@ -47,12 +47,14 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
+            this.lblErrorText = new System.Windows.Forms.Label();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_Load
             // 
+            this.gb_Load.Controls.Add(this.lblErrorText);
             this.gb_Load.Controls.Add(this.btnUserLoad);
             this.gb_Load.Controls.Add(this.txtUsernameLoad);
             this.gb_Load.Location = new System.Drawing.Point(12, 12);
@@ -226,6 +228,16 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
+            // lblErrorText
+            // 
+            this.lblErrorText.AutoSize = true;
+            this.lblErrorText.Location = new System.Drawing.Point(114, 43);
+            this.lblErrorText.Name = "lblErrorText";
+            this.lblErrorText.Size = new System.Drawing.Size(144, 13);
+            this.lblErrorText.TabIndex = 2;
+            this.lblErrorText.Text = "Bitte Benutzername ausfüllen";
+            this.lblErrorText.Visible = false;
+            // 
             // FrmUserRights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,5 +277,6 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblErrorText;
     }
 }
