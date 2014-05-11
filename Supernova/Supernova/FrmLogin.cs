@@ -89,7 +89,7 @@ namespace Supernova
                         // Error werfen
                         FrmAfirmative UnknownUser = new FrmAfirmative("Diese Login Daten sind uns nicht bekannt \n Bitte überprüfen sie ihre Eingaben.", 'e');
                         UnknownUser.StartPosition = FormStartPosition.CenterParent;
-                        UnknownUser.ShowDialog(this);
+                        UnknownUser.ShowDialog();
 
                     }
                     else
@@ -98,7 +98,7 @@ namespace Supernova
                         {
                             FrmAfirmative AlreadyLoggedIn = new FrmAfirmative("Dieser User ist bereits eingeloggt \n Bitte ändern sie die Login Daten.", 'e');
                             AlreadyLoggedIn.StartPosition = FormStartPosition.CenterParent;
-                            AlreadyLoggedIn.ShowDialog(this);
+                            AlreadyLoggedIn.ShowDialog();
                         }
                         else
                         {

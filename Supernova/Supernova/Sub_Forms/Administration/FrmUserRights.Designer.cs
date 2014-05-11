@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gb_Load = new System.Windows.Forms.GroupBox();
+            this.lblErrorText = new System.Windows.Forms.Label();
             this.btnUserLoad = new System.Windows.Forms.Button();
             this.txtUsernameLoad = new System.Windows.Forms.TextBox();
             this.gb_change = new System.Windows.Forms.GroupBox();
@@ -47,13 +48,14 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
-            this.lblErrorText = new System.Windows.Forms.Label();
+            this.lblUsernameLoad = new System.Windows.Forms.Label();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_Load
             // 
+            this.gb_Load.Controls.Add(this.lblUsernameLoad);
             this.gb_Load.Controls.Add(this.lblErrorText);
             this.gb_Load.Controls.Add(this.btnUserLoad);
             this.gb_Load.Controls.Add(this.txtUsernameLoad);
@@ -62,6 +64,16 @@
             this.gb_Load.Size = new System.Drawing.Size(518, 62);
             this.gb_Load.TabIndex = 0;
             this.gb_Load.TabStop = false;
+            // 
+            // lblErrorText
+            // 
+            this.lblErrorText.AutoSize = true;
+            this.lblErrorText.Location = new System.Drawing.Point(114, 43);
+            this.lblErrorText.Name = "lblErrorText";
+            this.lblErrorText.Size = new System.Drawing.Size(144, 13);
+            this.lblErrorText.TabIndex = 2;
+            this.lblErrorText.Text = "Bitte Benutzername ausfüllen";
+            this.lblErrorText.Visible = false;
             // 
             // btnUserLoad
             // 
@@ -79,7 +91,6 @@
             this.txtUsernameLoad.Name = "txtUsernameLoad";
             this.txtUsernameLoad.Size = new System.Drawing.Size(151, 20);
             this.txtUsernameLoad.TabIndex = 0;
-            this.txtUsernameLoad.Text = "Benutzername";
             // 
             // gb_change
             // 
@@ -228,15 +239,14 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
-            // lblErrorText
+            // lblUsernameLoad
             // 
-            this.lblErrorText.AutoSize = true;
-            this.lblErrorText.Location = new System.Drawing.Point(114, 43);
-            this.lblErrorText.Name = "lblErrorText";
-            this.lblErrorText.Size = new System.Drawing.Size(144, 13);
-            this.lblErrorText.TabIndex = 2;
-            this.lblErrorText.Text = "Bitte Benutzername ausfüllen";
-            this.lblErrorText.Visible = false;
+            this.lblUsernameLoad.AutoSize = true;
+            this.lblUsernameLoad.Location = new System.Drawing.Point(22, 26);
+            this.lblUsernameLoad.Name = "lblUsernameLoad";
+            this.lblUsernameLoad.Size = new System.Drawing.Size(75, 13);
+            this.lblUsernameLoad.TabIndex = 3;
+            this.lblUsernameLoad.Text = "Benutzername";
             // 
             // FrmUserRights
             // 
@@ -278,5 +288,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblErrorText;
+        private System.Windows.Forms.Label lblUsernameLoad;
     }
 }
