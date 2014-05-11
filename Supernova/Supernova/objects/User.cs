@@ -10,7 +10,7 @@ namespace Supernova.objects
     class User
     {
         private DataTable userData;
-        public int userID = 0, departmentID, userGroupID;
+        public int userID = 0, departmentID, userGroupID,passwort;
         public string firstname, lastname, username, email;
       
         //neu erstellen
@@ -56,7 +56,7 @@ namespace Supernova.objects
                userID = Convert.ToInt32(dr["USER_ID"].ToString());
                departmentID = Convert.ToInt32(dr["U_DEPARTMENT"].ToString());
                userGroupID  = Convert.ToInt32(dr["U_GROUP"].ToString());
-
+               passwort = Convert.ToInt32(dr["U_PASSWORD"].ToString());
                firstname = dr["U_FIRSTNAME"].ToString();
                lastname = dr["U_LASTNAME"].ToString();
                username = dr["U_NAME"].ToString();

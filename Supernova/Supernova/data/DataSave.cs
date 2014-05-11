@@ -37,7 +37,7 @@ namespace Supernova.data
                     cmd.Parameters.AddWithValue("email", userData.email);
                     cmd.Parameters["email"].Direction = ParameterDirection.Input;
 
-                    cmd.Parameters.AddWithValue("Passwort", userData.);
+                    cmd.Parameters.AddWithValue("Passwort", userData.passwort);
                     cmd.Parameters["Passwort"].Direction = ParameterDirection.Input;
 
                     cmd.Parameters.AddWithValue("groupsid", userData.userGroupID);

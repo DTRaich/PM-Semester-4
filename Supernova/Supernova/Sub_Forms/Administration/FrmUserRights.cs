@@ -23,7 +23,6 @@ namespace Supernova.Sub_Forms.Administration
             InitializeComponent();
             initializeComboBox();
             userdata = new User();
-            // hier user anlegen und Gruppen rechte ziehen können
         }
 
         private void initializeComboBox()
