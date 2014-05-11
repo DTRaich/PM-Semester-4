@@ -29,22 +29,24 @@
         private void InitializeComponent()
         {
             this.gb_Load = new System.Windows.Forms.GroupBox();
-            this.gb_change = new System.Windows.Forms.GroupBox();
-            this.txtUsernameLoad = new System.Windows.Forms.TextBox();
             this.btnUserLoad = new System.Windows.Forms.Button();
-            this.lblVorname = new System.Windows.Forms.Label();
-            this.lblNachname = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblAbteilung = new System.Windows.Forms.Label();
-            this.cbBenutzergruppe = new System.Windows.Forms.ComboBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.lblBenutzergruppe = new System.Windows.Forms.Label();
-            this.cbAbteilung = new System.Windows.Forms.ComboBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtNachname = new System.Windows.Forms.TextBox();
-            this.txtVorname = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtUsernameLoad = new System.Windows.Forms.TextBox();
+            this.gb_change = new System.Windows.Forms.GroupBox();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtVorname = new System.Windows.Forms.TextBox();
+            this.txtNachname = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.cbAbteilung = new System.Windows.Forms.ComboBox();
+            this.lblBenutzergruppe = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.cbBenutzergruppe = new System.Windows.Forms.ComboBox();
+            this.lblAbteilung = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblNachname = new System.Windows.Forms.Label();
+            this.lblVorname = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
@@ -55,12 +57,31 @@
             this.gb_Load.Controls.Add(this.txtUsernameLoad);
             this.gb_Load.Location = new System.Drawing.Point(12, 12);
             this.gb_Load.Name = "gb_Load";
-            this.gb_Load.Size = new System.Drawing.Size(461, 62);
+            this.gb_Load.Size = new System.Drawing.Size(518, 62);
             this.gb_Load.TabIndex = 0;
             this.gb_Load.TabStop = false;
             // 
+            // btnUserLoad
+            // 
+            this.btnUserLoad.Location = new System.Drawing.Point(288, 17);
+            this.btnUserLoad.Name = "btnUserLoad";
+            this.btnUserLoad.Size = new System.Drawing.Size(112, 23);
+            this.btnUserLoad.TabIndex = 1;
+            this.btnUserLoad.Text = "Benutzer Laden";
+            this.btnUserLoad.UseVisualStyleBackColor = true;
+            // 
+            // txtUsernameLoad
+            // 
+            this.txtUsernameLoad.Location = new System.Drawing.Point(114, 20);
+            this.txtUsernameLoad.Name = "txtUsernameLoad";
+            this.txtUsernameLoad.Size = new System.Drawing.Size(151, 20);
+            this.txtUsernameLoad.TabIndex = 0;
+            this.txtUsernameLoad.Text = "Benutzername";
+            // 
             // gb_change
             // 
+            this.gb_change.Controls.Add(this.txtPassword);
+            this.gb_change.Controls.Add(this.lblPassword);
             this.gb_change.Controls.Add(this.lblUsername);
             this.gb_change.Controls.Add(this.txtUsername);
             this.gb_change.Controls.Add(this.txtVorname);
@@ -76,44 +97,89 @@
             this.gb_change.Controls.Add(this.lblVorname);
             this.gb_change.Location = new System.Drawing.Point(12, 80);
             this.gb_change.Name = "gb_change";
-            this.gb_change.Size = new System.Drawing.Size(461, 247);
+            this.gb_change.Size = new System.Drawing.Size(518, 247);
             this.gb_change.TabIndex = 1;
             this.gb_change.TabStop = false;
             // 
-            // txtUsernameLoad
+            // lblUsername
             // 
-            this.txtUsernameLoad.Location = new System.Drawing.Point(20, 21);
-            this.txtUsernameLoad.Name = "txtUsernameLoad";
-            this.txtUsernameLoad.Size = new System.Drawing.Size(151, 20);
-            this.txtUsernameLoad.TabIndex = 0;
-            this.txtUsernameLoad.Text = "Benutzername";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(19, 95);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(75, 13);
+            this.lblUsername.TabIndex = 12;
+            this.lblUsername.Text = "Benutzername";
             // 
-            // btnUserLoad
+            // txtUsername
             // 
-            this.btnUserLoad.Location = new System.Drawing.Point(210, 18);
-            this.btnUserLoad.Name = "btnUserLoad";
-            this.btnUserLoad.Size = new System.Drawing.Size(112, 23);
-            this.btnUserLoad.TabIndex = 1;
-            this.btnUserLoad.Text = "Benutzer Laden";
-            this.btnUserLoad.UseVisualStyleBackColor = true;
+            this.txtUsername.Location = new System.Drawing.Point(114, 92);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(145, 20);
+            this.txtUsername.TabIndex = 11;
             // 
-            // lblVorname
+            // txtVorname
             // 
-            this.lblVorname.AutoSize = true;
-            this.lblVorname.Location = new System.Drawing.Point(19, 16);
-            this.lblVorname.Name = "lblVorname";
-            this.lblVorname.Size = new System.Drawing.Size(49, 13);
-            this.lblVorname.TabIndex = 0;
-            this.lblVorname.Text = "Vorname";
+            this.txtVorname.Location = new System.Drawing.Point(114, 13);
+            this.txtVorname.Name = "txtVorname";
+            this.txtVorname.Size = new System.Drawing.Size(145, 20);
+            this.txtVorname.TabIndex = 10;
             // 
-            // lblNachname
+            // txtNachname
             // 
-            this.lblNachname.AutoSize = true;
-            this.lblNachname.Location = new System.Drawing.Point(19, 53);
-            this.lblNachname.Name = "lblNachname";
-            this.lblNachname.Size = new System.Drawing.Size(59, 13);
-            this.lblNachname.TabIndex = 1;
-            this.lblNachname.Text = "Nachname";
+            this.txtNachname.Location = new System.Drawing.Point(114, 50);
+            this.txtNachname.Name = "txtNachname";
+            this.txtNachname.Size = new System.Drawing.Size(145, 20);
+            this.txtNachname.TabIndex = 9;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(114, 135);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(145, 20);
+            this.txtEmail.TabIndex = 8;
+            // 
+            // cbAbteilung
+            // 
+            this.cbAbteilung.FormattingEnabled = true;
+            this.cbAbteilung.Location = new System.Drawing.Point(114, 170);
+            this.cbAbteilung.Name = "cbAbteilung";
+            this.cbAbteilung.Size = new System.Drawing.Size(145, 21);
+            this.cbAbteilung.TabIndex = 7;
+            // 
+            // lblBenutzergruppe
+            // 
+            this.lblBenutzergruppe.AutoSize = true;
+            this.lblBenutzergruppe.Location = new System.Drawing.Point(19, 210);
+            this.lblBenutzergruppe.Name = "lblBenutzergruppe";
+            this.lblBenutzergruppe.Size = new System.Drawing.Size(82, 13);
+            this.lblBenutzergruppe.TabIndex = 6;
+            this.lblBenutzergruppe.Text = "Benutzergruppe";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(307, 200);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(117, 23);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Benutzer speichern";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // cbBenutzergruppe
+            // 
+            this.cbBenutzergruppe.FormattingEnabled = true;
+            this.cbBenutzergruppe.Location = new System.Drawing.Point(114, 207);
+            this.cbBenutzergruppe.Name = "cbBenutzergruppe";
+            this.cbBenutzergruppe.Size = new System.Drawing.Size(145, 21);
+            this.cbBenutzergruppe.TabIndex = 4;
+            // 
+            // lblAbteilung
+            // 
+            this.lblAbteilung.AutoSize = true;
+            this.lblAbteilung.Location = new System.Drawing.Point(19, 173);
+            this.lblAbteilung.Name = "lblAbteilung";
+            this.lblAbteilung.Size = new System.Drawing.Size(51, 13);
+            this.lblAbteilung.TabIndex = 3;
+            this.lblAbteilung.Text = "Abteilung";
             // 
             // lblEmail
             // 
@@ -125,91 +191,45 @@
             this.lblEmail.Text = "E-Mail";
             this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
-            // lblAbteilung
+            // lblNachname
             // 
-            this.lblAbteilung.AutoSize = true;
-            this.lblAbteilung.Location = new System.Drawing.Point(19, 173);
-            this.lblAbteilung.Name = "lblAbteilung";
-            this.lblAbteilung.Size = new System.Drawing.Size(51, 13);
-            this.lblAbteilung.TabIndex = 3;
-            this.lblAbteilung.Text = "Abteilung";
+            this.lblNachname.AutoSize = true;
+            this.lblNachname.Location = new System.Drawing.Point(19, 53);
+            this.lblNachname.Name = "lblNachname";
+            this.lblNachname.Size = new System.Drawing.Size(59, 13);
+            this.lblNachname.TabIndex = 1;
+            this.lblNachname.Text = "Nachname";
             // 
-            // cbBenutzergruppe
+            // lblVorname
             // 
-            this.cbBenutzergruppe.FormattingEnabled = true;
-            this.cbBenutzergruppe.Location = new System.Drawing.Point(114, 207);
-            this.cbBenutzergruppe.Name = "cbBenutzergruppe";
-            this.cbBenutzergruppe.Size = new System.Drawing.Size(145, 21);
-            this.cbBenutzergruppe.TabIndex = 4;
+            this.lblVorname.AutoSize = true;
+            this.lblVorname.Location = new System.Drawing.Point(19, 16);
+            this.lblVorname.Name = "lblVorname";
+            this.lblVorname.Size = new System.Drawing.Size(49, 13);
+            this.lblVorname.TabIndex = 0;
+            this.lblVorname.Text = "Vorname";
             // 
-            // btnSave
+            // lblPassword
             // 
-            this.btnSave.Location = new System.Drawing.Point(307, 200);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(117, 23);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Benutzer speichern";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(285, 16);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(50, 13);
+            this.lblPassword.TabIndex = 13;
+            this.lblPassword.Text = "Passwort";
             // 
-            // lblBenutzergruppe
+            // txtPassword
             // 
-            this.lblBenutzergruppe.AutoSize = true;
-            this.lblBenutzergruppe.Location = new System.Drawing.Point(19, 210);
-            this.lblBenutzergruppe.Name = "lblBenutzergruppe";
-            this.lblBenutzergruppe.Size = new System.Drawing.Size(82, 13);
-            this.lblBenutzergruppe.TabIndex = 6;
-            this.lblBenutzergruppe.Text = "Benutzergruppe";
-            // 
-            // cbAbteilung
-            // 
-            this.cbAbteilung.FormattingEnabled = true;
-            this.cbAbteilung.Location = new System.Drawing.Point(114, 170);
-            this.cbAbteilung.Name = "cbAbteilung";
-            this.cbAbteilung.Size = new System.Drawing.Size(145, 21);
-            this.cbAbteilung.TabIndex = 7;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(114, 135);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(145, 20);
-            this.txtEmail.TabIndex = 8;
-            // 
-            // txtNachname
-            // 
-            this.txtNachname.Location = new System.Drawing.Point(114, 50);
-            this.txtNachname.Name = "txtNachname";
-            this.txtNachname.Size = new System.Drawing.Size(145, 20);
-            this.txtNachname.TabIndex = 9;
-            // 
-            // txtVorname
-            // 
-            this.txtVorname.Location = new System.Drawing.Point(114, 13);
-            this.txtVorname.Name = "txtVorname";
-            this.txtVorname.Size = new System.Drawing.Size(145, 20);
-            this.txtVorname.TabIndex = 10;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(114, 92);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(145, 20);
-            this.txtUsername.TabIndex = 11;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(19, 95);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(75, 13);
-            this.lblUsername.TabIndex = 12;
-            this.lblUsername.Text = "Benutzername";
+            this.txtPassword.Location = new System.Drawing.Point(370, 13);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(132, 20);
+            this.txtPassword.TabIndex = 14;
             // 
             // FrmUserRights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 339);
+            this.ClientSize = new System.Drawing.Size(576, 339);
             this.Controls.Add(this.gb_change);
             this.Controls.Add(this.gb_Load);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -242,5 +262,7 @@
         private System.Windows.Forms.Label lblVorname;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblPassword;
     }
 }
