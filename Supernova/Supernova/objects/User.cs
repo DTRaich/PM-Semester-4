@@ -10,7 +10,7 @@ namespace Supernova.objects
     class User
     {
         private DataTable userData;
-        public int userID = 0, departmentID, userGroupID, passwort;
+        public int userID = 0, departmentID, userGroupID;
         public string firstname, lastname, username, email;
       
         //neu erstellen
@@ -18,7 +18,7 @@ namespace Supernova.objects
         {
         }
 
-        public User(string name)
+        public void LoadUser(string name)
         {
             DataLoad dl = new DataLoad();
             userData = dl.LoadUserData(name);
