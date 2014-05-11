@@ -18,11 +18,19 @@ namespace Supernova.objects
         {
         }
 
-        public void LoadUser(string name)
+        public bool LoadUser(string name)
         {
             DataLoad dl = new DataLoad();
             userData = dl.LoadUserData(name);
-            extractUserData();
+            if (userData.Rows.Count > 0)
+            {
+                extractUserData();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>

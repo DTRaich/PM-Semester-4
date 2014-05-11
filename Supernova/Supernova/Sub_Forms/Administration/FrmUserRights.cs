@@ -63,18 +63,38 @@ namespace Supernova.Sub_Forms.Administration
                 lblErrorText.Visible = true;
             }else
             {
-             
+                bool loadworked = userdata.LoadUser(userload);
+                if (!loadworked)
+                {
+                    FrmAfirmative NoUser = new FrmAfirmative("Kein User gefunden. \n Bitte überprüfen sie ihre Eingaben.", 'e');
+                    NoUser.StartPosition = FormStartPosition.CenterParent;
+                    NoUser.ShowDialog();
+                }
+                else 
+                {
+                    prepareBoxes();
+                }
             }
+        }
+
+        private void prepareBoxes()
+        {
+            txtVorname.Text = userdata.firstname;
+            txtNachname.Text = userdata.lastname;
+            txtUsername.Text = userdata.username;
+            txtEmail.Text = userdata.email;
+            cbAbteilung.SelectedValue = userdata.departmentID;
+            cbBenutzergruppe.SelectedValue = userdata.userGroupID;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {   
-            userdata.firstname = txtVorname.Text;
-            userdata.lastname = txtNachname.Text;
-            userdata.passwort = Convert.ToInt32(txtPassword.Text);
-            userdata.email = txtEmail.Text;
-            userdata.deparmentID = Convert.ToInt32(cbAbteilung.ValueMember);
-            userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.ValueMember);
+            //userdata.firstname = txtVorname.Text;
+            //userdata.lastname = txtNachname.Text;
+            //userdata.passwort = Convert.ToInt32(txtPassword.Text);
+            //userdata.email = txtEmail.Text;
+            //userdata.deparmentID = Convert.ToInt32(cbAbteilung.ValueMember);
+            //userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.ValueMember);
 
 
         }
