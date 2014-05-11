@@ -32,6 +32,8 @@
             this.btnUserLoad = new System.Windows.Forms.Button();
             this.txtUsernameLoad = new System.Windows.Forms.TextBox();
             this.gb_change = new System.Windows.Forms.GroupBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtVorname = new System.Windows.Forms.TextBox();
@@ -45,8 +47,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,7 @@
             this.btnUserLoad.TabIndex = 1;
             this.btnUserLoad.Text = "Benutzer Laden";
             this.btnUserLoad.UseVisualStyleBackColor = true;
+            this.btnUserLoad.Click += new System.EventHandler(this.btnUserLoad_Click);
             // 
             // txtUsernameLoad
             // 
@@ -100,6 +101,22 @@
             this.gb_change.Size = new System.Drawing.Size(518, 247);
             this.gb_change.TabIndex = 1;
             this.gb_change.TabStop = false;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(370, 13);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(132, 20);
+            this.txtPassword.TabIndex = 14;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(285, 16);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(50, 13);
+            this.lblPassword.TabIndex = 13;
+            this.lblPassword.Text = "Passwort";
             // 
             // lblUsername
             // 
@@ -163,6 +180,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Benutzer speichern";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cbBenutzergruppe
             // 
@@ -189,7 +207,6 @@
             this.lblEmail.Size = new System.Drawing.Size(36, 13);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "E-Mail";
-            this.lblEmail.Click += new System.EventHandler(this.lblEmail_Click);
             // 
             // lblNachname
             // 
@@ -208,22 +225,6 @@
             this.lblVorname.Size = new System.Drawing.Size(49, 13);
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(285, 16);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(50, 13);
-            this.lblPassword.TabIndex = 13;
-            this.lblPassword.Text = "Passwort";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(370, 13);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(132, 20);
-            this.txtPassword.TabIndex = 14;
             // 
             // FrmUserRights
             // 

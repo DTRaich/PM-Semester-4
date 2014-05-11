@@ -17,7 +17,12 @@ namespace Supernova.Sub_Forms.Administration
             // hier user anlegen und Gruppen rechte ziehen können
         }
 
-        private void lblEmail_Click(object sender, EventArgs e)
+        private void btnUserLoad_Click(object sender, EventArgs e)
+        {
+            string userload = txtUsernameLoad.Text;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
 
         }
