@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Supernova.data;
 using Supernova.Sub_Forms.General;
+using Supernova.objects;
 
 namespace Supernova.Sub_Forms.Administration
 {
@@ -15,11 +16,13 @@ namespace Supernova.Sub_Forms.Administration
     {
         DataTable departments;
         DataTable usergroup;
+        User userdata;
 
         public FrmUserRights()
         {
             InitializeComponent();
             initializeComboBox();
+            userdata = new User();
             // hier user anlegen und Gruppen rechte ziehen können
         }
 
@@ -54,15 +57,25 @@ namespace Supernova.Sub_Forms.Administration
             lblErrorText.Visible = false;
             string userload = txtUsernameLoad.Text;
 
-            if (String.IsNullOrWhiteSpace(userload) || String.IsNullOrEmpty(userload)) 
+            if (String.IsNullOrWhiteSpace(userload) || String.IsNullOrEmpty(userload))
             {
                 lblErrorText.ForeColor = Color.DarkRed;
                 lblErrorText.Visible = true;
+            }else
+            {
+             
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {   
+            userdata.firstname = txtVorname.Text;
+            userdata.lastname = txtNachname.Text;
+            userdata.passwort = Convert.ToInt32(txtPassword.Text);
+            userdata.email = txtEmail.Text;
+            userdata.deparmentID = Convert.ToInt32(cbAbteilung.ValueMember);
+            userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.ValueMember);
+
 
         }
     }
