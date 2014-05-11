@@ -41,5 +41,10 @@ namespace Supernova.Sub_Forms.Projects
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
