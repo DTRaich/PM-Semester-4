@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Supernova.objects;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,14 +13,14 @@ namespace Supernova.data
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
 
         #region userAndRights
-        public bool SaveUser(List<string> userData)
+        public bool SaveUser(User userData)
         {
             return true;
 
         }
 
 
-        public bool UpdateUser(int userID, List<string> userData)
+        public bool UpdateUser(int userID, User userData)
         {
             throw new NotImplementedException();
         }
@@ -27,12 +28,12 @@ namespace Supernova.data
 
         #region projectMatters
 
-        public bool SaveNewProject(DataSet savingDataSet)
+        public bool SaveNewProject(ProjektDataDummy projektData)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public bool UpdateProject(int ProjectID, DataSet savingDataSet)
+        public bool UpdateProject(int ProjectID, ProjektDataDummy projektData)
         {
             throw new NotImplementedException();
         }

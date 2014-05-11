@@ -55,26 +55,22 @@ namespace Supernova.objects
         {
             // user speichern
             DataSave ds = new DataSave();
-            DataSet projektData = collectProjectData();
             bool savingWorked = false;
 
             if (ProjectID == 0)
             {
-                savingWorked = ds.SaveNewProject(projektData);
+                savingWorked = ds.SaveNewProject(this);
             }
             else
             {
-                savingWorked = ds.UpdateProject(ProjectID, projektData);
+                savingWorked = ds.UpdateProject(ProjectID, this);
             }
 
             return savingWorked;      
         }
      
         #region extraxtAndCollect
-        private DataSet collectProjectData()
-        {
-            return null;
-        }
+        
         private void extractProjektData(DataSet projektDataSet)
         {
             throw new NotImplementedException();

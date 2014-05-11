@@ -12,6 +12,7 @@ namespace Supernova.objects
         private DataTable userData;
         public int userID = 0;
         public string firstname, lastname, username, email, department, usergroup;
+      
         //neu erstellen
         public User()
         {
@@ -38,11 +39,12 @@ namespace Supernova.objects
 
             if (userID == 0)
             {
-               savingWorked = ds.SaveUser(userData);
+               savingWorked = ds.SaveUser(this);
             }else
             {
-                savingWorked = ds.UpdateUser(userID, userData);
+                savingWorked = ds.UpdateUser(userID, this);
             }
+
             return savingWorked;      
         }
         #region extractAndCollect
