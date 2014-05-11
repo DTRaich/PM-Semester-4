@@ -10,8 +10,8 @@ namespace Supernova.objects
     class User
     {
         private DataTable userData;
-        public int userID = 0;
-        public string firstname, lastname, username, email, department, usergroup;
+        public int userID = 0, deparmentID, userGroupID, passwort;
+        public string firstname, lastname, username, email;
       
         //neu erstellen
         public User()

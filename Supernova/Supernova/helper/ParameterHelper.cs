@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supernova.data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,11 +9,9 @@ namespace Supernova.helper
 {
     class ParameterHelper
     {
+        ParameterLoad paraLoad = new ParameterLoad();
         #region Lists
-        public List<string> getAbteilungen()
-        {
-            return null;
-        }
+       
 
         public List<string> getUserGroups()
         {
