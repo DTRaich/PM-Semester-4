@@ -140,6 +140,22 @@ namespace Supernova.data
         public DataTable LoadUserData(string userName)
         {
             DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select * from user where U_NAME like '" + userName +"'";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                connection.Close();
+            }
 
             return dt;
         }

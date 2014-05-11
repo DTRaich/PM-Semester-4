@@ -10,7 +10,7 @@ namespace Supernova.objects
     class User
     {
         private DataTable userData;
-        public int userID = 0, deparmentID, userGroupID, passwort;
+        public int userID = 0, departmentID, userGroupID, passwort;
         public string firstname, lastname, username, email;
       
         //neu erstellen
@@ -33,28 +33,29 @@ namespace Supernova.objects
         {
             // user speichern
             DataSave ds = new DataSave();
-            List<string> userData = collectUserData();
             bool savingWorked = false;
-
-            savingWorked = ds.UpdateUser(userID, this);
-            
+            savingWorked = ds.UpdateUser(userID, this);            
 
             return savingWorked;      
         }
+       
         #region extractAndCollect
 
         private void extractUserData()
-        {
+        {         
             foreach (DataRow dr in userData.Rows)
             {
+               userID = Convert.ToInt32(dr["USER_ID"].ToString());
+               departmentID = Convert.ToInt32(dr["U_DEPARTMENT"].ToString());
+               userGroupID  = Convert.ToInt32(dr["U_GROUP"].ToString());
 
+               firstname = dr["U_FIRSTNAME"].ToString();
+               lastname = dr["U_LASTNAME"].ToString();
+               username = dr["U_NAME"].ToString();
+               email = dr["U_MAIL"].ToString();
             }
         }
-        private List<string> collectUserData()
-        {
-            // collects the User Data for Saving them to Db
-            return null;
-        }
+        
         #endregion
     }
 }
