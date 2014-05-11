@@ -18,11 +18,10 @@ namespace Supernova.objects
         {
         }
 
-        public User(int id)
+        public User(string name)
         {
             DataLoad dl = new DataLoad();
-            userID = id;
-            userData = dl.LoadUserData(userID);
+            userData = dl.LoadUserData(name);
             extractUserData();
         }
 
@@ -37,14 +36,8 @@ namespace Supernova.objects
             List<string> userData = collectUserData();
             bool savingWorked = false;
 
-            if (userID == 0)
-            {
-               savingWorked = ds.SaveUser(this);
-
-            }else
-            {
-                savingWorked = ds.UpdateUser(userID, this);
-            }
+            savingWorked = ds.UpdateUser(userID, this);
+            
 
             return savingWorked;      
         }

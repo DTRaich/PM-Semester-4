@@ -137,7 +137,7 @@ namespace Supernova.data
         }
 
         
-        public DataTable LoadUserData(int UserId)
+        public DataTable LoadUserData(string userName)
         {
             DataTable dt = new DataTable();
 
