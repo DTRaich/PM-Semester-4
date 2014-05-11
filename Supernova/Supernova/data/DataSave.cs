@@ -18,21 +18,38 @@ namespace Supernova.data
             MySqlConnection connection = new MySqlConnection(conSting);
                     
             try{
-                                
-                    string commandText = "Call SetCriteriaActive(@id,@active)";
+                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
+
+                string commandText = "Call SaveOrUpdateUser(@firstN,@lastN,@u_name,@email,@Passwort,@groupsid,@depid,@userID)";
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
                     cmd.CommandText = commandText;
 
-                    //cmd.Parameters.AddWithValue("id", c_id);
-                    //cmd.Parameters["id"].Direction = ParameterDirection.Input;
+                    cmd.Parameters.AddWithValue("firstN",userData.firstname);
+                    cmd.Parameters["firstN"].Direction = ParameterDirection.Input;
 
-                    //cmd.Parameters.AddWithValue("active", c_active);
-                    //cmd.Parameters["active"].Direction = ParameterDirection.Input;
+                    cmd.Parameters.AddWithValue("lastN", userData.lastname);
+                    cmd.Parameters["lastN"].Direction = ParameterDirection.Input;
 
+                    cmd.Parameters.AddWithValue("u_name", userData.username);
+                    cmd.Parameters["u_name"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("email", userData.email);
+                    cmd.Parameters["email"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("Passwort", userData.);
+                    cmd.Parameters["Passwort"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("groupsid", userData.userGroupID);
+                    cmd.Parameters["groupsid"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("depid", userData.departmentID);
+                    cmd.Parameters["depid"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("userID", userData.userID);
+                    cmd.Parameters["userID"].Direction = ParameterDirection.Input;
 
                     connection.Open();
-
                     cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                     connection.Close();
