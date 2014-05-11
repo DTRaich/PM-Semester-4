@@ -229,6 +229,9 @@
     <EmbeddedResource Include="Sub_Forms\Projects\FrmCostTime.resx">
       <DependentUpon>FrmCostTime.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Projects\FrmRisk.resx">
+      <DependentUpon>FrmRisk.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
