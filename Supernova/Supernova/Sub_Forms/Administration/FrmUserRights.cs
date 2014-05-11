@@ -16,5 +16,10 @@ namespace Supernova.Sub_Forms.Administration
             InitializeComponent();
             // hier user anlegen und Gruppen rechte ziehen können
         }
+
+        private void lblEmail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
