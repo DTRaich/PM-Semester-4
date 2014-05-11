@@ -27,7 +27,7 @@ namespace Supernova.objects
         }
 
         /// <summary>
-        /// Saves the User. MEthod defines if update or new User
+        /// Saves the User. Method defines if update or new User
          /// </summary>
         /// <returns></returns>
         public bool saveUser()
@@ -40,6 +40,7 @@ namespace Supernova.objects
             if (userID == 0)
             {
                savingWorked = ds.SaveUser(this);
+
             }else
             {
                 savingWorked = ds.UpdateUser(userID, this);
