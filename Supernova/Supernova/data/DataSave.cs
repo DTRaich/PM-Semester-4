@@ -16,35 +16,19 @@ namespace Supernova.data
         public bool UpdateUser(int userID, User userData)
         {
             MySqlConnection connection = new MySqlConnection(conSting);
-            int c_active;
-            int c_id;
-        
-            foreach (DataRow dr in differenz.Rows)
-            {
-                try
-                {
-                  c_id =  Convert.ToInt32(dr["CRITERIA_ID"].ToString());
-                  c_active = Convert.ToInt32(dr["C_ISACTIVE"].ToString());
-                  if (c_active == 1)
-                  {
-                     c_active = 0;
-                 }
-                 else
-                 {
-                    c_active = 1;
-                 }
-    
-                
+                    
+            try{
+                                
                     string commandText = "Call SetCriteriaActive(@id,@active)";
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
                     cmd.CommandText = commandText;
 
-                    cmd.Parameters.AddWithValue("id", c_id);
-                    cmd.Parameters["id"].Direction = ParameterDirection.Input;
+                    //cmd.Parameters.AddWithValue("id", c_id);
+                    //cmd.Parameters["id"].Direction = ParameterDirection.Input;
 
-                    cmd.Parameters.AddWithValue("active", c_active);
-                    cmd.Parameters["active"].Direction = ParameterDirection.Input;
+                    //cmd.Parameters.AddWithValue("active", c_active);
+                    //cmd.Parameters["active"].Direction = ParameterDirection.Input;
 
 
                     connection.Open();
@@ -63,7 +47,9 @@ namespace Supernova.data
                     {
                         connection.Close();
                     }
-                }        }
+                }
+            return true;
+        }
         #endregion
 
         #region projectMatters
