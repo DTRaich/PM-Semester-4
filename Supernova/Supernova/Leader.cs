@@ -124,6 +124,14 @@ namespace Supernova
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
+
+        public void LoadAddorUpdateUser()
+        {
+            mainPanel.Controls.Clear();
+            FrmCreateUser frm = new FrmCreateUser();
+            mainPanel.Controls.Add(prepareForm(frm));
+            frm.Show();
+        }
         #endregion
 
         #endregion
@@ -190,5 +198,7 @@ namespace Supernova
         
 
         #endregion
+
+        
     }
 }

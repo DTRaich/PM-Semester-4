@@ -79,6 +79,11 @@ namespace Supernova
 
         #region ToolclickEvents
 
+        private void benutzerAnlegenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leader.LoadAddorUpdateUser();
+        }
+
         private void projektErstellenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             leader.LoadProjektCreate();
@@ -155,6 +160,8 @@ namespace Supernova
             budgetToolStripMenuItem.Visible = true;
             adminToolStripMenuItem1.Visible = true;
         }
+
+       
 
     }
 }

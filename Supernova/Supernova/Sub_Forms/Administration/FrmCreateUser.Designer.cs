@@ -28,11 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pnlPanel = new System.Windows.Forms.Panel();
+            this.SuspendLayout();
+            // 
+            // pnlPanel
+            // 
+            this.pnlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPanel.Location = new System.Drawing.Point(0, 0);
+            this.pnlPanel.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
+            this.pnlPanel.Name = "pnlPanel";
+            this.pnlPanel.Size = new System.Drawing.Size(747, 262);
+            this.pnlPanel.TabIndex = 0;
+            // 
+            // FrmCreateUser
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(747, 262);
+            this.Controls.Add(this.pnlPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmCreateUser";
             this.Text = "FrmCreateUser";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlPanel;
     }
 }
