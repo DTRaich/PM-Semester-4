@@ -10,7 +10,7 @@ namespace Supernova.objects
     class User
     {
         private DataTable userData;
-        public int userID = 0, departmentID, userGroupID,passwort;
+        public int userID = 0, departmentID = -1, userGroupID,passwort;
         public string firstname, lastname, username, email;
       
         //neu erstellen
@@ -32,6 +32,7 @@ namespace Supernova.objects
                 return false;
             }
         }
+        
 
         /// <summary>
         /// Saves the User. Method defines if update or new User
@@ -46,6 +47,16 @@ namespace Supernova.objects
 
             return savingWorked;      
         }
+
+        public bool changePasswort()
+        {
+            // user speichern
+            DataSave ds = new DataSave();
+            bool savingWorked = false;
+            savingWorked = ds.ChangePassword(userID, passwort);
+
+            return savingWorked;
+        }
        
         #region extractAndCollect
 
@@ -53,14 +64,22 @@ namespace Supernova.objects
         {         
             foreach (DataRow dr in userData.Rows)
             {
-               userID = Convert.ToInt32(dr["USER_ID"].ToString());
-               departmentID = Convert.ToInt32(dr["U_DEPARTMENT"].ToString());
+               userID = Convert.ToInt32(dr["USER_ID"].ToString());            
                userGroupID  = Convert.ToInt32(dr["U_GROUP"].ToString());
                passwort = Convert.ToInt32(dr["U_PASSWORD"].ToString());
                firstname = dr["U_FIRSTNAME"].ToString();
                lastname = dr["U_LASTNAME"].ToString();
                username = dr["U_NAME"].ToString();
                email = dr["U_MAIL"].ToString();
+
+               try
+               {
+                   departmentID = Convert.ToInt32(dr["U_DEPARTMENT"].ToString());
+               }
+               catch (Exception ex)
+               {
+                   departmentID = -1;
+               }
             }
         }
         

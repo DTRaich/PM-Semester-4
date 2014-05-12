@@ -1,5 +1,6 @@
 ﻿using Supernova.data;
 using Supernova.helper;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,6 +55,7 @@ namespace Supernova.Sub_Forms.Administration
             {
                 activationSource = criteriaWeightDataSet.Tables["Criterias"];                
                 activationSource.Columns.Add("Aktiv", System.Type.GetType("System.Boolean"));                
+                
                 foreach (DataRow dataRow in activationSource.Rows)
                 {
                     if (dataRow["C_ISACTIVE"].ToString().Equals("1"))
@@ -92,11 +94,31 @@ namespace Supernova.Sub_Forms.Administration
 
             if (differenz.Rows.Count > 0)
             {
-                saver.saveCriteriaActivation(differenz);
+                if (saver.saveCriteriaActivation(differenz))
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Die Änderungen wurden gespeichert. \n ", 'i');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+
+                    StartPrepares();
+                }
+                else
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+                }
+
+            }
+            else
+            {
+                FrmAfirmative noChanges = new FrmAfirmative("Keine Änderungen erkannt. \n ", 'i');
+                noChanges.StartPosition = FormStartPosition.CenterParent;
+                noChanges.ShowDialog();
             }
             
 
-            StartPrepares();
+           
 	    }
         
      

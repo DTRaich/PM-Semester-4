@@ -13,15 +13,98 @@ namespace Supernova.data
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
 
         #region userAndRights
+        public bool DeleteUser(int userID, int personalID)
+        {
+            MySqlConnection connection = new MySqlConnection(conSting);
+            bool retval = true;
+
+            try
+            {
+                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
+
+                string commandText = "Call DeleteUser(@deletID,@myID )";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("deletID", userID);
+                cmd.Parameters["deletID"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("myID", personalID);
+                cmd.Parameters["myID"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return retval;
+        }
+
+
+        public bool ChangePassword(int userID, int passwort)
+        {
+            MySqlConnection connection = new MySqlConnection(conSting);
+            bool retval = true;
+
+            try
+            {
+                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
+
+                string commandText = "Call ChangeUserPassword(@id,@pswd)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("id", userID);
+                cmd.Parameters["id"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("pswd", passwort);
+                cmd.Parameters["pswd"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return retval;
+        }
+
         public bool UpdateUser(User userData)
         {
             MySqlConnection connection = new MySqlConnection(conSting);
             bool retval = true;
                     
             try{
-                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
+                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, userID 
 
-                string commandText = "Call SaveOrUpdateUser(@firstN,@lastN,@u_name,@email,@Passwort,@groupsid,@depid,@userID)";
+                string commandText = "Call SaveOrUpdateUser(@firstN,@lastN,@u_name,@email,@Passwort,@groupsid,@userID)";
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
                     cmd.CommandText = commandText;
@@ -44,9 +127,6 @@ namespace Supernova.data
                     cmd.Parameters.AddWithValue("groupsid", userData.userGroupID);
                     cmd.Parameters["groupsid"].Direction = ParameterDirection.Input;
 
-                    cmd.Parameters.AddWithValue("depid", userData.departmentID);
-                    cmd.Parameters["depid"].Direction = ParameterDirection.Input;
-
                     cmd.Parameters.AddWithValue("userID", userData.userID);
                     cmd.Parameters["userID"].Direction = ParameterDirection.Input;
 
@@ -55,6 +135,11 @@ namespace Supernova.data
 
                     connection.Close();
                     retval = true;
+
+                    if (userData.departmentID != -1)
+                    {
+                        // dann mach das
+                    }
 
                 }
                 catch (Exception ex)
@@ -74,20 +159,18 @@ namespace Supernova.data
 
         #region projectMatters
 
-        public bool SaveNewProject(ProjektDataDummy projektData)
+        public bool SaveorUpdateProject(ProjektDataDummy projektData)
         {
             return true;
         }
 
-        public bool UpdateProject(int ProjectID, ProjektDataDummy projektData)
-        {
-            throw new NotImplementedException();
-        }
+        
         #endregion
 
         #region criteriaMatters
-        public void saveCriteriaActivation(DataTable  differenz)
+        public bool saveCriteriaActivation(DataTable  differenz)
         {
+            bool retval = true;
             MySqlConnection connection = new MySqlConnection(conSting);
             int c_active;
             int c_id;
@@ -98,14 +181,15 @@ namespace Supernova.data
                 {
                   c_id =  Convert.ToInt32(dr["CRITERIA_ID"].ToString());
                   c_active = Convert.ToInt32(dr["C_ISACTIVE"].ToString());
-                  if (c_active == 1)
-                  {
-                     c_active = 0;
-                 }
-                 else
-                 {
-                    c_active = 1;
-                 }
+                 
+                     if (c_active == 1)
+                     {
+                         c_active = 0;
+                    }
+                    else
+                    {
+                      c_active = 1;
+                     }
     
                 
                     string commandText = "Call SetCriteriaActive(@id,@active)";
@@ -129,6 +213,7 @@ namespace Supernova.data
                 }
                 catch (Exception ex)
                 {
+                    retval = false;
                 }
                 finally
                 {
@@ -136,16 +221,17 @@ namespace Supernova.data
                     {
                         connection.Close();
                     }
-                }
+                }                
+
             }
-            
+            return retval;
 
         }
        
-        public void saveCriteriaWeight(string c_from_name, string c_to_name, int weights)
+        public bool saveCriteriaWeight(string c_from_name, string c_to_name, int weights)
         {
             MySqlConnection connection = new MySqlConnection(conSting);
-
+            bool retval = true;
             try
             {
                 string commandText = "Call SaveCriteriaWeight(@fromName,@toName,@weight)";
@@ -172,6 +258,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                retval = false;
             }
             finally
             {
@@ -180,7 +267,11 @@ namespace Supernova.data
                     connection.Close();
                 }
             }
+
+            return retval;
         }
         #endregion
+
+       
     }
 }
