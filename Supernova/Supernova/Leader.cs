@@ -88,7 +88,7 @@ namespace Supernova
         public void LoadUserRights()
         {
             mainPanel.Controls.Clear();
-            FrmUser frm = new FrmUser();
+            FrmRightsReglement frm = new FrmRightsReglement();
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
@@ -128,7 +128,7 @@ namespace Supernova
         public void LoadAddorUpdateUser()
         {
             mainPanel.Controls.Clear();
-            FrmRightsReglement frm = new FrmRightsReglement();
+            FrmUser frm = new FrmUser();
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }

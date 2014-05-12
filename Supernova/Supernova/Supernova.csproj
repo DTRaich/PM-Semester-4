@@ -82,11 +82,11 @@
     <Compile Include="objects\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sub_Forms\Administration\FrmCreateUser.cs">
+    <Compile Include="Sub_Forms\Administration\FrmRightsReglement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sub_Forms\Administration\FrmCreateUser.Designer.cs">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
+    <Compile Include="Sub_Forms\Administration\FrmRightsReglement.Designer.cs">
+      <DependentUpon>FrmRightsReglement.cs</DependentUpon>
     </Compile>
     <Compile Include="Sub_Forms\Administration\FrmCriteriaWeight.cs">
       <SubType>Form</SubType>
@@ -112,11 +112,11 @@
     <Compile Include="Sub_Forms\Administration\FrmGeneralBudget.Designer.cs">
       <DependentUpon>FrmGeneralBudget.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sub_Forms\Administration\FrmUserRights.cs">
+    <Compile Include="Sub_Forms\Administration\FrmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sub_Forms\Administration\FrmUserRights.Designer.cs">
-      <DependentUpon>FrmUserRights.cs</DependentUpon>
+    <Compile Include="Sub_Forms\Administration\FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Sub_Forms\Account\FrmUserInformation.cs">
       <SubType>Form</SubType>
@@ -202,8 +202,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sub_Forms\Administration\FrmCreateUser.resx">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmRightsReglement.resx">
+      <DependentUpon>FrmRightsReglement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Administration\FrmCriteriaWeight.resx">
       <DependentUpon>FrmCriteriaWeight.cs</DependentUpon>
@@ -217,8 +217,8 @@
     <EmbeddedResource Include="Sub_Forms\Administration\FrmGeneralBudget.resx">
       <DependentUpon>FrmGeneralBudget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sub_Forms\Administration\FrmUserRights.resx">
-      <DependentUpon>FrmUserRights.cs</DependentUpon>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\General\FrmAfirmative.resx">
       <DependentUpon>FrmAfirmative.cs</DependentUpon>
