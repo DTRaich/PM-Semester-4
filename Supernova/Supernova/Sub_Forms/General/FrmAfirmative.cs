@@ -33,6 +33,11 @@ namespace Supernova.Sub_Forms.General
                     this.Text = "Ändern";
                     lblAfirmationText.Text = text;
                     break;
+                case 'i':
+                    this.Text = "Gespeichert";
+                    lblAfirmationText.Text = text;
+                    break;
+
             }
         }
     }

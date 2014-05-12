@@ -42,7 +42,7 @@ namespace Supernova.objects
             // user speichern
             DataSave ds = new DataSave();
             bool savingWorked = false;
-            savingWorked = ds.UpdateUser(userID, this);            
+            savingWorked = ds.UpdateUser(this);            
 
             return savingWorked;      
         }

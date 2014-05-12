@@ -13,9 +13,10 @@ namespace Supernova.data
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
 
         #region userAndRights
-        public bool UpdateUser(int userID, User userData)
+        public bool UpdateUser(User userData)
         {
             MySqlConnection connection = new MySqlConnection(conSting);
+            bool retval = true;
                     
             try{
                 //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
@@ -53,10 +54,12 @@ namespace Supernova.data
                     cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                     connection.Close();
+                    retval = true;
 
                 }
                 catch (Exception ex)
                 {
+                    retval = false;
                 }
                 finally
                 {
@@ -65,7 +68,7 @@ namespace Supernova.data
                         connection.Close();
                     }
                 }
-            return true;
+            return retval;
         }
         #endregion
 

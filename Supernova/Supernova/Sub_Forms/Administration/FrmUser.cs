@@ -88,16 +88,112 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //userdata.firstname = txtVorname.Text;
-            //userdata.lastname = txtNachname.Text;
-            //userdata.username = txtUsername.Text;
-            //userdata.passwort = Convert.ToInt32(txtPassword.Text);
-            //userdata.email = txtEmail.Text;
-            //userdata.departmentID = Convert.ToInt32(cbAbteilung.ValueMember);
-            //userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.ValueMember);
+           
+            if (checkContent())
+            {
+                userdata.departmentID = Convert.ToInt32(cbAbteilung.SelectedValue);
+                userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.SelectedValue);
+                DataSave saver = new DataSave();
+                if (saver.UpdateUser(userdata))
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 'i');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+                }
+                else 
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+                }
+               
+            }
+        }
+
+        private bool checkTextBox(string content, TextBox field)
+        {
+            field.BackColor = Color.White;
+
+            if (String.IsNullOrWhiteSpace(content) || String.IsNullOrEmpty(content))
+            {
+                field.BackColor = Color.Bisque;
+                return false;
+            }
+            else 
+            {
+                
+                return true;
+            }
+        }
+
+        private bool checkMaskedBox(string content, MaskedTextBox field)
+        {
+           field.BackColor = Color.White;
+
+           if (String.IsNullOrWhiteSpace(content) || String.IsNullOrEmpty(content))
+            {
+                field.BackColor = Color.Bisque;
+                return false;
+            }
+            else
+            {
+               return true;
+            }
+
+          
+        }
+
+        private bool checkContent()
+        {
+            bool retval = true;
 
 
+            if (checkTextBox(txtUsername.Text, txtUsername))
+            {
+                userdata.username = txtUsername.Text;                
+            }
+            else
+            {
+                retval = false;
+            }
 
+            if (checkTextBox(txtVorname.Text, txtVorname))
+            {
+                userdata.firstname = txtVorname.Text;
+            }
+            else
+            {
+                retval = false;
+            }
+
+            if (checkTextBox(txtNachname.Text, txtNachname))
+            {
+                userdata.lastname = txtNachname.Text;
+            }
+            else
+            {
+                retval = false;
+            }
+
+            if (checkTextBox(txtEmail.Text, txtEmail))
+            {
+                userdata.email = txtEmail.Text;
+            }
+            else
+            {
+                retval = false;
+            }
+
+            if (checkMaskedBox(mtbPassword.Text, mtbPassword))
+            {
+                userdata.passwort = Convert.ToInt32(mtbPassword.Text);
+            }
+            else
+            {
+                retval = false;
+            }
+
+            return retval;
         }
     }
 }
