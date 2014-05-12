@@ -60,7 +60,32 @@ namespace Supernova.data
             }
 
             return dt;
-        }        
+        }
 
+        public DataTable loadPotentAbts()
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select USER_ID,U_NAME from user where U_GROUP = 25 AND USER_ID NOT IN (Select D_LEADER from Departments)";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
     }
 }

@@ -34,6 +34,10 @@
             this.btnUserLoad = new System.Windows.Forms.Button();
             this.txtUsernameLoad = new System.Windows.Forms.TextBox();
             this.gb_change = new System.Windows.Forms.GroupBox();
+            this.pnlAbtMatters = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblNewAbt = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.mtbPassword = new System.Windows.Forms.MaskedTextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -49,9 +53,9 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
+            this.pnlAbtMatters.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_Load
@@ -87,7 +91,7 @@
             // 
             // btnUserLoad
             // 
-            this.btnUserLoad.Location = new System.Drawing.Point(288, 17);
+            this.btnUserLoad.Location = new System.Drawing.Point(288, 18);
             this.btnUserLoad.Name = "btnUserLoad";
             this.btnUserLoad.Size = new System.Drawing.Size(112, 23);
             this.btnUserLoad.TabIndex = 1;
@@ -104,6 +108,7 @@
             // 
             // gb_change
             // 
+            this.gb_change.Controls.Add(this.pnlAbtMatters);
             this.gb_change.Controls.Add(this.btnDelete);
             this.gb_change.Controls.Add(this.mtbPassword);
             this.gb_change.Controls.Add(this.lblPassword);
@@ -125,6 +130,46 @@
             this.gb_change.Size = new System.Drawing.Size(518, 247);
             this.gb_change.TabIndex = 1;
             this.gb_change.TabStop = false;
+            // 
+            // pnlAbtMatters
+            // 
+            this.pnlAbtMatters.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlAbtMatters.Controls.Add(this.comboBox1);
+            this.pnlAbtMatters.Controls.Add(this.lblNewAbt);
+            this.pnlAbtMatters.Location = new System.Drawing.Point(288, 39);
+            this.pnlAbtMatters.Name = "pnlAbtMatters";
+            this.pnlAbtMatters.Size = new System.Drawing.Size(200, 100);
+            this.pnlAbtMatters.TabIndex = 16;
+            this.pnlAbtMatters.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(10, 48);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(134, 21);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // lblNewAbt
+            // 
+            this.lblNewAbt.AutoSize = true;
+            this.lblNewAbt.Location = new System.Drawing.Point(7, 17);
+            this.lblNewAbt.Name = "lblNewAbt";
+            this.lblNewAbt.Size = new System.Drawing.Size(104, 13);
+            this.lblNewAbt.TabIndex = 0;
+            this.lblNewAbt.Text = "Neuer Abteilunsleiter";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(307, 173);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(117, 23);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Benutzer löschen";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // mtbPassword
             // 
@@ -187,7 +232,7 @@
             // cbAbteilung
             // 
             this.cbAbteilung.FormattingEnabled = true;
-            this.cbAbteilung.Location = new System.Drawing.Point(114, 170);
+            this.cbAbteilung.Location = new System.Drawing.Point(114, 207);
             this.cbAbteilung.Name = "cbAbteilung";
             this.cbAbteilung.Size = new System.Drawing.Size(145, 21);
             this.cbAbteilung.TabIndex = 7;
@@ -195,7 +240,7 @@
             // lblBenutzergruppe
             // 
             this.lblBenutzergruppe.AutoSize = true;
-            this.lblBenutzergruppe.Location = new System.Drawing.Point(19, 210);
+            this.lblBenutzergruppe.Location = new System.Drawing.Point(19, 178);
             this.lblBenutzergruppe.Name = "lblBenutzergruppe";
             this.lblBenutzergruppe.Size = new System.Drawing.Size(82, 13);
             this.lblBenutzergruppe.TabIndex = 6;
@@ -203,7 +248,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(307, 200);
+            this.btnSave.Location = new System.Drawing.Point(307, 205);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 23);
             this.btnSave.TabIndex = 5;
@@ -214,7 +259,7 @@
             // cbBenutzergruppe
             // 
             this.cbBenutzergruppe.FormattingEnabled = true;
-            this.cbBenutzergruppe.Location = new System.Drawing.Point(114, 207);
+            this.cbBenutzergruppe.Location = new System.Drawing.Point(114, 175);
             this.cbBenutzergruppe.Name = "cbBenutzergruppe";
             this.cbBenutzergruppe.Size = new System.Drawing.Size(145, 21);
             this.cbBenutzergruppe.TabIndex = 4;
@@ -222,7 +267,7 @@
             // lblAbteilung
             // 
             this.lblAbteilung.AutoSize = true;
-            this.lblAbteilung.Location = new System.Drawing.Point(19, 173);
+            this.lblAbteilung.Location = new System.Drawing.Point(22, 210);
             this.lblAbteilung.Name = "lblAbteilung";
             this.lblAbteilung.Size = new System.Drawing.Size(51, 13);
             this.lblAbteilung.TabIndex = 3;
@@ -255,17 +300,6 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(307, 173);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(117, 23);
-            this.btnDelete.TabIndex = 15;
-            this.btnDelete.Text = "Benutzer löschen";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Visible = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,6 +314,8 @@
             this.gb_Load.PerformLayout();
             this.gb_change.ResumeLayout(false);
             this.gb_change.PerformLayout();
+            this.pnlAbtMatters.ResumeLayout(false);
+            this.pnlAbtMatters.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -308,5 +344,8 @@
         private System.Windows.Forms.Label lblUsernameLoad;
         private System.Windows.Forms.MaskedTextBox mtbPassword;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Panel pnlAbtMatters;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lblNewAbt;
     }
 }

@@ -128,7 +128,7 @@ namespace Supernova
         public void LoadAddorUpdateUser()
         {
             mainPanel.Controls.Clear();
-            FrmUser frm = new FrmUser();
+            FrmUser frm = new FrmUser(UserID);
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
