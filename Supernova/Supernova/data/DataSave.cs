@@ -62,8 +62,6 @@ namespace Supernova.data
 
             try
             {
-                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
-
                 string commandText = "Call ChangeUserPassword(@id,@pswd)";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;

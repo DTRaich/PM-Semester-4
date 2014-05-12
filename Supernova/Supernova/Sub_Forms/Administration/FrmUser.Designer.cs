@@ -35,7 +35,7 @@
             this.txtUsernameLoad = new System.Windows.Forms.TextBox();
             this.gb_change = new System.Windows.Forms.GroupBox();
             this.pnlAbtMatters = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbNewAbts = new System.Windows.Forms.ComboBox();
             this.lblNewAbt = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.mtbPassword = new System.Windows.Forms.MaskedTextBox();
@@ -134,7 +134,7 @@
             // pnlAbtMatters
             // 
             this.pnlAbtMatters.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlAbtMatters.Controls.Add(this.comboBox1);
+            this.pnlAbtMatters.Controls.Add(this.cbNewAbts);
             this.pnlAbtMatters.Controls.Add(this.lblNewAbt);
             this.pnlAbtMatters.Location = new System.Drawing.Point(288, 39);
             this.pnlAbtMatters.Name = "pnlAbtMatters";
@@ -142,14 +142,14 @@
             this.pnlAbtMatters.TabIndex = 16;
             this.pnlAbtMatters.Visible = false;
             // 
-            // comboBox1
+            // cbNewAbts
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(10, 48);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(134, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbNewAbts.FormattingEnabled = true;
+            this.cbNewAbts.Location = new System.Drawing.Point(10, 48);
+            this.cbNewAbts.Name = "cbNewAbts";
+            this.cbNewAbts.Size = new System.Drawing.Size(134, 21);
+            this.cbNewAbts.TabIndex = 1;
+            this.cbNewAbts.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblNewAbt
             // 
@@ -345,7 +345,7 @@
         private System.Windows.Forms.MaskedTextBox mtbPassword;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Panel pnlAbtMatters;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbNewAbts;
         private System.Windows.Forms.Label lblNewAbt;
     }
 }
