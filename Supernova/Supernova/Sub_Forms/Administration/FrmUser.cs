@@ -100,7 +100,9 @@ namespace Supernova.Sub_Forms.Administration
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
+        {  
+            DataSave saver = new DataSave();
+            DataLoad loader = new DataLoad();
 
             if (checkContent())
             {
@@ -114,19 +116,29 @@ namespace Supernova.Sub_Forms.Administration
                 }
 
                 userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.SelectedValue);
-                DataSave saver = new DataSave();
 
-                if (saver.UpdateUser(userdata))
+                // vermeidung doppeter usernamen
+                DataTable dt = loader.LoadUserData(userdata.username);
+                if (dt.Rows.Count > 0)
                 {
-                    FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 'i');
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern nicht möglich. \n Benutzer bereits vorhanden", 'e');
                     SaveNewUser.StartPosition = FormStartPosition.CenterParent;
                     SaveNewUser.ShowDialog();
                 }
                 else
                 {
-                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
-                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
-                    SaveNewUser.ShowDialog();
+                    if (saver.UpdateUser(userdata))
+                    {
+                        FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 's');
+                        SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                        SaveNewUser.ShowDialog();
+                    }
+                    else
+                    {
+                        FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                        SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                        SaveNewUser.ShowDialog();
+                    }
                 }
 
             }
@@ -134,32 +146,23 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            bool isAbt;
-            DataSave saver = new DataSave();
             if (userdata.userID == personalUserID)
             {
-                // Selbstlöschung verboten
+                FrmAfirmative SaveNewUser = new FrmAfirmative("Den eigenen aktiven Benutzer zu löschen ist verboten. \n ", 'e');
+                SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                SaveNewUser.ShowDialog();
             }
             else
             {
-                isAbt = AbtMattersDefiner();
-                // ist Abt zeug geprüft`?
-                if (!isAbt)
+                if(userdata.departmentID == -1)
                 {
-                    // abt fehlermeldung
+                    deleteNonAbt();
                 }
                 else
-                {   //delete
-                    bool deleteWorked = saver.DeleteUser(userdata.userID, 123);
-                    if (deleteWorked)
-                    {
-                        // delte erfolgreich
-                    }
-                    else
-                    {
-                        // fehlerpassiert
-                    }
+                {
+                    prepareAbtsSelection();                   
                 }
+               
             }
 
         }
@@ -171,10 +174,82 @@ namespace Supernova.Sub_Forms.Administration
         
         #region privateMethod
 
-        private bool AbtMattersDefiner()
+        private void deleteAbt()
         {
-            throw new NotImplementedException();
+            DataSave saver = new DataSave();
+
+            int newAbt = Convert.ToInt32(cbNewAbts.SelectedValue);
+
+            bool deleteWorked = saver.DeleteUser(userdata.userID, newAbt);
+            if (deleteWorked)
+            {
+                FrmAfirmative DELTEUser = new FrmAfirmative("Der Benutzer wurde gelöscht. \n ", 's');
+                DELTEUser.StartPosition = FormStartPosition.CenterParent;
+                DELTEUser.ShowDialog();
+            }
+            else
+            {
+                FrmAfirmative DELTEUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                DELTEUser.StartPosition = FormStartPosition.CenterParent;
+                DELTEUser.ShowDialog();
+            }
+
+            resetBoxes();
+
         }
+
+      
+
+        private void deleteNonAbt()
+        {
+            DataSave saver = new DataSave();
+
+            bool deleteWorked = saver.DeleteUser(userdata.userID, 0);
+            if (deleteWorked)
+            {
+                FrmAfirmative DELTEUser = new FrmAfirmative("Der Benutzer wurde gelöscht. \n ", 's');
+                DELTEUser.StartPosition = FormStartPosition.CenterParent;
+                DELTEUser.ShowDialog();
+                resetBoxes();
+            }
+            else
+            {
+                FrmAfirmative DELTEUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                DELTEUser.StartPosition = FormStartPosition.CenterParent;
+                DELTEUser.ShowDialog();
+            }
+            resetBoxes();
+
+        }
+
+        private void prepareAbtsSelection()
+        {
+            if (pnlAbtMatters.Visible == false)
+            {
+                ParameterLoad pl = new ParameterLoad();
+                departments = pl.loadPotentAbts();
+
+                try
+                {                    
+                    cbNewAbts.DataSource = departments;
+                    cbNewAbts.ValueMember = "USER_ID";
+                    cbNewAbts.DisplayMember = "U_NAME";
+                    pnlAbtMatters.Visible = true;
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+                pnlAbtMatters.Visible = true;
+            }
+            else
+            {
+                deleteAbt();
+            }
+
+        }
+
 
         private void prepareBoxes()
         {
@@ -188,6 +263,20 @@ namespace Supernova.Sub_Forms.Administration
             {
                 cbAbteilung.SelectedValue = userdata.departmentID;
             }
+
+        }
+
+        private void resetBoxes()
+        {
+            txtVorname.Text = string.Empty;
+            txtNachname.Text = string.Empty;
+            txtUsername.Text = string.Empty;
+            txtEmail.Text = string.Empty;
+            cbBenutzergruppe.SelectedIndex = 1;
+
+            mtbPassword.ResetText();
+            cbAbteilung.Visible = false;
+            pnlAbtMatters.Visible = false;
 
         }
 
