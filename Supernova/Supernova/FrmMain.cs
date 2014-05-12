@@ -38,6 +38,7 @@ namespace Supernova
         {
             projekteToolStripMenuItem.Enabled = true;
             accountToolStripMenuItem.Enabled = true;
+            adminToolStripMenuItem1.Visible = false;
             
             switch (right)
             {
@@ -55,9 +56,11 @@ namespace Supernova
 
         private void initializeAl()
         {
+            adminToolStripMenuItem1.Visible = true;
             kriterienPriorisierenToolStripMenuItem.Visible = false;
             rechteverwaltungToolStripMenuItem.Visible = false;
             budgetToolStripMenuItem.Visible = false;
+            benutzerAnlegenToolStripMenuItem.Visible = false;
         }
 
         private void initializePl()
@@ -67,12 +70,12 @@ namespace Supernova
 
         private void initializeGl()
         {
-           
+            adminToolStripMenuItem1.Visible = true;
         }
 
         private void initializeAdmin()
         {
-
+            adminToolStripMenuItem1.Visible = true;
         }
 
        
@@ -154,11 +157,12 @@ namespace Supernova
         {
             projekteToolStripMenuItem.Enabled = false;
             accountToolStripMenuItem.Enabled = false;
+            adminToolStripMenuItem1.Visible = false;
 
             kriterienPriorisierenToolStripMenuItem.Visible = true;
             rechteverwaltungToolStripMenuItem.Visible = true;
             budgetToolStripMenuItem.Visible = true;
-            adminToolStripMenuItem1.Visible = true;
+            benutzerAnlegenToolStripMenuItem.Visible = true;
         }
 
        

@@ -33,6 +33,12 @@
             this.projekteAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projektErstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projekteÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abteilungskapazitätToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.benutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,12 +48,6 @@
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abteilungskapazitätToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.benutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +95,49 @@
             this.projekteÄndernToolStripMenuItem.Name = "projekteÄndernToolStripMenuItem";
             this.projekteÄndernToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.projekteÄndernToolStripMenuItem.Text = "Projekte ändern";
+            // 
+            // adminToolStripMenuItem1
+            // 
+            this.adminToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kriterienPriorisierenToolStripMenuItem,
+            this.rechteverwaltungToolStripMenuItem,
+            this.abteilungskapazitätToolStripMenuItem,
+            this.budgetToolStripMenuItem,
+            this.benutzerAnlegenToolStripMenuItem});
+            this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
+            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem1.Text = "Admin";
+            this.adminToolStripMenuItem1.Visible = false;
+            // 
+            // kriterienPriorisierenToolStripMenuItem
+            // 
+            this.kriterienPriorisierenToolStripMenuItem.Name = "kriterienPriorisierenToolStripMenuItem";
+            this.kriterienPriorisierenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.kriterienPriorisierenToolStripMenuItem.Text = "Kriterien priorisieren";
+            // 
+            // rechteverwaltungToolStripMenuItem
+            // 
+            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
+            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            // 
+            // abteilungskapazitätToolStripMenuItem
+            // 
+            this.abteilungskapazitätToolStripMenuItem.Name = "abteilungskapazitätToolStripMenuItem";
+            this.abteilungskapazitätToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.abteilungskapazitätToolStripMenuItem.Text = "Abteilungskapazität";
+            // 
+            // budgetToolStripMenuItem
+            // 
+            this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
+            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.budgetToolStripMenuItem.Text = "Budget";
+            // 
+            // benutzerAnlegenToolStripMenuItem
+            // 
+            this.benutzerAnlegenToolStripMenuItem.Name = "benutzerAnlegenToolStripMenuItem";
+            this.benutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.benutzerAnlegenToolStripMenuItem.Text = "Benutzer anlegen";
             // 
             // accountToolStripMenuItem
             // 
@@ -166,48 +209,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
-            // 
-            // adminToolStripMenuItem1
-            // 
-            this.adminToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kriterienPriorisierenToolStripMenuItem,
-            this.rechteverwaltungToolStripMenuItem,
-            this.abteilungskapazitätToolStripMenuItem,
-            this.budgetToolStripMenuItem,
-            this.benutzerAnlegenToolStripMenuItem});
-            this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
-            this.adminToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem1.Text = "Admin";
-            // 
-            // kriterienPriorisierenToolStripMenuItem
-            // 
-            this.kriterienPriorisierenToolStripMenuItem.Name = "kriterienPriorisierenToolStripMenuItem";
-            this.kriterienPriorisierenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.kriterienPriorisierenToolStripMenuItem.Text = "Kriterien priorisieren";
-            // 
-            // rechteverwaltungToolStripMenuItem
-            // 
-            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
-            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
-            // 
-            // abteilungskapazitätToolStripMenuItem
-            // 
-            this.abteilungskapazitätToolStripMenuItem.Name = "abteilungskapazitätToolStripMenuItem";
-            this.abteilungskapazitätToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.abteilungskapazitätToolStripMenuItem.Text = "Abteilungskapazität";
-            // 
-            // budgetToolStripMenuItem
-            // 
-            this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
-            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.budgetToolStripMenuItem.Text = "Budget";
-            // 
-            // benutzerAnlegenToolStripMenuItem
-            // 
-            this.benutzerAnlegenToolStripMenuItem.Name = "benutzerAnlegenToolStripMenuItem";
-            this.benutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.benutzerAnlegenToolStripMenuItem.Text = "Benutzer anlegen";
             // 
             // FrmMain
             // 
