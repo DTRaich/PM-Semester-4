@@ -17,12 +17,15 @@ namespace Supernova.Sub_Forms.Administration
         DataTable departments;
         DataTable usergroup;
         User userdata;
+        private int personalUserID = 0;
 
-        public FrmUser()
+        #region cosntructAndInitialize
+        public FrmUser(int userid)
         {
             InitializeComponent();
             initializeComboBox();
             userdata = new User();
+            personalUserID = userid;
         }
 
         private void initializeComboBox()
@@ -36,10 +39,14 @@ namespace Supernova.Sub_Forms.Administration
                 cbAbteilung.DataSource = departments;
                 cbAbteilung.ValueMember = "DEPARTMENTS_ID";
                 cbAbteilung.DisplayMember = "D_NAME";
+                cbAbteilung.Visible = false;
+                lblAbteilung.Visible = false;
 
                 cbBenutzergruppe.DataSource = usergroup;
                 cbBenutzergruppe.ValueMember = "USER_GROUPS_ID";
                 cbBenutzergruppe.DisplayMember = "UG_NAME";
+                cbBenutzergruppe.SelectedValueChanged +=cbBenutzergruppe_SelectedValueChanged;
+
             }
             catch (Exception ex)
             {
@@ -50,7 +57,22 @@ namespace Supernova.Sub_Forms.Administration
             }
 
           }
+        #endregion
 
+        #region Events
+        private void cbBenutzergruppe_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(cbBenutzergruppe.SelectedValue) == 25)
+            {
+                cbAbteilung.Visible = true;
+                lblAbteilung.Visible = true;
+            }
+            else
+            {
+                cbAbteilung.Visible = false;
+                lblAbteilung.Visible = false;
+            }
+        }
         private void btnUserLoad_Click(object sender, EventArgs e)
         {
             lblErrorText.Visible = false;
@@ -77,6 +99,83 @@ namespace Supernova.Sub_Forms.Administration
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+            if (checkContent())
+            {
+                if (cbAbteilung.Visible == true)
+                {
+                    userdata.departmentID = Convert.ToInt32(cbAbteilung.SelectedValue);
+                }
+                else
+                {
+                    userdata.departmentID = -1;
+                }
+
+                userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.SelectedValue);
+                DataSave saver = new DataSave();
+
+                if (saver.UpdateUser(userdata))
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 'i');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+                }
+                else
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+                }
+
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bool isAbt;
+            DataSave saver = new DataSave();
+            if (userdata.userID == personalUserID)
+            {
+                // Selbstlöschung verboten
+            }
+            else
+            {
+                isAbt = AbtMattersDefiner();
+                // ist Abt zeug geprüft`?
+                if (!isAbt)
+                {
+                    // abt fehlermeldung
+                }
+                else
+                {   //delete
+                    bool deleteWorked = saver.DeleteUser(userdata.userID, 123);
+                    if (deleteWorked)
+                    {
+                        // delte erfolgreich
+                    }
+                    else
+                    {
+                        // fehlerpassiert
+                    }
+                }
+            }
+
+        }
+
+        
+
+        #endregion
+
+        
+        #region privateMethod
+
+        private bool AbtMattersDefiner()
+        {
+            throw new NotImplementedException();
+        }
+
         private void prepareBoxes()
         {
             txtVorname.Text = userdata.firstname;
@@ -88,33 +187,8 @@ namespace Supernova.Sub_Forms.Administration
             if (userdata.departmentID != -1)
             {
                 cbAbteilung.SelectedValue = userdata.departmentID;
-
             }
 
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-           
-            if (checkContent())
-            {
-                userdata.departmentID = Convert.ToInt32(cbAbteilung.SelectedValue);
-                userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.SelectedValue);
-                DataSave saver = new DataSave();
-                if (saver.UpdateUser(userdata))
-                {
-                    FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 'i');
-                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
-                    SaveNewUser.ShowDialog();
-                }
-                else 
-                {
-                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
-                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
-                    SaveNewUser.ShowDialog();
-                }
-               
-            }
         }
 
         private bool checkTextBox(string content, TextBox field)
@@ -147,7 +221,6 @@ namespace Supernova.Sub_Forms.Administration
                return true;
             }
 
-          
         }
 
         private bool checkContent()
@@ -202,10 +275,14 @@ namespace Supernova.Sub_Forms.Administration
 
             return retval;
         }
+        #endregion
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        
+        
     }
 }
