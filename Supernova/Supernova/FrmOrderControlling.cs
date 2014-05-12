@@ -18,6 +18,7 @@ namespace Supernova
         private List<Form> formslist;
         Form currentFrm;
         private int formNumber = 0;
+        private int highestFormNumber = 0;
         ProjektDataDummy projektDaten;
 
         public FrmOrderControlling(List<Form> FormList,ref ProjektDataDummy projektDummy)
@@ -33,6 +34,7 @@ namespace Supernova
             currentFrm = formslist[formNumber];
             this.pnlControl.Controls.Add(currentFrm);
             currentFrm.Show();
+            setButtons();
         }
                 
 
@@ -44,11 +46,25 @@ namespace Supernova
             if (ok)
             {
                 formNumber = formNumber + 1;
-                currentFrm.Close();
+                currentFrm.Visible = false;
                 currentFrm = formslist[formNumber];
                 this.pnlControl.Controls.Add(currentFrm);
-                currentFrm.Show();
+
+                
+                if (highestFormNumber > formNumber)
+                {
+                    currentFrm.Visible = true;
+                }
+                else
+                {
+                    highestFormNumber = formNumber;
+                    currentFrm.Show();                
+
+                }
+                setButtons();
             }
+
+           
 
         }
 
@@ -60,11 +76,46 @@ namespace Supernova
         private void btnBack_Click(object sender, EventArgs e)
         {
             formNumber = formNumber - 1;
-            currentFrm.Close();
-            currentFrm = formslist[formNumber];
+            currentFrm.Visible = false;
+            currentFrm = formslist[formNumber];            
             this.pnlControl.Controls.Add(currentFrm);
-            currentFrm.Show();
+            currentFrm.Visible = true;
+            setButtons();           
 
+        }
+
+        private void setButtons()
+        {
+            //back
+            if (formNumber < 1)
+            {
+                btnBack.Visible = false;
+            }
+            else
+            {
+                btnBack.Visible = true;
+            }
+
+            //next
+            if (formNumber < formslist.Count)
+            {
+                btnNext.Visible = true;
+            }
+            else
+            {
+                btnNext.Visible = false;
+            }
+
+            // save
+            if (formNumber == formslist.Count)
+            {
+                btnSave.Visible = true;
+            }
+            else
+            {
+                btnSave.Visible = false;
+            }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
