@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.gb_Load = new System.Windows.Forms.GroupBox();
+            this.lblUsernameLoad = new System.Windows.Forms.Label();
             this.lblErrorText = new System.Windows.Forms.Label();
             this.btnUserLoad = new System.Windows.Forms.Button();
             this.txtUsernameLoad = new System.Windows.Forms.TextBox();
             this.gb_change = new System.Windows.Forms.GroupBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
-            this.lblUsernameLoad = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,15 @@
             this.gb_Load.Size = new System.Drawing.Size(518, 62);
             this.gb_Load.TabIndex = 0;
             this.gb_Load.TabStop = false;
+            // 
+            // lblUsernameLoad
+            // 
+            this.lblUsernameLoad.AutoSize = true;
+            this.lblUsernameLoad.Location = new System.Drawing.Point(22, 26);
+            this.lblUsernameLoad.Name = "lblUsernameLoad";
+            this.lblUsernameLoad.Size = new System.Drawing.Size(75, 13);
+            this.lblUsernameLoad.TabIndex = 3;
+            this.lblUsernameLoad.Text = "Benutzername";
             // 
             // lblErrorText
             // 
@@ -94,7 +103,7 @@
             // 
             // gb_change
             // 
-            this.gb_change.Controls.Add(this.txtPassword);
+            this.gb_change.Controls.Add(this.maskedTextBox1);
             this.gb_change.Controls.Add(this.lblPassword);
             this.gb_change.Controls.Add(this.lblUsername);
             this.gb_change.Controls.Add(this.txtUsername);
@@ -114,13 +123,6 @@
             this.gb_change.Size = new System.Drawing.Size(518, 247);
             this.gb_change.TabIndex = 1;
             this.gb_change.TabStop = false;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(370, 13);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(132, 20);
-            this.txtPassword.TabIndex = 14;
             // 
             // lblPassword
             // 
@@ -143,6 +145,7 @@
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(114, 92);
+            this.txtUsername.MaxLength = 25;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(145, 20);
             this.txtUsername.TabIndex = 11;
@@ -150,6 +153,7 @@
             // txtVorname
             // 
             this.txtVorname.Location = new System.Drawing.Point(114, 13);
+            this.txtVorname.MaxLength = 25;
             this.txtVorname.Name = "txtVorname";
             this.txtVorname.Size = new System.Drawing.Size(145, 20);
             this.txtVorname.TabIndex = 10;
@@ -157,6 +161,7 @@
             // txtNachname
             // 
             this.txtNachname.Location = new System.Drawing.Point(114, 50);
+            this.txtNachname.MaxLength = 25;
             this.txtNachname.Name = "txtNachname";
             this.txtNachname.Size = new System.Drawing.Size(145, 20);
             this.txtNachname.TabIndex = 9;
@@ -164,6 +169,7 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(114, 135);
+            this.txtEmail.MaxLength = 75;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(145, 20);
             this.txtEmail.TabIndex = 8;
@@ -239,16 +245,15 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
-            // lblUsernameLoad
+            // maskedTextBox1
             // 
-            this.lblUsernameLoad.AutoSize = true;
-            this.lblUsernameLoad.Location = new System.Drawing.Point(22, 26);
-            this.lblUsernameLoad.Name = "lblUsernameLoad";
-            this.lblUsernameLoad.Size = new System.Drawing.Size(75, 13);
-            this.lblUsernameLoad.TabIndex = 3;
-            this.lblUsernameLoad.Text = "Benutzername";
+            this.maskedTextBox1.Location = new System.Drawing.Point(364, 13);
+            this.maskedTextBox1.Mask = "00000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(36, 20);
+            this.maskedTextBox1.TabIndex = 14;
             // 
-            // FrmUserRights
+            // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -256,7 +261,7 @@
             this.Controls.Add(this.gb_change);
             this.Controls.Add(this.gb_Load);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmUserRights";
+            this.Name = "FrmUser";
             this.Text = "FrmUserRights";
             this.gb_Load.ResumeLayout(false);
             this.gb_Load.PerformLayout();
@@ -285,9 +290,9 @@
         private System.Windows.Forms.Label lblVorname;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblErrorText;
         private System.Windows.Forms.Label lblUsernameLoad;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }

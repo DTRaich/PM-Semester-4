@@ -82,9 +82,18 @@ namespace Supernova
 
         #region ToolclickEvents
 
-        private void benutzerAnlegenToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void ausloggenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            leader.LoadAddorUpdateUser();
+            leader.logout();
+            resetRights();
+            leader.LoadLogin();
+            pnlMain.ControlRemoved += new ControlEventHandler(pnlMain_ControlRemoved);
+        }
+
+        private void projekteAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leader.LoadProjektView();
         }
 
         private void projektErstellenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,9 +101,9 @@ namespace Supernova
             leader.LoadProjektCreate();
         }
 
-        private void projekteAnzeigenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void projekteÄndernToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            leader.LoadProjektView();
+            // noch erstellen
         }
 
         private void kriterienPriorisierenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,19 +116,29 @@ namespace Supernova
             leader.LoadUserRights();
         }
 
-        private void abteilungskapazitätenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void abteilungskapazitätToolStripMenuItem_Click(object sender, EventArgs e)
         {
             leader.LoadDepartmentSpezification();
         }
 
+        private void budgetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leader.LoadGeneralBudget();
+        }
+
+        private void benutzerAnlegenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leader.LoadAddorUpdateUser();
+        }
+
         private void benutzerinformationenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            leader.LoadInfo();
         }
 
         private void passwordÄndernToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // passwort ändern
         }
 
         private void hilfekatalogToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,17 +148,8 @@ namespace Supernova
 
         private void überToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            leader.LoadInfo();
+            //
         }
-
-        private void ausloggenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            leader.logout();
-            resetRights();
-            leader.LoadLogin();
-            pnlMain.ControlRemoved +=new ControlEventHandler(pnlMain_ControlRemoved);
-        }
-
 
         #endregion 
 
@@ -163,9 +173,7 @@ namespace Supernova
             rechteverwaltungToolStripMenuItem.Visible = true;
             budgetToolStripMenuItem.Visible = true;
             benutzerAnlegenToolStripMenuItem.Visible = true;
-        }
-
-       
+        }      
 
     }
 }

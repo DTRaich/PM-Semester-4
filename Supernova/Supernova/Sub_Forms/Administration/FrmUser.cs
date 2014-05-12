@@ -87,13 +87,15 @@ namespace Supernova.Sub_Forms.Administration
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {   
+        {
             //userdata.firstname = txtVorname.Text;
             //userdata.lastname = txtNachname.Text;
+            //userdata.username = txtUsername.Text;
             //userdata.passwort = Convert.ToInt32(txtPassword.Text);
             //userdata.email = txtEmail.Text;
-            //userdata.deparmentID = Convert.ToInt32(cbAbteilung.ValueMember);
+            //userdata.departmentID = Convert.ToInt32(cbAbteilung.ValueMember);
             //userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.ValueMember);
+
 
 
         }

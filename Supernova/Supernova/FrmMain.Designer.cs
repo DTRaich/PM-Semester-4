@@ -95,6 +95,7 @@
             this.projekteÄndernToolStripMenuItem.Name = "projekteÄndernToolStripMenuItem";
             this.projekteÄndernToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.projekteÄndernToolStripMenuItem.Text = "Projekte ändern";
+            this.projekteÄndernToolStripMenuItem.Click += new System.EventHandler(this.projekteÄndernToolStripMenuItem_Click);
             // 
             // adminToolStripMenuItem1
             // 
@@ -114,30 +115,35 @@
             this.kriterienPriorisierenToolStripMenuItem.Name = "kriterienPriorisierenToolStripMenuItem";
             this.kriterienPriorisierenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.kriterienPriorisierenToolStripMenuItem.Text = "Kriterien priorisieren";
+            this.kriterienPriorisierenToolStripMenuItem.Click += new System.EventHandler(this.kriterienPriorisierenToolStripMenuItem_Click);
             // 
             // rechteverwaltungToolStripMenuItem
             // 
             this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
             this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click);
             // 
             // abteilungskapazitätToolStripMenuItem
             // 
             this.abteilungskapazitätToolStripMenuItem.Name = "abteilungskapazitätToolStripMenuItem";
             this.abteilungskapazitätToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.abteilungskapazitätToolStripMenuItem.Text = "Abteilungskapazität";
+            this.abteilungskapazitätToolStripMenuItem.Click += new System.EventHandler(this.abteilungskapazitätToolStripMenuItem_Click);
             // 
             // budgetToolStripMenuItem
             // 
             this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
             this.budgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.budgetToolStripMenuItem.Text = "Budget";
+            this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
             // 
             // benutzerAnlegenToolStripMenuItem
             // 
             this.benutzerAnlegenToolStripMenuItem.Name = "benutzerAnlegenToolStripMenuItem";
             this.benutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.benutzerAnlegenToolStripMenuItem.Text = "Benutzer anlegen";
+            this.benutzerAnlegenToolStripMenuItem.Click += new System.EventHandler(this.benutzerAnlegenToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
             // 
@@ -183,14 +189,14 @@
             // hilfekatalogToolStripMenuItem
             // 
             this.hilfekatalogToolStripMenuItem.Name = "hilfekatalogToolStripMenuItem";
-            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hilfekatalogToolStripMenuItem.Text = "Hilfekatalog";
             this.hilfekatalogToolStripMenuItem.Click += new System.EventHandler(this.hilfekatalogToolStripMenuItem_Click);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.überToolStripMenuItem.Text = "Über";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
