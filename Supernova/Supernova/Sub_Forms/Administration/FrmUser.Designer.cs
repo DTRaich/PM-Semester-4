@@ -1,6 +1,6 @@
 ﻿namespace Supernova.Sub_Forms.Administration
 {
-    partial class FrmUserRights
+    partial class FrmUser
     {
         /// <summary>
         /// Required designer variable.

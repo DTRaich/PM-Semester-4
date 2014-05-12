@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Supernova.Sub_Forms.Administration
 {
-    public partial class FrmCreateUser : Form
+    public partial class FrmRightsReglement : Form
     {
-        public FrmCreateUser()
+        public FrmRightsReglement()
         {
             InitializeComponent();
         }

@@ -12,13 +12,13 @@ using Supernova.objects;
 
 namespace Supernova.Sub_Forms.Administration
 {
-    public partial class FrmUserRights : Form
+    public partial class FrmUser : Form
     {
         DataTable departments;
         DataTable usergroup;
         User userdata;
 
-        public FrmUserRights()
+        public FrmUser()
         {
             InitializeComponent();
             initializeComboBox();
