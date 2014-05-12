@@ -72,6 +72,7 @@ namespace Supernova.Sub_Forms.Administration
                 else 
                 {
                     prepareBoxes();
+                    btnDelete.Visible = true;
                 }
             }
         }
@@ -194,6 +195,11 @@ namespace Supernova.Sub_Forms.Administration
             }
 
             return retval;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

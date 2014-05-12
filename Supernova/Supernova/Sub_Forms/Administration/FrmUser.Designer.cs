@@ -49,6 +49,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             // gb_change
             // 
+            this.gb_change.Controls.Add(this.btnDelete);
             this.gb_change.Controls.Add(this.mtbPassword);
             this.gb_change.Controls.Add(this.lblPassword);
             this.gb_change.Controls.Add(this.lblUsername);
@@ -253,6 +255,17 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(307, 173);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(117, 23);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Benutzer löschen";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -294,5 +307,6 @@
         private System.Windows.Forms.Label lblErrorText;
         private System.Windows.Forms.Label lblUsernameLoad;
         private System.Windows.Forms.MaskedTextBox mtbPassword;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
