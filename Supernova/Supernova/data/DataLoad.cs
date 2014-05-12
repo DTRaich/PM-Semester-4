@@ -144,17 +144,27 @@ namespace Supernova.data
 
             try
             {
-                connection.Open();
-                string comand = "Select * from user where U_NAME like '" + userName +"'";
-                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
-                adap.Fill(dt);
+                string commandText = "Call GetUserData(@username)";                
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("username", userName);
+                cmd.Parameters["username"].Direction = ParameterDirection.Input;
+
+               connection.Open();
+               MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+               dt.Load(rdr);
             }
             catch (Exception ex)
             {
             }
             finally
             {
-                connection.Close();
+                if (connection != null)
+                {
+                    connection.Close();
+                }
             }
 
             return dt;
@@ -198,28 +208,7 @@ namespace Supernova.data
         }
 
         #endregion
-        public DataTable loadtest()
-        {
-            DataTable dt = new DataTable();
-            MySqlConnection connection = new MySqlConnection(conSting);
-
-            try
-            {
-                connection.Open();
-                string comand = "Select USER_ID,U_NAME,U_FIRSTNAME from user";
-                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
-                adap.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return dt;
-        }
+        
 
        
     }

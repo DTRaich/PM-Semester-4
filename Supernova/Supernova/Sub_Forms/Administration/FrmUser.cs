@@ -83,8 +83,14 @@ namespace Supernova.Sub_Forms.Administration
             txtNachname.Text = userdata.lastname;
             txtUsername.Text = userdata.username;
             txtEmail.Text = userdata.email;
-            cbAbteilung.SelectedValue = userdata.departmentID;
             cbBenutzergruppe.SelectedValue = userdata.userGroupID;
+
+            if (userdata.departmentID != -1)
+            {
+                cbAbteilung.SelectedValue = userdata.departmentID;
+
+            }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)

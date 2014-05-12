@@ -55,16 +55,9 @@ namespace Supernova.objects
         {
             // user speichern
             DataSave ds = new DataSave();
-            bool savingWorked = false;
-
-            if (ProjectID == 0)
-            {
-                savingWorked = ds.SaveNewProject(this);
-            }
-            else
-            {
-                savingWorked = ds.UpdateProject(ProjectID, this);
-            }
+            bool savingWorked = false;                       
+            savingWorked = ds.SaveorUpdateProject(this);
+            
 
             return savingWorked;      
         }
