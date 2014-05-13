@@ -13,17 +13,84 @@ namespace Supernova.Sub_Forms.Administration
 {
     public partial class FrmRightsReglement : Form
     {
-        DataTable userGroups = new DataTable();
+        DataTable userGroups;
+        DataTable forms;
+        DataTable rights;
+        DataTable rightsMapping;
+        DataTable originRightsMapping;
+        
+
+        ParameterLoad pl;
+        DataLoad loader;
+
 
         public FrmRightsReglement()
         {
             InitializeComponent();
+            pl = new ParameterLoad();
+            loader = new DataLoad();
+
             initializeGroups();
+            startGridPreparing();
+        }
+
+        private void startGridPreparing()
+        {
+            if (loadTables())
+            {
+                prepareGridView();
+                setValues();
+            }
+            else 
+            { 
+                // DB Fehler
+                this.Close();
+            }
+           
+        }
+
+        private bool loadTables()
+        {
+            bool retval = true;
+            rights = pl.loadRights();
+            forms = pl.loadForms();
+            rightsMapping = loader.loadRightsMappingTable(Convert.ToInt32(cbUserGroups.SelectedValue));
+            if (rights.Rows.Count > 0 && forms.Rows.Count > 0 && rightsMapping.Rows.Count > 0)
+            {
+                originRightsMapping = rightsMapping.Copy();
+            }
+            else 
+            {
+                retval = false;
+            }
+            return retval;
+          
+
+        }
+
+        private void setValues()
+        {
+            // 
+        }
+
+        private void prepareGridView()
+        {
+            rightsGrid.DataSource = forms;
+            DataGridViewComboBoxColumn cl = new DataGridViewComboBoxColumn();
+            cl.DataSource = rights;
+            cl.ValueMember = "RIGHTS_ID";
+            cl.DisplayMember = "R_NAME";
+            rightsGrid.Columns.Add(cl);
+            rightsGrid.Columns[0].Visible = false;
+            rightsGrid.Columns[1].HeaderText = "Ansicht";
+            rightsGrid.Columns[1].ReadOnly = true;
+            rightsGrid.Columns[2].HeaderText = "Recht";
+      
+            rightsGrid.EndEdit();
         }
 
         private void initializeGroups()
         {
-            ParameterLoad pl = new ParameterLoad();
             userGroups = pl.loadUserGroups();
 
             try
