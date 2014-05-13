@@ -77,6 +77,7 @@
             this.Name = "FrmAfirmative";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Default";
             this.ResumeLayout(false);
             this.PerformLayout();

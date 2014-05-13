@@ -70,6 +70,58 @@ namespace Supernova.data
             return dt;
         }
 
+        public DataTable loadRights()
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select RIGHTS_ID, R_NAME from rights";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+   
+        public DataTable loadForms()
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select FORMS_ID,F_NAME from forms";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+   
         public DataTable loadPotentAbts()
         {
             DataTable dt = new DataTable();

@@ -86,7 +86,6 @@ namespace Supernova.data
                 }
             }
         }
-        
         public int UserRight(int userID, string formname)
         {
             int right = -1;
@@ -128,6 +127,32 @@ namespace Supernova.data
             return right;
         }
 
+        public DataTable loadRightsMappingTable(int groupID)
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select GR_FORMS,GR_FORMS from group_rights where GR_GROUP = " + groupID;
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+
+        }
         #endregion
 
         
