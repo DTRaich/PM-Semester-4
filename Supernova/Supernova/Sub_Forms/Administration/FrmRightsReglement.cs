@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Supernova.data;
+using Supernova.Sub_Forms.General;
 
 namespace Supernova.Sub_Forms.Administration
 {
@@ -35,7 +36,9 @@ namespace Supernova.Sub_Forms.Administration
             }
             catch (Exception ex)
             {
-
+                FrmAfirmative DBError = new FrmAfirmative("Fehler in der Datenbank. \n Bitte wenden sie sich an den Administrator.",'e');
+                DBError.StartPosition = FormStartPosition.CenterParent;
+                DBError.ShowDialog();
             }
         }
     }
