@@ -135,7 +135,39 @@ namespace Supernova.data
         {
             throw new NotImplementedException();
         }
+        #region user
+        public DataTable LoadUserData(int userID)
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
 
+            try
+            {
+                string commandText = "Call GetUserDataById(@userid)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("userid", userID);
+                cmd.Parameters["userid"].Direction = ParameterDirection.Input;
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
         
         public DataTable LoadUserData(string userName)
         {
@@ -170,6 +202,7 @@ namespace Supernova.data
             return dt;
         }
 
+        #endregion
         #region criteria
         public DataSet LoadCriteriaWeightDataSet()
         {
@@ -208,7 +241,9 @@ namespace Supernova.data
         }
 
         #endregion
-        
+
+
+
 
        
     }
