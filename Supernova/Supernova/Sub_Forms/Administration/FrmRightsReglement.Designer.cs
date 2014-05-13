@@ -29,26 +29,85 @@
         private void InitializeComponent()
         {
             this.pnlPanel = new System.Windows.Forms.Panel();
+            this.gpLoad = new System.Windows.Forms.GroupBox();
+            this.gpContent = new System.Windows.Forms.GroupBox();
+            this.cbUserGroups = new System.Windows.Forms.ComboBox();
+            this.btnLoadGroups = new System.Windows.Forms.Button();
+            this.rightsGrid = new System.Windows.Forms.DataGridView();
+            this.pnlPanel.SuspendLayout();
+            this.gpLoad.SuspendLayout();
+            this.gpContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rightsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPanel
             // 
+            this.pnlPanel.Controls.Add(this.gpLoad);
+            this.pnlPanel.Controls.Add(this.gpContent);
             this.pnlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPanel.Location = new System.Drawing.Point(0, 0);
             this.pnlPanel.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
             this.pnlPanel.Name = "pnlPanel";
-            this.pnlPanel.Size = new System.Drawing.Size(747, 262);
+            this.pnlPanel.Size = new System.Drawing.Size(945, 381);
             this.pnlPanel.TabIndex = 0;
             // 
-            // FrmCreateUser
+            // gpLoad
+            // 
+            this.gpLoad.Controls.Add(this.btnLoadGroups);
+            this.gpLoad.Controls.Add(this.cbUserGroups);
+            this.gpLoad.Location = new System.Drawing.Point(12, 12);
+            this.gpLoad.Name = "gpLoad";
+            this.gpLoad.Size = new System.Drawing.Size(921, 71);
+            this.gpLoad.TabIndex = 0;
+            this.gpLoad.TabStop = false;
+            // 
+            // gpContent
+            // 
+            this.gpContent.Controls.Add(this.rightsGrid);
+            this.gpContent.Location = new System.Drawing.Point(12, 89);
+            this.gpContent.Name = "gpContent";
+            this.gpContent.Size = new System.Drawing.Size(921, 280);
+            this.gpContent.TabIndex = 1;
+            this.gpContent.TabStop = false;
+            // 
+            // cbUserGroups
+            // 
+            this.cbUserGroups.FormattingEnabled = true;
+            this.cbUserGroups.Location = new System.Drawing.Point(286, 29);
+            this.cbUserGroups.Name = "cbUserGroups";
+            this.cbUserGroups.Size = new System.Drawing.Size(151, 21);
+            this.cbUserGroups.TabIndex = 0;
+            // 
+            // btnLoadGroups
+            // 
+            this.btnLoadGroups.Location = new System.Drawing.Point(465, 19);
+            this.btnLoadGroups.Name = "btnLoadGroups";
+            this.btnLoadGroups.Size = new System.Drawing.Size(143, 38);
+            this.btnLoadGroups.TabIndex = 1;
+            this.btnLoadGroups.Text = "Rechte laden";
+            this.btnLoadGroups.UseVisualStyleBackColor = true;
+            // 
+            // rightsGrid
+            // 
+            this.rightsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rightsGrid.Location = new System.Drawing.Point(189, 20);
+            this.rightsGrid.Name = "rightsGrid";
+            this.rightsGrid.Size = new System.Drawing.Size(522, 242);
+            this.rightsGrid.TabIndex = 0;
+            // 
+            // FrmRightsReglement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 262);
+            this.ClientSize = new System.Drawing.Size(945, 381);
             this.Controls.Add(this.pnlPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmCreateUser";
+            this.Name = "FrmRightsReglement";
             this.Text = "FrmCreateUser";
+            this.pnlPanel.ResumeLayout(false);
+            this.gpLoad.ResumeLayout(false);
+            this.gpContent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rightsGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -56,5 +115,10 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlPanel;
+        private System.Windows.Forms.GroupBox gpLoad;
+        private System.Windows.Forms.Button btnLoadGroups;
+        private System.Windows.Forms.ComboBox cbUserGroups;
+        private System.Windows.Forms.GroupBox gpContent;
+        private System.Windows.Forms.DataGridView rightsGrid;
     }
 }
