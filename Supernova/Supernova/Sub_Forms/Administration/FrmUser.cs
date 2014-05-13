@@ -57,6 +57,7 @@ namespace Supernova.Sub_Forms.Administration
             }
 
           }
+       
         #endregion
 
         #region Events
@@ -73,6 +74,7 @@ namespace Supernova.Sub_Forms.Administration
                 lblAbteilung.Visible = false;
             }
         }
+
         private void btnUserLoad_Click(object sender, EventArgs e)
         {
             lblErrorText.Visible = false;
@@ -95,20 +97,28 @@ namespace Supernova.Sub_Forms.Administration
                 {
                     prepareBoxes();
                     btnDelete.Visible = true;
+                    txtUsername.ReadOnly = true;
                 }
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {  
-            DataSave saver = new DataSave();
             DataLoad loader = new DataLoad();
 
             if (checkContent())
             {
                 if (cbAbteilung.Visible == true)
                 {
-                    userdata.departmentID = Convert.ToInt32(cbAbteilung.SelectedValue);
+                    if (Convert.ToInt32(cbAbteilung.SelectedValue) == 0)
+                    {
+                        userdata.departmentID = -1;
+
+                    }
+                    else
+                    {
+                        userdata.departmentID = Convert.ToInt32(cbAbteilung.SelectedValue);
+                    }
                 }
                 else
                 {
@@ -118,30 +128,28 @@ namespace Supernova.Sub_Forms.Administration
                 userdata.userGroupID = Convert.ToInt32(cbBenutzergruppe.SelectedValue);
 
                 // vermeidung doppeter usernamen
-                DataTable dt = loader.LoadUserData(userdata.username);
-                if (dt.Rows.Count > 0)
+                if (txtUsername.ReadOnly)
                 {
-                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern nicht möglich. \n Benutzer bereits vorhanden", 'e');
-                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
-                    SaveNewUser.ShowDialog();
+                    normalUpdateSave();
                 }
                 else
                 {
-                    if (saver.UpdateUser(userdata))
+                    DataTable dt = loader.LoadUserData(userdata.username);
+                    if (dt.Rows.Count > 0)
                     {
-                        FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 's');
+                        FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern nicht möglich. \n Benutzer bereits vorhanden", 'e');
                         SaveNewUser.StartPosition = FormStartPosition.CenterParent;
                         SaveNewUser.ShowDialog();
                     }
                     else
                     {
-                        FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
-                        SaveNewUser.StartPosition = FormStartPosition.CenterParent;
-                        SaveNewUser.ShowDialog();
+                        normalUpdateSave();
                     }
                 }
+                
 
             }
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -167,7 +175,11 @@ namespace Supernova.Sub_Forms.Administration
 
         }
 
-        
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            resetBoxes();
+
+        }
 
         #endregion
 
@@ -197,7 +209,26 @@ namespace Supernova.Sub_Forms.Administration
             resetBoxes();
 
         }
+        
+        private void normalUpdateSave()
+        {
+            DataSave saver = new DataSave();
 
+            if (saver.UpdateUser(userdata))
+            {
+                FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 's');
+                SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                SaveNewUser.ShowDialog();
+
+                resetBoxes();
+            }
+            else
+            {
+                FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                SaveNewUser.ShowDialog();
+            }
+        }
       
 
         private void deleteNonAbt()
@@ -264,6 +295,8 @@ namespace Supernova.Sub_Forms.Administration
                 cbAbteilung.SelectedValue = userdata.departmentID;
             }
 
+            txtUsername.ReadOnly = true;
+
         }
 
         private void resetBoxes()
@@ -277,6 +310,9 @@ namespace Supernova.Sub_Forms.Administration
             mtbPassword.ResetText();
             cbAbteilung.Visible = false;
             pnlAbtMatters.Visible = false;
+
+            txtUsername.ReadOnly = false;
+            userdata = new User();
 
         }
 
@@ -370,6 +406,8 @@ namespace Supernova.Sub_Forms.Administration
         {
 
         }
+
+       
 
         
         

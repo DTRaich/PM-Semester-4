@@ -22,6 +22,12 @@ namespace Supernova.data
                 string comand = "Select DEPARTMENTS_ID,D_NAME from Departments";
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
+                //sonder row für abts ohne abteilung
+                DataRow dr = dt.NewRow();
+                dr["DEPARTMENTS_ID"] = 0;
+                dr["D_NAME"] = "Keine";
+
+                dt.Rows.Add(dr);
             }
             catch (Exception ex)
             {
@@ -47,6 +53,8 @@ namespace Supernova.data
                 string comand = "Select USER_GROUPS_ID,UG_NAME from user_groups";
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
+               
+
             }
             catch (Exception ex)
             {
@@ -58,7 +66,7 @@ namespace Supernova.data
                     connection.Close();
                 }
             }
-
+            
             return dt;
         }
 
