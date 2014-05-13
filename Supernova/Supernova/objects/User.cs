@@ -32,7 +32,21 @@ namespace Supernova.objects
                 return false;
             }
         }
-        
+
+        public bool LoadUser(int userID)
+        {
+            DataLoad dl = new DataLoad();
+            userData = dl.LoadUserData(userID);
+            if (userData.Rows.Count > 0)
+            {
+                extractUserData();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// Saves the User. Method defines if update or new User
