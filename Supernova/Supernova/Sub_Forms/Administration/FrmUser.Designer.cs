@@ -53,6 +53,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.pnlAbtMatters.SuspendLayout();
@@ -108,6 +109,7 @@
             // 
             // gb_change
             // 
+            this.gb_change.Controls.Add(this.btnCancel);
             this.gb_change.Controls.Add(this.pnlAbtMatters);
             this.gb_change.Controls.Add(this.btnDelete);
             this.gb_change.Controls.Add(this.mtbPassword);
@@ -162,7 +164,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(307, 173);
+            this.btnDelete.Location = new System.Drawing.Point(395, 173);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(117, 23);
             this.btnDelete.TabIndex = 15;
@@ -248,7 +250,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(307, 205);
+            this.btnSave.Location = new System.Drawing.Point(395, 205);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 23);
             this.btnSave.TabIndex = 5;
@@ -300,6 +302,16 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(288, 204);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(101, 23);
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "Verwerfen";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +359,6 @@
         private System.Windows.Forms.Panel pnlAbtMatters;
         private System.Windows.Forms.ComboBox cbNewAbts;
         private System.Windows.Forms.Label lblNewAbt;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
