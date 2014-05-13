@@ -11,6 +11,7 @@ using Supernova.Sub_Forms.Help;
 using Supernova.Sub_Forms.Overview;
 using Supernova.Sub_Forms.Projects;
 using Supernova.objects;
+using Supernova.Sub_Forms.Account;
 
 
 namespace Supernova
@@ -109,10 +110,22 @@ namespace Supernova
             frm.Show();
         }
 
-        public void LoadInfo()
+
+
+        public void loadPasswordChange()
         {
             mainPanel.Controls.Clear();
-            FrmInfo frm = new FrmInfo();
+            FrmPasswordChange frm = new FrmPasswordChange(UserID);
+            mainPanel.Controls.Add(prepareForm(frm));
+            frm.Show();
+        }
+
+      
+
+        public void LoadUserInfo()
+        {
+            mainPanel.Controls.Clear();
+            FrmUserInformation frm = new FrmUserInformation(UserID);
             mainPanel.Controls.Add(prepareForm(frm));
             frm.Show();
         }
@@ -198,6 +211,8 @@ namespace Supernova
         
 
         #endregion
+
+
 
         
     }

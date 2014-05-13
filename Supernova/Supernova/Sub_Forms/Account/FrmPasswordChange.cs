@@ -17,6 +17,7 @@ namespace Supernova.Sub_Forms.Account
         public FrmPasswordChange(int uid)
         {
             InitializeComponent();
+            us = new User();
             us.LoadUser(uid);
         }
 
@@ -25,7 +26,19 @@ namespace Supernova.Sub_Forms.Account
             if (checkifcorrectOldPW() && checkifnewPWmatches())
             {
                 us.passwort = Convert.ToInt32(mtbNewPW1.Text.ToString());
-                us.changePasswort();
+                if (us.changePasswort())
+                {
+                 
+                    FrmAfirmative frm = new FrmAfirmative("Password wurde geändert",'i');
+                    frm.ShowDialog();
+                    this.Close();
+
+                }
+                else
+                {
+                    FrmAfirmative frm = new FrmAfirmative("Password konnte nicht geändertwerden \n Bitte wenden Sie sich an den Administrator", 'e');
+                    frm.ShowDialog();
+                }
             }
         }
 

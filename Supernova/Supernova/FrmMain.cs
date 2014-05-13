@@ -133,12 +133,12 @@ namespace Supernova
 
         private void benutzerinformationenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            leader.LoadInfo();
+            leader.LoadUserInfo();
         }
 
         private void passwordÄndernToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // passwort ändern
+            leader.loadPasswordChange();  
         }
 
         private void hilfekatalogToolStripMenuItem_Click(object sender, EventArgs e)

@@ -101,9 +101,9 @@
             // 
             this.adminToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kriterienPriorisierenToolStripMenuItem,
-            this.rechteverwaltungToolStripMenuItem,
             this.abteilungskapazitätToolStripMenuItem,
             this.budgetToolStripMenuItem,
+            this.rechteverwaltungToolStripMenuItem,
             this.benutzerAnlegenToolStripMenuItem});
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
             this.adminToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
@@ -142,7 +142,7 @@
             // 
             this.benutzerAnlegenToolStripMenuItem.Name = "benutzerAnlegenToolStripMenuItem";
             this.benutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.benutzerAnlegenToolStripMenuItem.Text = "Benutzer anlegen";
+            this.benutzerAnlegenToolStripMenuItem.Text = "Benutzerverwaltung";
             this.benutzerAnlegenToolStripMenuItem.Click += new System.EventHandler(this.benutzerAnlegenToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
@@ -189,14 +189,14 @@
             // hilfekatalogToolStripMenuItem
             // 
             this.hilfekatalogToolStripMenuItem.Name = "hilfekatalogToolStripMenuItem";
-            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.hilfekatalogToolStripMenuItem.Text = "Hilfekatalog";
             this.hilfekatalogToolStripMenuItem.Click += new System.EventHandler(this.hilfekatalogToolStripMenuItem_Click);
             // 
             // überToolStripMenuItem
             // 
             this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.überToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.überToolStripMenuItem.Text = "Über";
             this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 

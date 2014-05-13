@@ -69,7 +69,7 @@ namespace Supernova.data
 
             try
             {
-                string commandText = "Call ChangeUserPassword(@id,@pswd)";
+                string commandText = "Call ChangePassword(@id,@pswd)";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;

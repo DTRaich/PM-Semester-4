@@ -36,6 +36,7 @@ namespace Supernova.Sub_Forms.General
                 case 'i':
                     this.Text = "Gespeichert";
                     lblAfirmationText.Text = text;
+                    btnCancel.Visible = false;
                     break;
 
             }
