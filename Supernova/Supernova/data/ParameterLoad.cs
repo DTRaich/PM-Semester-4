@@ -104,7 +104,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select FORMS_ID,F_NAME from forms";
+                string comand = "Select FORMS_ID,F_DESCRIPTION from forms";
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
             }
