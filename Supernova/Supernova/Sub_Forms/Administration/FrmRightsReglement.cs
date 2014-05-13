@@ -70,7 +70,34 @@ namespace Supernova.Sub_Forms.Administration
 
         private void setValues()
         {
-            // 
+            rightsGrid.ReadOnly = false;
+            //rightsGrid.BeginEdit(true);
+            foreach (DataGridViewRow dr in rightsGrid.Rows) 
+            {
+                int formsID = Convert.ToInt32(dr.Cells[0].Value);
+
+                DataGridViewComboBoxCell cr = (DataGridViewComboBoxCell)dr.Cells[2];
+                cr.Value = 16;
+                
+
+            }
+            
+            rightsGrid.EndEdit();
+        }
+
+        private int getRightsID(int formsID)
+        {   
+            int rightsID = 0;
+
+            foreach(DataRow dr in rightsMapping.Rows)
+            {
+                if (Convert.ToInt32(dr["GR_FORMS"].ToString()) == formsID)
+                {
+                    rightsID = Convert.ToInt32(dr["GR_RIGHTS"].ToString());
+                }
+            }
+
+            return rightsID;
         }
 
         private void prepareGridView()
@@ -107,6 +134,18 @@ namespace Supernova.Sub_Forms.Administration
                 DBError.StartPosition = FormStartPosition.CenterParent;
                 DBError.ShowDialog();
             }
+        }
+
+        private void btnLoadGroups_Click(object sender, EventArgs e)
+        {
+
+            initializeGroups();
+            startGridPreparing();
+        }
+
+        private void rightsGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
