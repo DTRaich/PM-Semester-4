@@ -35,9 +35,9 @@
             this.projekteÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abteilungskapazitätToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,7 +48,9 @@
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.dbErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.msMenu.SuspendLayout();
+            this.sStateStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // msMenu
@@ -117,13 +119,6 @@
             this.kriterienPriorisierenToolStripMenuItem.Text = "Kriterien priorisieren";
             this.kriterienPriorisierenToolStripMenuItem.Click += new System.EventHandler(this.kriterienPriorisierenToolStripMenuItem_Click);
             // 
-            // rechteverwaltungToolStripMenuItem
-            // 
-            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
-            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
-            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click);
-            // 
             // abteilungskapazitätToolStripMenuItem
             // 
             this.abteilungskapazitätToolStripMenuItem.Name = "abteilungskapazitätToolStripMenuItem";
@@ -137,6 +132,13 @@
             this.budgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.budgetToolStripMenuItem.Text = "Budget";
             this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
+            // 
+            // rechteverwaltungToolStripMenuItem
+            // 
+            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
+            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click);
             // 
             // benutzerAnlegenToolStripMenuItem
             // 
@@ -202,6 +204,8 @@
             // 
             // sStateStrip
             // 
+            this.sStateStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dbErrorLabel});
             this.sStateStrip.Location = new System.Drawing.Point(0, 405);
             this.sStateStrip.Name = "sStateStrip";
             this.sStateStrip.Size = new System.Drawing.Size(945, 22);
@@ -215,6 +219,12 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
+            // 
+            // dbErrorLabel
+            // 
+            this.dbErrorLabel.Name = "dbErrorLabel";
+            this.dbErrorLabel.Size = new System.Drawing.Size(0, 17);
+            this.dbErrorLabel.Visible = false;
             // 
             // FrmMain
             // 
@@ -232,6 +242,8 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.msMenu.ResumeLayout(false);
             this.msMenu.PerformLayout();
+            this.sStateStrip.ResumeLayout(false);
+            this.sStateStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +271,7 @@
         private System.Windows.Forms.ToolStripMenuItem abteilungskapazitätToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem benutzerAnlegenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel dbErrorLabel;
     }
 }
 

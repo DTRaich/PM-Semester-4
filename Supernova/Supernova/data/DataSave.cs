@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Supernova.helper;
 using Supernova.objects;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace Supernova.data
     class DataSave
     {
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
+        DBerror dbError = DBerror.getInstanze();
 
         #region userAndRights
         public bool DeleteUser(int userID, int personalID)
         {
+            dbError.deleteDBError();
             MySqlConnection connection = new MySqlConnection(conSting);
             bool retval = true;
 
@@ -45,6 +48,8 @@ namespace Supernova.data
             catch (Exception ex)
             {
                 retval = false;
+                dbError.setDBError();
+
             }
             finally
             {
@@ -58,12 +63,17 @@ namespace Supernova.data
 
         private void saveAbtMatters(int userID, int personalID)
         {
+            dbError.deleteDBError();
+            dbError.setDBError();
+
 
         }
 
 
         public bool ChangePassword(int userID, int passwort)
         {
+            dbError.deleteDBError();
+
             MySqlConnection connection = new MySqlConnection(conSting);
             bool retval = true;
 
@@ -90,6 +100,8 @@ namespace Supernova.data
             catch (Exception ex)
             {
                 retval = false;
+                dbError.setDBError();
+
             }
             finally
             {
@@ -103,6 +115,8 @@ namespace Supernova.data
 
         public bool UpdateUser(User userData)
         {
+            dbError.deleteDBError();
+
             MySqlConnection connection = new MySqlConnection(conSting);
             bool retval = true;
                     
@@ -150,6 +164,8 @@ namespace Supernova.data
                 catch (Exception ex)
                 {
                     retval = false;
+                    dbError.setDBError();
+
                 }
                 finally
                 {
@@ -166,6 +182,9 @@ namespace Supernova.data
 
         public bool SaveorUpdateProject(ProjektDataDummy projektData)
         {
+            dbError.deleteDBError();
+            dbError.setDBError();
+
             return true;
         }
 
@@ -175,6 +194,8 @@ namespace Supernova.data
         #region criteriaMatters
         public bool saveCriteriaActivation(DataTable  differenz)
         {
+            dbError.deleteDBError();
+
             bool retval = true;
             MySqlConnection connection = new MySqlConnection(conSting);
             int c_active;
@@ -219,6 +240,8 @@ namespace Supernova.data
                 catch (Exception ex)
                 {
                     retval = false;
+                    dbError.setDBError();
+
                 }
                 finally
                 {
@@ -235,6 +258,8 @@ namespace Supernova.data
        
         public bool saveCriteriaWeight(string c_from_name, string c_to_name, int weights)
         {
+            dbError.deleteDBError();
+
             MySqlConnection connection = new MySqlConnection(conSting);
             bool retval = true;
             try
@@ -264,6 +289,7 @@ namespace Supernova.data
             catch (Exception ex)
             {
                 retval = false;
+                dbError.setDBError();
             }
             finally
             {

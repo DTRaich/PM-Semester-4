@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Supernova.helper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,9 +11,12 @@ namespace Supernova.data
     class DataLoad
     {
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
+        DBerror dbError = DBerror.getInstanze();
+
         #region logInLogOUt---Rights
         public int LogOn(string username, int password)
         {
+            dbError.deleteDBError();
             int retval = -1;
 
             MySqlConnection connection = new MySqlConnection(conSting);
@@ -38,10 +42,11 @@ namespace Supernova.data
                     retval = Convert.ToInt32(rdr[0]);
                 }
                 connection.Close();
-
+                
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {
@@ -55,6 +60,8 @@ namespace Supernova.data
         }
         public void Logout(int uid)
         {
+            dbError.deleteDBError();
+
             MySqlConnection connection = new MySqlConnection(conSting);
 
             try
@@ -77,6 +84,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {
@@ -88,6 +96,7 @@ namespace Supernova.data
         }
         public int UserRight(int userID, string formname)
         {
+            dbError.deleteDBError(); 
             int right = -1;
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -116,6 +125,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {
@@ -129,18 +139,20 @@ namespace Supernova.data
 
         public DataTable loadRightsMappingTable(int groupID)
         {
+            dbError.deleteDBError();
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
             try
             {
                 connection.Open();
-                string comand = "Select GR_FORMS,GR_FORMS from group_rights where GR_GROUP = " + groupID;
+                string comand = "Select GR_FORMS,GR_RIGHTS,GR_GROUP from group_rights where GR_GROUP = " + groupID;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {
@@ -158,11 +170,13 @@ namespace Supernova.data
         
         public DataSet loadWholeProjectData(int id)
         {
+            dbError.setDBError();
             throw new NotImplementedException();
         }
         #region user
         public DataTable LoadUserData(int userID)
         {
+            dbError.deleteDBError();
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -182,6 +196,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {
@@ -196,6 +211,7 @@ namespace Supernova.data
         
         public DataTable LoadUserData(string userName)
         {
+            dbError.deleteDBError();
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -215,6 +231,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {
@@ -231,6 +248,7 @@ namespace Supernova.data
         #region criteria
         public DataSet LoadCriteriaWeightDataSet()
         {
+            dbError.deleteDBError();
             MySqlConnection connection = new MySqlConnection(conSting);
 
             DataSet ds = new DataSet("CriteriaWeight");
@@ -250,6 +268,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {
