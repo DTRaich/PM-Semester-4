@@ -69,6 +69,7 @@
             this.btnLoadGroups.TabIndex = 1;
             this.btnLoadGroups.Text = "Rechte laden";
             this.btnLoadGroups.UseVisualStyleBackColor = true;
+            this.btnLoadGroups.Click += new System.EventHandler(this.btnLoadGroups_Click);
             // 
             // cbUserGroups
             // 
@@ -100,6 +101,7 @@
             this.rightsGrid.Name = "rightsGrid";
             this.rightsGrid.Size = new System.Drawing.Size(522, 242);
             this.rightsGrid.TabIndex = 0;
+            this.rightsGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.rightsGrid_CellValueChanged);
             // 
             // FrmRightsReglement
             // 
