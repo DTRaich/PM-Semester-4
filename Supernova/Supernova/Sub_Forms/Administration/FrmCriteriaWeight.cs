@@ -30,15 +30,11 @@ namespace Supernova.Sub_Forms.Administration
             StartPrepares();
             
             //activationGrid.DataSource = dl.loadtest();
-            //DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();
-            //List<int> li = new List<int>();
-            //li.Add(1);
-            //li.Add(2);
-            //li.Add(3);
-            //comboBoxColumn.DataSource = li;
+            //DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();            
+            //comboBoxColumn.DataSource = activationSource;
+            //comboBoxColumn.ValueMember = ;
+            //comboBoxColumn.DisplayMember = ;
 
-            //comboBoxColumn.ValueType = typeof(int);
-            //activationGrid.Columns.Add(comboBoxColumn);
           
         }
 
@@ -73,7 +69,8 @@ namespace Supernova.Sub_Forms.Administration
                 activationGrid.Columns[0].Visible = false;
                 activationGrid.Columns[2].Visible = false;
                 activationGrid.Columns[1].HeaderText = "Kriterium";
-
+                activationGrid.Columns[1].ReadOnly = true;
+                activationGrid.ScrollBars = ScrollBars.Vertical;
                 originActivation = activationSource.Copy();
                
             }
