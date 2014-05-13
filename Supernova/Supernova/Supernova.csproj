@@ -72,6 +72,7 @@
     <Compile Include="FrmOrderControlling.Designer.cs">
       <DependentUpon>FrmOrderControlling.cs</DependentUpon>
     </Compile>
+    <Compile Include="helper\DBerror.cs" />
     <Compile Include="helper\ParameterHelper.cs" />
     <Compile Include="interfaces\IWhatToDoWithProjects.cs" />
     <Compile Include="objects\ProjektDataDummy.cs" />
@@ -135,12 +136,6 @@
     </Compile>
     <Compile Include="Sub_Forms\General\FrmAfirmative.Designer.cs">
       <DependentUpon>FrmAfirmative.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sub_Forms\Account\FrmAccountDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sub_Forms\Account\FrmAccountDetail.Designer.cs">
-      <DependentUpon>FrmAccountDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Sub_Forms\Help\FrmInfo.cs">
       <SubType>Form</SubType>
@@ -208,9 +203,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sub_Forms\Account\FrmAccountDetail.resx">
-      <DependentUpon>FrmAccountDetail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Account\FrmPasswordChange.resx">
       <DependentUpon>FrmPasswordChange.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Supernova.helper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,9 +11,11 @@ namespace Supernova.data
     class ParameterLoad
     {
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
+        DBerror dbError = DBerror.getInstanze();
 
         public DataTable loadDeparments()
         {
+            dbError.deleteDBError();
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -31,6 +34,8 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
+
             }
             finally
             {
@@ -44,6 +49,8 @@ namespace Supernova.data
         }
         public DataTable loadUserGroups()
         {
+            dbError.deleteDBError();
+
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -58,6 +65,8 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
+
             }
             finally
             {
@@ -72,6 +81,8 @@ namespace Supernova.data
 
         public DataTable loadRights()
         {
+            dbError.deleteDBError();
+
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -84,6 +95,8 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
+
             }
             finally
             {
@@ -98,6 +111,8 @@ namespace Supernova.data
    
         public DataTable loadForms()
         {
+            dbError.deleteDBError();
+
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -110,6 +125,8 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
+
             }
             finally
             {
@@ -124,6 +141,8 @@ namespace Supernova.data
    
         public DataTable loadPotentAbts()
         {
+            dbError.deleteDBError();
+
             DataTable dt = new DataTable();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -136,6 +155,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
+                dbError.setDBError();
             }
             finally
             {

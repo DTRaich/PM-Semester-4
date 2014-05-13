@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supernova.helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,8 @@ namespace Supernova
             InitializeComponent();
 
             leader = new Leader(this.pnlMain);
+            DBerror dberror = DBerror.getInstanze();
+            dberror.setDbLabel(this.dbErrorLabel);
         }
 
         
