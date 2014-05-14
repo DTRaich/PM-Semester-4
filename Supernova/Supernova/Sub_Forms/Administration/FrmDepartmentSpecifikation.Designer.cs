@@ -38,6 +38,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.gpLoad = new System.Windows.Forms.GroupBox();
+            this.btnloadDepartment = new System.Windows.Forms.Button();
             this.gpDetails = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.mtbBudget3 = new System.Windows.Forms.MaskedTextBox();
             this.mtbBudget2 = new System.Windows.Forms.MaskedTextBox();
             this.mtbBudget1 = new System.Windows.Forms.MaskedTextBox();
-            this.btnloadDepartment = new System.Windows.Forms.Button();
             this.gpLoad.SuspendLayout();
             this.gpDetails.SuspendLayout();
             this.SuspendLayout();
@@ -148,6 +148,16 @@
             this.gpLoad.TabIndex = 12;
             this.gpLoad.TabStop = false;
             // 
+            // btnloadDepartment
+            // 
+            this.btnloadDepartment.Location = new System.Drawing.Point(635, 33);
+            this.btnloadDepartment.Name = "btnloadDepartment";
+            this.btnloadDepartment.Size = new System.Drawing.Size(112, 23);
+            this.btnloadDepartment.TabIndex = 6;
+            this.btnloadDepartment.Text = "Abteilung laden";
+            this.btnloadDepartment.UseVisualStyleBackColor = true;
+            this.btnloadDepartment.Click += new System.EventHandler(this.btnloadDepartment_Click);
+            // 
             // gpDetails
             // 
             this.gpDetails.Controls.Add(this.label2);
@@ -222,15 +232,6 @@
             this.mtbBudget1.Name = "mtbBudget1";
             this.mtbBudget1.Size = new System.Drawing.Size(55, 20);
             this.mtbBudget1.TabIndex = 12;
-            // 
-            // btnloadDepartment
-            // 
-            this.btnloadDepartment.Location = new System.Drawing.Point(635, 33);
-            this.btnloadDepartment.Name = "btnloadDepartment";
-            this.btnloadDepartment.Size = new System.Drawing.Size(112, 23);
-            this.btnloadDepartment.TabIndex = 6;
-            this.btnloadDepartment.Text = "Abteilung laden";
-            this.btnloadDepartment.UseVisualStyleBackColor = true;
             // 
             // FrmDepartmentSpecifikation
             // 
