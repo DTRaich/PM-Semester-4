@@ -34,9 +34,7 @@
             this.btnUserLoad = new System.Windows.Forms.Button();
             this.txtUsernameLoad = new System.Windows.Forms.TextBox();
             this.gb_change = new System.Windows.Forms.GroupBox();
-            this.pnlAbtMatters = new System.Windows.Forms.Panel();
-            this.cbNewAbts = new System.Windows.Forms.ComboBox();
-            this.lblNewAbt = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.mtbPassword = new System.Windows.Forms.MaskedTextBox();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -53,10 +51,8 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
-            this.pnlAbtMatters.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_Load
@@ -110,7 +106,6 @@
             // gb_change
             // 
             this.gb_change.Controls.Add(this.btnCancel);
-            this.gb_change.Controls.Add(this.pnlAbtMatters);
             this.gb_change.Controls.Add(this.btnDelete);
             this.gb_change.Controls.Add(this.mtbPassword);
             this.gb_change.Controls.Add(this.lblPassword);
@@ -133,34 +128,15 @@
             this.gb_change.TabIndex = 1;
             this.gb_change.TabStop = false;
             // 
-            // pnlAbtMatters
+            // btnCancel
             // 
-            this.pnlAbtMatters.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlAbtMatters.Controls.Add(this.cbNewAbts);
-            this.pnlAbtMatters.Controls.Add(this.lblNewAbt);
-            this.pnlAbtMatters.Location = new System.Drawing.Point(288, 39);
-            this.pnlAbtMatters.Name = "pnlAbtMatters";
-            this.pnlAbtMatters.Size = new System.Drawing.Size(200, 100);
-            this.pnlAbtMatters.TabIndex = 16;
-            this.pnlAbtMatters.Visible = false;
-            // 
-            // cbNewAbts
-            // 
-            this.cbNewAbts.FormattingEnabled = true;
-            this.cbNewAbts.Location = new System.Drawing.Point(10, 48);
-            this.cbNewAbts.Name = "cbNewAbts";
-            this.cbNewAbts.Size = new System.Drawing.Size(134, 21);
-            this.cbNewAbts.TabIndex = 1;
-            this.cbNewAbts.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // lblNewAbt
-            // 
-            this.lblNewAbt.AutoSize = true;
-            this.lblNewAbt.Location = new System.Drawing.Point(7, 17);
-            this.lblNewAbt.Name = "lblNewAbt";
-            this.lblNewAbt.Size = new System.Drawing.Size(104, 13);
-            this.lblNewAbt.TabIndex = 0;
-            this.lblNewAbt.Text = "Neuer Abteilunsleiter";
+            this.btnCancel.Location = new System.Drawing.Point(288, 204);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(101, 23);
+            this.btnCancel.TabIndex = 17;
+            this.btnCancel.Text = "Verwerfen";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDelete
             // 
@@ -302,16 +278,6 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(288, 204);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 23);
-            this.btnCancel.TabIndex = 17;
-            this.btnCancel.Text = "Verwerfen";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,8 +292,6 @@
             this.gb_Load.PerformLayout();
             this.gb_change.ResumeLayout(false);
             this.gb_change.PerformLayout();
-            this.pnlAbtMatters.ResumeLayout(false);
-            this.pnlAbtMatters.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -356,9 +320,6 @@
         private System.Windows.Forms.Label lblUsernameLoad;
         private System.Windows.Forms.MaskedTextBox mtbPassword;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Panel pnlAbtMatters;
-        private System.Windows.Forms.ComboBox cbNewAbts;
-        private System.Windows.Forms.Label lblNewAbt;
         private System.Windows.Forms.Button btnCancel;
     }
 }
