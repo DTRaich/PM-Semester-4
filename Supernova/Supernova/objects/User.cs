@@ -48,19 +48,7 @@ namespace Supernova.objects
             }
         }
 
-        /// <summary>
-        /// Saves the User. Method defines if update or new User
-         /// </summary>
-        /// <returns></returns>
-        public bool saveUser()
-        {
-            // user speichern
-            DataSave ds = new DataSave();
-            bool savingWorked = false;
-            savingWorked = ds.UpdateUser(this);            
-
-            return savingWorked;      
-        }
+        
 
         public bool changePasswort()
         {

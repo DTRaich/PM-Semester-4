@@ -104,7 +104,7 @@ namespace Supernova.data
             return retval;
         }
 
-        public bool UpdateUser(User userData)
+        public bool UpdateUser(User userData, int originDepID)
         {
             dbError.deleteDBError();
 
@@ -112,8 +112,6 @@ namespace Supernova.data
             bool retval = true;
                     
             try{
-                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, userID 
-
                 string commandText = "Call SaveOrUpdateUser(@firstN,@lastN,@u_name,@email,@Passwort,@groupsid,@userID)";
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
@@ -144,6 +142,12 @@ namespace Supernova.data
                     cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                     connection.Close();
+                    if (userData.departmentID != originDepID)
+                    {
+
+                        UpdateDepLeader(userData.username,userData.departmentID, originDepID);
+                    }
+
                     retval = true;
 
 
@@ -161,8 +165,99 @@ namespace Supernova.data
                         connection.Close();
                     }
                 }
+
             return retval;
         }
+
+        private void UpdateDepLeader(string userNAME, int newDepartID, int originDepID)
+        {
+
+            if (originDepID == -1)
+            {
+                updateLeaderWithoutRef(userNAME, newDepartID);
+            }
+            else
+            {
+                updateLeaderWithRef(originDepID);
+            }
+
+        }
+
+        private void updateLeaderWithRef( int originDepID)
+        {
+            MySqlConnection connection = new MySqlConnection(conSting);
+            
+            try
+            {
+                string commandText = "Call UpdateDepLeaderRef(@OriginDepID)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;                
+
+                cmd.Parameters.AddWithValue("OriginDepID", originDepID);
+                cmd.Parameters["OriginDepID"].Direction = ParameterDirection.Input;
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                dbError.setDBError();
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void updateLeaderWithoutRef(string userName, int newDepartID)
+        {
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Call UpdateDepLeader(@UserName,@NewDepartID)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("UserName", userName);
+                cmd.Parameters["UserName"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("NewDepartID", newDepartID);
+                cmd.Parameters["NewDepartID"].Direction = ParameterDirection.Input;
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();              
+
+
+            }
+            catch (Exception ex)
+            {
+
+                dbError.setDBError();
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
 
         #endregion
 
