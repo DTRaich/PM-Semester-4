@@ -19,6 +19,7 @@ namespace Supernova.Sub_Forms.Administration
         User userdata;
         ParameterLoad pl = new ParameterLoad();
         private int personalUserID = 0;
+        private int depIdBeforeChange = -1;
 
         #region cosntructAndInitialize
         public FrmUser(int userid)
@@ -106,6 +107,8 @@ namespace Supernova.Sub_Forms.Administration
                     prepareBoxes();
                     btnDelete.Visible = true;
                     txtUsername.ReadOnly = true;
+                    depIdBeforeChange = userdata.departmentID;
+
                 }
             }
         }
@@ -192,7 +195,7 @@ namespace Supernova.Sub_Forms.Administration
         {
             DataSave saver = new DataSave();
 
-            if (saver.UpdateUser(userdata))
+            if (saver.UpdateUser(userdata,depIdBeforeChange))
             {
                 FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 's');
                 SaveNewUser.StartPosition = FormStartPosition.CenterParent;
@@ -254,6 +257,7 @@ namespace Supernova.Sub_Forms.Administration
                 cbAbteilung.SelectedValue = userdata.departmentID;
                 cbAbteilung.ValueMember = "DEPARTMENTS_ID";
                 cbAbteilung.DisplayMember = "D_NAME";
+               
             }
             else
             {
@@ -268,6 +272,7 @@ namespace Supernova.Sub_Forms.Administration
                 cbAbteilung.SelectedValue = userdata.departmentID;
                 cbAbteilung.ValueMember = "DEPARTMENTS_ID";
                 cbAbteilung.DisplayMember = "D_NAME";
+                cbAbteilung.SelectedValue = 0;
             }
 
             txtUsername.ReadOnly = true;
@@ -288,6 +293,7 @@ namespace Supernova.Sub_Forms.Administration
 
             txtUsername.ReadOnly = false;
             userdata = new User();
+            depIdBeforeChange = -1;
 
         }
 
