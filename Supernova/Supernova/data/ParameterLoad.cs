@@ -72,7 +72,35 @@ namespace Supernova.data
             return dt;
         }
 
-        
+        public DataTable loadMyDeparment(int userid)
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select DEPARTMENTS_ID,D_NAME from Departments where D_LEADER = " + userid;
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
         public DataTable loadUserGroups()
         {
             dbError.deleteDBError();
