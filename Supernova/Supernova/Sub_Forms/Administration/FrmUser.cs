@@ -169,14 +169,7 @@ namespace Supernova.Sub_Forms.Administration
             }
             else
             {
-                if(userdata.departmentID == -1)
-                {
-                    deleteNonAbt();
-                }
-                else
-                {
-                    prepareAbtsSelection();                   
-                }
+               
                
             }
 
@@ -193,30 +186,7 @@ namespace Supernova.Sub_Forms.Administration
         
         #region privateMethod
 
-        private void deleteAbt()
-        {
-            DataSave saver = new DataSave();
-
-            int newAbt = Convert.ToInt32(cbNewAbts.SelectedValue);
-
-            bool deleteWorked = saver.DeleteUser(userdata.userID, newAbt);
-            if (deleteWorked)
-            {
-                FrmAfirmative DELTEUser = new FrmAfirmative("Der Benutzer wurde gelöscht. \n ", 's');
-                DELTEUser.StartPosition = FormStartPosition.CenterParent;
-                DELTEUser.ShowDialog();
-            }
-            else
-            {
-                FrmAfirmative DELTEUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
-                DELTEUser.StartPosition = FormStartPosition.CenterParent;
-                DELTEUser.ShowDialog();
-            }
-
-            resetBoxes();
-
-        }
-        
+       
         private void normalUpdateSave()
         {
             DataSave saver = new DataSave();
@@ -260,35 +230,6 @@ namespace Supernova.Sub_Forms.Administration
 
         }
 
-        private void prepareAbtsSelection()
-        {
-            if (pnlAbtMatters.Visible == false)
-            {
-                ParameterLoad pl = new ParameterLoad();
-                departments = pl.loadPotentAbts();
-
-                try
-                {                    
-                    cbNewAbts.DataSource = departments;
-                    cbNewAbts.ValueMember = "USER_ID";
-                    cbNewAbts.DisplayMember = "U_NAME";
-                    pnlAbtMatters.Visible = true;
-                }
-                catch (Exception ex)
-                {
-                    FrmAfirmative DBError = new FrmAfirmative("Fehler in der Datenbank. \n Bitte wenden sie sich an den Administrator.", 'e');
-                    DBError.StartPosition = FormStartPosition.CenterParent;
-                    DBError.ShowDialog();
-                }
-
-                pnlAbtMatters.Visible = true;
-            }
-            else
-            {
-                deleteAbt();
-            }
-
-        }
 
 
         private void prepareBoxes()
@@ -318,7 +259,7 @@ namespace Supernova.Sub_Forms.Administration
 
             mtbPassword.ResetText();
             cbAbteilung.Visible = false;
-            pnlAbtMatters.Visible = false;
+
 
             txtUsername.ReadOnly = false;
             userdata = new User();
