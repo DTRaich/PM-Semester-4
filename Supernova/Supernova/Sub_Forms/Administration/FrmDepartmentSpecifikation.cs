@@ -28,7 +28,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private void prepareFields()
         {
-            depDataTab = loader.LoadDepartmenntCapacity(1);
+            depDataTab = loader.LoadDepartmenntCapacity(Convert.ToInt32(cbDepartments.SelectedValue));
             foreach(DataRow rw in depDataTab.Rows)
             {
                 try
@@ -40,9 +40,9 @@ namespace Supernova.Sub_Forms.Administration
                     txtDepartmentChef.Text = string.Empty;
                 }
 
-                txtDepartmentChef.Text = rw["D_MANNTAGEBUDGET_YEAR1"].ToString();
-                txtDepartmentChef.Text = rw["D_MANNTAGEBUDGET_YEAR2"].ToString();
-                txtDepartmentChef.Text = rw["D_MANNTAGEBUDGET_YEAR3"].ToString();
+                mtbBudget1.Text = rw["D_MANNTAGEBUDGET_YEAR1"].ToString();
+                mtbBudget2.Text = rw["D_MANNTAGEBUDGET_YEAR2"].ToString();
+                mtbBudget3.Text = rw["D_MANNTAGEBUDGET_YEAR3"].ToString();
 
       
             }
@@ -68,7 +68,14 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            mtbBudget1.Text = string.Empty;
+            mtbBudget2.Text = string.Empty;
+            mtbBudget3.Text = string.Empty;
+        }
 
+        private void btnloadDepartment_Click(object sender, EventArgs e)
+        {
+            prepareFields();
         }
 
 
