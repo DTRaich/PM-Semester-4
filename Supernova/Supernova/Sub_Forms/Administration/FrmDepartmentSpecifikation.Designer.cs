@@ -28,136 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtDepartmentChef = new System.Windows.Forms.TextBox();
+            this.txtBudget1 = new System.Windows.Forms.TextBox();
+            this.cbDepartments = new System.Windows.Forms.ComboBox();
+            this.txtBudget2 = new System.Windows.Forms.TextBox();
+            this.txtBudget3 = new System.Windows.Forms.TextBox();
+            this.lblDepartments = new System.Windows.Forms.Label();
+            this.lblDepartmentChef = new System.Windows.Forms.Label();
+            this.lblBudget1 = new System.Windows.Forms.Label();
+            this.lblBudget2 = new System.Windows.Forms.Label();
+            this.lblBudget3 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtDepartmentChef
             // 
-            this.textBox1.Location = new System.Drawing.Point(297, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtDepartmentChef.Location = new System.Drawing.Point(460, 125);
+            this.txtDepartmentChef.Name = "txtDepartmentChef";
+            this.txtDepartmentChef.Size = new System.Drawing.Size(146, 20);
+            this.txtDepartmentChef.TabIndex = 0;
             // 
-            // textBox2
+            // txtBudget1
             // 
-            this.textBox2.Location = new System.Drawing.Point(297, 122);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtBudget1.Location = new System.Drawing.Point(460, 164);
+            this.txtBudget1.Name = "txtBudget1";
+            this.txtBudget1.Size = new System.Drawing.Size(146, 20);
+            this.txtBudget1.TabIndex = 1;
             // 
-            // comboBox1
+            // cbDepartments
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(297, 95);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(146, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cbDepartments.FormattingEnabled = true;
+            this.cbDepartments.Location = new System.Drawing.Point(460, 90);
+            this.cbDepartments.Name = "cbDepartments";
+            this.cbDepartments.Size = new System.Drawing.Size(146, 21);
+            this.cbDepartments.TabIndex = 2;
             // 
-            // textBox3
+            // txtBudget2
             // 
-            this.textBox3.Location = new System.Drawing.Point(297, 148);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 20);
-            this.textBox3.TabIndex = 3;
+            this.txtBudget2.Location = new System.Drawing.Point(460, 200);
+            this.txtBudget2.Name = "txtBudget2";
+            this.txtBudget2.Size = new System.Drawing.Size(146, 20);
+            this.txtBudget2.TabIndex = 3;
             // 
-            // textBox4
+            // txtBudget3
             // 
-            this.textBox4.Location = new System.Drawing.Point(297, 174);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 20);
-            this.textBox4.TabIndex = 4;
+            this.txtBudget3.Location = new System.Drawing.Point(460, 237);
+            this.txtBudget3.Name = "txtBudget3";
+            this.txtBudget3.Size = new System.Drawing.Size(146, 20);
+            this.txtBudget3.TabIndex = 4;
             // 
-            // label1
+            // lblDepartments
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(86, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Abteilungsname";
+            this.lblDepartments.AutoSize = true;
+            this.lblDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartments.Location = new System.Drawing.Point(249, 91);
+            this.lblDepartments.Name = "lblDepartments";
+            this.lblDepartments.Size = new System.Drawing.Size(109, 17);
+            this.lblDepartments.TabIndex = 5;
+            this.lblDepartments.Text = "Abteilungsname";
             // 
-            // label2
+            // lblDepartmentChef
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Abteilungsleiter";
+            this.lblDepartmentChef.AutoSize = true;
+            this.lblDepartmentChef.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartmentChef.Location = new System.Drawing.Point(249, 126);
+            this.lblDepartmentChef.Name = "lblDepartmentChef";
+            this.lblDepartmentChef.Size = new System.Drawing.Size(105, 17);
+            this.lblDepartmentChef.TabIndex = 6;
+            this.lblDepartmentChef.Text = "Abteilungsleiter";
             // 
-            // label3
+            // lblBudget1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(86, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Abteilungskapazität Jahr 1";
+            this.lblBudget1.AutoSize = true;
+            this.lblBudget1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBudget1.Location = new System.Drawing.Point(249, 165);
+            this.lblBudget1.Name = "lblBudget1";
+            this.lblBudget1.Size = new System.Drawing.Size(175, 17);
+            this.lblBudget1.TabIndex = 7;
+            this.lblBudget1.Text = "Abteilungskapazität Jahr 1";
             // 
-            // label4
+            // lblBudget2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(86, 151);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Abteilungskapazität Jahr 2";
+            this.lblBudget2.AutoSize = true;
+            this.lblBudget2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBudget2.Location = new System.Drawing.Point(249, 201);
+            this.lblBudget2.Name = "lblBudget2";
+            this.lblBudget2.Size = new System.Drawing.Size(175, 17);
+            this.lblBudget2.TabIndex = 8;
+            this.lblBudget2.Text = "Abteilungskapazität Jahr 2";
             // 
-            // label5
+            // lblBudget3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(86, 177);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Abteilungskapazität Jahr 3";
+            this.lblBudget3.AutoSize = true;
+            this.lblBudget3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBudget3.Location = new System.Drawing.Point(249, 238);
+            this.lblBudget3.Name = "lblBudget3";
+            this.lblBudget3.Size = new System.Drawing.Size(175, 17);
+            this.lblBudget3.TabIndex = 9;
+            this.lblBudget3.Text = "Abteilungskapazität Jahr 3";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(434, 321);
+            this.btnSave.Location = new System.Drawing.Point(460, 300);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(105, 24);
+            this.btnSave.Size = new System.Drawing.Size(128, 33);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Speichern";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnCancel
+            // btnReset
             // 
-            this.btnCancel.Location = new System.Drawing.Point(323, 321);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(105, 24);
-            this.btnCancel.TabIndex = 11;
-            this.btnCancel.Text = "Abbrechen";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(299, 300);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(125, 33);
+            this.btnReset.TabIndex = 11;
+            this.btnReset.Text = "Verwerfen";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // FrmDepartmentSpecifikation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 377);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(945, 381);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblBudget3);
+            this.Controls.Add(this.lblBudget2);
+            this.Controls.Add(this.lblBudget1);
+            this.Controls.Add(this.lblDepartmentChef);
+            this.Controls.Add(this.lblDepartments);
+            this.Controls.Add(this.txtBudget3);
+            this.Controls.Add(this.txtBudget2);
+            this.Controls.Add(this.cbDepartments);
+            this.Controls.Add(this.txtBudget1);
+            this.Controls.Add(this.txtDepartmentChef);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmDepartmentSpecifikation";
             this.Text = "FrmDepartmentSpecifikation";
@@ -168,18 +175,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDepartmentChef;
+        private System.Windows.Forms.TextBox txtBudget1;
+        private System.Windows.Forms.ComboBox cbDepartments;
+        private System.Windows.Forms.TextBox txtBudget2;
+        private System.Windows.Forms.TextBox txtBudget3;
+        private System.Windows.Forms.Label lblDepartments;
+        private System.Windows.Forms.Label lblDepartmentChef;
+        private System.Windows.Forms.Label lblBudget1;
+        private System.Windows.Forms.Label lblBudget2;
+        private System.Windows.Forms.Label lblBudget3;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnReset;
 
     }
 }
