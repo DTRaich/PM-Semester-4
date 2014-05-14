@@ -173,7 +173,48 @@ namespace Supernova.data
             dbError.setDBError();
             throw new NotImplementedException();
         }
+        public int LoadMyDepartment(int userid)
+        {
+            dbError.deleteDBError();
+            int retval = -1;
 
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Call GetDeptByAbt(@id)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("id", userid);
+                cmd.Parameters["id"].Direction = ParameterDirection.Input;
+
+                
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (rdr.Read())
+                {
+                    retval = Convert.ToInt32(rdr[0]);
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return retval;
+        }
         public DataTable LoadDepartmenntCapacity(int departID)
         {
             dbError.deleteDBError();

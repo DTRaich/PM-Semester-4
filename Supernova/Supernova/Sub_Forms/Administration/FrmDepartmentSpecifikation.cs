@@ -16,6 +16,7 @@ namespace Supernova.Sub_Forms.Administration
         DataTable depComboTab;
         DataTable depDataTab;
         int currentid = 0;
+       
         
         ParameterLoad pl = new ParameterLoad();
         DataLoad loader = new DataLoad();
@@ -23,9 +24,69 @@ namespace Supernova.Sub_Forms.Administration
 
         public FrmDepartmentSpecifikation(int userid)
         {
+
             InitializeComponent();
             prepareBoxes();
+            setRights(userid);
             prepareFields();
+           
+        }
+
+        #region prepare
+
+        private void setRights(int userid)
+        {
+            int right = loader.UserRight(userid, "FrmDepartmentSpecifikation");
+
+            switch(right)
+            {
+                // Admin
+                case 16:
+                    setRightsAdmin(userid);
+                    break;
+                //GL
+                case 17:
+                    setRightsGL(userid);
+                    break;
+                // AL
+                case 19:
+                    setRightsAL(userid);
+                    break;
+
+            }
+ 
+        }
+
+        private void setRightsAdmin(int userid)
+        {
+            // set Rights Admin
+        }
+
+        private void setRightsGL(int userid)
+        {
+            // set Rights GL
+        }
+
+        private void setRightsAL(int userid)
+        {
+                            
+            int depId = loader.LoadMyDepartment(userid);
+
+            if(depId != -1)
+            {
+                cbDepartments.SelectedValue = depId;
+                cbDepartments.Enabled = false;
+                btnloadDepartment.Visible = false;
+                btnNewDep.Visible = false;
+                btnDeleteDep.Visible = false;
+            }
+            else
+            {
+                FrmAfirmative noDep = new FrmAfirmative("Ihnen ist keine Abteilung zugewiesen.", 'e');
+                noDep.ShowDialog();
+
+                this.Close();
+            }
         }
 
         private void prepareFields()
@@ -63,6 +124,10 @@ namespace Supernova.Sub_Forms.Administration
             
 
         }
+
+        #endregion
+
+        #region clickEvents
 
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -102,7 +167,40 @@ namespace Supernova.Sub_Forms.Administration
             prepareFields();
         }
 
+        private void btnNewDep_Click(object sender, EventArgs e)
+        {
+            FrmNewDep frm = new FrmNewDep();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+            }
+            else 
+            { 
+            }
+        }
 
+        private void btnDeleteDep_Click(object sender, EventArgs e)
+        {
+            FrmAfirmative delete = new FrmAfirmative(" Wollen sie die aktuelle Abteilung löschen?",'d');
+            if (delete.ShowDialog() == DialogResult.OK) 
+            {
+                if (saver.DeleteDep(currentid)) 
+                {
+                    FrmAfirmative deleteComplete = new FrmAfirmative("Die Abteilung wurde gelöscht.",'u');
+                    deleteComplete.ShowDialog();
+                    prepareBoxes();                    
+                    prepareFields();
+
+
+                }else
+                {
+                    FrmAfirmative deleteError = new FrmAfirmative("Löschen nicht möglich.",'e');
+                    deleteError.ShowDialog();
+                }
+            }
+
+        }
+
+        #endregion
 
     }
 }

@@ -30,8 +30,9 @@ namespace Supernova.Sub_Forms.General
                     lblAfirmationText.Text = text;
                     break;
                 case 'u':
-                    this.Text = "Ändern";
+                    this.Text = "Aktualisiert";
                     lblAfirmationText.Text = text;
+                    btnCancel.Visible = false;
                     break;
                 case 'i':
                     this.Text = "Gespeichert";
@@ -40,6 +41,9 @@ namespace Supernova.Sub_Forms.General
                     break;
 
             }
+
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnOkay.DialogResult = DialogResult.OK;
         }
     }
 }

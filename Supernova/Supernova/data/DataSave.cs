@@ -178,6 +178,9 @@ namespace Supernova.data
         }
 
         #endregion
+
+        # region departments
+
         public bool SaveDepCapa(int CapaID, int year1, int year2, int year3)
         {
             dbError.deleteDBError();
@@ -186,7 +189,7 @@ namespace Supernova.data
 
             try
             {
-                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
+                //SaveOrUpdateDep 
 
                 string commandText = "Call SaveDepartmentCapa(@depid,@y1,@y2,@y3)";
                 MySqlCommand cmd = new MySqlCommand();
@@ -229,7 +232,53 @@ namespace Supernova.data
             return retval;
 
         }
-      
+
+        public bool DeleteDep(int CapaID)
+        {
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            bool retval = true;
+
+            try
+            {
+                //Delete Department
+
+                string commandText = "Call DeleteDepart(@depid)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("depid", CapaID);
+                cmd.Parameters["depid"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+                dbError.setDBError();
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return retval;
+
+        }
+
+
+
+        #endregion
+
         #region projectMatters
 
         public bool SaveorUpdateProject(ProjektDataDummy projektData)
