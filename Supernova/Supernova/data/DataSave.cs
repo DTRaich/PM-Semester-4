@@ -42,7 +42,7 @@ namespace Supernova.data
 
                 connection.Close();
 
-                saveAbtMatters(userID, personalID);
+             
 
             }
             catch (Exception ex)
@@ -60,16 +60,7 @@ namespace Supernova.data
             }
             return retval;
         }
-
-        private void saveAbtMatters(int userID, int personalID)
-        {
-            dbError.deleteDBError();
-            dbError.setDBError();
-
-
-        }
-         
-
+        
         public bool ChangePassword(int userID, int passwort)
         {
             dbError.deleteDBError();
@@ -155,10 +146,6 @@ namespace Supernova.data
                     connection.Close();
                     retval = true;
 
-                    if (userData.departmentID != -1)
-                    {
-                        // dann mach das
-                    }
 
                 }
                 catch (Exception ex)
