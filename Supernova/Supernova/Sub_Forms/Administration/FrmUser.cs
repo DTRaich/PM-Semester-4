@@ -17,6 +17,7 @@ namespace Supernova.Sub_Forms.Administration
         DataTable departments;
         DataTable usergroup;
         User userdata;
+        ParameterLoad pl = new ParameterLoad();
         private int personalUserID = 0;
 
         #region cosntructAndInitialize
@@ -30,8 +31,8 @@ namespace Supernova.Sub_Forms.Administration
 
         private void initializeComboBox()
         {
-            ParameterLoad pl = new ParameterLoad();
-            departments = pl.loadDeparments();
+          
+            departments = pl.loadAvaliableDeparments();
             usergroup = pl.loadUserGroups();
 
             //sonder row für abts ohne abteilung
@@ -178,7 +179,7 @@ namespace Supernova.Sub_Forms.Administration
         private void btnCancel_Click(object sender, EventArgs e)
         {
             resetBoxes();
-
+            prepareBoxes();
         }
 
         #endregion
@@ -242,7 +243,31 @@ namespace Supernova.Sub_Forms.Administration
 
             if (userdata.departmentID != -1)
             {
+                departments = pl.loadMyDeparment(userdata.userID);
+                //sonder row für abts ohne abteilung
+                DataRow dr = departments.NewRow();
+                dr["DEPARTMENTS_ID"] = 0;
+                dr["D_NAME"] = "Keine";
+
+                departments.Rows.Add(dr);
+                cbAbteilung.DataSource = departments;
                 cbAbteilung.SelectedValue = userdata.departmentID;
+                cbAbteilung.ValueMember = "DEPARTMENTS_ID";
+                cbAbteilung.DisplayMember = "D_NAME";
+            }
+            else
+            {
+                departments = pl.loadAvaliableDeparments();
+                //sonder row für abts ohne abteilung
+                DataRow dr = departments.NewRow();
+                dr["DEPARTMENTS_ID"] = 0;
+                dr["D_NAME"] = "Keine";
+
+                departments.Rows.Add(dr);
+                cbAbteilung.DataSource = departments;
+                cbAbteilung.SelectedValue = userdata.departmentID;
+                cbAbteilung.ValueMember = "DEPARTMENTS_ID";
+                cbAbteilung.DisplayMember = "D_NAME";
             }
 
             txtUsername.ReadOnly = true;
