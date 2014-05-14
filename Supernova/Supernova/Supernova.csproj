@@ -89,6 +89,12 @@
     <Compile Include="Sub_Forms\Account\FrmPasswordChange.Designer.cs">
       <DependentUpon>FrmPasswordChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sub_Forms\Administration\FrmNewDep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Administration\FrmNewDep.Designer.cs">
+      <DependentUpon>FrmNewDep.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sub_Forms\Administration\FrmRightsReglement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Account\FrmUserInformation.resx">
       <DependentUpon>FrmUserInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmNewDep.resx">
+      <DependentUpon>FrmNewDep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Administration\FrmRightsReglement.resx">
       <DependentUpon>FrmRightsReglement.cs</DependentUpon>
