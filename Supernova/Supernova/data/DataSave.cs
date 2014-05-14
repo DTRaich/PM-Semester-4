@@ -188,7 +188,7 @@ namespace Supernova.data
             {
                 //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
 
-                string commandText = "Call DeleteUser(@depid,@y1,@y2,@y3)";
+                string commandText = "Call SaveDepartmentCapa(@depid,@y1,@y2,@y3)";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;
