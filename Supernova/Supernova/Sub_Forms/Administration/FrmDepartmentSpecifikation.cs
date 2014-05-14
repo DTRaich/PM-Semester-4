@@ -14,7 +14,7 @@ namespace Supernova.Sub_Forms.Administration
     {
         DataTable departments;
 
-        public FrmDepartmentSpecifikation()
+        public FrmDepartmentSpecifikation(int userid)
         {
             InitializeComponent();
             prepareBoxes();

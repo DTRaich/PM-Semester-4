@@ -101,12 +101,6 @@
     <Compile Include="Sub_Forms\Administration\FrmCriteriaWeight.Designer.cs">
       <DependentUpon>FrmCriteriaWeight.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sub_Forms\Administration\FrmDepartmentOverview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sub_Forms\Administration\FrmDepartmentOverview.Designer.cs">
-      <DependentUpon>FrmDepartmentOverview.cs</DependentUpon>
-    </Compile>
     <Compile Include="Sub_Forms\Administration\FrmDepartmentSpecifikation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,9 +208,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Administration\FrmCriteriaWeight.resx">
       <DependentUpon>FrmCriteriaWeight.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sub_Forms\Administration\FrmDepartmentOverview.resx">
-      <DependentUpon>FrmDepartmentOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Administration\FrmDepartmentSpecifikation.resx">
       <DependentUpon>FrmDepartmentSpecifikation.cs</DependentUpon>
