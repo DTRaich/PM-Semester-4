@@ -40,12 +40,14 @@
             this.gpLoad = new System.Windows.Forms.GroupBox();
             this.btnloadDepartment = new System.Windows.Forms.Button();
             this.gpDetails = new System.Windows.Forms.GroupBox();
+            this.btnNewDep = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMT1 = new System.Windows.Forms.Label();
             this.mtbBudget3 = new System.Windows.Forms.MaskedTextBox();
             this.mtbBudget2 = new System.Windows.Forms.MaskedTextBox();
             this.mtbBudget1 = new System.Windows.Forms.MaskedTextBox();
+            this.btnDeleteDep = new System.Windows.Forms.Button();
             this.gpLoad.SuspendLayout();
             this.gpDetails.SuspendLayout();
             this.SuspendLayout();
@@ -160,6 +162,8 @@
             // 
             // gpDetails
             // 
+            this.gpDetails.Controls.Add(this.btnDeleteDep);
+            this.gpDetails.Controls.Add(this.btnNewDep);
             this.gpDetails.Controls.Add(this.label2);
             this.gpDetails.Controls.Add(this.label1);
             this.gpDetails.Controls.Add(this.lblMT1);
@@ -178,6 +182,16 @@
             this.gpDetails.Size = new System.Drawing.Size(920, 297);
             this.gpDetails.TabIndex = 13;
             this.gpDetails.TabStop = false;
+            // 
+            // btnNewDep
+            // 
+            this.btnNewDep.Location = new System.Drawing.Point(687, 85);
+            this.btnNewDep.Name = "btnNewDep";
+            this.btnNewDep.Size = new System.Drawing.Size(124, 38);
+            this.btnNewDep.TabIndex = 18;
+            this.btnNewDep.Text = "Neue Abteilung erstellen";
+            this.btnNewDep.UseVisualStyleBackColor = true;
+            this.btnNewDep.Click += new System.EventHandler(this.btnNewDep_Click);
             // 
             // label2
             // 
@@ -233,6 +247,16 @@
             this.mtbBudget1.Size = new System.Drawing.Size(55, 20);
             this.mtbBudget1.TabIndex = 12;
             // 
+            // btnDeleteDep
+            // 
+            this.btnDeleteDep.Location = new System.Drawing.Point(687, 147);
+            this.btnDeleteDep.Name = "btnDeleteDep";
+            this.btnDeleteDep.Size = new System.Drawing.Size(124, 38);
+            this.btnDeleteDep.TabIndex = 19;
+            this.btnDeleteDep.Text = "Diese Abteilung löschen";
+            this.btnDeleteDep.UseVisualStyleBackColor = true;
+            this.btnDeleteDep.Click += new System.EventHandler(this.btnDeleteDep_Click);
+            // 
             // FrmDepartmentSpecifikation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,6 +295,8 @@
         private System.Windows.Forms.MaskedTextBox mtbBudget2;
         private System.Windows.Forms.MaskedTextBox mtbBudget1;
         private System.Windows.Forms.Button btnloadDepartment;
+        private System.Windows.Forms.Button btnNewDep;
+        private System.Windows.Forms.Button btnDeleteDep;
 
     }
 }
