@@ -34,6 +34,13 @@ namespace Supernova.Sub_Forms.Administration
             departments = pl.loadDeparments();
             usergroup = pl.loadUserGroups();
 
+            //sonder row für abts ohne abteilung
+            DataRow dr = departments.NewRow();
+            dr["DEPARTMENTS_ID"] = 0;
+            dr["D_NAME"] = "Keine";
+
+            departments.Rows.Add(dr);
+
             try
             {
                 cbAbteilung.DataSource = departments;
