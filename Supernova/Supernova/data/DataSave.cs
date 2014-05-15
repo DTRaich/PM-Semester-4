@@ -15,7 +15,7 @@ namespace Supernova.data
         DBerror dbError = DBerror.getInstanze();
 
         #region userAndRights
-        public bool DeleteUser(int userID, int personalID)
+        public bool DeleteUser(int userID)
         {
             dbError.deleteDBError();
             MySqlConnection connection = new MySqlConnection(conSting);
@@ -25,16 +25,13 @@ namespace Supernova.data
             {
                 //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
 
-                string commandText = "Call DeleteUser(@deletID,@myID )";
+                string commandText = "Call DeleteUser(@deletID)";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;
 
                 cmd.Parameters.AddWithValue("deletID", userID);
                 cmd.Parameters["deletID"].Direction = ParameterDirection.Input;
-
-                cmd.Parameters.AddWithValue("myID", personalID);
-                cmd.Parameters["myID"].Direction = ParameterDirection.Input;
 
 
                 connection.Open();

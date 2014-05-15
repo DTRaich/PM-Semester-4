@@ -171,9 +171,25 @@ namespace Supernova.Sub_Forms.Administration
             }
             else
             {
-                              
+                DataSave saver = new DataSave();
+                FrmAfirmative deleteUser = new FrmAfirmative("Möchten sie den Benutzer löschen?. \n ", 'd');
+               
+                if (deleteUser.ShowDialog() ==  DialogResult.OK) 
+                { 
+                    
+                bool retval = saver.DeleteUser(userdata.userID);
+                if (retval)
+                {
+                    FrmAfirmative deleted = new FrmAfirmative("Der Benutzer wurde erfolgreich gelöscht. \n ", 'd');
+                    deleted.ShowDialog();
+                }
+                else 
+                {
+                    FrmAfirmative notDeleted = new FrmAfirmative("Der Benutzer konnte nicht gelöscht werden. \n ", 'e');
+                    notDeleted.ShowDialog();
+                }
+              }    
             }
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -212,7 +228,7 @@ namespace Supernova.Sub_Forms.Administration
         {
             DataSave saver = new DataSave();
 
-            bool deleteWorked = saver.DeleteUser(userdata.userID, 0);
+            bool deleteWorked = saver.DeleteUser(userdata.userID);
             if (deleteWorked)
             {
                 FrmAfirmative DELTEUser = new FrmAfirmative("Der Benutzer wurde gelöscht. \n ", 's');
@@ -227,8 +243,6 @@ namespace Supernova.Sub_Forms.Administration
             resetBoxes();
 
         }
-
-
 
         private void prepareBoxes()
         {

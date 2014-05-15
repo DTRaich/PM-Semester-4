@@ -47,8 +47,8 @@
             this.hilfekatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.dbErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.msMenu.SuspendLayout();
             this.sStateStrip.SuspendLayout();
             this.SuspendLayout();
@@ -138,6 +138,7 @@
             this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
             this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            this.rechteverwaltungToolStripMenuItem.Visible = false;
             this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click);
             // 
             // benutzerAnlegenToolStripMenuItem
@@ -212,6 +213,12 @@
             this.sStateStrip.TabIndex = 1;
             this.sStateStrip.Text = "statusStrip1";
             // 
+            // dbErrorLabel
+            // 
+            this.dbErrorLabel.Name = "dbErrorLabel";
+            this.dbErrorLabel.Size = new System.Drawing.Size(0, 17);
+            this.dbErrorLabel.Visible = false;
+            // 
             // pnlMain
             // 
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -219,12 +226,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
-            // 
-            // dbErrorLabel
-            // 
-            this.dbErrorLabel.Name = "dbErrorLabel";
-            this.dbErrorLabel.Size = new System.Drawing.Size(0, 17);
-            this.dbErrorLabel.Visible = false;
             // 
             // FrmMain
             // 
