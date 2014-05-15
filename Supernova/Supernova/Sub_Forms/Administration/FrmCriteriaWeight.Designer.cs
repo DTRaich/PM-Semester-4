@@ -118,6 +118,8 @@
             this.weightGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.weightGrid.Size = new System.Drawing.Size(663, 334);
             this.weightGrid.TabIndex = 0;
+            this.weightGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.weightGrid_EditingControlShowing);
+            this.weightGrid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightGrid_KeyPress);
             // 
             // FrmCriteriaWeight
             // 
@@ -128,6 +130,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCriteriaWeight";
             this.Text = "CriteriaWeight";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmCriteriaWeight_KeyPress);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.gbactive.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.activationGrid)).EndInit();

@@ -137,8 +137,6 @@ namespace Supernova.Sub_Forms.Administration
             weightGrid.DataSource = weightSource;
             weightGrid.Columns[0].Visible = false;
             weightGrid.Columns[1].ReadOnly = true;
-           // weightGrid.Columns[2].ValueType = System.Type.GetType("System.Int32");
-
         }
 
         private void fillWeightSource()
@@ -199,6 +197,28 @@ namespace Supernova.Sub_Forms.Administration
             return dt;
         }
         #endregion
+
+        private void FrmCriteriaWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           
+        }
+
+        private void weightGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (weightGrid.CurrentCell.ColumnIndex > 1 )
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(weightGrid_KeyPress);
+            }
+
+        }
+
+        private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
 
        
 
