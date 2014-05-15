@@ -36,7 +36,7 @@
             // btnOkay
             // 
             this.btnOkay.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnOkay.Location = new System.Drawing.Point(114, 148);
+            this.btnOkay.Location = new System.Drawing.Point(111, 164);
             this.btnOkay.Name = "btnOkay";
             this.btnOkay.Size = new System.Drawing.Size(75, 23);
             this.btnOkay.TabIndex = 0;
@@ -46,7 +46,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(207, 148);
+            this.btnCancel.Location = new System.Drawing.Point(207, 164);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -55,11 +55,10 @@
             // 
             // lblAfirmationText
             // 
-            this.lblAfirmationText.AutoSize = true;
             this.lblAfirmationText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAfirmationText.Location = new System.Drawing.Point(54, 66);
+            this.lblAfirmationText.Location = new System.Drawing.Point(40, 38);
             this.lblAfirmationText.Name = "lblAfirmationText";
-            this.lblAfirmationText.Size = new System.Drawing.Size(51, 20);
+            this.lblAfirmationText.Size = new System.Drawing.Size(307, 106);
             this.lblAfirmationText.TabIndex = 2;
             this.lblAfirmationText.Text = "label1";
             // 
@@ -80,7 +79,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Default";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

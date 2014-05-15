@@ -40,59 +40,63 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(346, 110);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(346, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
+            this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Vorname";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(346, 151);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nachname";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(346, 190);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(346, 202);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.Size = new System.Drawing.Size(98, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "E-Mailadresse";
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(469, 107);
+            this.tbFirstName.Location = new System.Drawing.Point(469, 100);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.ReadOnly = true;
-            this.tbFirstName.Size = new System.Drawing.Size(100, 20);
+            this.tbFirstName.Size = new System.Drawing.Size(151, 20);
             this.tbFirstName.TabIndex = 4;
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(469, 148);
+            this.tbLastName.Location = new System.Drawing.Point(469, 150);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.ReadOnly = true;
-            this.tbLastName.Size = new System.Drawing.Size(100, 20);
+            this.tbLastName.Size = new System.Drawing.Size(151, 20);
             this.tbLastName.TabIndex = 5;
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(469, 187);
+            this.tbEmail.Location = new System.Drawing.Point(469, 201);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.ReadOnly = true;
-            this.tbEmail.Size = new System.Drawing.Size(100, 20);
+            this.tbEmail.Size = new System.Drawing.Size(151, 20);
             this.tbEmail.TabIndex = 6;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(826, 330);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(843, 330);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(95, 35);
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Schließen";
             this.btnClose.UseVisualStyleBackColor = true;
