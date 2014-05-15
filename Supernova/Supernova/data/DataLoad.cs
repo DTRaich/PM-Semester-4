@@ -325,23 +325,36 @@ namespace Supernova.data
         #region criteria
         public DataSet LoadCriteriaWeightDataSet()
         {
-            dbError.deleteDBError();
-            MySqlConnection connection = new MySqlConnection(conSting);
-
             DataSet ds = new DataSet("CriteriaWeight");
-            DataTable dt = new DataTable("Criterias");
-            DataTable ddt = new DataTable("CriteriaWeight");
+            DataTable criterias = getAllCriterias();
+            DataTable activeCriterias = getAllActiveCriterias();
+            DataTable weight = getActiveCriteriasWeights();
 
+
+            ds.Tables.Add(criterias);
+            ds.Tables.Add(activeCriterias);
+            ds.Tables.Add(weight);
+            ds.AcceptChanges();
+            
+            return ds;
+        }
+
+        private DataTable getActiveCriteriasWeights()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("ActiveCriteriasWeight");
+            MySqlConnection connection = new MySqlConnection(conSting);
             try
             {
-                connection.Open();
-                string comand = "Select Criteria_ID, C_NAME,C_ISACTIVE from criteria order by Criteria_ID";
-                //string comandsec = "Select CTC_FromCriteria,CTC_ToCriteria,CTC_Points from CRITERIA_TO_CRITERIA order by CTC_FromCriteria";
+                string comand = "Call GetActiveCriteriaWeight()";
 
-                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
-                //MySqlDataAdapter adapsec = new MySqlDataAdapter(comandsec, connection);
-                adap.Fill(dt);
-                //adapsec.Fill(ddt);
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = comand;
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
             }
             catch (Exception ex)
             {
@@ -354,12 +367,63 @@ namespace Supernova.data
                     connection.Close();
                 }
             }
-            ds.Tables.Add(dt);
-            //ds.Tables.Add(ddt);
-            ds.AcceptChanges();
-            
-            return ds;
+            return dt;
         }
+
+        private DataTable getAllActiveCriterias()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("ActiveCriterias");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select Criteria_ID, C_NAME from criteria where C_ISACTIVE = 1 order by Criteria_ID";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+        private DataTable getAllCriterias()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("Criterias");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select Criteria_ID, C_NAME,C_ISACTIVE from criteria order by Criteria_ID";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
 
         #endregion
 

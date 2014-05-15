@@ -19,75 +19,45 @@ namespace Supernova.Sub_Forms.Administration
         DataLoad loader = new DataLoad();
         ParameterHelper parahelp = new ParameterHelper();
         DataSave saver = new DataSave();
+
         DataSet criteriaWeightDataSet;
-        DataTable activationSource = new DataTable();
+
+        DataTable activationSource;
         DataTable originActivation;
+
+        DataTable weightSource;
+        DataTable originWeight;
+
         #endregion
+
         public FrmCriteriaWeight()
         {
             
             InitializeComponent();
-            StartPrepares();
-            
-            //activationGrid.DataSource = dl.loadtest();
-            //DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn();            
-            //comboBoxColumn.DataSource = activationSource;
-            //comboBoxColumn.ValueMember = ;
-            //comboBoxColumn.DisplayMember = ;
-
-          
+            StartPrepares(); 
         }
 
         private void StartPrepares()
         {
             criteriaWeightDataSet = loader.LoadCriteriaWeightDataSet();
-            prepareWeightMatrix();
-            prepareActivation();
-        }
-
-        private void prepareActivation()
-        {
-            try
+            if (criteriaWeightDataSet.Tables[0].Rows.Count > 0)
             {
-                activationSource = criteriaWeightDataSet.Tables["Criterias"];                
-                activationSource.Columns.Add("Aktiv", System.Type.GetType("System.Boolean"));                
-                
-                foreach (DataRow dataRow in activationSource.Rows)
-                {
-                    if (dataRow["C_ISACTIVE"].ToString().Equals("1"))
-                    {
-                        dataRow["Aktiv"] = true;  
-                    }
-                    else
-                    {
-                        dataRow["Aktiv"] = false; 
-                    }
-                }
-
-                activationSource.AcceptChanges();
-                activationGrid.DataSource = activationSource;
-                activationGrid.Columns[0].Visible = false;
-                activationGrid.Columns[2].Visible = false;
-                activationGrid.Columns[1].HeaderText = "Kriterium";
-                activationGrid.Columns[1].ReadOnly = true;
-                activationGrid.ScrollBars = ScrollBars.Vertical;
-                originActivation = activationSource.Copy();
-               
+                prepareWeightMatrix();
+                prepareActivation();
             }
-            catch (Exception ex)
+            else
             {
+                FrmAfirmative dberror = new FrmAfirmative("Keine Daten gefunden \n Bitte wenden Sie sich an den Administrator", 'e');
+                dberror.ShowDialog();
             }
-
+           
         }
-
-        private void prepareWeightMatrix()
-        {
-          
-        }
+       
+        #region events
 
         private void button1_Click(object sender, EventArgs e)
-        {            
-            DataTable differenz  = parahelp.CompareTables(originActivation,activationSource);
+        {
+            DataTable differenz = parahelp.CompareTables(originActivation, activationSource);
 
             if (differenz.Rows.Count > 0)
             {
@@ -113,10 +83,126 @@ namespace Supernova.Sub_Forms.Administration
                 noChanges.StartPosition = FormStartPosition.CenterParent;
                 noChanges.ShowDialog();
             }
-            
 
+
+
+        }
+        #endregion
+
+        #region activation
+        private void prepareActivation()
+        {
+            try
+            {
+                activationSource = criteriaWeightDataSet.Tables["Criterias"];
+                activationSource.Columns.Add("Aktiv", System.Type.GetType("System.Boolean"));
+
+                foreach (DataRow dataRow in activationSource.Rows)
+                {
+                    if (dataRow["C_ISACTIVE"].ToString().Equals("1"))
+                    {
+                        dataRow["Aktiv"] = true;
+                    }
+                    else
+                    {
+                        dataRow["Aktiv"] = false;
+                    }
+                }
+
+                activationSource.AcceptChanges();
+                activationGrid.DataSource = activationSource;
+                activationGrid.Columns[0].Visible = false;
+                activationGrid.Columns[2].Visible = false;
+                activationGrid.Columns[1].HeaderText = "Kriterium";
+                activationGrid.Columns[1].ReadOnly = true;
+                activationGrid.ScrollBars = ScrollBars.Vertical;
+                originActivation = activationSource.Copy();
+
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        #endregion
+
+        #region Weight
+
+        private void prepareWeightMatrix()
+        {
+            weightSource = defineTemplate();
+            fillWeightSource();
+            originWeight = weightSource.Copy();
+            weightGrid.DataSource = weightSource;
+            weightGrid.Columns[0].Visible = false;
+            weightGrid.Columns[1].ReadOnly = true;
+           // weightGrid.Columns[2].ValueType = System.Type.GetType("System.Int32");
+
+        }
+
+        private void fillWeightSource()
+        {
+            try
+            {
+                string currentCritID = "0";
+                int columnCount = weightSource.Columns.Count;
+                int row = 0;
+                
+                foreach (DataRow dr in weightSource.Rows)
+                {
+                    currentCritID = dr[0].ToString();
+                    for(int i = 2; i < columnCount;i++)
+                    {
+                        dr[i] = criteriaWeightDataSet.Tables["ActiveCriteriasWeight"].Rows[row][2].ToString();
+                        row = row + 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private DataTable defineTemplate()
+        {
+            DataTable dt = new DataTable();
+            DataColumn dcID = new DataColumn("FromID");
+            DataColumn dcKat = new DataColumn("Kategorie");
+
+            // columns adden
+            dt.Columns.Add(dcID);
+            dt.Columns.Add(dcKat);
+
+            DataColumn dc;
+            foreach (DataRow dr in criteriaWeightDataSet.Tables["ActiveCriterias"].Rows)
+            {
+                dc = new DataColumn(dr[1].ToString());
+                dc.DataType = System.Type.GetType("System.Int32");
+                dt.Columns.Add(dc);
+            }
            
-	    }
+            dt.AcceptChanges();
+
+            // rows adden
+            DataRow row;
+
+            foreach (DataRow dr in criteriaWeightDataSet.Tables["ActiveCriterias"].Rows)
+            {
+                row = dt.NewRow();
+                row[0] = dr[0].ToString();
+                row[1] = dr[1].ToString();
+                dt.Rows.Add(row);
+            }
+            dt.AcceptChanges();
+
+            return dt;
+        }
+        #endregion
+
+       
+
+        
         
      
     }
