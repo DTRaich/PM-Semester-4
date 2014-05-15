@@ -27,7 +27,7 @@ namespace Supernova.Sub_Forms.Projects
 
         public bool checkAndValidateForm()
         {
-            projektdaten.lala = 1;
+            //projektdaten.lala = 1;
             return true;
         }
 

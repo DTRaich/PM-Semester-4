@@ -27,7 +27,7 @@ namespace Supernova.Sub_Forms.Projects
 
         public bool checkAndValidateForm()
         {
-            MessageBox.Show(projektdaten.lala.ToString());
+           // MessageBox.Show(projektdaten.lala.ToString());
             return true;
         }
     }
