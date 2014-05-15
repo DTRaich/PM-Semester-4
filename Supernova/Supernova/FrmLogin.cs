@@ -96,12 +96,14 @@ namespace Supernova
                         {
                         if (userid == -2)
                         {
+                            // -2 means userid is current userid, user already logged in
                             FrmAfirmative AlreadyLoggedIn = new FrmAfirmative("Dieser User ist bereits eingeloggt \n Bitte ändern sie die Login Daten.", 'e');
                             AlreadyLoggedIn.StartPosition = FormStartPosition.CenterParent;
                             AlreadyLoggedIn.ShowDialog();
                         }
                         else
                         {
+                            // nach login, userid wird gesetzt
                             lead.setUserID(userid);
                             lead.RemoveLogin();                           
                         }

@@ -24,6 +24,7 @@ namespace Supernova.Sub_Forms.Administration
 
         public FrmDepartmentSpecifikation(int userid)
         {
+            // Aufbau der Form
 
             InitializeComponent();
             prepareBoxes();
@@ -69,7 +70,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private void setRightsAL(int userid)
         {
-                            
+               // set Rights AL             
             int depId = loader.LoadMyDepartment(userid);
 
             if(depId != -1)
@@ -82,6 +83,7 @@ namespace Supernova.Sub_Forms.Administration
             }
             else
             {
+                // AL ohne Abteilung
                 FrmAfirmative noDep = new FrmAfirmative("Ihnen ist keine Abteilung zugewiesen.", 'e');
                 noDep.ShowDialog();
 
@@ -91,6 +93,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private void prepareFields()
         {
+            // prepare all fields in the formS
             currentid = Convert.ToInt32(cbDepartments.SelectedValue);
             depDataTab = loader.LoadDepartmenntCapacity(currentid);
             foreach(DataRow rw in depDataTab.Rows)
@@ -114,6 +117,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private void prepareBoxes()
         {
+           
 
             depComboTab = pl.loadDeparments();
 
@@ -169,13 +173,9 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnNewDep_Click(object sender, EventArgs e)
         {
-            FrmNewDep frm = new FrmNewDep();
-            if (frm.ShowDialog() == DialogResult.OK)
-            {
-            }
-            else 
-            { 
-            }
+            FrmNewDep newDep = new FrmNewDep();
+            newDep.ShowDialog();
+
         }
 
         private void btnDeleteDep_Click(object sender, EventArgs e)

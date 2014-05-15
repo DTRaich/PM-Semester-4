@@ -40,15 +40,15 @@
             this.gpLoad = new System.Windows.Forms.GroupBox();
             this.btnloadDepartment = new System.Windows.Forms.Button();
             this.gpDetails = new System.Windows.Forms.GroupBox();
-            this.btnDeleteDep = new System.Windows.Forms.Button();
+            this.gpCreate = new System.Windows.Forms.GroupBox();
             this.btnNewDep = new System.Windows.Forms.Button();
+            this.btnDeleteDep = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMT1 = new System.Windows.Forms.Label();
             this.mtbBudget3 = new System.Windows.Forms.MaskedTextBox();
             this.mtbBudget2 = new System.Windows.Forms.MaskedTextBox();
             this.mtbBudget1 = new System.Windows.Forms.MaskedTextBox();
-            this.gpCreate = new System.Windows.Forms.GroupBox();
             this.gpLoad.SuspendLayout();
             this.gpDetails.SuspendLayout();
             this.gpCreate.SuspendLayout();
@@ -184,27 +184,38 @@
             this.gpDetails.TabIndex = 13;
             this.gpDetails.TabStop = false;
             // 
-            // btnDeleteDep
+            // gpCreate
             // 
-            this.btnDeleteDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteDep.Location = new System.Drawing.Point(43, 148);
-            this.btnDeleteDep.Name = "btnDeleteDep";
-            this.btnDeleteDep.Size = new System.Drawing.Size(187, 46);
-            this.btnDeleteDep.TabIndex = 19;
-            this.btnDeleteDep.Text = "Diese Abteilung löschen";
-            this.btnDeleteDep.UseVisualStyleBackColor = true;
-            this.btnDeleteDep.Click += new System.EventHandler(this.btnDeleteDep_Click);
+            this.gpCreate.Controls.Add(this.btnNewDep);
+            this.gpCreate.Controls.Add(this.btnDeleteDep);
+            this.gpCreate.Location = new System.Drawing.Point(645, 20);
+            this.gpCreate.Name = "gpCreate";
+            this.gpCreate.Size = new System.Drawing.Size(261, 269);
+            this.gpCreate.TabIndex = 20;
+            this.gpCreate.TabStop = false;
+            this.gpCreate.Text = "Verwaltung";
             // 
             // btnNewDep
             // 
             this.btnNewDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewDep.Location = new System.Drawing.Point(43, 86);
+            this.btnNewDep.Location = new System.Drawing.Point(43, 65);
             this.btnNewDep.Name = "btnNewDep";
             this.btnNewDep.Size = new System.Drawing.Size(187, 46);
             this.btnNewDep.TabIndex = 18;
             this.btnNewDep.Text = "Neue Abteilung erstellen";
             this.btnNewDep.UseVisualStyleBackColor = true;
             this.btnNewDep.Click += new System.EventHandler(this.btnNewDep_Click);
+            // 
+            // btnDeleteDep
+            // 
+            this.btnDeleteDep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteDep.Location = new System.Drawing.Point(43, 140);
+            this.btnDeleteDep.Name = "btnDeleteDep";
+            this.btnDeleteDep.Size = new System.Drawing.Size(187, 46);
+            this.btnDeleteDep.TabIndex = 19;
+            this.btnDeleteDep.Text = "Diese Abteilung löschen";
+            this.btnDeleteDep.UseVisualStyleBackColor = true;
+            this.btnDeleteDep.Click += new System.EventHandler(this.btnDeleteDep_Click);
             // 
             // label2
             // 
@@ -259,17 +270,6 @@
             this.mtbBudget1.Name = "mtbBudget1";
             this.mtbBudget1.Size = new System.Drawing.Size(55, 20);
             this.mtbBudget1.TabIndex = 12;
-            // 
-            // gpCreate
-            // 
-            this.gpCreate.Controls.Add(this.btnNewDep);
-            this.gpCreate.Controls.Add(this.btnDeleteDep);
-            this.gpCreate.Location = new System.Drawing.Point(645, 20);
-            this.gpCreate.Name = "gpCreate";
-            this.gpCreate.Size = new System.Drawing.Size(261, 269);
-            this.gpCreate.TabIndex = 20;
-            this.gpCreate.TabStop = false;
-            this.gpCreate.Text = "Verwaltung";
             // 
             // FrmDepartmentSpecifikation
             // 
