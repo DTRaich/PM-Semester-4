@@ -39,9 +39,10 @@
             // 
             // btnChangePw
             // 
-            this.btnChangePw.Location = new System.Drawing.Point(467, 231);
+            this.btnChangePw.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePw.Location = new System.Drawing.Point(391, 255);
             this.btnChangePw.Name = "btnChangePw";
-            this.btnChangePw.Size = new System.Drawing.Size(100, 23);
+            this.btnChangePw.Size = new System.Drawing.Size(132, 38);
             this.btnChangePw.TabIndex = 0;
             this.btnChangePw.Text = "Passwort ändern";
             this.btnChangePw.UseVisualStyleBackColor = true;
@@ -50,55 +51,58 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(319, 118);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(289, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(99, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "altes Passwort";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(319, 155);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(289, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.Size = new System.Drawing.Size(108, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "neues Passwort";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(319, 195);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(289, 195);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 13);
+            this.label3.Size = new System.Drawing.Size(188, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "neues Passwort wiederholen";
             // 
             // mtbOldPW
             // 
-            this.mtbOldPW.Location = new System.Drawing.Point(467, 115);
+            this.mtbOldPW.Location = new System.Drawing.Point(483, 115);
             this.mtbOldPW.Mask = "00000";
             this.mtbOldPW.Name = "mtbOldPW";
             this.mtbOldPW.PasswordChar = '*';
-            this.mtbOldPW.Size = new System.Drawing.Size(100, 20);
+            this.mtbOldPW.Size = new System.Drawing.Size(40, 20);
             this.mtbOldPW.TabIndex = 10;
             // 
             // mtbNewPW1
             // 
-            this.mtbNewPW1.Location = new System.Drawing.Point(467, 152);
+            this.mtbNewPW1.Location = new System.Drawing.Point(483, 154);
             this.mtbNewPW1.Mask = "00000";
             this.mtbNewPW1.Name = "mtbNewPW1";
             this.mtbNewPW1.PasswordChar = '*';
-            this.mtbNewPW1.Size = new System.Drawing.Size(100, 20);
+            this.mtbNewPW1.Size = new System.Drawing.Size(40, 20);
             this.mtbNewPW1.TabIndex = 11;
             // 
             // mtbNewPW2
             // 
-            this.mtbNewPW2.Location = new System.Drawing.Point(467, 192);
+            this.mtbNewPW2.Location = new System.Drawing.Point(483, 194);
             this.mtbNewPW2.Mask = "00000";
             this.mtbNewPW2.Name = "mtbNewPW2";
             this.mtbNewPW2.PasswordChar = '*';
-            this.mtbNewPW2.Size = new System.Drawing.Size(100, 20);
+            this.mtbNewPW2.Size = new System.Drawing.Size(40, 20);
             this.mtbNewPW2.TabIndex = 12;
             // 
             // FrmPasswordChange

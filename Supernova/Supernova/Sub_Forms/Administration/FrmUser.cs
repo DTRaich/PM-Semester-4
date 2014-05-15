@@ -149,7 +149,6 @@ namespace Supernova.Sub_Forms.Administration
                     if (dt.Rows.Count > 0)
                     {
                         FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern nicht möglich. \n Benutzer bereits vorhanden", 'e');
-                        SaveNewUser.StartPosition = FormStartPosition.CenterParent;
                         SaveNewUser.ShowDialog();
                     }
                     else
@@ -168,13 +167,11 @@ namespace Supernova.Sub_Forms.Administration
             if (userdata.userID == personalUserID)
             {
                 FrmAfirmative SaveNewUser = new FrmAfirmative("Den eigenen aktiven Benutzer zu löschen ist verboten. \n ", 'e');
-                SaveNewUser.StartPosition = FormStartPosition.CenterParent;
                 SaveNewUser.ShowDialog();
             }
             else
             {
-               
-               
+                              
             }
 
         }
@@ -197,8 +194,7 @@ namespace Supernova.Sub_Forms.Administration
 
             if (saver.UpdateUser(userdata,depIdBeforeChange))
             {
-                FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 's');
-                SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                FrmAfirmative SaveNewUser = new FrmAfirmative("Diese Benutzerdaten wurden gespeichert. \n ", 'i');
                 SaveNewUser.ShowDialog();
 
                 resetBoxes();
@@ -220,14 +216,12 @@ namespace Supernova.Sub_Forms.Administration
             if (deleteWorked)
             {
                 FrmAfirmative DELTEUser = new FrmAfirmative("Der Benutzer wurde gelöscht. \n ", 's');
-                DELTEUser.StartPosition = FormStartPosition.CenterParent;
                 DELTEUser.ShowDialog();
                 resetBoxes();
             }
             else
             {
                 FrmAfirmative DELTEUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
-                DELTEUser.StartPosition = FormStartPosition.CenterParent;
                 DELTEUser.ShowDialog();
             }
             resetBoxes();
@@ -275,7 +269,7 @@ namespace Supernova.Sub_Forms.Administration
                 cbAbteilung.SelectedValue = 0;
             }
 
-            txtUsername.ReadOnly = true;
+           // txtUsername.ReadOnly = true;
 
         }
 
@@ -285,6 +279,7 @@ namespace Supernova.Sub_Forms.Administration
             txtNachname.Text = string.Empty;
             txtUsername.Text = string.Empty;
             txtEmail.Text = string.Empty;
+            txtUsernameLoad.Text = string.Empty;
             cbBenutzergruppe.SelectedIndex = 1;
 
             mtbPassword.ResetText();
@@ -294,6 +289,7 @@ namespace Supernova.Sub_Forms.Administration
             txtUsername.ReadOnly = false;
             userdata = new User();
             depIdBeforeChange = -1;
+            
 
         }
 
@@ -384,6 +380,11 @@ namespace Supernova.Sub_Forms.Administration
         #endregion
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAbteilung_Click(object sender, EventArgs e)
         {
 
         }

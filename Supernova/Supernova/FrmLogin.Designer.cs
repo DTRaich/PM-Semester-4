@@ -42,7 +42,7 @@
             // 
             this.lblLoginText.AutoSize = true;
             this.lblLoginText.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoginText.Location = new System.Drawing.Point(217, 40);
+            this.lblLoginText.Location = new System.Drawing.Point(403, 40);
             this.lblLoginText.Name = "lblLoginText";
             this.lblLoginText.Size = new System.Drawing.Size(73, 29);
             this.lblLoginText.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(117, 119);
+            this.lblUsername.Location = new System.Drawing.Point(303, 119);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(73, 17);
             this.lblUsername.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(120, 173);
+            this.lblPassword.Location = new System.Drawing.Point(306, 173);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(65, 17);
             this.lblPassword.TabIndex = 2;
@@ -70,14 +70,14 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(222, 119);
+            this.txtUsername.Location = new System.Drawing.Point(408, 119);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(100, 20);
             this.txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(222, 173);
+            this.txtPassword.Location = new System.Drawing.Point(408, 173);
             this.txtPassword.MaxLength = 5;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -87,9 +87,10 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(222, 244);
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(394, 239);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(100, 27);
+            this.btnLogin.Size = new System.Drawing.Size(114, 30);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -98,7 +99,7 @@
             // lblErrorUsername
             // 
             this.lblErrorUsername.AutoSize = true;
-            this.lblErrorUsername.Location = new System.Drawing.Point(338, 123);
+            this.lblErrorUsername.Location = new System.Drawing.Point(524, 123);
             this.lblErrorUsername.Name = "lblErrorUsername";
             this.lblErrorUsername.Size = new System.Drawing.Size(100, 13);
             this.lblErrorUsername.TabIndex = 6;
@@ -108,7 +109,7 @@
             // lblErrorPassword
             // 
             this.lblErrorPassword.AutoSize = true;
-            this.lblErrorPassword.Location = new System.Drawing.Point(341, 179);
+            this.lblErrorPassword.Location = new System.Drawing.Point(527, 179);
             this.lblErrorPassword.Name = "lblErrorPassword";
             this.lblErrorPassword.Size = new System.Drawing.Size(95, 13);
             this.lblErrorPassword.TabIndex = 7;
@@ -119,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 296);
+            this.ClientSize = new System.Drawing.Size(929, 343);
             this.Controls.Add(this.lblErrorPassword);
             this.Controls.Add(this.lblErrorUsername);
             this.Controls.Add(this.btnLogin);
