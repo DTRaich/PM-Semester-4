@@ -101,6 +101,7 @@ namespace Supernova.data
 
             return dt;
         }
+
         public DataTable loadUserGroups()
         {
             dbError.deleteDBError();
