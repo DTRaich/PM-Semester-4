@@ -10,21 +10,39 @@ namespace Supernova.objects
     public class ProjektDataDummy
     {
         #region fields 
-        public int ProjectID = 0;
 
         #region basisdaten
-        public int lala;
-        public string lalaknl;
+        public int ProjectID = 0;
+        public string ProjectName;
+        public string ProjectDescription;
+        public int ProjectLeader;
+        public int ProjectCategory;
+        public bool HaveTo;
         #endregion
+
         #region costTime
-
+        public int ProjectDuration;
+        public DateTime ProjectStartDate;
+        public DateTime ProjectEndDate;
+        public double GesamtKosten;
+        public double NPV;
         #endregion
+
         #region Risk
-
         #endregion
+
         #region Strategie
-
+        public int frage1;
+        public int frage2;
+        public int frage3;
+        public int frage4;
+        public int frage5;
         #endregion
+
+        #region Ressourcen
+        public DataTable AbteilungsKapazitaet;
+        #endregion
+
         #endregion
 
         public ProjektDataDummy()
