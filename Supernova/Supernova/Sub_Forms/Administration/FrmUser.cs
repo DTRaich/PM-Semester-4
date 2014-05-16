@@ -86,31 +86,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnUserLoad_Click(object sender, EventArgs e)
         {
-            lblErrorText.Visible = false;
-            string userload = txtUsernameLoad.Text;
-
-            if (String.IsNullOrWhiteSpace(userload) || String.IsNullOrEmpty(userload))
-            {
-                lblErrorText.ForeColor = Color.DarkRed;
-                lblErrorText.Visible = true;
-            }else
-            {
-                bool loadworked = userdata.LoadUser(userload);
-                if (!loadworked)
-                {
-                    FrmAfirmative NoUser = new FrmAfirmative("Kein User gefunden. \n Bitte überprüfen sie ihre Eingaben.", 'e');
-                    NoUser.StartPosition = FormStartPosition.CenterParent;
-                    NoUser.ShowDialog();
-                }
-                else 
-                {
-                    prepareBoxes();
-                    btnDelete.Visible = true;
-                    txtUsername.ReadOnly = true;
-                    depIdBeforeChange = userdata.departmentID;
-
-                }
-            }
+            loadUser();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -200,9 +176,37 @@ namespace Supernova.Sub_Forms.Administration
 
         #endregion
 
-        
         #region privateMethod
 
+        private void loadUser()
+        {
+            lblErrorText.Visible = false;
+            string userload = txtUsernameLoad.Text;
+
+            if (String.IsNullOrWhiteSpace(userload) || String.IsNullOrEmpty(userload))
+            {
+                lblErrorText.ForeColor = Color.DarkRed;
+                lblErrorText.Visible = true;
+            }
+            else
+            {
+                bool loadworked = userdata.LoadUser(userload);
+                if (!loadworked)
+                {
+                    FrmAfirmative NoUser = new FrmAfirmative("Kein User gefunden. \n Bitte überprüfen sie ihre Eingaben.", 'e');
+                    NoUser.StartPosition = FormStartPosition.CenterParent;
+                    NoUser.ShowDialog();
+                }
+                else
+                {
+                    prepareBoxes();
+                    btnDelete.Visible = true;
+                    txtUsername.ReadOnly = true;
+                    depIdBeforeChange = userdata.departmentID;
+
+                }
+            }
+        }
        
         private void normalUpdateSave()
         {
@@ -398,14 +402,20 @@ namespace Supernova.Sub_Forms.Administration
 
         }
 
-        private void lblAbteilung_Click(object sender, EventArgs e)
+        private void btnList_Click(object sender, EventArgs e)
         {
+            String clickedUser = string.Empty;
+            FrmUserList userList = new FrmUserList();
+            userList.ShowDialog();
+
+            if (!userList.username.Equals(string.Empty))
+            {
+                this.txtUsernameLoad.Text = userList.username;
+                loadUser();
+            }
+           
 
         }
-
-       
-
-        
         
     }
 }

@@ -321,6 +321,33 @@ namespace Supernova.data
             return dt;
         }
 
+        public DataTable getUserList()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("BenutzerListe");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select U_NAME as Benutzername, U_FIRSTNAME as Vorname, U_LASTNAME as Nachname, U_MAIL as EMail, UG_NAME as Benutzergruppe from user, user_groups where U_GROUP = USER_GROUPS_ID";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
         #endregion
         #region criteria
         public DataSet LoadCriteriaWeightDataSet()
