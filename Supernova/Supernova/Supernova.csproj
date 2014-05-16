@@ -131,6 +131,12 @@
     <Compile Include="Sub_Forms\Account\FrmUserInformation.Designer.cs">
       <DependentUpon>FrmUserInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sub_Forms\Administration\FrmUserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Administration\FrmUserList.Designer.cs">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sub_Forms\General\FrmAfirmative.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Administration\FrmUser.resx">
       <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Administration\FrmUserList.resx">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\General\FrmAfirmative.resx">
       <DependentUpon>FrmAfirmative.cs</DependentUpon>
