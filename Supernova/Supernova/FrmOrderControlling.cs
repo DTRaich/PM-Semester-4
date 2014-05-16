@@ -45,12 +45,12 @@ namespace Supernova
             bool ok = (bool)info.Invoke(currentFrm, null);
             if (ok)
             {
-                formNumber = formNumber + 1;
+               
                 currentFrm.Visible = false;
                 currentFrm = formslist[formNumber];
                 this.pnlControl.Controls.Add(currentFrm);
 
-                
+                formNumber = formNumber + 1;
                 if (highestFormNumber > formNumber)
                 {
                     currentFrm.Visible = true;

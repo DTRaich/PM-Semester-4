@@ -87,6 +87,76 @@ namespace Supernova.Sub_Forms.Administration
 
 
         }
+
+        private void FrmCriteriaWeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void weightGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (weightGrid.CurrentCell.ColumnIndex > 1)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(weightGrid_KeyPress);
+            }
+
+        }
+
+        private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnDiscardActive_Click(object sender, EventArgs e)
+        {
+            activationSource = originActivation.Copy();
+            activationGrid.DataSource = activationSource;
+
+        }
+
+        private void btnSaveWeight_Click(object sender, EventArgs e)
+        {
+            DataTable differenz = parahelp.CompareTables(originWeight, weightSource);
+
+            if (differenz.Rows.Count > 0)
+            {
+                DataTable toSave = generateTable(differenz);
+
+                if (saver.saveCriteriaActivation(differenz))
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Die Änderungen wurden gespeichert. \n ", 'i');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+
+                    StartPrepares();
+                }
+                else
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+                }
+
+            }
+            else
+            {
+                FrmAfirmative noChanges = new FrmAfirmative("Keine Änderungen erkannt. \n ", 'i');
+                noChanges.StartPosition = FormStartPosition.CenterParent;
+                noChanges.ShowDialog();
+            }
+           
+        }
+
+        
+        private void btnDiscardWeight_Click(object sender, EventArgs e)
+        {
+            weightSource = originWeight.Copy();
+            weightGrid.DataSource = weightSource;
+        }
+
         #endregion
 
         #region activation
@@ -128,6 +198,41 @@ namespace Supernova.Sub_Forms.Administration
         #endregion
 
         #region Weight
+
+        private DataTable generateTable(DataTable toSave)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("From"));
+            dt.Columns.Add(new DataColumn("To"));
+            dt.Columns.Add(new DataColumn("Points"));
+            DataRow newRow;
+
+            int columCount = toSave.Columns.Count;
+            foreach (DataRow dr in toSave.Rows)
+            {
+                for (int i = 3; i < columCount; i++)
+                {
+                    newRow = dt.NewRow();
+                    newRow[0] = dr[0].ToString();
+                    newRow[1] = getToID(i);
+                    newRow[2] = dr[i].ToString();
+                    dt.Rows.Add(newRow);
+                }
+                
+            }
+
+            return dt;
+        }
+
+        private object getToID(int i)
+        {
+            object id = criteriaWeightDataSet.Tables["ActiveCriterias"].Rows[i][0];         
+            
+
+            return id;
+        }
+
+
 
         private void prepareWeightMatrix()
         {
@@ -175,8 +280,7 @@ namespace Supernova.Sub_Forms.Administration
             DataColumn dc;
             foreach (DataRow dr in criteriaWeightDataSet.Tables["ActiveCriterias"].Rows)
             {
-                dc = new DataColumn(dr[1].ToString());
-                dc.DataType = System.Type.GetType("System.Int32");
+                dc = new DataColumn(dr[1].ToString());              
                 dt.Columns.Add(dc);
             }
            
@@ -198,28 +302,7 @@ namespace Supernova.Sub_Forms.Administration
         }
         #endregion
 
-        private void FrmCriteriaWeight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-
-        private void weightGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (weightGrid.CurrentCell.ColumnIndex > 1 )
-            {
-                e.Control.KeyPress += new KeyPressEventHandler(weightGrid_KeyPress);
-            }
-
-        }
-
-        private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-        }
-
+       
        
 
         

@@ -34,6 +34,9 @@
             this.activationGrid = new System.Windows.Forms.DataGridView();
             this.gbweight = new System.Windows.Forms.GroupBox();
             this.weightGrid = new System.Windows.Forms.DataGridView();
+            this.btnSaveWeight = new System.Windows.Forms.Button();
+            this.btnDiscardActive = new System.Windows.Forms.Button();
+            this.btnDiscardWeight = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbactive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.activationGrid)).BeginInit();
@@ -58,9 +61,11 @@
             // 
             // gbactive
             // 
+            this.gbactive.Controls.Add(this.btnDiscardActive);
             this.gbactive.Controls.Add(this.btnSaveActive);
             this.gbactive.Controls.Add(this.activationGrid);
             this.gbactive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbactive.Location = new System.Drawing.Point(3, 25);
             this.gbactive.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
             this.gbactive.Name = "gbactive";
@@ -71,7 +76,8 @@
             // 
             // btnSaveActive
             // 
-            this.btnSaveActive.Location = new System.Drawing.Point(189, 321);
+            this.btnSaveActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveActive.Location = new System.Drawing.Point(183, 321);
             this.btnSaveActive.Name = "btnSaveActive";
             this.btnSaveActive.Size = new System.Drawing.Size(75, 23);
             this.btnSaveActive.TabIndex = 1;
@@ -94,8 +100,11 @@
             // 
             // gbweight
             // 
+            this.gbweight.Controls.Add(this.btnDiscardWeight);
+            this.gbweight.Controls.Add(this.btnSaveWeight);
             this.gbweight.Controls.Add(this.weightGrid);
             this.gbweight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbweight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbweight.Location = new System.Drawing.Point(273, 25);
             this.gbweight.Margin = new System.Windows.Forms.Padding(3, 25, 3, 3);
             this.gbweight.Name = "gbweight";
@@ -112,14 +121,47 @@
             this.weightGrid.AllowUserToResizeColumns = false;
             this.weightGrid.AllowUserToResizeRows = false;
             this.weightGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.weightGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.weightGrid.Location = new System.Drawing.Point(3, 16);
+            this.weightGrid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.weightGrid.Location = new System.Drawing.Point(3, 17);
             this.weightGrid.Name = "weightGrid";
             this.weightGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.weightGrid.Size = new System.Drawing.Size(663, 334);
+            this.weightGrid.Size = new System.Drawing.Size(663, 299);
             this.weightGrid.TabIndex = 0;
             this.weightGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.weightGrid_EditingControlShowing);
             this.weightGrid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightGrid_KeyPress);
+            // 
+            // btnSaveWeight
+            // 
+            this.btnSaveWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveWeight.Location = new System.Drawing.Point(588, 321);
+            this.btnSaveWeight.Name = "btnSaveWeight";
+            this.btnSaveWeight.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveWeight.TabIndex = 1;
+            this.btnSaveWeight.Text = "Speichern";
+            this.btnSaveWeight.UseVisualStyleBackColor = true;
+            this.btnSaveWeight.Click += new System.EventHandler(this.btnSaveWeight_Click);
+            // 
+            // btnDiscardActive
+            // 
+            this.btnDiscardActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscardActive.Location = new System.Drawing.Point(9, 324);
+            this.btnDiscardActive.Name = "btnDiscardActive";
+            this.btnDiscardActive.Size = new System.Drawing.Size(75, 23);
+            this.btnDiscardActive.TabIndex = 2;
+            this.btnDiscardActive.Text = "Verwerfen";
+            this.btnDiscardActive.UseVisualStyleBackColor = true;
+            this.btnDiscardActive.Click += new System.EventHandler(this.btnDiscardActive_Click);
+            // 
+            // btnDiscardWeight
+            // 
+            this.btnDiscardWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscardWeight.Location = new System.Drawing.Point(6, 324);
+            this.btnDiscardWeight.Name = "btnDiscardWeight";
+            this.btnDiscardWeight.Size = new System.Drawing.Size(75, 23);
+            this.btnDiscardWeight.TabIndex = 2;
+            this.btnDiscardWeight.Text = "Verwerfen";
+            this.btnDiscardWeight.UseVisualStyleBackColor = true;
+            this.btnDiscardWeight.Click += new System.EventHandler(this.btnDiscardWeight_Click);
             // 
             // FrmCriteriaWeight
             // 
@@ -148,6 +190,9 @@
         private System.Windows.Forms.DataGridView activationGrid;
         private System.Windows.Forms.Button btnSaveActive;
         private System.Windows.Forms.DataGridView weightGrid;
+        private System.Windows.Forms.Button btnDiscardActive;
+        private System.Windows.Forms.Button btnSaveWeight;
+        private System.Windows.Forms.Button btnDiscardWeight;
 
     }
 }

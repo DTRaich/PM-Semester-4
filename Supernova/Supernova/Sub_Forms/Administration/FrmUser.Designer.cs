@@ -51,12 +51,14 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
+            this.btnList = new System.Windows.Forms.Button();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_Load
             // 
+            this.gb_Load.Controls.Add(this.btnList);
             this.gb_Load.Controls.Add(this.lblUsernameLoad);
             this.gb_Load.Controls.Add(this.lblErrorText);
             this.gb_Load.Controls.Add(this.btnUserLoad);
@@ -92,7 +94,7 @@
             this.btnUserLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserLoad.Location = new System.Drawing.Point(495, 14);
             this.btnUserLoad.Name = "btnUserLoad";
-            this.btnUserLoad.Size = new System.Drawing.Size(138, 32);
+            this.btnUserLoad.Size = new System.Drawing.Size(150, 32);
             this.btnUserLoad.TabIndex = 1;
             this.btnUserLoad.Text = "Benutzer Laden";
             this.btnUserLoad.UseVisualStyleBackColor = true;
@@ -135,7 +137,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(495, 245);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 29);
+            this.btnCancel.Size = new System.Drawing.Size(150, 32);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Verwerfen";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -146,7 +148,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(661, 198);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(150, 29);
+            this.btnDelete.Size = new System.Drawing.Size(150, 32);
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Benutzer löschen";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -236,7 +238,7 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(661, 245);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(150, 29);
+            this.btnSave.Size = new System.Drawing.Size(150, 32);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Benutzer speichern";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -259,7 +261,6 @@
             this.lblAbteilung.Size = new System.Drawing.Size(67, 17);
             this.lblAbteilung.TabIndex = 3;
             this.lblAbteilung.Text = "Abteilung";
-            this.lblAbteilung.Click += new System.EventHandler(this.lblAbteilung_Click);
             // 
             // lblEmail
             // 
@@ -290,6 +291,17 @@
             this.lblVorname.Size = new System.Drawing.Size(65, 17);
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
+            // 
+            // btnList
+            // 
+            this.btnList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnList.Location = new System.Drawing.Point(661, 14);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(150, 32);
+            this.btnList.TabIndex = 4;
+            this.btnList.Text = "Benutzer Liste";
+            this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // FrmUser
             // 
@@ -334,5 +346,6 @@
         private System.Windows.Forms.MaskedTextBox mtbPassword;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnList;
     }
 }

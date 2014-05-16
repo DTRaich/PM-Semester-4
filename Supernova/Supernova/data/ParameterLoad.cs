@@ -13,6 +13,8 @@ namespace Supernova.data
         string conSting = "Database=fallstudie;Data Source=188.226.215.238;User Id=user1;Password=password";
         DBerror dbError = DBerror.getInstanze();
 
+        #region departs
+
         public DataTable loadDeparments()
         {
             dbError.deleteDBError();
@@ -102,6 +104,8 @@ namespace Supernova.data
             return dt;
         }
 
+        #endregion
+        #region rightsanduser
         public DataTable loadUserGroups()
         {
             dbError.deleteDBError();
@@ -222,5 +226,68 @@ namespace Supernova.data
 
             return dt;
         }
+        #endregion
+
+        #region Projects
+        public DataTable loadProjectLeader()
+        {
+            dbError.deleteDBError();
+
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select USER_ID,U_NAME from user where U_GROUP = 24 ";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+        public DataTable loadProjectKategorie()
+        {
+            dbError.deleteDBError();
+
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select PC_ID,PC_NAME from ProjectCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+        #endregion
+
     }
 }
