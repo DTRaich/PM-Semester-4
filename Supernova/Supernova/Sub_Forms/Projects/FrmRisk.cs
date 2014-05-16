@@ -27,7 +27,16 @@ namespace Supernova.Sub_Forms.Projects
 
         public bool checkAndValidateForm()
         {
+            collectData();
             return true;
+        }
+
+        private void collectData()
+        {
+            projektdaten.technicalRisk = tbTechRisk.Value;
+            projektdaten.financialRisk = tbFinancialRisk.Value;
+            projektdaten.securityRisk = tbSecurityRisk.Value;
+            projektdaten.qualityRisk = tbQualityRisk.Value;
         }
     }
 }

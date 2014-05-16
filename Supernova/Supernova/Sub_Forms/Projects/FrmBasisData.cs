@@ -27,8 +27,26 @@ namespace Supernova.Sub_Forms.Projects
 
         public bool checkAndValidateForm()
         {
-            //projektdaten.lala = 1;
+            collectData();
+            return validateData();
+        }
+
+        private bool validateData()
+        {
+            if (tbProjectName.Text == "" || tbShortDescription.Text == "")
+            {
+                return false;
+            }
+
             return true;
+        }
+
+        private void collectData()
+        {
+            projektdaten.ProjectName = tbProjectName.Text;
+            projektdaten.ProjectDescription = tbShortDescription.Text;
+            projektdaten.ProjectLeader = (int) cbProjectLeader.SelectedValue;
+            projektdaten.ProjectCategory = (int) cbProjectCategory.SelectedValue;
         }
 
         private void label1_Click(object sender, EventArgs e)

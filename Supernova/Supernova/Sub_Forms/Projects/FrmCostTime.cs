@@ -27,8 +27,27 @@ namespace Supernova.Sub_Forms.Projects
 
         public bool checkAndValidateForm()
         {
-           // MessageBox.Show(projektdaten.lala.ToString());
+            collectData();
+            return validateData();
+        }
+
+        private bool validateData()
+        {
+            if (dtStartDate.Value >= dtEndDate.Value)
+            {
+                return false;
+            }
+
             return true;
+        }
+
+        private void collectData()
+        {
+            projektdaten.ProjectStartDate = dtStartDate.Value;
+            projektdaten.ProjectEndDate = dtEndDate.Value;
+            projektdaten.GesamtKosten = Convert.ToDouble(mtbTotalCost.Text);
+            projektdaten.NPV = Convert.ToDouble(mtbTotalCost.Text);
+            projektdaten.TimeToMarket = (int) nupTimeToMarket.Value;
         }
     }
 }

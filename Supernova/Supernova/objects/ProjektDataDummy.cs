@@ -26,9 +26,14 @@ namespace Supernova.objects
         public DateTime ProjectEndDate;
         public double GesamtKosten;
         public double NPV;
+        public int TimeToMarket;
         #endregion
 
         #region Risk
+        public int technicalRisk;
+        public int financialRisk;
+        public int securityRisk;
+        public int qualityRisk;
         #endregion
 
         #region Strategie
