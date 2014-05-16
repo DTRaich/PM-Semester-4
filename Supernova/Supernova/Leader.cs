@@ -80,6 +80,11 @@ namespace Supernova
 
         public void LoadCriteriaWeight()
         {
+            foreach (Form forms in mainPanel.Controls)
+            {
+                forms.Close();
+            }
+
             mainPanel.Controls.Clear();
             FrmCriteriaWeight frm = new FrmCriteriaWeight();
             mainPanel.Controls.Add(prepareForm(frm));

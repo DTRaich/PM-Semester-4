@@ -488,12 +488,11 @@ namespace Supernova.data
 
         }
        
-        public bool saveCriteriaWeight(string c_from_name, string c_to_name, int weights)
+        private void saveOneCriteriaWeight(int c_from_id, int c_to_id, int weights)
         {
             dbError.deleteDBError();
 
             MySqlConnection connection = new MySqlConnection(conSting);
-            bool retval = true;
             try
             {
                 string commandText = "Call SaveCriteriaWeight(@fromName,@toName,@weight)";
@@ -501,10 +500,10 @@ namespace Supernova.data
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;
 
-                cmd.Parameters.AddWithValue("fromName", c_from_name);
+                cmd.Parameters.AddWithValue("fromName", c_from_id);
                 cmd.Parameters["fromName"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("toName", c_to_name);
+                cmd.Parameters.AddWithValue("toName", c_to_id);
                 cmd.Parameters["toName"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("weight", weights);
@@ -520,7 +519,6 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                retval = false;
                 dbError.setDBError();
             }
             finally
@@ -531,10 +529,22 @@ namespace Supernova.data
                 }
             }
 
-            return retval;
+        }
+
+        public bool saveCriteriaWeight(DataTable toSave)
+        {
+            foreach (DataRow dr in toSave.Rows)
+            {
+                saveOneCriteriaWeight(Convert.ToInt32(dr[0].ToString()), Convert.ToInt32(dr[1].ToString()), Convert.ToInt32(dr[2].ToString()));
+            }
+
+            return true;
+
         }
         #endregion
 
-       
+
+
+        
     }
 }

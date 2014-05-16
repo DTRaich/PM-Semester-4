@@ -351,7 +351,7 @@ namespace Supernova.data
         #endregion
         #region criteria
         public DataSet LoadCriteriaWeightDataSet()
-        {
+        {            
             DataSet ds = new DataSet("CriteriaWeight");
             DataTable criterias = getAllCriterias();
             DataTable activeCriterias = getAllActiveCriterias();

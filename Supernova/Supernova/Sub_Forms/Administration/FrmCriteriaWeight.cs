@@ -36,14 +36,34 @@ namespace Supernova.Sub_Forms.Administration
             InitializeComponent();
             StartPrepares(); 
         }
+        private void resetTables()
+        {
+            criteriaWeightDataSet = null;
+            criteriaWeightDataSet = new DataSet();
+            activationSource = null;
+            activationSource = new DataTable();
+            originWeight = null;
+            originWeight = new DataTable();
+            originActivation = null;
+            originActivation = new DataTable();
+            weightSource = null;
+            weightSource = new DataTable();
 
+            weightGrid.DataSource = null;
+            activationGrid.DataSource = null;
+
+            
+        }
         private void StartPrepares()
         {
+            resetTables();
+            
             criteriaWeightDataSet = loader.LoadCriteriaWeightDataSet();
             if (criteriaWeightDataSet.Tables[0].Rows.Count > 0)
             {
                 prepareWeightMatrix();
                 prepareActivation();
+                DisallowSortingBothGrids();
             }
             else
             {
@@ -52,6 +72,8 @@ namespace Supernova.Sub_Forms.Administration
             }
            
         }
+
+        
        
         #region events
 
@@ -104,10 +126,16 @@ namespace Supernova.Sub_Forms.Administration
 
         private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
+            
+                if ('0' == e.KeyChar || '1' == e.KeyChar || '2' == e.KeyChar || '3' == e.KeyChar || '4' == e.KeyChar)
+                {
+
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+           
         }
 
         private void btnDiscardActive_Click(object sender, EventArgs e)
@@ -125,13 +153,11 @@ namespace Supernova.Sub_Forms.Administration
             {
                 DataTable toSave = generateTable(differenz);
 
-                if (saver.saveCriteriaActivation(differenz))
+                if (saver.saveCriteriaWeight(toSave))
                 {
                     FrmAfirmative SaveNewUser = new FrmAfirmative("Die Änderungen wurden gespeichert. \n ", 'i');
                     SaveNewUser.StartPosition = FormStartPosition.CenterParent;
                     SaveNewUser.ShowDialog();
-
-                    StartPrepares();
                 }
                 else
                 {
@@ -210,7 +236,7 @@ namespace Supernova.Sub_Forms.Administration
             int columCount = toSave.Columns.Count;
             foreach (DataRow dr in toSave.Rows)
             {
-                for (int i = 3; i < columCount; i++)
+                for (int i = 2; i < columCount; i++)
                 {
                     newRow = dt.NewRow();
                     newRow[0] = dr[0].ToString();
@@ -226,7 +252,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private object getToID(int i)
         {
-            object id = criteriaWeightDataSet.Tables["ActiveCriterias"].Rows[i][0];         
+            object id = criteriaWeightDataSet.Tables["ActiveCriterias"].Rows[i-2][0].ToString();         
             
 
             return id;
@@ -248,14 +274,12 @@ namespace Supernova.Sub_Forms.Administration
         {
             try
             {
-                string currentCritID = "0";
                 int columnCount = weightSource.Columns.Count;
                 int row = 0;
-                
                 foreach (DataRow dr in weightSource.Rows)
                 {
-                    currentCritID = dr[0].ToString();
-                    for(int i = 2; i < columnCount;i++)
+                    
+                    for (int i = 2; i < columnCount; i++)
                     {
                         dr[i] = criteriaWeightDataSet.Tables["ActiveCriteriasWeight"].Rows[row][2].ToString();
                         row = row + 1;
@@ -302,11 +326,25 @@ namespace Supernova.Sub_Forms.Administration
         }
         #endregion
 
-       
-       
+        #region both
 
-        
-        
-     
+        private void DisallowSortingBothGrids()
+        {
+            for (int i = 0; i < weightGrid.Columns.Count; i++)
+            {
+                weightGrid.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;        
+            }
+
+            for (int i = 0; i < activationGrid.Columns.Count; i++)
+            {
+                activationGrid.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+        }
+        #endregion
+
+
+
+
+
     }
 }
