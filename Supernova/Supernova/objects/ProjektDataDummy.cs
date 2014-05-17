@@ -9,6 +9,10 @@ namespace Supernova.objects
 {
     public class ProjektDataDummy
     {
+        DataSave ds = new DataSave();
+        DataLoad load = new DataLoad();
+        DataSet projektDataSet;
+         
         #region fields 
 
         #region basisdaten
@@ -77,7 +81,7 @@ namespace Supernova.objects
         public bool saveProjectDataToDb()
         {
             // user speichern
-            DataSave ds = new DataSave();
+            
             bool savingWorked = false;                       
             savingWorked = ds.SaveorUpdateProject(this);
             
@@ -89,7 +93,7 @@ namespace Supernova.objects
         
         private void extractProjektData(DataSet projektDataSet)
         {
-            throw new NotImplementedException();
+            
         }
         #endregion
     }

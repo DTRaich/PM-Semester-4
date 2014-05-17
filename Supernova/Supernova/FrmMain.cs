@@ -106,7 +106,7 @@ namespace Supernova
 
         private void projekteÄndernToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // noch erstellen
+            leader.LoadEditProjects();
         }
 
         private void kriterienPriorisierenToolStripMenuItem_Click(object sender, EventArgs e)

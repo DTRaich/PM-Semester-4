@@ -53,6 +53,7 @@ namespace Supernova
         #region FormLoader
         public void LoadLogin()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();            
             FrmLogin login = new FrmLogin(this);
             mainPanel.Controls.Add(prepareForm(login));
@@ -62,6 +63,7 @@ namespace Supernova
         //List mit Forms übergeben für FrmOrderControlling
         public void LoadProjektCreate()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             List<Form> li = getFormsListNewProject();
             FrmOrderControlling frm = new FrmOrderControlling(li, ref projektdaten);
@@ -69,9 +71,25 @@ namespace Supernova
             frm.Show();
         }
 
+        public void LoadEditProjects()
+        {
+            //ClearUpMainPanel();
+            //mainPanel.Controls.Clear();
+            ////
+            ////--------------------> Platz zum abhandeln der ProjectLadenForm
+            //projektdaten.loadProjectdataintoDummy(1);
+            ////
+           
+            //List<Form> li = getFormsListNewProject();
+            //FrmOrderControlling frm = new FrmOrderControlling(li, ref projektdaten);
+            //mainPanel.Controls.Add(prepareForm(frm));
+            //frm.Show();
+        }
+
 
         public void LoadProjektView()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmProjectOverview frm = new FrmProjectOverview();
             mainPanel.Controls.Add(prepareForm(frm));
@@ -80,11 +98,7 @@ namespace Supernova
 
         public void LoadCriteriaWeight()
         {
-            foreach (Form forms in mainPanel.Controls)
-            {
-                forms.Close();
-            }
-
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmCriteriaWeight frm = new FrmCriteriaWeight();
             mainPanel.Controls.Add(prepareForm(frm));
@@ -93,6 +107,7 @@ namespace Supernova
 
         public void LoadUserRights()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmRightsReglement frm = new FrmRightsReglement();
             mainPanel.Controls.Add(prepareForm(frm));
@@ -101,6 +116,7 @@ namespace Supernova
 
         public void LoadGeneralBudget()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmGeneralBudget frm = new FrmGeneralBudget();
             mainPanel.Controls.Add(prepareForm(frm));
@@ -109,6 +125,7 @@ namespace Supernova
 
         public void LoadDepartmentSpezification()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmDepartmentSpecifikation frm = new FrmDepartmentSpecifikation(UserID);    
             mainPanel.Controls.Add(prepareForm(frm));
@@ -119,6 +136,7 @@ namespace Supernova
 
         public void loadPasswordChange()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmPasswordChange frm = new FrmPasswordChange(UserID);
             mainPanel.Controls.Add(prepareForm(frm));
@@ -129,6 +147,7 @@ namespace Supernova
 
         public void LoadUserInfo()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmUserInformation frm = new FrmUserInformation(UserID);
             mainPanel.Controls.Add(prepareForm(frm));
@@ -137,6 +156,7 @@ namespace Supernova
 
         public void LoadUserHelp()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmUserHelp frm = new FrmUserHelp();
             mainPanel.Controls.Add(prepareForm(frm));
@@ -145,6 +165,7 @@ namespace Supernova
 
         public void LoadAddorUpdateUser()
         {
+            ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmUser frm = new FrmUser(UserID);
             mainPanel.Controls.Add(prepareForm(frm));
@@ -191,6 +212,13 @@ namespace Supernova
             return list;
         }
 
+        private void ClearUpMainPanel()
+        {
+            foreach (Form forms in mainPanel.Controls)
+            {
+                forms.Close();
+            }
+        }
         #endregion
 
         #region internal
@@ -218,7 +246,5 @@ namespace Supernova
         #endregion
 
 
-
-        
     }
 }

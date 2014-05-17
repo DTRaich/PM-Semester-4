@@ -356,6 +356,7 @@ namespace Supernova.Sub_Forms.Administration
             originScale = scaleSource.Copy();
             scalingGrid.DataSource = scaleSource;
             scalingGrid.Columns[0].Visible = false;
+            scalingGrid.Columns[3].ReadOnly = true;
 
         }
         #endregion
@@ -483,6 +484,14 @@ namespace Supernova.Sub_Forms.Administration
             }
 
             return retVal;
+        }
+
+        private void scalingGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is TextBox) //If it is a DataGridViewTextBoxCell
+            {
+                (e.Control as TextBox).MaxLength = 50; //Set the MaxLength to 4
+            }
         }
 
 
