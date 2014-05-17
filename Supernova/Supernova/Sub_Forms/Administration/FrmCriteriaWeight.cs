@@ -28,6 +28,9 @@ namespace Supernova.Sub_Forms.Administration
         DataTable weightSource;
         DataTable originWeight;
 
+        DataTable scaleSource;
+        DataTable originScale;
+
         #endregion
 
         public FrmCriteriaWeight()
@@ -36,6 +39,7 @@ namespace Supernova.Sub_Forms.Administration
             InitializeComponent();
             StartPrepares(); 
         }
+
         private void resetTables()
         {
             criteriaWeightDataSet = null;
@@ -48,9 +52,14 @@ namespace Supernova.Sub_Forms.Administration
             originActivation = new DataTable();
             weightSource = null;
             weightSource = new DataTable();
+            scaleSource = null;
+            scaleSource = new DataTable();
+            originScale = null;
+            originScale = new DataTable();
 
             weightGrid.DataSource = null;
             activationGrid.DataSource = null;
+            scalingGrid.DataSource = null;
 
             
         }
@@ -63,6 +72,7 @@ namespace Supernova.Sub_Forms.Administration
             {
                 prepareWeightMatrix();
                 prepareActivation();
+                prepareScaling();
                 DisallowSortingBothGrids();
             }
             else
@@ -72,6 +82,8 @@ namespace Supernova.Sub_Forms.Administration
             }
            
         }
+
+       
 
         
        
@@ -105,39 +117,14 @@ namespace Supernova.Sub_Forms.Administration
                 noChanges.StartPosition = FormStartPosition.CenterParent;
                 noChanges.ShowDialog();
             }
-
-
-
-        }
+      }
 
         private void FrmCriteriaWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }
 
-        private void weightGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (weightGrid.CurrentCell.ColumnIndex > 1)
-            {
-                e.Control.KeyPress += new KeyPressEventHandler(weightGrid_KeyPress);
-            }
-
-        }
-
-        private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-                if ('0' == e.KeyChar || '1' == e.KeyChar || '2' == e.KeyChar || '3' == e.KeyChar || '4' == e.KeyChar)
-                {
-
-                }
-                else
-                {
-                    e.Handled = true;
-                }
-           
-        }
-
+      
         private void btnDiscardActive_Click(object sender, EventArgs e)
         {
             activationSource = originActivation.Copy();
@@ -181,6 +168,42 @@ namespace Supernova.Sub_Forms.Administration
         {
             weightSource = originWeight.Copy();
             weightGrid.DataSource = weightSource;
+        }
+
+        private void btnDiscadScale_Click(object sender, EventArgs e)
+        {
+            scaleSource = originScale.Copy();
+            scalingGrid.DataSource = scaleSource;
+        }
+
+        private void btnSaveScale_Click(object sender, EventArgs e)
+        {
+            DataTable differenz = parahelp.CompareTables(originScale, scaleSource);
+
+            if (differenz.Rows.Count > 0)
+            {
+                if (saver.saveScaling(differenz))
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Die Änderungen wurden gespeichert. \n ", 'i');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+
+                    StartPrepares();
+                }
+                else
+                {
+                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                    SaveNewUser.ShowDialog();
+                }
+
+            }
+            else
+            {
+                FrmAfirmative noChanges = new FrmAfirmative("Keine Änderungen erkannt. \n ", 'i');
+                noChanges.StartPosition = FormStartPosition.CenterParent;
+                noChanges.ShowDialog();
+            }
         }
 
         #endregion
@@ -326,7 +349,18 @@ namespace Supernova.Sub_Forms.Administration
         }
         #endregion
 
-        #region both
+        #region scaling
+        private void prepareScaling()
+        {
+            scaleSource = criteriaWeightDataSet.Tables["Scale"];
+            originScale = scaleSource.Copy();
+            scalingGrid.DataSource = scaleSource;
+            scalingGrid.Columns[0].Visible = false;
+
+        }
+        #endregion
+
+        #region all
 
         private void DisallowSortingBothGrids()
         {
@@ -339,8 +373,63 @@ namespace Supernova.Sub_Forms.Administration
             {
                 activationGrid.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+
+            for (int i = 0; i < scalingGrid.Columns.Count; i++)
+            {
+                scalingGrid.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
         #endregion
+
+        #region helperAndProvider
+        #region provide
+        private void weightGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (weightGrid.CurrentCell.ColumnIndex > 1)
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(weightGrid_KeyPress);
+            }
+
+        }
+
+        private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if ('0' == e.KeyChar || '1' == e.KeyChar || '2' == e.KeyChar || '3' == e.KeyChar || '4' == e.KeyChar)
+            {
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+        #endregion
+
+        int row, column;
+        private void weightGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            row = e.RowIndex;
+            column = e.ColumnIndex;
+
+            //current
+            weightGrid[column,row].Style.BackColor = Color.Red;
+            //depending    
+            weightGrid[row+2,column -2].Style.BackColor = Color.Red;
+            
+        }
+
+        #endregion
+
+        private void weightGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            weightGrid[column, row].Style.BackColor = Color.White;
+            weightGrid[row + 2, column - 2].Style.BackColor = Color.White;
+        }
+
+
 
 
 

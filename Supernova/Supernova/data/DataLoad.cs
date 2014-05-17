@@ -173,6 +173,7 @@ namespace Supernova.data
             dbError.setDBError();
             throw new NotImplementedException();
         }
+        #region department
         public int LoadMyDepartment(int userid)
         {
             dbError.deleteDBError();
@@ -249,7 +250,7 @@ namespace Supernova.data
 
             return dt;
         }
-
+        #endregion
         #region user
         public DataTable LoadUserData(int userID)
         {
@@ -356,14 +357,43 @@ namespace Supernova.data
             DataTable criterias = getAllCriterias();
             DataTable activeCriterias = getAllActiveCriterias();
             DataTable weight = getActiveCriteriasWeights();
-
+            DataTable scale = getScaleTable();
 
             ds.Tables.Add(criterias);
             ds.Tables.Add(activeCriterias);
             ds.Tables.Add(weight);
+            ds.Tables.Add(scale);
+
             ds.AcceptChanges();
             
             return ds;
+        }
+
+        private DataTable getScaleTable()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("Scale");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select CS_ID, C_NAME as Kriterium, CS_MIN as Minimum, CS_MAX as Maximum,CS_POINTS as Punktzahl ,CS_DESCRIPTION as Kommentar from CriteriaScaling, criteria where CS_ID = Criteria_ID order by Criteria_ID ; ";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
         }
 
         private DataTable getActiveCriteriasWeights()

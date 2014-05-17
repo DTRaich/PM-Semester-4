@@ -541,9 +541,58 @@ namespace Supernova.data
             return true;
 
         }
+
+        public bool saveScaling(DataTable differenz)
+        {
+            bool retval = true;
+            foreach (DataRow dr in differenz.Rows)
+            {
+                dbError.deleteDBError();
+
+                MySqlConnection connection = new MySqlConnection(conSting);
+                try
+                {
+                    string commandText = "Call SaveScaling(@critID,@min,@max,@kommentar)";
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = commandText;
+
+                    cmd.Parameters.AddWithValue("critID", Convert.ToInt32(dr[0].ToString()));
+                    cmd.Parameters["critID"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("min", Convert.ToDecimal(dr[2].ToString()));
+                    cmd.Parameters["min"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("max", Convert.ToDecimal(dr[3].ToString()));
+                    cmd.Parameters["max"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("kommentar", dr[5].ToString());
+                    cmd.Parameters["kommentar"].Direction = ParameterDirection.Input;
+
+                    connection.Open();
+
+                    cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    connection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    retval = false;
+                    dbError.setDBError();
+                }
+                finally
+                {
+                    if (connection != null)
+                    {
+                        connection.Close();
+                    }
+                }
+                
+            }
+            return retval;
+        }
         #endregion
-
-
 
         
     }
