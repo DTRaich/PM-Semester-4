@@ -410,23 +410,79 @@ namespace Supernova.Sub_Forms.Administration
         int row, column;
         private void weightGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+            weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
             row = e.RowIndex;
             column = e.ColumnIndex;
 
             //current
-            weightGrid[column,row].Style.BackColor = Color.Red;
-            //depending    
-            weightGrid[row+2,column -2].Style.BackColor = Color.Red;
+           
+            weightGrid[column, row].Style.BackColor = Color.Red;
+             //depending    
+             weightGrid[row + 2, column - 2].Style.BackColor = Color.Red;
+
+             weightGrid.CellValueChanged += weightGrid_CellValueChanged;
+             weightGrid.CellLeave += weightGrid_CellLeave;
             
+
+            
+        }
+
+        void weightGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            
+                weightGrid[column, row].Style.BackColor = Color.White;
+                weightGrid[row + 2, column - 2].Style.BackColor = Color.White;
+           
+
+            weightGrid.CellLeave -= weightGrid_CellLeave;
+          //  weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
+
+        }
+        void weightGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
+
+            if (weightGrid[column, row] == weightGrid[row + 2, column - 2])
+            {
+                weightGrid[row + 2, column - 2].Value = 0;
+            }
+            else
+            {
+                
+                object ergebnis = weightGrid[column, row].Value;
+                object corresponding = getCorresponding(ergebnis);
+                weightGrid[row + 2, column - 2].Value = corresponding;
+                weightGrid[column, row].Style.BackColor = Color.PaleGreen;
+                weightGrid[row + 2, column - 2].Style.BackColor = Color.PaleGreen;
+            }
         }
 
         #endregion
 
-        private void weightGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
+        
+
+        
+        private object getCorresponding(object ergebnis)
         {
-            weightGrid[column, row].Style.BackColor = Color.White;
-            weightGrid[row + 2, column - 2].Style.BackColor = Color.White;
+            object retVal = 0;
+            int erg = Convert.ToInt32(ergebnis);
+            switch (erg)
+            {
+                case 0: retVal = 4;
+                    break;
+                case 1: retVal = 3;
+                    break;
+                case 2: retVal = 2;
+                    break;
+                case 3: retVal = 1;
+                    break;
+                case 4: retVal = 0;
+                    break;
+
+            }
+
+            return retVal;
         }
 
 

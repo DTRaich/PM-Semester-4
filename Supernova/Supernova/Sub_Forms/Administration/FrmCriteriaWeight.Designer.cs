@@ -152,7 +152,6 @@
             this.weightGrid.Size = new System.Drawing.Size(658, 292);
             this.weightGrid.TabIndex = 0;
             this.weightGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.weightGrid_CellClick);
-            this.weightGrid.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.weightGrid_CellLeave);
             this.weightGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.weightGrid_EditingControlShowing);
             this.weightGrid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightGrid_KeyPress);
             // 
