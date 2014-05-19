@@ -31,6 +31,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tbScale = new System.Windows.Forms.TabControl();
             this.tbWeight = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSaveWeight = new System.Windows.Forms.Button();
             this.btnDiscardWeight = new System.Windows.Forms.Button();
             this.weightGrid = new System.Windows.Forms.DataGridView();
@@ -42,7 +43,6 @@
             this.btnDiscardActive = new System.Windows.Forms.Button();
             this.btnSaveActive = new System.Windows.Forms.Button();
             this.activationGrid = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tbScale.SuspendLayout();
             this.tbWeight.SuspendLayout();
@@ -94,6 +94,16 @@
             this.tbWeight.TabIndex = 0;
             this.tbWeight.Text = "Gewichtung";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(97, 307);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(461, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Legende: 4 viel wichtiger, 3 wichtiger, 2 gleich,1 unwichtiger, 0 unwichtig";
+            // 
             // btnSaveWeight
             // 
             this.btnSaveWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -129,6 +139,7 @@
             this.weightGrid.Size = new System.Drawing.Size(658, 292);
             this.weightGrid.TabIndex = 0;
             this.weightGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.weightGrid_CellClick);
+            this.weightGrid.CurrentCellChanged += new System.EventHandler(this.weightGrid_CurrentCellChanged);
             this.weightGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.weightGrid_EditingControlShowing);
             this.weightGrid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightGrid_KeyPress);
             // 
@@ -229,16 +240,6 @@
             this.activationGrid.Name = "activationGrid";
             this.activationGrid.Size = new System.Drawing.Size(249, 296);
             this.activationGrid.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(97, 307);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(461, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Legende: 4 viel wichtiger, 3 wichtiger, 2 gleich,1 unwichtiger, 0 unwichtig";
             // 
             // FrmCriteriaWeight
             // 

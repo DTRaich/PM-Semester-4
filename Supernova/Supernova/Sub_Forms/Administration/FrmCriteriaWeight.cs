@@ -175,33 +175,39 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnSaveScale_Click(object sender, EventArgs e)
         {
-            DataTable differenz = parahelp.CompareTables(originScale, scaleSource);
-
-            if (differenz.Rows.Count > 0)
+            if (validateScaling())
             {
-                if (saver.saveScaling(differenz))
-                {
-                    FrmAfirmative SaveNewUser = new FrmAfirmative("Die Änderungen wurden gespeichert. \n ", 'i');
-                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
-                    SaveNewUser.ShowDialog();
+                DataTable differenz = parahelp.CompareTables(originScale, scaleSource);
 
-                    StartPrepares();
+                if (differenz.Rows.Count > 0)
+                {
+
+                    if (saver.saveScaling(differenz))
+                    {
+                        FrmAfirmative SaveNewUser = new FrmAfirmative("Die Änderungen wurden gespeichert. \n ", 'i');
+                        SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                        SaveNewUser.ShowDialog();
+
+                        StartPrepares();
+                    }
+                    else
+                    {
+                        FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
+                        SaveNewUser.StartPosition = FormStartPosition.CenterParent;
+                        SaveNewUser.ShowDialog();
+                    }
+
                 }
                 else
                 {
-                    FrmAfirmative SaveNewUser = new FrmAfirmative("Speichern fehlgeschlagen. \n Bitte wenden sie sich an den Administrator", 'e');
-                    SaveNewUser.StartPosition = FormStartPosition.CenterParent;
-                    SaveNewUser.ShowDialog();
+                    FrmAfirmative noChanges = new FrmAfirmative("Keine Änderungen erkannt. \n ", 'i');
+                    noChanges.StartPosition = FormStartPosition.CenterParent;
+                    noChanges.ShowDialog();
                 }
-
-            }
-            else
-            {
-                FrmAfirmative noChanges = new FrmAfirmative("Keine Änderungen erkannt. \n ", 'i');
-                noChanges.StartPosition = FormStartPosition.CenterParent;
-                noChanges.ShowDialog();
             }
         }
+
+       
 
         #endregion
 
@@ -348,6 +354,38 @@ namespace Supernova.Sub_Forms.Administration
         #endregion
 
         #region scaling
+        private bool validateScaling()
+        {
+            bool retval = true;
+            // Macht aktuell keinen Sinn, 
+            //da es sowohl absteigend als auch aufsteigend sein kann
+            //object vorId = 1;
+            //int rowCount = 0;
+            //foreach (DataGridViewRow dr in scalingGrid.Rows)
+            //{
+            //    object id = dr.Cells[0].Value;
+            //    if (id != vorId)
+            //    {
+            //        vorId = id;
+            //        scalingGrid.Rows[rowCount].Cells[2].Value < 
+            //    }
+            //    else
+            //    {
+
+            //    }
+
+            //    rowCount++;
+                
+
+            //}
+
+            //if (!retval)
+            //{
+            //    MessageBox.Show("Vorgänger müssen in logische Reihenfolge passen");
+            //}
+            return retval;
+        }
+
         private void prepareScaling()
         {
             scaleSource = criteriaWeightDataSet.Tables["Scale"];
@@ -513,13 +551,35 @@ namespace Supernova.Sub_Forms.Administration
      
         #endregion
 
-        
+        private void weightGrid_CurrentCellChanged(object sender, EventArgs e)
+        {
+            weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
+            try
+            {
+                int myRow = weightGrid.CurrentCell.RowIndex;
+                int myCell = weightGrid.CurrentCell.ColumnIndex;
+
+                if (myCell != 1 && myCell != -1 && myRow != -1)
+                {
+                    row = myRow;
+                    column = myCell;
+                    weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
+                    //current
+
+                    weightGrid[column, row].Style.BackColor = Color.Salmon;
+                    //depending    
+                    weightGrid[row + 2, column - 2].Style.BackColor = Color.Salmon;
+
+                    weightGrid.CellValueChanged += weightGrid_CellValueChanged;
+                    weightGrid.CellLeave += weightGrid_CellLeave;
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+    }
 
         
-
-
-
-
-
     }
 }
