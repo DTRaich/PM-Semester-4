@@ -330,7 +330,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select U_NAME as Benutzername, U_FIRSTNAME as Vorname, U_LASTNAME as Nachname, U_MAIL as EMail, UG_NAME as Benutzergruppe from user, user_groups where U_GROUP = USER_GROUPS_ID";
+                string comand = "Select U_NAME as Benutzername, U_FIRSTNAME as Vorname, U_LASTNAME as Nachname, U_MAIL as EMail, UG_NAME as Benutzergruppe from user, user_groups where U_GROUP = USER_GROUPS_ID ORDER BY U_NAME ASC";
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
@@ -492,7 +492,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget";
+                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
