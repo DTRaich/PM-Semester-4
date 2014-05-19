@@ -89,6 +89,22 @@ namespace Supernova.Sub_Forms.Administration
             loadUser();
         }
 
+        private void btnList_Click(object sender, EventArgs e)
+        {
+            String clickedUser = string.Empty;
+            FrmUserList userList = new FrmUserList();
+            userList.ShowDialog();
+            
+
+            if (!userList.username.Equals(string.Empty))
+            {
+                this.txtUsernameLoad.Text = userList.username;
+                loadUser();
+            }
+
+
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {  
             DataLoad loader = new DataLoad();
@@ -401,21 +417,6 @@ namespace Supernova.Sub_Forms.Administration
         {
 
         }
-
-        private void btnList_Click(object sender, EventArgs e)
-        {
-            String clickedUser = string.Empty;
-            FrmUserList userList = new FrmUserList();
-            userList.ShowDialog();
-
-            if (!userList.username.Equals(string.Empty))
-            {
-                this.txtUsernameLoad.Text = userList.username;
-                loadUser();
-            }
-           
-
-        }
-        
+  
     }
 }

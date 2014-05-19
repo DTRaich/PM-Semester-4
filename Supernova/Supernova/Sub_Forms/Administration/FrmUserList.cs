@@ -15,10 +15,18 @@ namespace Supernova.Sub_Forms.Administration
         public string username { get; set; }
 
         public FrmUserList()
-        {
+        { 
+            
             InitializeComponent();
             this.username = username;
+            username = string.Empty;
             getData();
+            userGrid[3,4].Style.BackColor = Color.Red;
+
+        
+            //DataGridViewCellStyle
+            //c = userGrid.Rows[3].Cells[3];  
+           
         }
 
         private void getData()
@@ -34,6 +42,8 @@ namespace Supernova.Sub_Forms.Administration
             string clickedUsername;
             int activeRow = 0;
             activeRow = Convert.ToInt32(e.RowIndex);
+
+
 
             if (activeRow > -1)
             {

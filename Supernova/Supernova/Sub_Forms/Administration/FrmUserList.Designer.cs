@@ -44,7 +44,7 @@
             this.userGrid.Name = "userGrid";
             this.userGrid.ReadOnly = true;
             this.userGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userGrid.Size = new System.Drawing.Size(593, 267);
+            this.userGrid.Size = new System.Drawing.Size(635, 267);
             this.userGrid.TabIndex = 0;
             this.userGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGrid_CellDoubleClick);
             // 
@@ -52,7 +52,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 292);
+            this.ClientSize = new System.Drawing.Size(660, 292);
             this.Controls.Add(this.userGrid);
             this.Name = "FrmUserList";
             this.ShowIcon = false;
