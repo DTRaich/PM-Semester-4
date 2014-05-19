@@ -21,7 +21,8 @@ namespace Supernova.objects
         public string ProjectDescription;
         public int ProjectLeader;
         public int ProjectCategory;
-        public bool HaveTo;
+        public int CreatedBY;
+
         #endregion
 
         #region costTime
@@ -81,12 +82,27 @@ namespace Supernova.objects
         public bool saveProjectDataToDb()
         {
             // user speichern
-            
-            bool savingWorked = false;                       
-            savingWorked = ds.SaveorUpdateProject(this);
+            List<string> basisData = new List<string>();
+            List<string> restData = new List<string>();
+
+            //basisdaten
+            basisData.Add(ProjectID.ToString());
+            basisData.Add(ProjectName);
+            basisData.Add(ProjectDescription);
+            basisData.Add(ProjectStartDate.ToShortDateString());
+            basisData.Add(ProjectEndDate.ToShortDateString());
+            basisData.Add(ProjectLeader.ToString());
+            basisData.Add(CreatedBY.ToString());
+            basisData.Add(ProjectCategory.ToString()); 
+           // Kriterien
+
+
+            // speichern
+            ds.SaveorUpdateProject(basisData,restData);
+       
             
 
-            return savingWorked;      
+            return true;      
         }
      
         #region extraxtAndCollect

@@ -412,12 +412,90 @@ namespace Supernova.data
 
         #region projectMatters
 
-        public bool SaveorUpdateProject(ProjektDataDummy projektData)
+        public bool SaveorUpdateProject(List<string> basis, List<string> rest)
         {
-            dbError.deleteDBError();
-            dbError.setDBError();
+            bool retval = true;
+            int projectID = 0;
+            bool notTheir = true;
+            // schon vorhanden?
+            if(basis[0].Equals("0"))
+            {
+                projectID = getProjectID(basis[1].ToString());
+                notTheir = false;
+            }else
+            {         
+                projectID = Convert.ToInt32(basis[0].ToString());
+            }
+
+            // wenn es eine projektid gibt und nicht nageschaut wurtde oder wenn sie null ist speichern sonst nicht
+            if ((projectID != 0 && notTheir) || projectID == 0) 
+            {
+                
+                saveBasis(basis);
+                if (projectID == 0)
+                {
+                    projectID = getProjectID(basis[1].ToString());
+                    saveCriteria(projectID, rest);
+                }
+                else
+                {
+                    saveCriteria(projectID, rest);
+                }
+            }
+            else
+            {
+               // Fehlermeldung
+            }
+           
 
             return true;
+        }
+
+        private int getProjectID(string p)
+        { 
+            dbError.deleteDBError();
+            int retVal = 0;
+
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Select USER_ID from user where name like'"+p+"'";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (rdr.Read())
+                {
+                    retVal = Convert.ToInt32(rdr[0]);
+                }
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return retVal;
+        }
+
+        private void saveCriteria(int projectID, List<string> rest)
+        {
+        }
+
+        private void saveBasis( List<string> basis)
+        {
         }
 
         

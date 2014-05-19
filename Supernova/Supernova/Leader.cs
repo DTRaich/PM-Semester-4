@@ -21,7 +21,7 @@ namespace Supernova
         #region fields
         private Panel mainPanel;
         private int UserID = 0;
-        public ProjektDataDummy projektdaten = new ProjektDataDummy();
+        public ProjektDataDummy projektdaten;
 
         #endregion
 
@@ -65,6 +65,8 @@ namespace Supernova
         {
             ClearUpMainPanel();
             mainPanel.Controls.Clear();
+            projektdaten = new ProjektDataDummy();
+            projektdaten.CreatedBY = UserID;
             List<Form> li = getFormsListNewProject();
             FrmOrderControlling frm = new FrmOrderControlling(li, ref projektdaten);
             mainPanel.Controls.Add(prepareForm(frm));
