@@ -35,13 +35,15 @@
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(346, 101);
+            this.label1.Location = new System.Drawing.Point(320, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 0;
@@ -51,7 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(346, 151);
+            this.label2.Location = new System.Drawing.Point(320, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 17);
             this.label2.TabIndex = 1;
@@ -61,7 +63,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(346, 202);
+            this.label3.Location = new System.Drawing.Point(320, 248);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 17);
             this.label3.TabIndex = 2;
@@ -69,7 +71,7 @@
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Location = new System.Drawing.Point(469, 100);
+            this.tbFirstName.Location = new System.Drawing.Point(443, 83);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.ReadOnly = true;
             this.tbFirstName.Size = new System.Drawing.Size(151, 20);
@@ -77,7 +79,7 @@
             // 
             // tbLastName
             // 
-            this.tbLastName.Location = new System.Drawing.Point(469, 150);
+            this.tbLastName.Location = new System.Drawing.Point(443, 138);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.ReadOnly = true;
             this.tbLastName.Size = new System.Drawing.Size(151, 20);
@@ -85,7 +87,7 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(469, 201);
+            this.tbEmail.Location = new System.Drawing.Point(443, 247);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.ReadOnly = true;
             this.tbEmail.Size = new System.Drawing.Size(151, 20);
@@ -102,11 +104,31 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(320, 196);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(100, 17);
+            this.lblUsername.TabIndex = 9;
+            this.lblUsername.Text = "Benutzername";
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(443, 196);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.ReadOnly = true;
+            this.tbUsername.Size = new System.Drawing.Size(151, 20);
+            this.tbUsername.TabIndex = 10;
+            // 
             // FrmUserInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 377);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbLastName);
@@ -131,5 +153,7 @@
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TextBox tbUsername;
     }
 }

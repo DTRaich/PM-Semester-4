@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gb_Load = new System.Windows.Forms.GroupBox();
+            this.btnList = new System.Windows.Forms.Button();
             this.lblUsernameLoad = new System.Windows.Forms.Label();
             this.lblErrorText = new System.Windows.Forms.Label();
             this.btnUserLoad = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
-            this.btnList = new System.Windows.Forms.Button();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +68,17 @@
             this.gb_Load.Size = new System.Drawing.Size(921, 62);
             this.gb_Load.TabIndex = 0;
             this.gb_Load.TabStop = false;
+            // 
+            // btnList
+            // 
+            this.btnList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnList.Location = new System.Drawing.Point(661, 14);
+            this.btnList.Name = "btnList";
+            this.btnList.Size = new System.Drawing.Size(150, 32);
+            this.btnList.TabIndex = 4;
+            this.btnList.Text = "Benutzer Liste";
+            this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // lblUsernameLoad
             // 
@@ -169,9 +180,9 @@
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(494, 27);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(65, 17);
+            this.lblPassword.Size = new System.Drawing.Size(111, 17);
             this.lblPassword.TabIndex = 13;
-            this.lblPassword.Text = "Passwort";
+            this.lblPassword.Text = "Passwort setzen";
             // 
             // lblUsername
             // 
@@ -291,17 +302,6 @@
             this.lblVorname.Size = new System.Drawing.Size(65, 17);
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
-            // 
-            // btnList
-            // 
-            this.btnList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnList.Location = new System.Drawing.Point(661, 14);
-            this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(150, 32);
-            this.btnList.TabIndex = 4;
-            this.btnList.Text = "Benutzer Liste";
-            this.btnList.UseVisualStyleBackColor = true;
-            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // FrmUser
             // 

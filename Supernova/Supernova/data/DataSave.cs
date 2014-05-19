@@ -594,6 +594,57 @@ namespace Supernova.data
         }
         #endregion
 
+        public bool SaveBudget(int BudgetID, int year1, int year2, int year3)
+        {
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            bool retval = true;
+
+            try
+            {
+                //SaveOrUpdateDep 
+
+                string commandText = "Call SaveBudget(@budgetid,@y1,@y2,@y3)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("budgetid", BudgetID);
+                cmd.Parameters["budgetid"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("y1", year1);
+                cmd.Parameters["y1"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("y2", year2);
+                cmd.Parameters["y2"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("y3", year3);
+                cmd.Parameters["y3"].Direction = ParameterDirection.Input;
+
+
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+                dbError.setDBError();
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return retval;
+
+        }
         
     }
 }

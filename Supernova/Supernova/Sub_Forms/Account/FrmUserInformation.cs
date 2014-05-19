@@ -26,6 +26,7 @@ namespace Supernova.Sub_Forms.General
             tbFirstName.Text = us.firstname;
             tbLastName.Text = us.lastname;
             tbEmail.Text = us.email;
+            tbUsername.Text = us.username;
         }
 
         private void InitializeUser(int uid)

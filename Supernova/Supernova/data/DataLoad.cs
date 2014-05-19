@@ -377,7 +377,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select CS_ID, C_NAME as Kriterium, CS_MAX as Maximum,CS_POINTS as Punktzahl ,CS_DESCRIPTION as Kommentar from CriteriaScaling, criteria where CS_CritID = Criteria_ID order by Criteria_ID, CS_POINTS ; ";
+                string comand = "Select CS_ID, C_NAME as Kriterium, CS_MIN as Minimum, CS_MAX as Maximum,CS_POINTS as Punktzahl ,CS_DESCRIPTION as Kommentar from CriteriaScaling, criteria where CS_ID = Criteria_ID order by Criteria_ID ; ";
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
@@ -484,6 +484,32 @@ namespace Supernova.data
 
         #endregion
 
+        public DataTable LoadBudget()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("Gesamtbudget");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
 
 
 

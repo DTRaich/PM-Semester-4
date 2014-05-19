@@ -270,6 +270,7 @@ namespace Supernova.Sub_Forms.Administration
             txtNachname.Text = userdata.lastname;
             txtUsername.Text = userdata.username;
             txtEmail.Text = userdata.email;
+            mtbPassword.Text = Convert.ToString(userdata.passwort);
             cbBenutzergruppe.SelectedValue = userdata.userGroupID;
 
             if (userdata.departmentID != -1)
