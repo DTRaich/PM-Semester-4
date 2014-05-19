@@ -552,22 +552,17 @@ namespace Supernova.data
                 MySqlConnection connection = new MySqlConnection(conSting);
                 try
                 {
-                    string commandText = "Call SaveScaling(@critID,@min,@max,@kommentar)";
+                    string commandText = "Call SaveScaling(@critID,@max)";
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
                     cmd.CommandText = commandText;
 
                     cmd.Parameters.AddWithValue("critID", Convert.ToInt32(dr[0].ToString()));
-                    cmd.Parameters["critID"].Direction = ParameterDirection.Input;
+                    cmd.Parameters["critID"].Direction = ParameterDirection.Input;                   
 
-                    cmd.Parameters.AddWithValue("min", Convert.ToDecimal(dr[2].ToString()));
-                    cmd.Parameters["min"].Direction = ParameterDirection.Input;
-
-                    cmd.Parameters.AddWithValue("max", Convert.ToDecimal(dr[3].ToString()));
+                    cmd.Parameters.AddWithValue("max", Convert.ToDecimal(dr[2].ToString()));
                     cmd.Parameters["max"].Direction = ParameterDirection.Input;
-
-                    cmd.Parameters.AddWithValue("kommentar", dr[5].ToString());
-                    cmd.Parameters["kommentar"].Direction = ParameterDirection.Input;
+                                        
 
                     connection.Open();
 

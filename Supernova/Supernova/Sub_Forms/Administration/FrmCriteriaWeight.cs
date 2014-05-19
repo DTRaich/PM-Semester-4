@@ -358,11 +358,33 @@ namespace Supernova.Sub_Forms.Administration
 
             scalingGrid.Columns[3].ReadOnly = true;
             scalingGrid.Columns[4].ReadOnly = true;
+            this.scalingGrid.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight; 
 
-            // nur zahlen // logik checken
 
 
         }
+        private void scalingGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is TextBox) //If it is a DataGridViewTextBoxCell
+            {
+                (e.Control as TextBox).MaxLength = 12;
+            }
+
+            if (scalingGrid.CurrentCell.ColumnIndex == 2)
+            {
+                e.Control.KeyPress += Control_KeyPress;
+            }
+        }
+
+        void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+             && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
+        
         #endregion
 
         #region all
@@ -465,11 +487,7 @@ namespace Supernova.Sub_Forms.Administration
             }
         }
 
-        #endregion
 
-        
-
-        
         private object getCorresponding(object ergebnis)
         {
             object retVal = 0;
@@ -492,15 +510,12 @@ namespace Supernova.Sub_Forms.Administration
             return retVal;
         }
 
-        private void scalingGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (e.Control is TextBox) //If it is a DataGridViewTextBoxCell
-            {
-                (e.Control as TextBox).MaxLength = 50; //Set the MaxLength to 4
-            }
-        }
+     
+        #endregion
 
+        
 
+        
 
 
 
