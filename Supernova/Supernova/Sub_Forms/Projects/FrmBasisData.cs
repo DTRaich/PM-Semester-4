@@ -1,4 +1,5 @@
-﻿using Supernova.interfaces;
+﻿using Supernova.data;
+using Supernova.interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace Supernova.Sub_Forms.Projects
     public partial class FrmBasisData : Form,ICriteriaChecking
     {
         private objects.ProjektDataDummy projektdaten;
+        private DataTable kategorie;
+        private DataTable projektleiter;
 
         public FrmBasisData()
         {
@@ -23,6 +26,20 @@ namespace Supernova.Sub_Forms.Projects
         {
             InitializeComponent();
             this.projektdaten = projektdaten;
+            loadBoxes();
+        }
+
+        private void loadBoxes()
+        {
+            ParameterLoad pl = new ParameterLoad();
+            kategorie = pl.loadProjectKategorie();
+            projektleiter = pl.loadProjectLeader();
+            cbProjectCategory.DataSource = kategorie;
+            cbProjectLeader.DataSource = projektleiter;
+            cbProjectCategory.ValueMember = "PC_ID";
+            cbProjectCategory.DisplayMember = "PC_NAME";
+            cbProjectLeader.ValueMember = "USER_ID";
+            cbProjectLeader.DisplayMember = "U_NAME";
         }
 
         public bool checkAndValidateForm()

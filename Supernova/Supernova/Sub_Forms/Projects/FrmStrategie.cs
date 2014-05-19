@@ -27,7 +27,18 @@ namespace Supernova.Sub_Forms.Projects
 
         public bool checkAndValidateForm()
         {
-            return true;
+            collectData();
+            return validateData();
+        }
+
+        private void collectData()
+        {
+            //projektdaten.frage1 = "test";
+        }
+
+        private bool validateData()
+        {
+            throw new NotImplementedException();
         }
     }
 }

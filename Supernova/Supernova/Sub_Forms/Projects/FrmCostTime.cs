@@ -23,6 +23,10 @@ namespace Supernova.Sub_Forms.Projects
         {
             InitializeComponent();
             this.projektdaten = projektdaten;
+            cbStartMonth.SelectedIndex = 0;
+            cbStartYear.SelectedIndex = 0;
+            cbEndMonth.SelectedIndex = 0;
+            cbEndYear.SelectedIndex = 0;
         }
 
         public bool checkAndValidateForm()
@@ -33,21 +37,37 @@ namespace Supernova.Sub_Forms.Projects
 
         private bool validateData()
         {
-            if (dtStartDate.Value >= dtEndDate.Value)
+            bool retVal = true;
+
+            if (((int) cbStartYear.SelectedValue > (int) cbEndYear.SelectedValue) || ((int) cbStartYear.SelectedValue == (int) cbEndYear.SelectedValue && (int) cbStartMonth.SelectedValue > (int) cbEndMonth.SelectedValue))
             {
-                return false;
+                errMsgStartEndDate.Visible = true;
+                retVal = false;
+            }
+            else
+            {
+                errMsgStartEndDate.Visible = false;
             }
 
-            return true;
+            try
+            {
+                projektdaten.GesamtKosten = Convert.ToDouble(mtbTotalCost.Text);
+                projektdaten.NPV = Convert.ToDouble(mtbTotalCost.Text);
+                projektdaten.TimeToMarket = (int) nupTimeToMarket.Value;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bitte alle Felder ausfüllen!");
+                retVal = false;
+            }
+
+            return retVal;
         }
 
         private void collectData()
         {
-            projektdaten.ProjectStartDate = dtStartDate.Value;
-            projektdaten.ProjectEndDate = dtEndDate.Value;
-            projektdaten.GesamtKosten = Convert.ToDouble(mtbTotalCost.Text);
-            projektdaten.NPV = Convert.ToDouble(mtbTotalCost.Text);
-            projektdaten.TimeToMarket = (int) nupTimeToMarket.Value;
+            projektdaten.ProjectStartDate = new DateTime(Convert.ToInt32(cbStartYear.SelectedItem), Convert.ToInt32(cbStartMonth.SelectedItem), 1);
+            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedItem), Convert.ToInt32(cbEndMonth.SelectedItem), 1);
         }
     }
 }
