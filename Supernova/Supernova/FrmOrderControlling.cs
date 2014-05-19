@@ -35,6 +35,9 @@ namespace Supernova
             this.pnlControl.Controls.Add(currentFrm);
             currentFrm.Show();
             setButtons();
+            formNumber++;
+            highestFormNumber = formNumber;
+           
         }
                 
 

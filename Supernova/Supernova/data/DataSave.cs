@@ -424,6 +424,37 @@ namespace Supernova.data
         #endregion
 
         #region criteriaMatters
+        private void newWeightCalculation()
+        {
+            dbError.deleteDBError();
+
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                string commandText = "Call UpdateCriteriaWeight()";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+                connection.Open();
+
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         public bool saveCriteriaActivation(DataTable  differenz)
         {
             dbError.deleteDBError();
@@ -467,6 +498,11 @@ namespace Supernova.data
                     cmd.ExecuteReader(CommandBehavior.CloseConnection);
 
                     connection.Close();
+                    
+
+                    // new weight
+
+                    newWeightCalculation();
 
                 }
                 catch (Exception ex)
@@ -537,7 +573,8 @@ namespace Supernova.data
             {
                 saveOneCriteriaWeight(Convert.ToInt32(dr[0].ToString()), Convert.ToInt32(dr[1].ToString()), Convert.ToInt32(dr[2].ToString()));
             }
-
+            //
+            newWeightCalculation();
             return true;
 
         }
