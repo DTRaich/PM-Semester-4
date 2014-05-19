@@ -37,7 +37,7 @@ namespace Supernova.Sub_Forms.Administration
         {
             
             InitializeComponent();
-            StartPrepares(); 
+            StartPrepares();
         }
 
         private void resetTables()
@@ -291,6 +291,8 @@ namespace Supernova.Sub_Forms.Administration
             weightGrid.DataSource = weightSource;
             weightGrid.Columns[0].Visible = false;
             weightGrid.Columns[1].ReadOnly = true;
+            weightGrid.Columns[1].Frozen = true;
+
         }
 
         private void fillWeightSource()
@@ -417,21 +419,23 @@ namespace Supernova.Sub_Forms.Administration
         int row, column;
         private void weightGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
             row = e.RowIndex;
             column = e.ColumnIndex;
+            if (column != 1 && column != -1 && row !=-1)
+            {
+                weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
+                //current
 
-            //current
-           
-            weightGrid[column, row].Style.BackColor = Color.Salmon;
-             //depending    
-            weightGrid[row + 2, column - 2].Style.BackColor = Color.Salmon;
+                weightGrid[column, row].Style.BackColor = Color.Salmon;
+                //depending    
+                weightGrid[row + 2, column - 2].Style.BackColor = Color.Salmon;
 
-             weightGrid.CellValueChanged += weightGrid_CellValueChanged;
-             weightGrid.CellLeave += weightGrid_CellLeave;
+                weightGrid.CellValueChanged += weightGrid_CellValueChanged;
+                weightGrid.CellLeave += weightGrid_CellLeave;
+            }
             
 
-            
+
         }
 
         void weightGrid_CellLeave(object sender, DataGridViewCellEventArgs e)
