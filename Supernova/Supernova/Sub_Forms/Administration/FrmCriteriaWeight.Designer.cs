@@ -42,6 +42,7 @@
             this.btnDiscardActive = new System.Windows.Forms.Button();
             this.btnSaveActive = new System.Windows.Forms.Button();
             this.activationGrid = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tbScale.SuspendLayout();
             this.tbWeight.SuspendLayout();
@@ -82,6 +83,7 @@
             // tbWeight
             // 
             this.tbWeight.BackColor = System.Drawing.SystemColors.Control;
+            this.tbWeight.Controls.Add(this.label1);
             this.tbWeight.Controls.Add(this.btnSaveWeight);
             this.tbWeight.Controls.Add(this.btnDiscardWeight);
             this.tbWeight.Controls.Add(this.weightGrid);
@@ -228,6 +230,16 @@
             this.activationGrid.Size = new System.Drawing.Size(249, 296);
             this.activationGrid.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(97, 307);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(461, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Legende: 4 viel wichtiger, 3 wichtiger, 2 gleich,1 unwichtiger, 0 unwichtig";
+            // 
             // FrmCriteriaWeight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +253,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tbScale.ResumeLayout(false);
             this.tbWeight.ResumeLayout(false);
+            this.tbWeight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightGrid)).EndInit();
             this.tbScaling.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scalingGrid)).EndInit();
@@ -266,6 +279,7 @@
         private System.Windows.Forms.Button btnSaveScale;
         private System.Windows.Forms.Button btnDiscadScale;
         private System.Windows.Forms.DataGridView scalingGrid;
+        private System.Windows.Forms.Label label1;
 
     }
 }

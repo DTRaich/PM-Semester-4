@@ -83,10 +83,7 @@ namespace Supernova.Sub_Forms.Administration
            
         }
 
-       
-
-        
-       
+           
         #region events
 
         private void button1_Click(object sender, EventArgs e)
@@ -291,7 +288,6 @@ namespace Supernova.Sub_Forms.Administration
             weightGrid.DataSource = weightSource;
             weightGrid.Columns[0].Visible = false;
             weightGrid.Columns[1].ReadOnly = true;
-            weightGrid.Columns[1].Frozen = true;
 
         }
 
