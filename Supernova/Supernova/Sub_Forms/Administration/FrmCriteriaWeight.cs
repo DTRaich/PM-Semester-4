@@ -356,7 +356,13 @@ namespace Supernova.Sub_Forms.Administration
             originScale = scaleSource.Copy();
             scalingGrid.DataSource = scaleSource;
             scalingGrid.Columns[0].Visible = false;
+            scalingGrid.Columns[1].ReadOnly = true;
+
             scalingGrid.Columns[3].ReadOnly = true;
+            scalingGrid.Columns[4].ReadOnly = true;
+
+            // nur zahlen // logik checken
+
 
         }
         #endregion
@@ -417,9 +423,9 @@ namespace Supernova.Sub_Forms.Administration
 
             //current
            
-            weightGrid[column, row].Style.BackColor = Color.Red;
+            weightGrid[column, row].Style.BackColor = Color.Salmon;
              //depending    
-             weightGrid[row + 2, column - 2].Style.BackColor = Color.Red;
+            weightGrid[row + 2, column - 2].Style.BackColor = Color.Salmon;
 
              weightGrid.CellValueChanged += weightGrid_CellValueChanged;
              weightGrid.CellLeave += weightGrid_CellLeave;
