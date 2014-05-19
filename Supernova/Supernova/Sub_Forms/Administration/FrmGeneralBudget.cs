@@ -26,9 +26,19 @@ namespace Supernova.Sub_Forms.Administration
 
             budget = loader.LoadBudget();
 
-            mtbBudget1.Text = Convert.ToDecimal(budget.Rows[0][1]).ToString();
-            mtbBudget2.Text = Convert.ToDecimal(budget.Rows[0][2]).ToString();
-            mtbBudget3.Text = Convert.ToDecimal(budget.Rows[0][3]).ToString();
+            decimal y1, y2, y3;
+            string b1 = budget.Rows[0][1].ToString();
+            string b2 = budget.Rows[0][2].ToString();
+            string b3 = budget.Rows[0][3].ToString();
+
+
+            decimal.TryParse(b1, out y1);
+            decimal.TryParse(b2, out y2);
+            decimal.TryParse(b2, out y3);
+
+            mtbBudget1.Text = y1.ToString("0000000000.00");
+            mtbBudget2.Text = y2.ToString("0000000000.00");
+            mtbBudget3.Text = y3.ToString("0000000000.00");
 
             budgetid = Convert.ToInt32(budget.Rows[0][0]);
 
