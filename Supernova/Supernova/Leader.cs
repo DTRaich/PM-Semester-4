@@ -200,6 +200,7 @@ namespace Supernova
             // Forms
             FrmBasisData bdata = new FrmBasisData(ref projektdaten);
             FrmCostTime cform = new FrmCostTime(ref projektdaten);
+            FrmRessources frmRes = new FrmRessources(ref projektdaten);
             FrmRisk frmR = new FrmRisk(ref projektdaten);
             FrmStrategie frmS = new FrmStrategie(ref projektdaten);
 
@@ -208,6 +209,7 @@ namespace Supernova
             List<Form> list = new List<Form>();
             list.Add(prepareForm(bdata));
             list.Add(prepareForm(cform));
+            list.Add(prepareForm(frmRes));
             list.Add(prepareForm(frmR));
             list.Add(prepareForm(frmS));
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supernova.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,11 +10,24 @@ using System.Windows.Forms;
 
 namespace Supernova.Sub_Forms.Projects
 {
-    public partial class FrmRessources : Form
+    public partial class FrmRessources : Form, ICriteriaChecking
     {
+        private objects.ProjektDataDummy projektdaten;
+
         public FrmRessources()
         {
             InitializeComponent();
+        }
+
+        public FrmRessources(ref objects.ProjektDataDummy projektdaten)
+        {
+            InitializeComponent();
+            this.projektdaten = projektdaten;
+        }
+
+        public bool checkAndValidateForm()
+        {
+            return true;
         }
     }
 }
