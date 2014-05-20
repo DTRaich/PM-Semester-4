@@ -35,6 +35,10 @@ namespace Supernova.Sub_Forms.Projects
            CapaSource = projektdaten.AbteilungsKapazitaet;
            OriginalSource = CapaSource.Copy();
            capaGrid.DataSource = CapaSource;
+           capaGrid.Columns[0].Visible = false;
+           capaGrid.Columns[1].ReadOnly = true;
+
+
 
         }
 
@@ -81,6 +85,23 @@ namespace Supernova.Sub_Forms.Projects
                 }
             }
             return retval;
+        }
+
+        private void capaGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (capaGrid.CurrentCell.ColumnIndex != 1)
+            {
+                e.Control.KeyPress += Control_KeyPress;
+            }
+        }
+
+        void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+             && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

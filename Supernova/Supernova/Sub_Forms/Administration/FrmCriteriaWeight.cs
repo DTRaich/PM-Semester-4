@@ -454,7 +454,6 @@ namespace Supernova.Sub_Forms.Administration
             {
                 e.Control.KeyPress += new KeyPressEventHandler(weightGrid_KeyPress);
             }
-
         }
 
         private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
@@ -462,7 +461,7 @@ namespace Supernova.Sub_Forms.Administration
 
             if ('0' == e.KeyChar || '1' == e.KeyChar || '2' == e.KeyChar || '3' == e.KeyChar || '4' == e.KeyChar)
             {
-
+               // weightGrid.CurrentCell.Value = e.KeyChar;
             }
             else
             {

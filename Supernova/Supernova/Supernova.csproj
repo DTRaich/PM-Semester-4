@@ -260,6 +260,9 @@
     <EmbeddedResource Include="Sub_Forms\Projects\FrmCostTime.resx">
       <DependentUpon>FrmCostTime.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Projects\FrmRessources.resx">
+      <DependentUpon>FrmRessources.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Projects\FrmRisk.resx">
       <DependentUpon>FrmRisk.cs</DependentUpon>
     </EmbeddedResource>

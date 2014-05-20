@@ -50,6 +50,7 @@
             this.capaGrid.Name = "capaGrid";
             this.capaGrid.Size = new System.Drawing.Size(504, 235);
             this.capaGrid.TabIndex = 1;
+            this.capaGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.capaGrid_EditingControlShowing);
             // 
             // FrmRessources
             // 
