@@ -259,7 +259,7 @@ namespace Supernova.data
 
             try
             {
-                string commandText = "";
+                string commandText = "Select DEPARTMENTS_ID, D_NAME AS Kriterium, D_MANNTAGEBUDG";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;
