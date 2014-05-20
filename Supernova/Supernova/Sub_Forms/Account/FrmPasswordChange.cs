@@ -65,7 +65,7 @@ namespace Supernova.Sub_Forms.Account
             }
             else
             {
-                FrmAfirmative frm = new FrmAfirmative("inkorrekt Paswort", 'e');
+                FrmAfirmative frm = new FrmAfirmative("Das eingegebene Passwort ist falsch! \n Bitte versuchen Sie es erneut.", 'e');
                 frm.ShowDialog();
                 return false;
             }
