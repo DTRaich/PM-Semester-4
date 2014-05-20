@@ -11,6 +11,7 @@ namespace Supernova.objects
     {
         DataSave ds = new DataSave();
         DataLoad load = new DataLoad();
+        ParameterLoad pl = new ParameterLoad();
         DataSet projektDataSet;
          
         #region fields 
@@ -56,9 +57,23 @@ namespace Supernova.objects
         #endregion
 
         public ProjektDataDummy()
-        {            
+        {
+            prepareCapazitytable();
         }
 
+        private void prepareCapazitytable()
+        {
+            DataTable dt = pl.loadDeparments();
+            DataColumn dc  = new DataColumn("MT in Jahr 1");
+            DataColumn dc2 = new DataColumn("MT in Jahr 2");
+            DataColumn dc3 = new DataColumn("MT in Jahr 3");
+            dt.Columns.Add(dc);
+            dt.Columns.Add(dc2);
+            dt.Columns.Add(dc3);
+            AbteilungsKapazitaet = dt;
+        }
+
+        #region load
         public bool loadProjectdataintoDummy(int id)
         {
             bool saveworked = false;
@@ -75,10 +90,13 @@ namespace Supernova.objects
 
             return saveworked;
         }
+        private void extractProjektData(DataSet projektDataSet)
+        {
 
-       
+        }
+        #endregion
 
-
+        #region save
         public bool saveProjectDataToDb()
         {
             // user speichern
@@ -104,13 +122,7 @@ namespace Supernova.objects
 
             return true;      
         }
-     
-        #region extraxtAndCollect
-        
-        private void extractProjektData(DataSet projektDataSet)
-        {
-            
-        }
+           
         #endregion
     }
 }

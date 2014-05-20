@@ -38,8 +38,9 @@ namespace Supernova.Sub_Forms.Projects
         private bool validateData()
         {
             bool retVal = true;
-
-            if (((int) cbStartYear.SelectedValue > (int) cbEndYear.SelectedValue) || ((int) cbStartYear.SelectedValue == (int) cbEndYear.SelectedValue && (int) cbStartMonth.SelectedValue > (int) cbEndMonth.SelectedValue))
+            int startYear = Convert.ToInt32(cbStartYear.SelectedItem);
+            int endYear= Convert.ToInt32(cbEndYear.SelectedItem);
+            if ((startYear > endYear) || (startYear == endYear) && (Convert.ToInt32(cbStartMonth.SelectedItem) > Convert.ToInt32(cbEndMonth.SelectedItem)))
             {
                 errMsgStartEndDate.Visible = true;
                 retVal = false;
