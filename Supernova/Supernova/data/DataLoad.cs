@@ -250,6 +250,40 @@ namespace Supernova.data
 
             return dt;
         }
+        
+        public DataTable LoadAllDepartmenntCapacity()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+        
         #endregion
         #region user
         public DataTable LoadUserData(int userID)

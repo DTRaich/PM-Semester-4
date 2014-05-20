@@ -55,9 +55,9 @@ namespace Supernova.Sub_Forms.Administration
         {
             DataSave saver = new DataSave();
 
-            int budget1 = Convert.ToInt32(mtbBudget1.Text);
-            int budget2 = Convert.ToInt32(mtbBudget2.Text);
-            int budget3 = Convert.ToInt32(mtbBudget3.Text);
+            decimal budget1 = Convert.ToDecimal(mtbBudget1.Text);
+            decimal budget2 = Convert.ToDecimal(mtbBudget2.Text);
+            decimal budget3 = Convert.ToDecimal(mtbBudget3.Text);
 
             saver.SaveBudget(budgetid, budget1, budget2, budget3);
            
