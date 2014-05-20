@@ -173,6 +173,12 @@
     <Compile Include="Sub_Forms\Projects\FrmCostTime.Designer.cs">
       <DependentUpon>FrmCostTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sub_Forms\Projects\FrmRessources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Projects\FrmRessources.Designer.cs">
+      <DependentUpon>FrmRessources.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sub_Forms\Projects\FrmRisk.cs">
       <SubType>Form</SubType>
     </Compile>
