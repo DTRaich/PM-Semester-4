@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Supernova.data;
+using Supernova.Sub_Forms.General;
 
 namespace Supernova.Sub_Forms.Administration
 {
@@ -60,6 +61,9 @@ namespace Supernova.Sub_Forms.Administration
             decimal budget3 = Convert.ToDecimal(mtbBudget3.Text);
 
             saver.SaveBudget(budgetid, budget1, budget2, budget3);
+
+            FrmAfirmative saved = new FrmAfirmative("Das Jahresbudget wurde gespeichert.", 'i');
+            saved.ShowDialog();
            
         }
     }
