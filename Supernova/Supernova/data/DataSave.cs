@@ -456,7 +456,10 @@ namespace Supernova.data
 
         private void saveDepartmentNeedCapa(int projectID, DataTable depCapaTable)
         {
-            
+            foreach(DataRow dr in depCapaTable.Rows)
+            {
+
+            }
         }
 
         private int getProjectID(string p)
@@ -500,6 +503,51 @@ namespace Supernova.data
 
         private void saveCriteria(int projectID, DataSet CriteriasDataSet)
         {
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            foreach (DataTable t in CriteriasDataSet.Tables)
+            {
+                foreach (DataRow dr in t.Rows)
+                {
+                    try
+                    {
+
+                        string commandText = "Call SaveProToCritVals(@pid,@critid,@val)";
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.Connection = connection;
+                        cmd.CommandText = commandText;
+
+                        cmd.Parameters.AddWithValue("pid", projectID);
+                        cmd.Parameters["pid"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("critid", dr[0]);
+                        cmd.Parameters["critid"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("val", dr["Value"]);
+                        cmd.Parameters["val"].Direction = ParameterDirection.Input;
+                        
+                        connection.Open();
+                        cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                        connection.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        dbError.setDBError();
+
+                    }
+                    finally
+                    {
+                        if (connection != null)
+                        {
+                            connection.Close();
+                        }
+                    }
+                }
+            }
+            
+
         }
 
         private void saveBasis( List<string> basis)

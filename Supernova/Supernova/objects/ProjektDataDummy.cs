@@ -172,20 +172,9 @@ namespace Supernova.objects
         #region save
         public bool saveProjectDataToDb()
         {
-            // user speichern
-            List<string> basisData = collectBasisData();  //new List<string>();
-            //basisdaten
-            basisData.Add(ProjectID.ToString());
-            basisData.Add(ProjectName);
-            basisData.Add(ProjectDescription);
-            basisData.Add(ProjectStartDate.ToShortDateString());
-            basisData.Add(ProjectEndDate.ToShortDateString());
-            basisData.Add(ProjectLeader.ToString());
-            basisData.Add(CreatedBY.ToString());
-            basisData.Add(ProjectCategory.ToString()); 
+            List<string> basisData = collectBasisData();             
            // Kriterien
-            DataSet CriteriaDataset = collectCriteriaDataset();
-           
+            DataSet CriteriaDataset = collectCriteriaDataset();          
 
             // speichern
             bool ergebenis = ds.SaveorUpdateProject(basisData, CriteriaDataset,departmentCapa);
@@ -197,12 +186,27 @@ namespace Supernova.objects
 
         private DataSet collectCriteriaDataset()
         {
-            throw new NotImplementedException();
+            DataSet ds = new DataSet();
+
+
+            return ds;
+            
         }
 
         private List<string> collectBasisData()
         {
-            throw new NotImplementedException();
+            List<string> basisData = new List<string>();
+            //basisdaten
+            basisData.Add(ProjectID.ToString());
+            basisData.Add(ProjectName);
+            basisData.Add(ProjectDescription);
+            basisData.Add(ProjectStartDate.ToShortDateString());
+            basisData.Add(ProjectEndDate.ToShortDateString());
+            basisData.Add(ProjectLeader.ToString());
+            basisData.Add(CreatedBY.ToString());
+            basisData.Add(ProjectCategory.ToString());
+
+            return basisData;
         }
 
 
