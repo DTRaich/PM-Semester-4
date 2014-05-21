@@ -331,9 +331,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(167, 253);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(202, 17);
+            this.label5.Size = new System.Drawing.Size(139, 17);
             this.label5.TabIndex = 29;
-            this.label5.Text = "Lorem ipsum dolor sid amet...?";
+            this.label5.Text = "Kundenzufriedenheit";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // radioButton21
