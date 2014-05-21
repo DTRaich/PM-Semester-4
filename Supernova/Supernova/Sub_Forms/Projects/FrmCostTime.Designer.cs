@@ -49,7 +49,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(300, 75);
+            this.label3.Location = new System.Drawing.Point(289, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 17);
             this.label3.TabIndex = 16;
@@ -67,7 +67,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(327, 48);
+            this.label2.Location = new System.Drawing.Point(316, 99);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 11;
@@ -77,7 +77,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(322, 21);
+            this.label1.Location = new System.Drawing.Point(311, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 17);
             this.label1.TabIndex = 10;
@@ -87,7 +87,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(292, 126);
+            this.label5.Location = new System.Drawing.Point(281, 251);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 17);
             this.label5.TabIndex = 23;
@@ -95,17 +95,17 @@
             // 
             // mtbTotalCost
             // 
-            this.mtbTotalCost.Location = new System.Drawing.Point(405, 74);
+            this.mtbTotalCost.Location = new System.Drawing.Point(394, 149);
             this.mtbTotalCost.Mask = "0000000000,00";
             this.mtbTotalCost.Name = "mtbTotalCost";
-            this.mtbTotalCost.Size = new System.Drawing.Size(100, 20);
+            this.mtbTotalCost.Size = new System.Drawing.Size(83, 20);
             this.mtbTotalCost.TabIndex = 24;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(363, 101);
+            this.label4.Location = new System.Drawing.Point(352, 202);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 17);
             this.label4.TabIndex = 17;
@@ -113,15 +113,15 @@
             // 
             // mtbNPV
             // 
-            this.mtbNPV.Location = new System.Drawing.Point(405, 100);
+            this.mtbNPV.Location = new System.Drawing.Point(394, 201);
             this.mtbNPV.Mask = "00,000";
             this.mtbNPV.Name = "mtbNPV";
-            this.mtbNPV.Size = new System.Drawing.Size(100, 20);
+            this.mtbNPV.Size = new System.Drawing.Size(43, 20);
             this.mtbNPV.TabIndex = 25;
             // 
             // nupTimeToMarket
             // 
-            this.nupTimeToMarket.Location = new System.Drawing.Point(405, 126);
+            this.nupTimeToMarket.Location = new System.Drawing.Point(394, 251);
             this.nupTimeToMarket.Name = "nupTimeToMarket";
             this.nupTimeToMarket.Size = new System.Drawing.Size(120, 20);
             this.nupTimeToMarket.TabIndex = 26;
@@ -142,7 +142,7 @@
             "10",
             "11",
             "12"});
-            this.cbStartMonth.Location = new System.Drawing.Point(405, 20);
+            this.cbStartMonth.Location = new System.Drawing.Point(394, 54);
             this.cbStartMonth.Name = "cbStartMonth";
             this.cbStartMonth.Size = new System.Drawing.Size(65, 21);
             this.cbStartMonth.TabIndex = 27;
@@ -162,7 +162,7 @@
             "2022",
             "2023",
             "2024"});
-            this.cbStartYear.Location = new System.Drawing.Point(476, 20);
+            this.cbStartYear.Location = new System.Drawing.Point(465, 54);
             this.cbStartYear.Name = "cbStartYear";
             this.cbStartYear.Size = new System.Drawing.Size(65, 21);
             this.cbStartYear.TabIndex = 28;
@@ -182,7 +182,7 @@
             "2022",
             "2023",
             "2024"});
-            this.cbEndYear.Location = new System.Drawing.Point(476, 47);
+            this.cbEndYear.Location = new System.Drawing.Point(465, 98);
             this.cbEndYear.Name = "cbEndYear";
             this.cbEndYear.Size = new System.Drawing.Size(65, 21);
             this.cbEndYear.TabIndex = 30;
@@ -203,7 +203,7 @@
             "10",
             "11",
             "12"});
-            this.cbEndMonth.Location = new System.Drawing.Point(405, 47);
+            this.cbEndMonth.Location = new System.Drawing.Point(394, 98);
             this.cbEndMonth.Name = "cbEndMonth";
             this.cbEndMonth.Size = new System.Drawing.Size(65, 21);
             this.cbEndMonth.TabIndex = 29;
@@ -212,8 +212,8 @@
             // 
             this.errMsgStartEndDate.AutoSize = true;
             this.errMsgStartEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errMsgStartEndDate.ForeColor = System.Drawing.Color.Red;
-            this.errMsgStartEndDate.Location = new System.Drawing.Point(547, 48);
+            this.errMsgStartEndDate.ForeColor = System.Drawing.Color.DarkRed;
+            this.errMsgStartEndDate.Location = new System.Drawing.Point(536, 99);
             this.errMsgStartEndDate.Name = "errMsgStartEndDate";
             this.errMsgStartEndDate.Size = new System.Drawing.Size(303, 17);
             this.errMsgStartEndDate.TabIndex = 31;
@@ -224,7 +224,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 377);
+            this.ClientSize = new System.Drawing.Size(939, 325);
             this.Controls.Add(this.errMsgStartEndDate);
             this.Controls.Add(this.cbEndYear);
             this.Controls.Add(this.cbEndMonth);

@@ -44,7 +44,7 @@
             // 
             // tbTechRisk
             // 
-            this.tbTechRisk.Location = new System.Drawing.Point(475, 12);
+            this.tbTechRisk.Location = new System.Drawing.Point(475, 44);
             this.tbTechRisk.Minimum = 1;
             this.tbTechRisk.Name = "tbTechRisk";
             this.tbTechRisk.Size = new System.Drawing.Size(104, 45);
@@ -55,7 +55,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(339, 12);
+            this.label1.Location = new System.Drawing.Point(339, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 17);
             this.label1.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             // tbFinancialRisk
             // 
-            this.tbFinancialRisk.Location = new System.Drawing.Point(475, 63);
+            this.tbFinancialRisk.Location = new System.Drawing.Point(475, 104);
             this.tbFinancialRisk.Minimum = 1;
             this.tbFinancialRisk.Name = "tbFinancialRisk";
             this.tbFinancialRisk.Size = new System.Drawing.Size(104, 45);
@@ -74,7 +74,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(345, 63);
+            this.label2.Location = new System.Drawing.Point(345, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 17);
             this.label2.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             // tbSecurityRisk
             // 
-            this.tbSecurityRisk.Location = new System.Drawing.Point(475, 114);
+            this.tbSecurityRisk.Location = new System.Drawing.Point(475, 164);
             this.tbSecurityRisk.Minimum = 1;
             this.tbSecurityRisk.Name = "tbSecurityRisk";
             this.tbSecurityRisk.Size = new System.Drawing.Size(104, 45);
@@ -93,7 +93,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(283, 114);
+            this.label3.Location = new System.Drawing.Point(283, 164);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(186, 17);
             this.label3.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             // tbQualityRisk
             // 
-            this.tbQualityRisk.Location = new System.Drawing.Point(475, 165);
+            this.tbQualityRisk.Location = new System.Drawing.Point(475, 225);
             this.tbQualityRisk.Minimum = 1;
             this.tbQualityRisk.Name = "tbQualityRisk";
             this.tbQualityRisk.Size = new System.Drawing.Size(104, 45);
@@ -112,7 +112,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(345, 165);
+            this.label4.Location = new System.Drawing.Point(345, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 17);
             this.label4.TabIndex = 7;
@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 377);
+            this.ClientSize = new System.Drawing.Size(939, 325);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbQualityRisk);
             this.Controls.Add(this.label3);
