@@ -453,15 +453,17 @@ namespace Supernova.Sub_Forms.Administration
             if (weightGrid.CurrentCell.ColumnIndex > 1)
             {
                 e.Control.KeyPress += new KeyPressEventHandler(weightGrid_KeyPress);
+                (e.Control as TextBox).MaxLength = 1;
             }
+            
         }
 
         private void weightGrid_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+          //  weightGrid
             if ('0' == e.KeyChar || '1' == e.KeyChar || '2' == e.KeyChar || '3' == e.KeyChar || '4' == e.KeyChar)
             {
-               // weightGrid.CurrentCell.Value = e.KeyChar;
+                
             }
             else
             {
