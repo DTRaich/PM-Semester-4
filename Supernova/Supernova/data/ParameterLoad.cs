@@ -239,7 +239,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select USER_ID,U_NAME from user where U_GROUP = 24 ";
+                string comand = "Select USER_ID,U_NAME from user";
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
             }
@@ -287,6 +287,93 @@ namespace Supernova.data
             return dt;
         }
 
+        public DataTable loadRisks()
+        {
+            dbError.deleteDBError();
+
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select CRITERIA_ID,C_NAME from criteria where C_NAME like '%Risiko%'";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+
+        public DataTable loadStrategies()
+        {
+            dbError.deleteDBError();
+
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select CRITERIA_ID,C_NAME from criteria where CRITERIA_ID > 27 AND CRITERIA_ID < 33" ;
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+        public DataTable loadDivCriterias()
+        {
+            dbError.deleteDBError();
+
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                connection.Open();
+                string comand = "Select CRITERIA_ID,C_NAME from criteria where C_NAME not like '%Risiko%' AND CRITERIA_ID < 28 OR CRITERIA_ID = 33";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
         #endregion
 
     }

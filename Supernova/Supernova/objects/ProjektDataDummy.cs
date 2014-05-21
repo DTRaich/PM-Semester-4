@@ -12,8 +12,12 @@ namespace Supernova.objects
         DataSave ds = new DataSave();
         DataLoad load = new DataLoad();
         ParameterLoad pl = new ParameterLoad();
-        DataSet projektDataSet;
-         
+
+        public DataTable risks;
+        public DataTable strategie;
+        public DataTable departmentCapa;
+        public DataTable divCriterias;
+
         #region fields 
 
         #region basisdaten
@@ -50,15 +54,75 @@ namespace Supernova.objects
         public int frage5;
         #endregion
 
-        #region Ressourcen
-        public DataTable AbteilungsKapazitaet;
-        #endregion
+        
 
         #endregion
 
         public ProjektDataDummy()
         {
+            resetAllTabels();
+            prepareTables();          
+        }
+
+       
+
+        #region TabelPreparation
+        private void resetAllTabels()
+        {
+            risks = null;
+            strategie = null;
+            departmentCapa = null;
+            divCriterias = null;
+        }
+        private void prepareTables()
+        {          
             prepareCapazitytable();
+            prepareRiskTabel();
+            prepareStrategieTabel();
+            prepareDivCriterias();
+        }
+
+        private void prepareStrategieTabel()
+        {
+            DataTable dt = pl.loadStrategies();
+            DataColumn dc = new DataColumn("Value");
+            dt.Columns.Add(dc);
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr[2] = 0;
+            }
+            dt.AcceptChanges();
+            strategie = dt;
+            strategie.AcceptChanges();
+        }
+
+        private void prepareDivCriterias()
+        {
+            DataTable dt = pl.loadDivCriterias();
+            DataColumn dc = new DataColumn("Value");
+            dt.Columns.Add(dc);
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr[2] = 0;
+            }
+            dt.AcceptChanges();
+            divCriterias = dt;
+            divCriterias.AcceptChanges();
+        }
+
+        private void prepareRiskTabel()
+        {
+            DataTable dt = pl.loadRisks();
+            DataColumn dc = new DataColumn("Value");            
+            dt.Columns.Add(dc);           
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr[2] = 0;
+                
+            }
+            dt.AcceptChanges();
+            risks = dt;
+            risks.AcceptChanges();
         }
 
         private void prepareCapazitytable()
@@ -77,9 +141,10 @@ namespace Supernova.objects
                 dr[4] = 0;
             }
             dt.AcceptChanges();
-            AbteilungsKapazitaet = dt;
-            AbteilungsKapazitaet.AcceptChanges();
+            departmentCapa = dt;
+            departmentCapa.AcceptChanges();
         }
+        #endregion
 
         #region load
         public bool loadProjectdataintoDummy(int id)
@@ -108,9 +173,7 @@ namespace Supernova.objects
         public bool saveProjectDataToDb()
         {
             // user speichern
-            List<string> basisData = new List<string>();
-            List<string> restData = new List<string>();
-
+            List<string> basisData = collectBasisData();  //new List<string>();
             //basisdaten
             basisData.Add(ProjectID.ToString());
             basisData.Add(ProjectName);
@@ -121,15 +184,28 @@ namespace Supernova.objects
             basisData.Add(CreatedBY.ToString());
             basisData.Add(ProjectCategory.ToString()); 
            // Kriterien
-
+            DataSet CriteriaDataset = collectCriteriaDataset();
+           
 
             // speichern
-           bool ergebenis =  ds.SaveorUpdateProject(basisData,restData);
+            bool ergebenis = ds.SaveorUpdateProject(basisData, CriteriaDataset,departmentCapa);
 
 
 
            return ergebenis;      
         }
+
+        private DataSet collectCriteriaDataset()
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<string> collectBasisData()
+        {
+            throw new NotImplementedException();
+        }
+
+
            
         #endregion
     }

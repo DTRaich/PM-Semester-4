@@ -33,7 +33,7 @@ namespace Supernova.Sub_Forms.Projects
 
         private void prepareGrid()
         {
-           CapaSource = projektdaten.AbteilungsKapazitaet;
+           CapaSource = projektdaten.departmentCapa;
            OriginalSource = CapaSource.Copy();
            capaGrid.DataSource = CapaSource;
            capaGrid.Columns[0].Visible = false;
@@ -57,9 +57,9 @@ namespace Supernova.Sub_Forms.Projects
 
                 if (differenze.Rows.Count > 0)
                 {
-                    projektdaten.AbteilungsKapazitaet = null;
-                    projektdaten.AbteilungsKapazitaet = differenze;
-                    projektdaten.AbteilungsKapazitaet.AcceptChanges();
+                    projektdaten.departmentCapa = null;
+                    projektdaten.departmentCapa = differenze;
+                    projektdaten.departmentCapa.AcceptChanges();
 
                 }
                 

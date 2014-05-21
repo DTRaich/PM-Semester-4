@@ -412,7 +412,7 @@ namespace Supernova.data
 
         #region projectMatters
 
-        public bool SaveorUpdateProject(List<string> basis, List<string> rest)
+        public bool SaveorUpdateProject(List<string> basis, DataSet CriteriasDataSet, DataTable depCapaTable)
         {
             bool retval = true;
             int projectID = 0;
@@ -435,11 +435,14 @@ namespace Supernova.data
                 if (projectID == 0)
                 {
                     projectID = getProjectID(basis[1].ToString());
-                    saveCriteria(projectID, rest);
+                    saveCriteria(projectID, CriteriasDataSet);
+                    saveDepartmentNeedCapa(projectID,depCapaTable);
                 }
                 else
                 {
-                    saveCriteria(projectID, rest);
+                    saveCriteria(projectID, CriteriasDataSet);
+                    saveDepartmentNeedCapa(projectID,depCapaTable);
+
                 }
             }
             else
@@ -449,6 +452,11 @@ namespace Supernova.data
            
 
             return true;
+        }
+
+        private void saveDepartmentNeedCapa(int projectID, DataTable depCapaTable)
+        {
+            
         }
 
         private int getProjectID(string p)
@@ -490,7 +498,7 @@ namespace Supernova.data
             return retVal;
         }
 
-        private void saveCriteria(int projectID, List<string> rest)
+        private void saveCriteria(int projectID, DataSet CriteriasDataSet)
         {
         }
 
