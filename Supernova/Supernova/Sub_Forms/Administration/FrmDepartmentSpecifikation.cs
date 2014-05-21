@@ -173,8 +173,10 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnNewDep_Click(object sender, EventArgs e)
         {
-            FrmNewDep newDep = new FrmNewDep();
+            FrmNewDep newDep = new FrmNewDep(depComboTab);
             newDep.ShowDialog();
+            prepareBoxes();
+            prepareFields();
 
         }
 

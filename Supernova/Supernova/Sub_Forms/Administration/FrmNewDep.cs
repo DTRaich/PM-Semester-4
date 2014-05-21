@@ -17,12 +17,13 @@ namespace Supernova.Sub_Forms.Administration
         int budget2 = 0;
         int budget3 = 0;
         string newDepName;
+        DataTable List;
 
-        public FrmNewDep()
+        public FrmNewDep( DataTable list)
         {
             InitializeComponent();
             btnCancel.DialogResult = DialogResult.Cancel;
-            
+            this.List = list;
         }
 
   
@@ -109,13 +110,22 @@ namespace Supernova.Sub_Forms.Administration
    {
        if (checkContent() == true)
        {
-           DataSave saver = new DataSave();
-           saver.newDep(newDepName, budget1, budget2, budget3);
+           if (checkAlreadyThere())
+           {
+               DataSave saver = new DataSave();
+               saver.newDep(newDepName, budget1, budget2, budget3);
 
-           FrmAfirmative newDep = new FrmAfirmative("Eine neue Abteilung wurde erstellt.", 'i');
-           newDep.ShowDialog();
+               FrmAfirmative newDep = new FrmAfirmative("Eine neue Abteilung wurde erstellt.", 'i');
+               newDep.ShowDialog();
+               this.Close();
 
-           btnOk.DialogResult = DialogResult.OK;
+               btnOk.DialogResult = DialogResult.OK;
+           }
+           else 
+           { 
+               FrmAfirmative alreadyThere = new FrmAfirmative("Diese Abteilung ist schon vorhanden.",'e');
+               alreadyThere.ShowDialog();
+           }
           
        }
        else 
@@ -124,5 +134,23 @@ namespace Supernova.Sub_Forms.Administration
            error.ShowDialog();
        }
       }
+
+   private bool checkAlreadyThere()
+   {
+       bool retval = true;
+       string check = txtDepName.Text;
+
+       foreach (DataRow dr in List.Rows) 
+       {
+           if (dr[1].ToString().Equals(check))
+           {
+               retval = false;
+           }
+       
+       }
+
+
+       return retval;
+   }
     }
 }

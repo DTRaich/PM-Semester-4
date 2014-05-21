@@ -34,7 +34,6 @@
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -65,9 +64,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(320, 248);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 17);
+            this.label3.Size = new System.Drawing.Size(103, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "E-Mailadresse";
+            this.label3.Text = "E-Mail Adresse";
             // 
             // tbFirstName
             // 
@@ -92,17 +91,6 @@
             this.tbEmail.ReadOnly = true;
             this.tbEmail.Size = new System.Drawing.Size(151, 20);
             this.tbEmail.TabIndex = 6;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(843, 330);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(95, 35);
-            this.btnClose.TabIndex = 8;
-            this.btnClose.Text = "Schließen";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblUsername
             // 
@@ -129,7 +117,6 @@
             this.ClientSize = new System.Drawing.Size(950, 377);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
@@ -152,7 +139,6 @@
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox tbUsername;
     }

@@ -174,6 +174,7 @@ namespace Supernova.Sub_Forms.Administration
                 {
                     FrmAfirmative deleted = new FrmAfirmative("Der Benutzer wurde erfolgreich gelöscht. \n ", 'd');
                     deleted.ShowDialog();
+                    resetBoxes();
                 }
                 else 
                 {
@@ -316,8 +317,9 @@ namespace Supernova.Sub_Forms.Administration
             txtEmail.Text = string.Empty;
             txtUsernameLoad.Text = string.Empty;
             cbBenutzergruppe.SelectedIndex = 1;
+            btnDelete.Visible = false;
 
-            mtbPassword.ResetText();
+            mtbPassword.Text = string.Empty;
             cbAbteilung.Visible = false;
 
 

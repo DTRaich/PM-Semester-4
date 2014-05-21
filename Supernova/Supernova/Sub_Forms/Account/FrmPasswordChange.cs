@@ -29,14 +29,14 @@ namespace Supernova.Sub_Forms.Account
                 if (us.changePasswort())
                 {
                  
-                    FrmAfirmative frm = new FrmAfirmative("Password wurde geändert",'i');
+                    FrmAfirmative frm = new FrmAfirmative("Password wurde geändert.",'i');
                     frm.ShowDialog();
                     this.Close();
 
                 }
                 else
                 {
-                    FrmAfirmative frm = new FrmAfirmative("Password konnte nicht geändertwerden \n Bitte wenden Sie sich an den Administrator", 'e');
+                    FrmAfirmative frm = new FrmAfirmative("Password konnte nicht geändert werden. \n Bitte wenden Sie sich an den Administrator.", 'e');
                     frm.ShowDialog();
                 }
             }
