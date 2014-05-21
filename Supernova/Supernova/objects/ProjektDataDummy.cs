@@ -69,8 +69,16 @@ namespace Supernova.objects
             DataColumn dc3 = new DataColumn("MT in Jahr 3");
             dt.Columns.Add(dc);
             dt.Columns.Add(dc2);
-            dt.Columns.Add(dc3);
+            dt.Columns.Add(dc3);           
+            foreach (DataRow dr in dt.Rows)
+            {
+                dr[2] = 0;
+                dr[3] = 0;
+                dr[4] = 0;
+            }
+            dt.AcceptChanges();
             AbteilungsKapazitaet = dt;
+            AbteilungsKapazitaet.AcceptChanges();
         }
 
         #region load

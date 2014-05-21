@@ -45,6 +45,10 @@
             // 
             // capaGrid
             // 
+            this.capaGrid.AllowUserToAddRows = false;
+            this.capaGrid.AllowUserToDeleteRows = false;
+            this.capaGrid.AllowUserToResizeColumns = false;
+            this.capaGrid.AllowUserToResizeRows = false;
             this.capaGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.capaGrid.Location = new System.Drawing.Point(86, 59);
             this.capaGrid.Name = "capaGrid";

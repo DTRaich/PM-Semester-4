@@ -1,5 +1,6 @@
 ﻿using Supernova.helper;
 using Supernova.interfaces;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,9 +38,7 @@ namespace Supernova.Sub_Forms.Projects
            capaGrid.DataSource = CapaSource;
            capaGrid.Columns[0].Visible = false;
            capaGrid.Columns[1].ReadOnly = true;
-
-
-
+           capaGrid.Columns[1].HeaderText = "Abteilung";
         }
 
         public bool checkAndValidateForm()
@@ -60,13 +59,16 @@ namespace Supernova.Sub_Forms.Projects
                 {
                     projektdaten.AbteilungsKapazitaet = null;
                     projektdaten.AbteilungsKapazitaet = differenze;
+                    projektdaten.AbteilungsKapazitaet.AcceptChanges();
 
                 }
                 
             }
             else
             {
-                //
+                retval = false;
+                FrmAfirmative frm = new FrmAfirmative("Bitte Ressourcen ausfüllen \n Es dürfen nicht alle Werte 0 sein",'e');
+                frm.ShowDialog();
             }
 
             return retval;
@@ -75,13 +77,13 @@ namespace Supernova.Sub_Forms.Projects
 
         private bool AllNull()
         {
-            bool retval = true;
+            bool retval = false;
 
             foreach (DataRow dr in CapaSource.Rows)
             {
-                if (dr.ToString().Equals("0"))
+                if (!dr.ToString().Equals("0"))
                 {
-                    retval = false;
+                    retval = true;
                 }
             }
             return retval;
@@ -92,6 +94,7 @@ namespace Supernova.Sub_Forms.Projects
             if (capaGrid.CurrentCell.ColumnIndex != 1)
             {
                 e.Control.KeyPress += Control_KeyPress;
+                (e.Control as TextBox).MaxLength = 10;
             }
         }
 
