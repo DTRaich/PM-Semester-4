@@ -476,10 +476,11 @@ namespace Supernova.Sub_Forms.Administration
         int row, column;
         private void weightGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            row = e.RowIndex;
-            column = e.ColumnIndex;
-            if (column != 1 && column != -1 && row !=-1)
+
+            if (e.ColumnIndex != 1 && e.ColumnIndex != -1 && e.RowIndex != -1)
             {
+                row = e.RowIndex;
+                column = e.ColumnIndex;
                 weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
                 //current
 
@@ -500,9 +501,10 @@ namespace Supernova.Sub_Forms.Administration
             
                 weightGrid[column, row].Style.BackColor = Color.White;
                 weightGrid[row + 2, column - 2].Style.BackColor = Color.White;
-           
+                weightGrid.CellLeave -= weightGrid_CellLeave;
 
-            weightGrid.CellLeave -= weightGrid_CellLeave;
+            
+
           //  weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
 
         }
@@ -510,20 +512,21 @@ namespace Supernova.Sub_Forms.Administration
         {
            
             weightGrid.CellValueChanged -= weightGrid_CellValueChanged;
+            
+                if (weightGrid[column, row] == weightGrid[row + 2, column - 2])
+                {
+                    weightGrid[row + 2, column - 2].Value = 0;
+                }
+                else
+                {
 
-            if (weightGrid[column, row] == weightGrid[row + 2, column - 2])
-            {
-                weightGrid[row + 2, column - 2].Value = 0;
-            }
-            else
-            {
-                
-                object ergebnis = weightGrid[column, row].Value;
-                object corresponding = getCorresponding(ergebnis);
-                weightGrid[row + 2, column - 2].Value = corresponding;
-                weightGrid[column, row].Style.BackColor = Color.PaleGreen;
-                weightGrid[row + 2, column - 2].Style.BackColor = Color.PaleGreen;
-            }
+                    object ergebnis = weightGrid[column, row].Value;
+                    object corresponding = getCorresponding(ergebnis);
+                    weightGrid[row + 2, column - 2].Value = corresponding;
+                    weightGrid[column, row].Style.BackColor = Color.PaleGreen;
+                    weightGrid[row + 2, column - 2].Style.BackColor = Color.PaleGreen;
+                }
+            
         }
 
 

@@ -496,6 +496,58 @@ namespace Supernova.data
 
         private void saveBasis( List<string> basis)
         {
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {                
+
+                string commandText = "Call SaveProjectBasis(@id,@desc,@lead,@start,@end,@create,@cat)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("id", basis[0]);
+                cmd.Parameters["id"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("desc", basis[1]);
+                cmd.Parameters["desc"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("lead", basis[2]);
+                cmd.Parameters["lead"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("start", basis[3]);
+                cmd.Parameters["start"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("end", basis[4]);
+                cmd.Parameters["end"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("create", basis[5]);
+                cmd.Parameters["create"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("cate", basis[6]);
+                cmd.Parameters["cate"].Direction = ParameterDirection.Input;
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+               
+                dbError.setDBError();
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            
         }
 
         

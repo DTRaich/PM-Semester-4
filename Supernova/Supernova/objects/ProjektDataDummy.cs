@@ -124,11 +124,11 @@ namespace Supernova.objects
 
 
             // speichern
-            ds.SaveorUpdateProject(basisData,restData);
-       
-            
+           bool ergebenis =  ds.SaveorUpdateProject(basisData,restData);
 
-            return true;      
+
+
+           return ergebenis;      
         }
            
         #endregion

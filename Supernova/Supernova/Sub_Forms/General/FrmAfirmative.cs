@@ -39,6 +39,12 @@ namespace Supernova.Sub_Forms.General
                     lblAfirmationText.Text = text;
                     btnCancel.Visible = false;
                     break;
+                case 'c':
+                    this.Text = "Abbrechen";
+                    lblAfirmationText.Text = text;
+                    btnCancel.Visible = true;
+                    btnOkay.Visible = true;
+                    break;
 
             }
 

@@ -1,5 +1,6 @@
 ﻿using Supernova.helper;
 using Supernova.objects;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,37 +44,49 @@ namespace Supernova
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            MethodInfo info = currentFrm.GetType().GetMethod("checkAndValidateForm");
-
-            bool ok = (bool)info.Invoke(currentFrm, null);
-            if (ok)
+            try
             {
-               
-                currentFrm.Visible = false;
-                currentFrm = formslist[formNumber];
-                this.pnlControl.Controls.Add(currentFrm);
+                MethodInfo info = currentFrm.GetType().GetMethod("checkAndValidateForm");
 
-                formNumber = formNumber + 1;
-                if (highestFormNumber > formNumber)
+                bool ok = (bool)info.Invoke(currentFrm, null);
+                if (ok)
                 {
-                    currentFrm.Visible = true;
-                }
-                else
-                {
-                    highestFormNumber = formNumber;
-                    currentFrm.Show();                
 
+                    currentFrm.Visible = false;
+                    currentFrm = formslist[formNumber];
+                    this.pnlControl.Controls.Add(currentFrm);
+
+                    formNumber = formNumber + 1;
+                    if (highestFormNumber > formNumber)
+                    {
+                        currentFrm.Visible = true;
+                    }
+                    else
+                    {
+                        highestFormNumber = formNumber;
+                        currentFrm.Show();
+
+                    }
+                    setButtons();
                 }
-                setButtons();
             }
-
-           
+            catch (Exception ex)
+            {
+                FrmAfirmative fatalError = new FrmAfirmative("Projektfehler!\n Bitte wenden Sie sich umgehend an den Administrator", 'e');
+                fatalError.ShowDialog();
+                this.Close();
+            }
+                      
 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            
+            FrmAfirmative cancel  = new FrmAfirmative("Abbrechen? \n Projekterstellung abbrechen?\n",'c');
+            if (cancel.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -125,12 +138,15 @@ namespace Supernova
         {
             if(projektDaten.saveProjectDataToDb())
             {
-                //speichern erfolgreich
-                //wenn dialog result ok form schließen 
+                FrmAfirmative affir = new FrmAfirmative("Projekt wurde erfolgreichgspeichert", 'i');
+                affir.ShowDialog();
+                this.Close(); 
             }
             else
             {
-                //Speichern fehlgeschlagen
+                FrmAfirmative affir = new FrmAfirmative("Speichern fehlgeschlagen!\n Bitte wenden Sie sich an den Administrator", 'e');
+                affir.ShowDialog();
+                this.Close();
             }
         }
     }
