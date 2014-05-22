@@ -84,7 +84,6 @@ namespace Supernova.objects
             prepareRiskTabel();
             prepareStrategieTabel();
             prepareDivCriterias();
-            prepareBudgetTabel();
         }
 
         private void prepareStrategieTabel()
@@ -101,19 +100,7 @@ namespace Supernova.objects
             strategie.AcceptChanges();
         }
 
-        private void prepareBudgetTabel()
-        {
-            //DataTable dt = pl.loadStrategies();
-            //DataColumn dc = new DataColumn("Value");
-            //dt.Columns.Add(dc);
-            //foreach (DataRow dr in dt.Rows)
-            //{
-            //    dr[2] = 0;
-            //}
-            //dt.AcceptChanges();
-            //strategie = dt;
-            //strategie.AcceptChanges();
-        }
+        
 
         private void prepareDivCriterias()
         {
@@ -189,7 +176,7 @@ namespace Supernova.objects
 
         private void extractProjektData(DataSet projektDataSet)
         {
-            throw new NotImplementedException();
+            
         }
         #endregion
 
