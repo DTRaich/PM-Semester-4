@@ -1,4 +1,5 @@
 ﻿using Supernova.data;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,6 +18,8 @@ namespace Supernova.objects
         public DataTable strategie;
         public DataTable departmentCapa;
         public DataTable divCriterias;
+        public DataTable budgetCapa;
+
 
         #region fields 
 
@@ -73,6 +76,7 @@ namespace Supernova.objects
             strategie = null;
             departmentCapa = null;
             divCriterias = null;
+            budgetCapa = null;
         }
         private void prepareTables()
         {          
@@ -80,6 +84,7 @@ namespace Supernova.objects
             prepareRiskTabel();
             prepareStrategieTabel();
             prepareDivCriterias();
+            prepareBudgetTabel();
         }
 
         private void prepareStrategieTabel()
@@ -94,6 +99,20 @@ namespace Supernova.objects
             dt.AcceptChanges();
             strategie = dt;
             strategie.AcceptChanges();
+        }
+
+        private void prepareBudgetTabel()
+        {
+            //DataTable dt = pl.loadStrategies();
+            //DataColumn dc = new DataColumn("Value");
+            //dt.Columns.Add(dc);
+            //foreach (DataRow dr in dt.Rows)
+            //{
+            //    dr[2] = 0;
+            //}
+            //dt.AcceptChanges();
+            //strategie = dt;
+            //strategie.AcceptChanges();
         }
 
         private void prepareDivCriterias()
@@ -149,23 +168,28 @@ namespace Supernova.objects
         #region load
         public bool loadProjectdataintoDummy(int id)
         {
-            bool saveworked = false;
-            ProjectID = id;
+            bool retval = true;
+            
             DataLoad dl = new DataLoad();
-            DataSet projektDataSet = dl.loadWholeProjectData(ProjectID);
+            DataSet projektDataSet = dl.loadWholeProjectData(id);
 
             if (projektDataSet.Tables[1].Rows.Count > 0)
             {
+                ProjectID = id;
                 extractProjektData(projektDataSet);
-                saveworked = true;
+               
+            }else
+            {
+                retval = false;
             }
-            
 
-            return saveworked;
+
+            return retval;
         }
+
         private void extractProjektData(DataSet projektDataSet)
         {
-
+            throw new NotImplementedException();
         }
         #endregion
 
@@ -174,8 +198,8 @@ namespace Supernova.objects
         {
             List<string> basisData = collectBasisData();             
            // Kriterien
-            DataSet CriteriaDataset = collectCriteriaDataset();          
-
+            DataSet CriteriaDataset = collectCriteriaDataset();
+            CriteriaDataset.AcceptChanges();
             // speichern
             bool ergebenis = ds.SaveorUpdateProject(basisData, CriteriaDataset,departmentCapa);
 
@@ -184,6 +208,7 @@ namespace Supernova.objects
            return ergebenis;      
         }
 
+        #region collecting
         private DataSet collectCriteriaDataset()
         {
             DataSet ds = new DataSet();
@@ -193,7 +218,7 @@ namespace Supernova.objects
             ds.Tables.Add(risks);
             ds.Tables.Add(strategie);
             ds.Tables.Add(divCriterias);
-
+            ds.AcceptChanges();
             return ds;
             
         }
@@ -202,26 +227,26 @@ namespace Supernova.objects
         {
             foreach (DataRow dr in divCriterias.Rows)
             {
-                if (dr[1].ToString().Contains("echn"))
+                if (dr[1].ToString().Contains("auer"))
                 {
-                    dr["Value"] = techleader;
+                    dr["Value"] = ProjectDuration;
                 }
-                if (dr[1].ToString().Contains("undenz"))
+                if (dr[1].ToString().Contains("ategorie"))
                 {
-                    dr["Value"] = Kunde;
+                    dr["Value"] = ProjectCategory;
                 }
-                if (dr[1].ToString().Contains("achstum"))
+                if (dr[1].ToString().Contains("mtkosten"))
                 {
-                    dr["Value"] = wachstum;
+                    dr["Value"] = GesamtKosten;
                 }
-                if (dr[1].ToString().Contains("rozess"))
+                if (dr[1].ToString().Contains("NPV"))
                 {
-                    dr["Value"] = Prozess;
+                    dr["Value"] = NPV;
 
                 }
-                if (dr[1].ToString().Contains("arbeiter"))
+                if (dr[1].ToString().Contains("arket"))
                 {
-                    dr["Value"] = mitarbeiter;
+                    dr["Value"] = TimeToMarket;
                 }
             }
             divCriterias.AcceptChanges();
@@ -296,8 +321,8 @@ namespace Supernova.objects
             return basisData;
         }
 
+        #endregion
 
-           
         #endregion
     }
 }
