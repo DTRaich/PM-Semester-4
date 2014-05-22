@@ -191,12 +191,6 @@
     <Compile Include="Sub_Forms\Projects\FrmStrategie.Designer.cs">
       <DependentUpon>FrmStrategie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sub_Forms\Projects\PopUps\FrmDeparmentNeed.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sub_Forms\Projects\PopUps\FrmDeparmentNeed.Designer.cs">
-      <DependentUpon>FrmDeparmentNeed.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

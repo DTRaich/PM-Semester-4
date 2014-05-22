@@ -254,6 +254,7 @@
             this.mtbBudget3.Name = "mtbBudget3";
             this.mtbBudget3.Size = new System.Drawing.Size(55, 20);
             this.mtbBudget3.TabIndex = 14;
+            this.mtbBudget3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // mtbBudget2
             // 
@@ -262,6 +263,7 @@
             this.mtbBudget2.Name = "mtbBudget2";
             this.mtbBudget2.Size = new System.Drawing.Size(55, 20);
             this.mtbBudget2.TabIndex = 13;
+            this.mtbBudget2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // mtbBudget1
             // 
@@ -270,6 +272,7 @@
             this.mtbBudget1.Name = "mtbBudget1";
             this.mtbBudget1.Size = new System.Drawing.Size(55, 20);
             this.mtbBudget1.TabIndex = 12;
+            this.mtbBudget1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FrmDepartmentSpecifikation
             // 
