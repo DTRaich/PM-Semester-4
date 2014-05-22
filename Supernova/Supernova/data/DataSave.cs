@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Supernova.helper;
 using Supernova.objects;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -430,24 +431,26 @@ namespace Supernova.data
             // wenn es eine projektid gibt und nicht nageschaut wurtde oder wenn sie null ist speichern sonst nicht
             if ((projectID != 0 && notTheir) || projectID == 0) 
             {
-                
+                // null speichern 1 update (für db)
                 saveBasis(basis);
                 if (projectID == 0)
                 {
                     projectID = getProjectID(basis[1].ToString());
-                    saveCriteria(projectID, CriteriasDataSet);
+                    saveCriteria(projectID, CriteriasDataSet, 0);
                     saveDepartmentNeedCapa(projectID,depCapaTable);
                 }
                 else
                 {
-                    saveCriteria(projectID, CriteriasDataSet);
+                    saveCriteria(projectID, CriteriasDataSet, 1);
                     saveDepartmentNeedCapa(projectID,depCapaTable);
 
                 }
             }
             else
             {
-               // Fehlermeldung
+                retval = false;
+                FrmAfirmative frm = new FrmAfirmative("Projekttitel bereits vorhanden",'e');
+                frm.ShowDialog();
             }
            
 
@@ -469,19 +472,21 @@ namespace Supernova.data
                     cmd.Connection = connection;
                     cmd.CommandText = commandText;
 
-                    //cmd.Parameters.AddWithValue("budgetid", BudgetID);
-                    //cmd.Parameters["budgetid"].Direction = ParameterDirection.Input;
+                    cmd.Parameters.AddWithValue("proID", projectID);
+                    cmd.Parameters["proID"].Direction = ParameterDirection.Input;
 
-                    //cmd.Parameters.AddWithValue("y1", year1);
-                    //cmd.Parameters["y1"].Direction = ParameterDirection.Input;
+                    cmd.Parameters.AddWithValue("critID", dr[0]);
+                    cmd.Parameters["critID"].Direction = ParameterDirection.Input;
 
-                    //cmd.Parameters.AddWithValue("y2", year2);
-                    //cmd.Parameters["y2"].Direction = ParameterDirection.Input;
+                    cmd.Parameters.AddWithValue("y1", dr[2]);
+                    cmd.Parameters["y1"].Direction = ParameterDirection.Input;
 
-                    //cmd.Parameters.AddWithValue("y3", year3);
-                    //cmd.Parameters["y3"].Direction = ParameterDirection.Input;
+                    cmd.Parameters.AddWithValue("y2", dr[3]);
+                    cmd.Parameters["y2"].Direction = ParameterDirection.Input;
 
-
+                    cmd.Parameters.AddWithValue("y3", dr[4]);
+                    cmd.Parameters["y3"].Direction = ParameterDirection.Input;
+                    
 
                     connection.Open();
                     cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -513,7 +518,7 @@ namespace Supernova.data
 
             try
             {
-                string commandText = "Select USER_ID from user where name like'"+p+"'";
+                string commandText = "Select PROJECT_ID from Projects where P_NAME like'" + p + "'";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;
@@ -543,7 +548,7 @@ namespace Supernova.data
             return retVal;
         }
 
-        private void saveCriteria(int projectID, DataSet CriteriasDataSet)
+        private void saveCriteria(int projectID, DataSet CriteriasDataSet, int update)
         {
             dbError.deleteDBError();
             MySqlConnection connection = new MySqlConnection(conSting);
@@ -554,7 +559,7 @@ namespace Supernova.data
                     try
                     {
 
-                        string commandText = "Call SaveProToCritVals(@pid,@critid,@val)";
+                        string commandText = "Call SoUCritPro(@pid,@critid,@val,@update)";
                         MySqlCommand cmd = new MySqlCommand();
                         cmd.Connection = connection;
                         cmd.CommandText = commandText;
@@ -567,6 +572,9 @@ namespace Supernova.data
 
                         cmd.Parameters.AddWithValue("val", dr["Value"]);
                         cmd.Parameters["val"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("update", update);
+                        cmd.Parameters["update"].Direction = ParameterDirection.Input;
                         
                         connection.Open();
                         cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -600,7 +608,7 @@ namespace Supernova.data
             try
             {                
 
-                string commandText = "Call SaveProjectBasis(@id,@desc,@lead,@start,@end,@create,@cat)";
+                string commandText = "Call SoUProjectBasis(@id,@name,@desc,@lead,@start,@end,@create,@cat)";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;
@@ -608,22 +616,25 @@ namespace Supernova.data
                 cmd.Parameters.AddWithValue("id", basis[0]);
                 cmd.Parameters["id"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("desc", basis[1]);
+                cmd.Parameters.AddWithValue("name", basis[1]);
+                cmd.Parameters["name"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("desc", basis[2]);
                 cmd.Parameters["desc"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("lead", basis[2]);
+                cmd.Parameters.AddWithValue("lead", basis[3]);
                 cmd.Parameters["lead"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("start", basis[3]);
+                cmd.Parameters.AddWithValue("start", basis[4]);
                 cmd.Parameters["start"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("end", basis[4]);
+                cmd.Parameters.AddWithValue("end", basis[5]);
                 cmd.Parameters["end"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("create", basis[5]);
+                cmd.Parameters.AddWithValue("create", basis[6]);
                 cmd.Parameters["create"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("cate", basis[6]);
+                cmd.Parameters.AddWithValue("cate", basis[7]);
                 cmd.Parameters["cate"].Direction = ParameterDirection.Input;
 
                 connection.Open();

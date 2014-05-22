@@ -47,11 +47,11 @@ namespace Supernova.objects
         #endregion
 
         #region Strategie
-        public int frage1;
-        public int frage2;
-        public int frage3;
-        public int frage4;
-        public int frage5;
+        public int techleader;
+        public int wachstum;
+        public int mitarbeiter;
+        public int Prozess;
+        public int Kunde;
         #endregion
 
         
@@ -187,10 +187,97 @@ namespace Supernova.objects
         private DataSet collectCriteriaDataset()
         {
             DataSet ds = new DataSet();
-
+            collectRiskSaving();
+            collectStrategieSaving();
+            collectDivCriteria();
+            ds.Tables.Add(risks);
+            ds.Tables.Add(strategie);
+            ds.Tables.Add(divCriterias);
 
             return ds;
             
+        }
+
+        private void collectDivCriteria()
+        {
+            foreach (DataRow dr in divCriterias.Rows)
+            {
+                if (dr[1].ToString().Contains("echn"))
+                {
+                    dr["Value"] = techleader;
+                }
+                if (dr[1].ToString().Contains("undenz"))
+                {
+                    dr["Value"] = Kunde;
+                }
+                if (dr[1].ToString().Contains("achstum"))
+                {
+                    dr["Value"] = wachstum;
+                }
+                if (dr[1].ToString().Contains("rozess"))
+                {
+                    dr["Value"] = Prozess;
+
+                }
+                if (dr[1].ToString().Contains("arbeiter"))
+                {
+                    dr["Value"] = mitarbeiter;
+                }
+            }
+            divCriterias.AcceptChanges();
+        }
+
+        private void collectStrategieSaving()
+        {
+            foreach (DataRow dr in risks.Rows)
+            {
+                if (dr[1].ToString().Contains("echn"))
+                {
+                    dr["Value"] = techleader;
+                }
+                if (dr[1].ToString().Contains("undenz"))
+                {
+                    dr["Value"] = Kunde;
+                }
+                if (dr[1].ToString().Contains("achstum"))
+                {
+                    dr["Value"] = wachstum;
+                }
+                if (dr[1].ToString().Contains("rozess"))
+                {
+                    dr["Value"] = Prozess;
+
+                }
+                if (dr[1].ToString().Contains("arbeiter"))
+                {
+                    dr["Value"] = mitarbeiter;
+                }
+            }
+            strategie.AcceptChanges();
+        }
+
+        private void collectRiskSaving()
+        {
+            foreach (DataRow dr in risks.Rows)
+            {
+                if(dr[1].ToString().Contains("echn"))
+                {
+                    dr["Value"] = technicalRisk;
+                }
+                if (dr[1].ToString().Contains("uali"))
+                {
+                    dr["Value"] = qualityRisk;
+                }
+                if (dr[1].ToString().Contains("cher"))
+                {
+                    dr["Value"] = securityRisk;
+                }
+                if (dr[1].ToString().Contains("anziel"))
+                {
+                    dr["Value"] = financialRisk;
+                }
+            }
+            risks.AcceptChanges();
         }
 
         private List<string> collectBasisData()
