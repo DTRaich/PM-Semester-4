@@ -59,62 +59,69 @@
             this.radioButton24 = new System.Windows.Forms.RadioButton();
             this.radioButton25 = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(401, 75);
+            this.radioButton1.Location = new System.Drawing.Point(3, 4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(89, 21);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.Text = "sehr hoch";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(496, 75);
+            this.radioButton2.Location = new System.Drawing.Point(98, 3);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(57, 21);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.Text = "hoch";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(559, 75);
+            this.radioButton3.Location = new System.Drawing.Point(161, 4);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(59, 21);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.Text = "mittel";
             this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(624, 75);
+            this.radioButton4.Location = new System.Drawing.Point(243, 4);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(66, 21);
             this.radioButton4.TabIndex = 3;
             this.radioButton4.Text = "gering";
             this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
             this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(696, 75);
+            this.radioButton5.Location = new System.Drawing.Point(376, 2);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(81, 21);
             this.radioButton5.TabIndex = 4;
             this.radioButton5.Text = "gar nicht";
             this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // label1
             // 
@@ -395,17 +402,30 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(227, 18);
+            this.label6.Location = new System.Drawing.Point(291, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(463, 20);
+            this.label6.Size = new System.Drawing.Size(447, 20);
             this.label6.TabIndex = 30;
-            this.label6.Text = "In welchem Umfang erfüllt das Projekt die folgenden Strategien?";
+            this.label6.Text = "Zu welchem Grad erfüllt das Projekt die folgenden Strategien?";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.radioButton3);
+            this.panel1.Controls.Add(this.radioButton4);
+            this.panel1.Controls.Add(this.radioButton5);
+            this.panel1.Location = new System.Drawing.Point(401, 73);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(508, 38);
+            this.panel1.TabIndex = 31;
             // 
             // FrmStrategie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 325);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.radioButton21);
@@ -432,14 +452,11 @@
             this.Controls.Add(this.radioButton9);
             this.Controls.Add(this.radioButton10);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmStrategie";
             this.Text = "FrmStrategie";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +495,6 @@
         private System.Windows.Forms.RadioButton radioButton24;
         private System.Windows.Forms.RadioButton radioButton25;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
     }
 }
