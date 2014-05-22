@@ -44,9 +44,9 @@ namespace Supernova.Sub_Forms.Projects
 
         public bool checkAndValidateForm()
         {
-            //collectData();
-            //return validateData();
-            return true;
+            collectData();
+            return validateData();
+            
         }
 
         private bool validateData()
@@ -68,12 +68,6 @@ namespace Supernova.Sub_Forms.Projects
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        // dummy method to test if github works as expected
-        private void testIfGithubWorksAsExpected()
         {
 
         }
