@@ -451,14 +451,56 @@ namespace Supernova.data
             }
            
 
-            return true;
+            return retval;
         }
 
         private void saveDepartmentNeedCapa(int projectID, DataTable depCapaTable)
         {
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
             foreach(DataRow dr in depCapaTable.Rows)
             {
 
+                try
+                {
+
+                    string commandText = "Call saveDepNeedCapa(@proID,@critID,@y1,@y2,@y3)";
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = commandText;
+
+                    //cmd.Parameters.AddWithValue("budgetid", BudgetID);
+                    //cmd.Parameters["budgetid"].Direction = ParameterDirection.Input;
+
+                    //cmd.Parameters.AddWithValue("y1", year1);
+                    //cmd.Parameters["y1"].Direction = ParameterDirection.Input;
+
+                    //cmd.Parameters.AddWithValue("y2", year2);
+                    //cmd.Parameters["y2"].Direction = ParameterDirection.Input;
+
+                    //cmd.Parameters.AddWithValue("y3", year3);
+                    //cmd.Parameters["y3"].Direction = ParameterDirection.Input;
+
+
+
+                    connection.Open();
+                    cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    connection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    dbError.setDBError();
+
+                }
+                finally
+                {
+                    if (connection != null)
+                    {
+                        connection.Close();
+                    }
+                }
             }
         }
 
