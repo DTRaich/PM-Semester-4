@@ -172,12 +172,12 @@ namespace Supernova.data
         {
             dbError.setDBError();
             DataSet ds = new DataSet();
-            DataTable basis = loadBasisData();
-            DataTable risks = loadRisks();
-            DataTable strategie = loadStrategie();
-            DataTable divCriteria = loadDivCriteria();
-            DataTable needDepCapa = loadNeedDepCapa();
-            DataTable budget = loadNeedBudget();
+            DataTable basis = loadBasisData(id);
+            DataTable risks = loadRisks(id);
+            DataTable strategie = loadStrategie(id);
+            DataTable divCriteria = loadDivCriteria(id);
+            DataTable needDepCapa = loadNeedDepCapa(id);
+            DataTable budget = loadNeedBudget(id);
 
             ds.Tables.Add(basis);
             ds.Tables.Add(risks);
@@ -193,7 +193,7 @@ namespace Supernova.data
 
         }
 
-        private DataTable loadNeedBudget()
+        private DataTable loadNeedBudget(int id)
         {
             dbError.deleteDBError();
             DataTable dt = new DataTable("Budget");
@@ -201,7 +201,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+                string comand = "Select NB_YEAR1, NB_YEAR2, NB_YEAR3 from NEED_BUDGET where NB_PID like '"+ id+"'" ;
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
@@ -220,7 +220,7 @@ namespace Supernova.data
             return dt;
         }
 
-        private DataTable loadNeedDepCapa()
+        private DataTable loadNeedDepCapa(int id)
         {
             dbError.deleteDBError();
             DataTable dt = new DataTable("DepCapa");
@@ -228,7 +228,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+                string comand = "Select NDC_DEPID, NDC_YEAR1, NDC_YEAR2, NDC_YEAR3 from NEED_DEP_CAPA where NDC_POID like '"+ id+"'";
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
@@ -247,7 +247,7 @@ namespace Supernova.data
             return dt;
         }
 
-        private DataTable loadDivCriteria()
+        private DataTable loadDivCriteria(int id)
         {
             dbError.deleteDBError();
             DataTable dt = new DataTable("DIVCriteria");
@@ -255,8 +255,9 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
-
+                string com1 = "Select PTC_CRITERIA, PTC_ORIGINALVALUE from Project_to_CRITERIA ";
+                string com2 = "where PTC_Project like " + id + "' AND PTC_CRITERIA < 24 OR PTC_CRITERIA = 33";
+                string comand = com1 + com2;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
             }
@@ -274,7 +275,7 @@ namespace Supernova.data
             return dt;
         }
 
-        private DataTable loadStrategie()
+        private DataTable loadStrategie(int id)
         {
             dbError.deleteDBError();
             DataTable dt = new DataTable("Strategie");
@@ -282,7 +283,9 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+                string com1 = "Select PTC_CRITERIA, PTC_ORIGINALVALUE from Project_to_CRITERIA ";
+                string com2 = "where PTC_Project like " + id + "' AND PTC_CRITERIA > 27 AND  PTC_CRITERIA < 33";
+                string comand = com1 + com2;
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
@@ -301,7 +304,7 @@ namespace Supernova.data
             return dt;
         }
 
-        private DataTable loadRisks()
+        private DataTable loadRisks(int id)
         {
             dbError.deleteDBError();
             DataTable dt = new DataTable("Risiko");
@@ -309,8 +312,9 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
-
+                string com1 = "Select PTC_CRITERIA, PTC_ORIGINALVALUE from Project_to_CRITERIA ";
+                string com2 = "where PTC_Project like " + id + "' AND PTC_CRITERIA < 28 AND  PTC_CRITERIA > 23";
+                string comand = com1 + com2;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
             }
@@ -328,7 +332,7 @@ namespace Supernova.data
             return dt;
         }
 
-        private DataTable loadBasisData()
+        private DataTable loadBasisData(int id)
         {
             dbError.deleteDBError();
             DataTable dt = new DataTable("Basis");
@@ -336,10 +340,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string com1 = "";
-                string com2 = "";
-                string com3 = "";
-                string comand = com1 +com2 +com3;
+                string comand = "Select * from Projects where PROJECT_ID like '"+id+"'";
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
@@ -358,7 +359,7 @@ namespace Supernova.data
             return dt;
         }
 
-#endregion projectLoad
+            #endregion projectLoad
         #region department
         public int LoadMyDepartment(int userid)
         {
@@ -700,8 +701,5 @@ namespace Supernova.data
             return dt;
         }
 
-
-
-       
     }
 }
