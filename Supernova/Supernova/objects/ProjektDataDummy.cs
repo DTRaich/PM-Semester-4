@@ -228,22 +228,26 @@ namespace Supernova.objects
 
         private void extractStrategie(DataTable strategie)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void extractRisks(DataTable risiko)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void extractbasis(DataTable basisdaten)
         {
             foreach (DataRow dr in basisdaten.Rows)
             {
-                for (int i = 0; i < basisdaten.Columns.Count; i++)
-                {
-                   // if(dr[i]
-                }
+                
+                ProjectName = dr[1].ToString();
+                ProjectDescription = dr[2].ToString();
+                ProjectLeader = Convert.ToInt32(dr[3]);
+                ProjectStartDate = Convert.ToDateTime(dr[4]);
+                ProjectEndDate = Convert.ToDateTime(dr[5]);;
+                ProjectCategory = Convert.ToInt32(dr[8]); 
+
             }
         }
         #endregion
