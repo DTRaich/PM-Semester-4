@@ -65,7 +65,8 @@ namespace Supernova.objects
         public ProjektDataDummy()
         {
             resetAllTabels();
-            prepareTables();          
+            prepareTables();             
+                   
         }
 
        
@@ -177,7 +178,73 @@ namespace Supernova.objects
 
         private void extractProjektData(DataSet projektDataSet)
         {
-            
+            extractbasis(projektDataSet.Tables[0]);
+            extractRisks(projektDataSet.Tables[1]);
+            extractStrategie(projektDataSet.Tables[2]);
+            extractDivCrit(projektDataSet.Tables[3]);
+            extractNeedDep(projektDataSet.Tables[4]);
+            extractBudget(projektDataSet.Tables[5]);
+
+        }
+
+        private void extractBudget(DataTable budget)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void extractNeedDep(DataTable depcapa)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void extractDivCrit(DataTable divcrit)
+        {
+            foreach (DataRow dr in divcrit.Rows)
+            {
+                if (dr[0].ToString().Contains("auer"))
+                {
+                    ProjectDuration = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+                if (dr[0].ToString().Contains("ategorie"))
+                {
+                    ProjectCategory  =  Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+                if (dr[0].ToString().Contains("mtkosten"))
+                {
+                    GesamtKosten  = Convert.ToDouble(dr["PTC_ORIGINALVALUE"]);
+                }
+                if (dr[0].ToString().Contains("NPV"))
+                {
+                   NPV =  Convert.ToDouble(dr["PTC_ORIGINALVALUE"]);
+
+                }
+                if (dr[0].ToString().Contains("arket"))
+                {
+                   TimeToMarket =  Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+            }
+            divCriterias.AcceptChanges();
+        }
+
+        private void extractStrategie(DataTable strategie)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void extractRisks(DataTable risiko)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void extractbasis(DataTable basisdaten)
+        {
+            foreach (DataRow dr in basisdaten.Rows)
+            {
+                for (int i = 0; i < basisdaten.Columns.Count; i++)
+                {
+                   // if(dr[i]
+                }
+            }
         }
         #endregion
 
@@ -196,9 +263,7 @@ namespace Supernova.objects
 
            return ergebenis;      
         }
-
-       
-
+    
         #region collecting
         private List<double> collectBudgetList()
         {

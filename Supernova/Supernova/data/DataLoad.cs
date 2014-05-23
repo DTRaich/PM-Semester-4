@@ -255,8 +255,8 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string com1 = "Select PTC_CRITERIA, PTC_ORIGINALVALUE from Project_to_CRITERIA ";
-                string com2 = "where PTC_Project like " + id + "' AND PTC_CRITERIA < 24 OR PTC_CRITERIA = 33";
+                string com1 = "Select C_NAME, PTC_ORIGINALVALUE from Project_to_CRITERIA, criteria where PTC_CRITERIA = CRITERIA_ID AND ";
+                string com2 = "PTC_Project like " + id + "' AND PTC_CRITERIA < 24 OR PTC_CRITERIA = 33";
                 string comand = com1 + com2;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
@@ -283,7 +283,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string com1 = "Select PTC_CRITERIA, PTC_ORIGINALVALUE from Project_to_CRITERIA ";
+                string com1 = "Select C_NAME, PTC_ORIGINALVALUE from Project_to_CRITERIA, criteria where PTC_CRITERIA = CRITERIA_ID AND ";
                 string com2 = "where PTC_Project like " + id + "' AND PTC_CRITERIA > 27 AND  PTC_CRITERIA < 33";
                 string comand = com1 + com2;
 
@@ -312,7 +312,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string com1 = "Select PTC_CRITERIA, PTC_ORIGINALVALUE from Project_to_CRITERIA ";
+                string com1 = "Select C_NAME, PTC_ORIGINALVALUE from Project_to_CRITERIA, criteria where PTC_CRITERIA = CRITERIA_ID AND ";
                 string com2 = "where PTC_Project like " + id + "' AND PTC_CRITERIA < 28 AND  PTC_CRITERIA > 23";
                 string comand = com1 + com2;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
