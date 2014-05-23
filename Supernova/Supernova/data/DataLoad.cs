@@ -167,12 +167,198 @@ namespace Supernova.data
         }
         #endregion
 
-        
+        #region projectLoad
         public DataSet loadWholeProjectData(int id)
         {
             dbError.setDBError();
-            throw new NotImplementedException();
+            DataSet ds = new DataSet();
+            DataTable basis = loadBasisData();
+            DataTable risks = loadRisks();
+            DataTable strategie = loadStrategie();
+            DataTable divCriteria = loadDivCriteria();
+            DataTable needDepCapa = loadNeedDepCapa();
+            DataTable budget = loadNeedBudget();
+
+            ds.Tables.Add(basis);
+            ds.Tables.Add(risks);
+            ds.Tables.Add(strategie);
+            ds.Tables.Add(divCriteria);
+            ds.Tables.Add(needDepCapa);
+            ds.Tables.Add(budget);
+            ds.AcceptChanges();
+
+            return ds;
+
+
+
         }
+
+        private DataTable loadNeedBudget()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("Budget");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+        private DataTable loadNeedDepCapa()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("DepCapa");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+        private DataTable loadDivCriteria()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("DIVCriteria");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+        private DataTable loadStrategie()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("Strategie");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+        private DataTable loadRisks()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("Risiko");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string comand = "Select BUDGET_ID, B_YEAR1, B_YEAR2, B_YEAR3 from Budget ";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+        private DataTable loadBasisData()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable("Basis");
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+                string com1 = "";
+                string com2 = "";
+                string com3 = "";
+                string comand = com1 +com2 +com3;
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+#endregion projectLoad
         #region department
         public int LoadMyDepartment(int userid)
         {

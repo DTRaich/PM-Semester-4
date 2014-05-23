@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbQualityRisk = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tbTechRisk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFinancialRisk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSecurityRisk)).BeginInit();
@@ -50,6 +51,7 @@
             this.tbTechRisk.Size = new System.Drawing.Size(104, 45);
             this.tbTechRisk.TabIndex = 0;
             this.tbTechRisk.Value = 1;
+            this.tbTechRisk.ValueChanged += new System.EventHandler(this.tbTechRisk_ValueChanged);
             // 
             // label1
             // 
@@ -118,11 +120,20 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Qualitatives Risiko";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(603, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(21, 20);
+            this.textBox1.TabIndex = 8;
+            // 
             // FrmRisk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 325);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbQualityRisk);
             this.Controls.Add(this.label3);
@@ -153,5 +164,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar tbQualityRisk;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

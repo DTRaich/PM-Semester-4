@@ -38,5 +38,10 @@ namespace Supernova.Sub_Forms.Projects
             projektdaten.securityRisk = tbSecurityRisk.Value;
             projektdaten.qualityRisk = tbQualityRisk.Value;
         }
+
+        private void tbTechRisk_ValueChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = tbTechRisk.Value.ToString();
+        }
     }
 }

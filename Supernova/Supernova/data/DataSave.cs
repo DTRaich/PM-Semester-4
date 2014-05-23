@@ -413,7 +413,7 @@ namespace Supernova.data
 
         #region projectMatters
 
-        public bool SaveorUpdateProject(List<string> basis, DataSet CriteriasDataSet, DataTable depCapaTable)
+        public bool SaveorUpdateProject(List<string> basis, DataSet CriteriasDataSet, DataTable depCapaTable, List<double> budget)
         {
             bool retval = true;
             int projectID = 0;
@@ -438,11 +438,13 @@ namespace Supernova.data
                     projectID = getProjectID(basis[1].ToString());
                     saveCriteria(projectID, CriteriasDataSet, 0);
                     saveDepartmentNeedCapa(projectID,depCapaTable);
+                    saveNeedBudget(projectID, budget);
                 }
                 else
                 {
                     saveCriteria(projectID, CriteriasDataSet, 1);
                     saveDepartmentNeedCapa(projectID,depCapaTable);
+                    saveNeedBudget(projectID, budget);
 
                 }
             }
@@ -457,6 +459,49 @@ namespace Supernova.data
             return retval;
         }
 
+        private void saveNeedBudget(int projectID, List<double> budget)
+        {
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                string commandText = "Call SoUNeedBudget(@id,@y1,@y2,@y3)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("budgetid", projectID);
+                cmd.Parameters["budgetid"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("y1", budget[0]);
+                cmd.Parameters["y1"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("y2", budget[1]);
+                cmd.Parameters["y2"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("y3", budget[2]);
+                cmd.Parameters["y3"].Direction = ParameterDirection.Input;
+                
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError();
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         private void saveDepartmentNeedCapa(int projectID, DataTable depCapaTable)
         {
             dbError.deleteDBError();
@@ -467,7 +512,7 @@ namespace Supernova.data
                 try
                 {
 
-                    string commandText = "Call saveDepNeedCapa(@proID,@critID,@y1,@y2,@y3)";
+                    string commandText = "Call SoUNeedCapa(@proID,@DEPID,@y1,@y2,@y3)";
                     MySqlCommand cmd = new MySqlCommand();
                     cmd.Connection = connection;
                     cmd.CommandText = commandText;
@@ -475,8 +520,8 @@ namespace Supernova.data
                     cmd.Parameters.AddWithValue("proID", projectID);
                     cmd.Parameters["proID"].Direction = ParameterDirection.Input;
 
-                    cmd.Parameters.AddWithValue("critID", dr[0]);
-                    cmd.Parameters["critID"].Direction = ParameterDirection.Input;
+                    cmd.Parameters.AddWithValue("DEPID", dr[0]);
+                    cmd.Parameters["DEPID"].Direction = ParameterDirection.Input;
 
                     cmd.Parameters.AddWithValue("y1", dr[2]);
                     cmd.Parameters["y1"].Direction = ParameterDirection.Input;

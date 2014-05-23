@@ -37,6 +37,7 @@ namespace Supernova.objects
         public int ProjectDuration;
         public DateTime ProjectStartDate;
         public DateTime ProjectEndDate;
+        public double costsyear1, costyear2, costyeae3;
         public double GesamtKosten;
         public double NPV;
         public int TimeToMarket;
@@ -183,19 +184,31 @@ namespace Supernova.objects
         #region save
         public bool saveProjectDataToDb()
         {
-            List<string> basisData = collectBasisData();             
+            List<string> basisData = collectBasisData();
+            List<double> budgetList = collectBudgetList();
            // Kriterien
             DataSet CriteriaDataset = collectCriteriaDataset();
             CriteriaDataset.AcceptChanges();
             // speichern
-            bool ergebenis = ds.SaveorUpdateProject(basisData, CriteriaDataset,departmentCapa);
+            bool ergebenis = ds.SaveorUpdateProject(basisData, CriteriaDataset, departmentCapa, budgetList);
 
 
 
            return ergebenis;      
         }
 
+       
+
         #region collecting
+        private List<double> collectBudgetList()
+        {
+            List<double> li = new List<double>();
+            li.Add(costsyear1);
+            li.Add(costyear2);
+            li.Add(costyeae3);
+
+            return li;
+        }
         private DataSet collectCriteriaDataset()
         {
             DataSet ds = new DataSet();
