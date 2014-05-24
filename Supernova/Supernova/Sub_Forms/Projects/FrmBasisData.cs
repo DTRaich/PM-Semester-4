@@ -27,6 +27,19 @@ namespace Supernova.Sub_Forms.Projects
             InitializeComponent();
             this.projektdaten = projektdaten;
             loadBoxes();
+
+            if (projektdaten.ProjectID != 0)
+            {
+                fillAllBoxes();
+            }
+        }
+
+        private void fillAllBoxes()
+        {
+            tbProjectName.Text = projektdaten.ProjectName;
+            tbShortDescription.Text = projektdaten.ProjectDescription;
+            cbProjectLeader.SelectedIndex = projektdaten.ProjectLeader;
+            cbProjectCategory.SelectedIndex = projektdaten.ProjectCategory;
         }
 
         private void loadBoxes()
