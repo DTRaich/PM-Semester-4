@@ -470,8 +470,8 @@ namespace Supernova.data
                 cmd.Connection = connection;
                 cmd.CommandText = commandText;
 
-                cmd.Parameters.AddWithValue("budgetid", projectID);
-                cmd.Parameters["budgetid"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("id", projectID);
+                cmd.Parameters["id"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("y1", budget[0]);
                 cmd.Parameters["y1"].Direction = ParameterDirection.Input;
@@ -918,7 +918,7 @@ namespace Supernova.data
 
             try
             {
-                //SaveOrUpdateDep 
+                
 
                 string commandText = "Call SaveBudget(@budgetid,@y1,@y2,@y3)";
                 MySqlCommand cmd = new MySqlCommand();
