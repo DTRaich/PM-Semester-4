@@ -567,7 +567,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select CS_ID, C_NAME as Kriterium, CS_MAX as Maximum,CS_POINTS as Punktzahl ,CS_DESCRIPTION as Kommentar from CriteriaScaling, criteria where CS_CritID = Criteria_ID  AND C_ISACTIVE = 1 order by CS_ID ; ";
+                string comand = "Select CS_ID, C_NAME as Kriterium,CS_POINTS as Punktzahl, CS_MIN as Minimum, CS_MAX as Maximum  ,CS_DESCRIPTION as Kommentar from CriteriaScaling, criteria where CS_CritID = Criteria_ID  AND C_ISACTIVE = 1 order by CS_ID ; ";
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);

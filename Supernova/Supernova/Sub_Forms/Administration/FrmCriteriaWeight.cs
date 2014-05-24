@@ -393,10 +393,12 @@ namespace Supernova.Sub_Forms.Administration
             scalingGrid.DataSource = scaleSource;
             scalingGrid.Columns[0].Visible = false;
             scalingGrid.Columns[1].ReadOnly = true;
+            scalingGrid.Columns[2].ReadOnly = true;
 
-            scalingGrid.Columns[3].ReadOnly = true;
-            scalingGrid.Columns[4].ReadOnly = true;
-            this.scalingGrid.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight; 
+            this.scalingGrid.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.scalingGrid.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight; 
+
+            scalingGrid.Columns[5].ReadOnly = true;
 
 
 
