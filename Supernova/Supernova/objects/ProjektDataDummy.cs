@@ -228,12 +228,53 @@ namespace Supernova.objects
 
         private void extractStrategie(DataTable strategie)
         {
-            
+            foreach (DataRow dr in strategie.Rows)
+            {
+                if (dr[1].ToString().Contains("echn"))
+                {
+                    techleader = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+                if (dr[1].ToString().Contains("undenz"))
+                {
+                    Kunde = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+                if (dr[1].ToString().Contains("achstum"))
+                {
+                    wachstum = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+                if (dr[1].ToString().Contains("rozess"))
+                {
+                    Prozess = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+
+                }
+                if (dr[1].ToString().Contains("arbeiter"))
+                {
+                    mitarbeiter = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+            }
         }
 
         private void extractRisks(DataTable risiko)
         {
-            
+            foreach (DataRow dr in risks.Rows)
+            {
+                if (dr[1].ToString().Contains("echn"))
+                {
+                    technicalRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+                if (dr[1].ToString().Contains("uali"))
+                {
+                    qualityRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]); 
+                }
+                if (dr[1].ToString().Contains("cher"))
+                {
+                    securityRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]); 
+                }
+                if (dr[1].ToString().Contains("anziel"))
+                {
+                    financialRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                }
+            }
         }
 
         private void extractbasis(DataTable basisdaten)
@@ -323,7 +364,7 @@ namespace Supernova.objects
 
         private void collectStrategieSaving()
         {
-            foreach (DataRow dr in risks.Rows)
+            foreach (DataRow dr in strategie.Rows)
             {
                 if (dr[1].ToString().Contains("echn"))
                 {
