@@ -23,6 +23,19 @@ namespace Supernova.Sub_Forms.Projects
         {
             InitializeComponent();
             this.projektdaten = projektdaten;
+
+            if (projektdaten.ProjectID != 0)
+            {
+                fillAllBoxes();
+            }
+        }
+
+        private void fillAllBoxes()
+        {
+            tbTechnicalRisk.Value = projektdaten.technicalRisk;
+            tbFinancialRisk.Value = projektdaten.financialRisk;
+            tbSecurityRisk.Value = projektdaten.securityRisk;
+            tbQualityRisk.Value = projektdaten.qualityRisk;
         }
 
         public bool checkAndValidateForm()
@@ -33,15 +46,30 @@ namespace Supernova.Sub_Forms.Projects
 
         private void collectData()
         {
-            projektdaten.technicalRisk = tbTechRisk.Value;
+            projektdaten.technicalRisk = tbTechnicalRisk.Value;
             projektdaten.financialRisk = tbFinancialRisk.Value;
             projektdaten.securityRisk = tbSecurityRisk.Value;
             projektdaten.qualityRisk = tbQualityRisk.Value;
         }
 
-        private void tbTechRisk_ValueChanged(object sender, EventArgs e)
+        private void tbTechnicalRisk_ValueChanged(object sender, EventArgs e)
         {
-            textBox1.Text = tbTechRisk.Value.ToString();
+            textBox1.Text = tbTechnicalRisk.Value.ToString();
+        }
+
+        private void tbFinancialRisk_ValueChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = tbFinancialRisk.Value.ToString();
+        }
+
+        private void tbSecurityRisk_ValueChanged(object sender, EventArgs e)
+        {
+            textBox3.Text = tbSecurityRisk.Value.ToString();
+        }
+
+        private void tbQualityRisk_ValueChanged(object sender, EventArgs e)
+        {
+            textBox4.Text = tbQualityRisk.Value.ToString();
         }
     }
 }
