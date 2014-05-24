@@ -35,7 +35,26 @@ namespace Supernova.Sub_Forms.Projects
             maskedTextBox1.Text = String.Format("{0,12:0.00}", 0.0);
             maskedTextBox2.Text = String.Format("{0,12:0.00}", 0.0);
             maskedTextBox3.Text = String.Format("{0,12:0.00}", 0.0); 
+
+            if (projektdaten.ProjectID != 0)
+            {
+                fillAllBoxes();
+            }
            
+        }
+
+        private void fillAllBoxes()
+        {
+            cbStartMonth.SelectedIndex = projektdaten.ProjectStartDate.Month;
+            cbStartYear.SelectedIndex = projektdaten.ProjectStartDate.Year;
+            cbEndMonth.SelectedIndex = projektdaten.ProjectStartDate.Month;
+            cbEndYear.SelectedIndex = projektdaten.ProjectStartDate.Year;
+            maskedTextBox1.Text = projektdaten.costsyear1.ToString();
+            maskedTextBox2.Text = projektdaten.costyear2.ToString();
+            maskedTextBox3.Text = projektdaten.costyeae3.ToString();
+            tbCostAll.Text = projektdaten.GesamtKosten.ToString();
+            mtbNPV.Text = projektdaten.NPV.ToString();
+            nupTimeToMarket.Value = projektdaten.TimeToMarket;
         }
 
         public bool checkAndValidateForm()
