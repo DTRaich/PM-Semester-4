@@ -77,13 +77,13 @@ namespace Supernova.Sub_Forms.Projects
 
         private bool AllNull()
         {
-            bool retval = false;
+            bool retval = true;
 
             foreach (DataRow dr in CapaSource.Rows)
             {
                 if (!dr.ToString().Equals("0"))
                 {
-                    retval = true;
+                    retval = false;
                 }
             }
             return retval;

@@ -670,17 +670,17 @@ namespace Supernova.data
                 cmd.Parameters.AddWithValue("lead", basis[3]);
                 cmd.Parameters["lead"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("start", basis[4]);
+                cmd.Parameters.AddWithValue("start", "2014-01-01");//basis[4]);
                 cmd.Parameters["start"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("end", basis[5]);
+                cmd.Parameters.AddWithValue("end", "2015-01-01");
                 cmd.Parameters["end"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("create", basis[6]);
                 cmd.Parameters["create"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("cate", basis[7]);
-                cmd.Parameters["cate"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("cat", basis[7]);
+                cmd.Parameters["cat"].Direction = ParameterDirection.Input;
 
                 connection.Open();
                 cmd.ExecuteReader(CommandBehavior.CloseConnection);
