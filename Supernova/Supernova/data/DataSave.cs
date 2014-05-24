@@ -704,7 +704,6 @@ namespace Supernova.data
             
         }
 
-        
         #endregion
 
         #region criteriaMatters
