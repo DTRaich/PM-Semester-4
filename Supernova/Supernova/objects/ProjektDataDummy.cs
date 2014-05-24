@@ -223,7 +223,6 @@ namespace Supernova.objects
                    TimeToMarket =  Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
                 }
             }
-            divCriterias.AcceptChanges();
         }
 
         private void extractStrategie(DataTable strategie)
@@ -422,9 +421,11 @@ namespace Supernova.objects
             basisData.Add(ProjectID.ToString());
             basisData.Add(ProjectName);
             basisData.Add(ProjectDescription);
-            basisData.Add(ProjectStartDate.ToShortDateString());
-            basisData.Add(ProjectEndDate.ToShortDateString());
             basisData.Add(ProjectLeader.ToString());
+           string  startstring = ProjectStartDate.Year+"-"+ProjectStartDate.Month+"-"+ProjectStartDate.Day;
+           string endstring = ProjectEndDate.Year + "-" + ProjectEndDate.Month + "-" + ProjectEndDate.Day;
+            basisData.Add(startstring);
+            basisData.Add(endstring);          
             basisData.Add(CreatedBY.ToString());
             basisData.Add(ProjectCategory.ToString());
 

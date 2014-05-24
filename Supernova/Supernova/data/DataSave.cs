@@ -604,16 +604,16 @@ namespace Supernova.data
                     try
                     {
 
-                        string commandText = "Call SoUCritPro(@pid,@critid,@val,@update)";
+                        string commandText = "Call SoUCritPro(@critid,@pid,@val,@update)";
                         MySqlCommand cmd = new MySqlCommand();
                         cmd.Connection = connection;
                         cmd.CommandText = commandText;
 
-                        cmd.Parameters.AddWithValue("pid", projectID);
-                        cmd.Parameters["pid"].Direction = ParameterDirection.Input;
-
                         cmd.Parameters.AddWithValue("critid", dr[0]);
                         cmd.Parameters["critid"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("pid",projectID );
+                        cmd.Parameters["pid"].Direction = ParameterDirection.Input;
 
                         cmd.Parameters.AddWithValue("val", dr["Value"]);
                         cmd.Parameters["val"].Direction = ParameterDirection.Input;
@@ -670,10 +670,10 @@ namespace Supernova.data
                 cmd.Parameters.AddWithValue("lead", basis[3]);
                 cmd.Parameters["lead"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("start", "2014-01-01");//basis[4]);
+                cmd.Parameters.AddWithValue("start", basis[4]);
                 cmd.Parameters["start"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("end", "2015-01-01");
+                cmd.Parameters.AddWithValue("end", basis[4]);
                 cmd.Parameters["end"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("create", basis[6]);
