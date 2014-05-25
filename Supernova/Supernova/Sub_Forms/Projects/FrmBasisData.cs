@@ -38,8 +38,8 @@ namespace Supernova.Sub_Forms.Projects
         {
             tbProjectName.Text = projektdaten.ProjectName;
             tbShortDescription.Text = projektdaten.ProjectDescription;
-            cbProjectLeader.SelectedIndex = projektdaten.ProjectLeader;
-            cbProjectCategory.SelectedIndex = projektdaten.ProjectCategory;
+            cbProjectLeader.SelectedValue = projektdaten.ProjectLeader;
+            cbProjectCategory.SelectedValue = projektdaten.ProjectCategory;
         }
 
         private void loadBoxes()

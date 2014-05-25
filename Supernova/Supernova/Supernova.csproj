@@ -73,6 +73,7 @@
       <DependentUpon>FrmOrderControlling.cs</DependentUpon>
     </Compile>
     <Compile Include="helper\DBerror.cs" />
+    <Compile Include="helper\HelperTexts.cs" />
     <Compile Include="helper\ParameterHelper.cs" />
     <Compile Include="interfaces\IWhatToDoWithProjects.cs" />
     <Compile Include="objects\ProjektDataDummy.cs" />
@@ -154,6 +155,24 @@
     </Compile>
     <Compile Include="Sub_Forms\Help\FrmUserHelp.Designer.cs">
       <DependentUpon>FrmUserHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmGeneralAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmGeneralAnalysis.Designer.cs">
+      <DependentUpon>FrmGeneralAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmHaveToErrorPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmHaveToErrorPopUp.Designer.cs">
+      <DependentUpon>FrmHaveToErrorPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmProjectAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmProjectAnalysis.Designer.cs">
+      <DependentUpon>FrmProjectAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="Sub_Forms\Overview\FrmProjectDetails.cs">
       <SubType>Form</SubType>

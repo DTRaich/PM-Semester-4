@@ -18,7 +18,7 @@ namespace Supernova
         {
             InitializeComponent();
 
-            leader = new Leader(this.pnlMain);
+            leader = Leader.getLeader(this.pnlMain);
             DBerror dberror = DBerror.getInstanze();
             dberror.setDbLabel(this.dbErrorLabel);
         }

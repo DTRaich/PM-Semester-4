@@ -24,10 +24,19 @@ namespace Supernova
         public ProjektDataDummy projektdaten;
 
         #endregion
-
-        public Leader(Panel pnl)
+        private static Leader lead;
+        private Leader(Panel pnl)
         {
             this.mainPanel = pnl;
+        }
+        public static Leader getLeader(Panel pnl)
+        {
+            if (lead == null)
+            {
+                lead = new Leader(pnl);
+            }
+
+            return lead;
         }
 
         #region publicMethods

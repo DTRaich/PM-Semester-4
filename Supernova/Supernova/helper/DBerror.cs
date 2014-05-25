@@ -35,6 +35,12 @@ namespace Supernova.helper
             dBerrolabel.Visible = true;
             dBerrolabel.ForeColor = Color.Red;
         }
+        public void setDBError(string text)
+        {
+            dBerrolabel.Text = text;
+            dBerrolabel.Visible = true;
+            dBerrolabel.ForeColor = Color.Red;
+        }
         public void deleteDBError()
         {
             dBerrolabel.Visible = false;
