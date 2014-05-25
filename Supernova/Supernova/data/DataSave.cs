@@ -615,7 +615,7 @@ namespace Supernova.data
                         cmd.Parameters.AddWithValue("pid",projectID );
                         cmd.Parameters["pid"].Direction = ParameterDirection.Input;
 
-                        cmd.Parameters.AddWithValue("val", dr["Value"]);
+                        cmd.Parameters.AddWithValue("val", Convert.ToDouble(dr["Value"]));
                         cmd.Parameters["val"].Direction = ParameterDirection.Input;
 
                         cmd.Parameters.AddWithValue("update", update);
@@ -673,7 +673,7 @@ namespace Supernova.data
                 cmd.Parameters.AddWithValue("start", basis[4]);
                 cmd.Parameters["start"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("end", basis[4]);
+                cmd.Parameters.AddWithValue("end", basis[5]);
                 cmd.Parameters["end"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("create", basis[6]);

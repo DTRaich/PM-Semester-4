@@ -11,9 +11,17 @@ namespace Supernova.Sub_Forms.Overview
 {
     public partial class FrmProjectDetails : Form
     {
+        private int currentProjectID;
+
         public FrmProjectDetails()
         {
             InitializeComponent();
+        }
+
+        public FrmProjectDetails(int currentProjectID)
+        {
+            // TODO: Complete member initialization
+            this.currentProjectID = currentProjectID;
         }
     }
 }

@@ -138,7 +138,7 @@ namespace Supernova
         {
             if(projektDaten.saveProjectDataToDb())
             {
-                FrmAfirmative affir = new FrmAfirmative("Projekt wurde erfolgreichgspeichert", 'i');
+                FrmAfirmative affir = new FrmAfirmative("Projekt wurde erfolgreich gespeichert", 'i');
                 affir.ShowDialog();
                 this.Close(); 
             }
