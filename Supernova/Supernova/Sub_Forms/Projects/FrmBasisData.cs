@@ -64,20 +64,30 @@ namespace Supernova.Sub_Forms.Projects
 
         private bool validateData()
         {
-            if (tbProjectName.Text == "" || tbShortDescription.Text == "")
+            bool retval = true;
+            label5.Visible = false;
+            label6.Visible = false;
+            if (tbProjectName.Text.Equals(string.Empty))
             {
-                return false;
+                label5.Visible = true;
+                retval =  false;
+            }
+           
+            if(tbShortDescription.Text.Equals(string.Empty))
+            {
+                label5.Visible = true;
+                retval = false;
             }
 
-            return true;
+            return retval;
         }
 
         private void collectData()
         {
             projektdaten.ProjectName = tbProjectName.Text;
             projektdaten.ProjectDescription = tbShortDescription.Text;
-            projektdaten.ProjectLeader = (int) cbProjectLeader.SelectedValue;
-            projektdaten.ProjectCategory = (int) cbProjectCategory.SelectedValue;
+            projektdaten.ProjectLeader = Convert.ToInt32(cbProjectLeader.SelectedValue);
+            projektdaten.ProjectCategory = Convert.ToInt32(cbProjectCategory.SelectedValue);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -86,6 +96,11 @@ namespace Supernova.Sub_Forms.Projects
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmBasisData_Load(object sender, EventArgs e)
         {
 
         }

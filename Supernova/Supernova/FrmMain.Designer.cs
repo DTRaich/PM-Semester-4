@@ -32,7 +32,6 @@
             this.projekteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projekteAnzeigenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projektErstellenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.projekteÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abteilungskapazitätToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +70,7 @@
             // 
             this.projekteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.projekteAnzeigenToolStripMenuItem,
-            this.projektErstellenToolStripMenuItem,
-            this.projekteÄndernToolStripMenuItem});
+            this.projektErstellenToolStripMenuItem});
             this.projekteToolStripMenuItem.Enabled = false;
             this.projekteToolStripMenuItem.Name = "projekteToolStripMenuItem";
             this.projekteToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
@@ -91,13 +89,6 @@
             this.projektErstellenToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.projektErstellenToolStripMenuItem.Text = "Projekt erstellen";
             this.projektErstellenToolStripMenuItem.Click += new System.EventHandler(this.projektErstellenToolStripMenuItem_Click);
-            // 
-            // projekteÄndernToolStripMenuItem
-            // 
-            this.projekteÄndernToolStripMenuItem.Name = "projekteÄndernToolStripMenuItem";
-            this.projekteÄndernToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.projekteÄndernToolStripMenuItem.Text = "Projekte ändern";
-            this.projekteÄndernToolStripMenuItem.Click += new System.EventHandler(this.projekteÄndernToolStripMenuItem_Click);
             // 
             // adminToolStripMenuItem1
             // 
@@ -146,6 +137,7 @@
             this.benutzerAnlegenToolStripMenuItem.Name = "benutzerAnlegenToolStripMenuItem";
             this.benutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.benutzerAnlegenToolStripMenuItem.Text = "Benutzerverwaltung";
+            this.benutzerAnlegenToolStripMenuItem.Visible = false;
             this.benutzerAnlegenToolStripMenuItem.Click += new System.EventHandler(this.benutzerAnlegenToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
@@ -265,7 +257,6 @@
         private System.Windows.Forms.ToolStripMenuItem hilfekatalogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ausloggenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem projekteÄndernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem kriterienPriorisierenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rechteverwaltungToolStripMenuItem;

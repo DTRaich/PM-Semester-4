@@ -103,11 +103,7 @@ namespace Supernova
         {
             leader.LoadProjektCreate();
         }
-
-        private void projekteÄndernToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            leader.LoadEditProjects();
-        }
+              
 
         private void kriterienPriorisierenToolStripMenuItem_Click(object sender, EventArgs e)
         {

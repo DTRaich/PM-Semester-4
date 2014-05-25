@@ -13,7 +13,7 @@ namespace Supernova.Sub_Forms.Overview
     public partial class FrmProjectOverview : Form
     {
         DataLoad dl = new DataLoad();
-
+        int currentRow = 0;
         public FrmProjectOverview()
         {
             InitializeComponent();
@@ -30,6 +30,8 @@ namespace Supernova.Sub_Forms.Overview
 
         private void tsmChange_Click(object sender, EventArgs e)
         {
+            Leader lead = Leader.getLeaderInst();
+            lead.LoadEditProjects(currentRow);
 
         }
 
@@ -38,6 +40,7 @@ namespace Supernova.Sub_Forms.Overview
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 int currentMouseOverRow = mainGrid.HitTest(e.X, e.Y).RowIndex;
+                currentRow = Convert.ToInt32(mainGrid[0, currentMouseOverRow].Value);
                 cmsGridMenu.Show(mainGrid, new Point(e.X, e.Y));
             }
         }

@@ -39,6 +39,11 @@ namespace Supernova
             return lead;
         }
 
+        public static Leader getLeaderInst()
+        {
+            return lead;
+        }
+
         #region publicMethods
 
         public void setUserID(int uID)
@@ -82,19 +87,19 @@ namespace Supernova
             frm.Show();
         }
 
-        public void LoadEditProjects()
+        public void LoadEditProjects(int proID)
         {
-            //ClearUpMainPanel();
-            //mainPanel.Controls.Clear();
-            ////
-            ////--------------------> Platz zum abhandeln der ProjectLadenForm
-            //projektdaten.loadProjectdataintoDummy(1);
-            ////
-           
-            //List<Form> li = getFormsListNewProject();
-            //FrmOrderControlling frm = new FrmOrderControlling(li, ref projektdaten);
-            //mainPanel.Controls.Add(prepareForm(frm));
-            //frm.Show();
+            ClearUpMainPanel();
+            mainPanel.Controls.Clear();
+            //
+            //--------------------> Platz zum abhandeln der ProjectLadenForm
+            projektdaten.loadProjectdataintoDummy(proID);
+            //
+
+            List<Form> li = getFormsListNewProject();
+            FrmOrderControlling frm = new FrmOrderControlling(li, ref projektdaten);
+            mainPanel.Controls.Add(prepareForm(frm));
+            frm.Show();
         }
 
 
@@ -259,5 +264,7 @@ namespace Supernova
         #endregion
 
 
+
+        
     }
 }
