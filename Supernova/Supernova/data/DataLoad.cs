@@ -46,7 +46,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                //dbError.setDBError();
             }
             finally
             {
@@ -84,7 +84,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Ausloggen ist gerade nicht möglich. Bitte kontaktieren sie den Administrator");
             }
             finally
             {
@@ -125,7 +125,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Datenbank ist gerade nicht erreichbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -152,7 +152,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Tabelle der Rechteverwaltung ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -208,7 +208,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -235,7 +235,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -263,7 +263,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -292,7 +292,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -320,7 +320,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -347,7 +347,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -391,7 +391,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -425,7 +425,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -464,7 +464,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -499,7 +499,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                //dbError.setDBError();
             }
             finally
             {
@@ -527,7 +527,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -574,7 +574,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -605,7 +605,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -632,7 +632,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -659,7 +659,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
@@ -689,7 +689,7 @@ namespace Supernova.data
             }
             catch (Exception ex)
             {
-                dbError.setDBError();
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
             }
             finally
             {
