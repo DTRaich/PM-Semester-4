@@ -102,8 +102,6 @@ namespace Supernova.objects
             strategie.AcceptChanges();
         }
 
-        
-
         private void prepareDivCriterias()
         {
             DataTable dt = pl.loadDivCriterias();
@@ -189,12 +187,31 @@ namespace Supernova.objects
 
         private void extractBudget(DataTable budget)
         {
-            throw new NotImplementedException();
+            foreach (DataRow dr in budget.Rows)
+            {
+               costsyear1 = Convert.ToDouble(dr[0]);
+               costyear2 =  Convert.ToDouble(dr[1]);
+               costyeae3 =  Convert.ToDouble(dr[2]);
+
+            }
         }
 
         private void extractNeedDep(DataTable depcapa)
         {
-            throw new NotImplementedException();
+            foreach (DataRow originRow in departmentCapa.Rows)
+            {
+
+                foreach (DataRow dr in depcapa.Rows)
+                {
+                    if(originRow[0].ToString().Equals(dr[0].ToString()))
+                    {
+                        originRow[2] = dr[1];
+                        originRow[3] = dr[2];
+                        originRow[4] = dr[3];
+
+                    }
+                }
+            }
         }
 
         private void extractDivCrit(DataTable divcrit)
