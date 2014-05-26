@@ -701,5 +701,38 @@ namespace Supernova.data
             return dt;
         }
 
+        #region overview
+        public DataTable LoadGenerealOverview()
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Call OverviewSelector()";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;                
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+        #endregion
     }
 }

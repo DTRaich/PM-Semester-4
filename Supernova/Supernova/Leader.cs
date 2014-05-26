@@ -93,6 +93,7 @@ namespace Supernova
             mainPanel.Controls.Clear();
             //
             //--------------------> Platz zum abhandeln der ProjectLadenForm
+            projektdaten = new ProjektDataDummy();
             projektdaten.loadProjectdataintoDummy(proID);
             //
 

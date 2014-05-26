@@ -17,10 +17,15 @@ namespace Supernova.Sub_Forms.Overview
         public FrmProjectOverview()
         {
             InitializeComponent();
-            DataTable dt = dl.LoadUserData(12);
-            DataTable dl2 = dl.LoadUserData(13);
-            dl2.Merge(dt);
-            mainGrid.DataSource = dl2;
+            LoadMainGrid();
+           
+        }
+
+        private void LoadMainGrid()
+        {
+            DataTable source = dl.LoadGenerealOverview();
+            mainGrid.DataSource = source;
+
         }
 
         private void tsmDetail_Click(object sender, EventArgs e)
