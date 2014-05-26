@@ -133,19 +133,6 @@
             // cbStartMonth
             // 
             this.cbStartMonth.FormattingEnabled = true;
-            this.cbStartMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
             this.cbStartMonth.Location = new System.Drawing.Point(394, 21);
             this.cbStartMonth.Name = "cbStartMonth";
             this.cbStartMonth.Size = new System.Drawing.Size(65, 21);
@@ -154,38 +141,15 @@
             // cbStartYear
             // 
             this.cbStartYear.FormattingEnabled = true;
-            this.cbStartYear.Items.AddRange(new object[] {
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
-            "2024"});
             this.cbStartYear.Location = new System.Drawing.Point(465, 21);
             this.cbStartYear.Name = "cbStartYear";
             this.cbStartYear.Size = new System.Drawing.Size(65, 21);
             this.cbStartYear.TabIndex = 28;
+            this.cbStartYear.SelectedIndexChanged += new System.EventHandler(this.cbStartYear_SelectedIndexChanged);
             // 
             // cbEndYear
             // 
             this.cbEndYear.FormattingEnabled = true;
-            this.cbEndYear.Items.AddRange(new object[] {
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
-            "2024"});
             this.cbEndYear.Location = new System.Drawing.Point(465, 65);
             this.cbEndYear.Name = "cbEndYear";
             this.cbEndYear.Size = new System.Drawing.Size(65, 21);
@@ -194,19 +158,6 @@
             // cbEndMonth
             // 
             this.cbEndMonth.FormattingEnabled = true;
-            this.cbEndMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
             this.cbEndMonth.Location = new System.Drawing.Point(394, 65);
             this.cbEndMonth.Name = "cbEndMonth";
             this.cbEndMonth.Size = new System.Drawing.Size(65, 21);

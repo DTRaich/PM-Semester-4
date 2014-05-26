@@ -17,6 +17,10 @@ namespace Supernova.Sub_Forms.Projects
         private double year1 = 0;
         private double year2 = 0;
         private double year3 = 0;
+        DataTable month = new DataTable();
+        DataTable year = new DataTable();
+        DataTable monthEnd = new DataTable();
+        DataTable yearEnd = new DataTable();
 
         public FrmCostTime()
         {
@@ -25,12 +29,10 @@ namespace Supernova.Sub_Forms.Projects
 
         public FrmCostTime(ref objects.ProjektDataDummy projektdaten)
         {
-            InitializeComponent();            
+            InitializeComponent();
+            fillAndBindMonthYearStart();
+            fillAndBindMonthYearEnd();
             this.projektdaten = projektdaten;
-            cbStartMonth.SelectedIndex = 0;
-            cbStartYear.SelectedIndex = 0;
-            cbEndMonth.SelectedIndex = 0;
-            cbEndYear.SelectedIndex = 0;
             nupTimeToMarket.Value = 0;
             maskedTextBox1.Text = String.Format("{0,12:0.00}", 0.0);
             maskedTextBox2.Text = String.Format("{0,12:0.00}", 0.0);
@@ -41,6 +43,89 @@ namespace Supernova.Sub_Forms.Projects
                 fillAllBoxes();
             }
            
+        }
+
+        private void fillAndBindMonthYearEnd()
+        {
+            DataColumn dc1 = new DataColumn("Value");
+            DataColumn dc2 = new DataColumn("Play");
+            monthEnd.Columns.Add(dc1);
+            monthEnd.Columns.Add(dc2);
+            DataRow dr;
+            for (int i = 1; i <= 12; i++)
+            {
+                dr = monthEnd.NewRow();
+                dr[0] = i;
+                dr[1] = i;
+
+                monthEnd.Rows.Add(dr);
+            }
+            monthEnd.AcceptChanges();
+            cbEndMonth.DataSource = monthEnd;
+            cbEndMonth.ValueMember = "Value";
+            cbEndMonth.DisplayMember = "Play";
+
+            // year
+            DataColumn dcy1 = new DataColumn("Value");
+            DataColumn dcy2 = new DataColumn("Play");
+            yearEnd.Columns.Add(dcy1);
+            yearEnd.Columns.Add(dcy2);
+
+            DataRow dr2;
+            for (int i = 2014; i <= 2034; i++)
+            {
+                dr2 = yearEnd.NewRow();
+                dr2[0] = i;
+                dr2[1] = i;
+
+                yearEnd.Rows.Add(dr2);
+            }
+            yearEnd.AcceptChanges();
+            cbEndYear.DataSource = yearEnd;
+            cbEndYear.ValueMember = "Value";
+            cbEndYear.DisplayMember = "Play";
+        }
+
+        private void fillAndBindMonthYearStart()
+        {
+            DataColumn dc1 = new DataColumn("Value");
+            DataColumn dc2 = new DataColumn("Play");
+            month.Columns.Add(dc1);
+            month.Columns.Add(dc2);
+            DataRow dr;
+            for (int i = 1; i <= 12; i++ ) 
+            {
+                dr = month.NewRow();
+                dr[0] = i;
+                dr[1] = i;
+
+                month.Rows.Add(dr);
+            }
+            month.AcceptChanges();
+            cbStartMonth.DataSource = month;
+            cbStartMonth.ValueMember = "Value";
+            cbStartMonth.DisplayMember = "Play";
+            
+            // year
+            DataColumn dcy1 = new DataColumn("Value");
+            DataColumn dcy2 = new DataColumn("Play");
+            year.Columns.Add(dcy1);
+            year.Columns.Add(dcy2);
+
+            DataRow dr2;
+            for (int i = 2014; i <= 2034; i++)
+            {
+                dr2 = year.NewRow();
+                dr2[0] = i;
+                dr2[1] = i;
+
+                year.Rows.Add(dr2);
+            }
+            year.AcceptChanges();
+            cbStartYear.DataSource = year;
+            cbStartYear.ValueMember = "Value";
+            cbStartYear.DisplayMember = "Play";
+
         }
 
         private void fillAllBoxes()
@@ -73,10 +158,10 @@ namespace Supernova.Sub_Forms.Projects
         private bool validateData()
         {
             bool retVal = true;
-            int startYear = Convert.ToInt32(cbStartYear.SelectedItem);
-            int endYear= Convert.ToInt32(cbEndYear.SelectedItem);
+            int startYear = Convert.ToInt32(cbStartYear.SelectedValue);
+            int endYear = Convert.ToInt32(cbEndYear.SelectedValue);
 
-            if ((startYear > endYear) || (startYear == endYear) && (Convert.ToInt32(cbStartMonth.SelectedItem) > Convert.ToInt32(cbEndMonth.SelectedItem)))
+            if ((startYear > endYear) || (startYear == endYear) && (Convert.ToInt32(cbStartMonth.SelectedValue) > Convert.ToInt32(cbEndMonth.SelectedValue)))
             {
                 errMsgStartEndDate.Visible = true;
                 retVal = false;
@@ -103,8 +188,8 @@ namespace Supernova.Sub_Forms.Projects
 
         private void collectData()
         {
-            projektdaten.ProjectStartDate = new DateTime(Convert.ToInt32(cbStartYear.SelectedItem), Convert.ToInt32(cbStartMonth.SelectedItem), 1);
-            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedItem), Convert.ToInt32(cbEndMonth.SelectedItem), 1);
+            projektdaten.ProjectStartDate = new DateTime(Convert.ToInt32(cbStartYear.SelectedValue), Convert.ToInt32(cbStartMonth.SelectedValue), 1);
+            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedValue), Convert.ToInt32(cbEndMonth.SelectedValue), 1);
             projektdaten.costsyear1 = year1;
             projektdaten.costyear2 = year2;
             projektdaten.costyeae3 = year3;
@@ -154,5 +239,10 @@ namespace Supernova.Sub_Forms.Projects
         }
 
         #endregion
+
+        private void cbStartYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
