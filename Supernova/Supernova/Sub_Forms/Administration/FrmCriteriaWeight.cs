@@ -365,17 +365,17 @@ namespace Supernova.Sub_Forms.Administration
 
                 if (Convert.ToDouble(max) <= Convert.ToDouble(min))
                 {
-                    retval = false;
-                    weightGrid[3, row].Style.BackColor = Color.PaleVioletRed;
-                    weightGrid[4, row].Style.BackColor = Color.PaleVioletRed;
+                   retval = false;
+                   scalingGrid[3, row].Style.BackColor = Color.PaleVioletRed;
+                   scalingGrid[4, row].Style.BackColor = Color.PaleVioletRed;
                     
                 }
                 else
                 {
-                    weightGrid[3, row].Style.BackColor = Color.White;
-                    weightGrid[4, row].Style.BackColor = Color.White;
+                    scalingGrid[3, row].Style.BackColor = Color.White;
+                    scalingGrid[4, row].Style.BackColor = Color.White;
                 }
-               // row++;
+               row++;
             }
                         
             return retval;

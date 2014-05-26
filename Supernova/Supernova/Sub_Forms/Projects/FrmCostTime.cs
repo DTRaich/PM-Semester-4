@@ -134,8 +134,8 @@ namespace Supernova.Sub_Forms.Projects
             {
                 cbStartMonth.SelectedValue = projektdaten.ProjectStartDate.Month;
                 cbStartYear.SelectedValue = projektdaten.ProjectStartDate.Year;
-                cbEndMonth.SelectedValue = projektdaten.ProjectStartDate.Month;
-                cbEndYear.SelectedValue = projektdaten.ProjectStartDate.Year;
+                cbEndMonth.SelectedValue = projektdaten.ProjectEndDate.Month;
+                cbEndYear.SelectedValue = projektdaten.ProjectEndDate.Year;
                 maskedTextBox1.Text = String.Format("{0,12:0.00}", projektdaten.costsyear1);
                 maskedTextBox2.Text = String.Format("{0,12:0.00}", projektdaten.costyear2);
                 maskedTextBox3.Text = String.Format("{0,12:0.00}", projektdaten.costyeae3);
