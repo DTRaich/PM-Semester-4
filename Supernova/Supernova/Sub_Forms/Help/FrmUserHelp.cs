@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supernova.helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,8 @@ namespace Supernova.Sub_Forms.Help
 {
     public partial class FrmUserHelp : Form
     {
+        HelperTexts texter = new HelperTexts();
+
         public FrmUserHelp()
         {
             InitializeComponent();
@@ -18,7 +21,17 @@ namespace Supernova.Sub_Forms.Help
 
         private void tvUserHelp_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            MessageBox.Show(e.Node.Name);
+            switch (e.Node.Name)
+            {
+                case "login": ShowLogin();
+                    break;
+            }
+
+        }
+
+        private void ShowLogin()
+        {
+            rtbText.Text = texter.GetLogin();
         }
     }
 }
