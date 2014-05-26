@@ -25,6 +25,7 @@ namespace Supernova.Sub_Forms.Overview
         {
             DataTable source = dl.LoadGenerealOverview();
             mainGrid.DataSource = source;
+            mainGrid.ReadOnly = true;
 
         }
 

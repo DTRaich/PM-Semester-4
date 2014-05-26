@@ -246,24 +246,24 @@ namespace Supernova.objects
         {
             foreach (DataRow dr in strategie.Rows)
             {
-                if (dr[1].ToString().Contains("echn"))
+                if (dr[0].ToString().Contains("echn"))
                 {
                     techleader = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
                 }
-                if (dr[1].ToString().Contains("undenz"))
+                if (dr[0].ToString().Contains("undenz"))
                 {
                     Kunde = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
                 }
-                if (dr[1].ToString().Contains("achstum"))
+                if (dr[0].ToString().Contains("achstum"))
                 {
                     wachstum = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
                 }
-                if (dr[1].ToString().Contains("rozess"))
+                if (dr[0].ToString().Contains("rozess"))
                 {
                     Prozess = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
 
                 }
-                if (dr[1].ToString().Contains("arbeiter"))
+                if (dr[0].ToString().Contains("arbeiter"))
                 {
                     mitarbeiter = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
                 }
@@ -272,21 +272,21 @@ namespace Supernova.objects
 
         private void extractRisks(DataTable risiko)
         {
-            foreach (DataRow dr in risks.Rows)
+            foreach (DataRow dr in risiko.Rows)
             {
-                if (dr[1].ToString().Contains("echn"))
+                if (dr[0].ToString().Contains("echn"))
                 {
-                    technicalRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
+                    technicalRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]); 
                 }
-                if (dr[1].ToString().Contains("uali"))
+                if (dr[0].ToString().Contains("uali"))
                 {
                     qualityRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]); 
                 }
-                if (dr[1].ToString().Contains("cher"))
+                if (dr[0].ToString().Contains("cher"))
                 {
                     securityRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]); 
                 }
-                if (dr[1].ToString().Contains("anziel"))
+                if (dr[0].ToString().Contains("anziel"))
                 {
                     financialRisk = Convert.ToInt32(dr["PTC_ORIGINALVALUE"]);
                 }
@@ -297,7 +297,6 @@ namespace Supernova.objects
         {
             foreach (DataRow dr in basisdaten.Rows)
             {
-                
                 ProjectName = dr[1].ToString();
                 ProjectDescription = dr[2].ToString();
                 ProjectLeader = Convert.ToInt32(dr[3]);

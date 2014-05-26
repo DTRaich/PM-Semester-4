@@ -45,16 +45,22 @@ namespace Supernova.Sub_Forms.Projects
 
         private void fillAllBoxes()
         {
-            cbStartMonth.SelectedIndex = projektdaten.ProjectStartDate.Month;
-            cbStartYear.SelectedIndex = projektdaten.ProjectStartDate.Year;
-            cbEndMonth.SelectedIndex = projektdaten.ProjectStartDate.Month;
-            cbEndYear.SelectedIndex = projektdaten.ProjectStartDate.Year;
-            maskedTextBox1.Text = projektdaten.costsyear1.ToString();
-            maskedTextBox2.Text = projektdaten.costyear2.ToString();
-            maskedTextBox3.Text = projektdaten.costyeae3.ToString();
-            tbCostAll.Text = projektdaten.GesamtKosten.ToString();
-            mtbNPV.Text = projektdaten.NPV.ToString();
-            nupTimeToMarket.Value = projektdaten.TimeToMarket;
+            try
+            {
+                cbStartMonth.SelectedValue = projektdaten.ProjectStartDate.Month;
+                cbStartYear.SelectedValue = projektdaten.ProjectStartDate.Year;
+                cbEndMonth.SelectedValue = projektdaten.ProjectStartDate.Month;
+                cbEndYear.SelectedValue = projektdaten.ProjectStartDate.Year;
+                maskedTextBox1.Text = String.Format("{0,12:0.00}", projektdaten.costsyear1);
+                maskedTextBox2.Text = String.Format("{0,12:0.00}", projektdaten.costyear2);
+                maskedTextBox3.Text = String.Format("{0,12:0.00}", projektdaten.costyeae3);
+                tbCostAll.Text = projektdaten.GesamtKosten.ToString();
+                mtbNPV.Text = projektdaten.NPV.ToString();
+                nupTimeToMarket.Value = projektdaten.TimeToMarket;
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         public bool checkAndValidateForm()
