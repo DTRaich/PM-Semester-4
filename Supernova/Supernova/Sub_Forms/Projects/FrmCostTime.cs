@@ -55,7 +55,7 @@ namespace Supernova.Sub_Forms.Projects
                 maskedTextBox2.Text = String.Format("{0,12:0.00}", projektdaten.costyear2);
                 maskedTextBox3.Text = String.Format("{0,12:0.00}", projektdaten.costyeae3);
                 tbCostAll.Text = projektdaten.GesamtKosten.ToString();
-                mtbNPV.Text = projektdaten.NPV.ToString();
+                mtbNPV.Text = String.Format("{0,6:0.000}", projektdaten.NPV);
                 nupTimeToMarket.Value = projektdaten.TimeToMarket;
             }
             catch (Exception ex)

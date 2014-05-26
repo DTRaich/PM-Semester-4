@@ -228,7 +228,7 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select NDC_DEPID, NDC_YEAR1, NDC_YEAR2, NDC_YEAR3 from NEED_DEP_CAPA where NDC_POID like '"+ id+"'";
+                string comand = "Select NDC_DEPID, NDC_YEAR1, NDC_YEAR2, NDC_YEAR3 from NEED_DEP_CAPA where NDC_PROID = "+ id;
 
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
