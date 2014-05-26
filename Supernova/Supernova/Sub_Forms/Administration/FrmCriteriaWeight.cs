@@ -357,32 +357,27 @@ namespace Supernova.Sub_Forms.Administration
         private bool validateScaling()
         {
             bool retval = true;
-            // Macht aktuell keinen Sinn, 
-            //da es sowohl absteigend als auch aufsteigend sein kann
-            //object vorId = 1;
-            //int rowCount = 0;
-            //foreach (DataGridViewRow dr in scalingGrid.Rows)
-            //{
-            //    object id = dr.Cells[0].Value;
-            //    if (id != vorId)
-            //    {
-            //        vorId = id;
-            //        scalingGrid.Rows[rowCount].Cells[2].Value < 
-            //    }
-            //    else
-            //    {
+            int row = 0;
+            foreach (DataGridViewRow dr in scalingGrid.Rows)
+            {
+                object min = dr.Cells[3].Value;
+                object max = dr.Cells[4].Value;
 
-            //    }
-
-            //    rowCount++;
-                
-
-            //}
-
-            //if (!retval)
-            //{
-            //    MessageBox.Show("Vorgänger müssen in logische Reihenfolge passen");
-            //}
+                if (Convert.ToDouble(max) <= Convert.ToDouble(min))
+                {
+                    retval = false;
+                    weightGrid[3, row].Style.BackColor = Color.PaleVioletRed;
+                    weightGrid[4, row].Style.BackColor = Color.PaleVioletRed;
+                    
+                }
+                else
+                {
+                    weightGrid[3, row].Style.BackColor = Color.White;
+                    weightGrid[4, row].Style.BackColor = Color.White;
+                }
+               // row++;
+            }
+                        
             return retval;
         }
 
@@ -410,7 +405,7 @@ namespace Supernova.Sub_Forms.Administration
                 (e.Control as TextBox).MaxLength = 12;
             }
 
-            if (scalingGrid.CurrentCell.ColumnIndex == 2)
+            if (scalingGrid.CurrentCell.ColumnIndex == 3 || scalingGrid.CurrentCell.ColumnIndex == 4)
             {
                 e.Control.KeyPress += Control_KeyPress;
             }
