@@ -35,9 +35,7 @@ namespace Supernova
             currentFrm = formslist[formNumber];
             this.pnlControl.Controls.Add(currentFrm);
             currentFrm.Show();
-            setButtons();
-            formNumber++;
-            highestFormNumber = formNumber;
+            setButtons();           
            
         }
                 
@@ -53,10 +51,11 @@ namespace Supernova
                 {
 
                     currentFrm.Visible = false;
+                    formNumber = formNumber + 1;
                     currentFrm = formslist[formNumber];
                     this.pnlControl.Controls.Add(currentFrm);
 
-                    formNumber = formNumber + 1;
+                 
                     if (highestFormNumber > formNumber)
                     {
                         currentFrm.Visible = true;
@@ -123,13 +122,15 @@ namespace Supernova
             }
 
             // save
-            if (formNumber == formslist.Count)
+            if (formNumber == formslist.Count-1)
             {
                 btnSave.Visible = true;
+                btnNext.Visible = false;
             }
             else
             {
                 btnSave.Visible = false;
+                btnNext.Visible = true;
             }
             
         }

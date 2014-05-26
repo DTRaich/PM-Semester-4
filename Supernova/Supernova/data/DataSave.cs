@@ -473,7 +473,7 @@ namespace Supernova.data
                 cmd.Parameters.AddWithValue("id", projectID);
                 cmd.Parameters["id"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("y1", budget[0]);
+                cmd.Parameters.AddWithValue("y1", Convert.ToDecimal(budget[0]));
                 cmd.Parameters["y1"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("y2", budget[1]);
@@ -615,7 +615,7 @@ namespace Supernova.data
                         cmd.Parameters.AddWithValue("pid",projectID );
                         cmd.Parameters["pid"].Direction = ParameterDirection.Input;
 
-                        cmd.Parameters.AddWithValue("val", Convert.ToDouble(dr["Value"]));
+                        cmd.Parameters.AddWithValue("val", Convert.ToDecimal(dr["Value"]));
                         cmd.Parameters["val"].Direction = ParameterDirection.Input;
 
                         cmd.Parameters.AddWithValue("update", update);

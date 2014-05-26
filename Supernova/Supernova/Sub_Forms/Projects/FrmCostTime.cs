@@ -99,6 +99,9 @@ namespace Supernova.Sub_Forms.Projects
         {
             projektdaten.ProjectStartDate = new DateTime(Convert.ToInt32(cbStartYear.SelectedItem), Convert.ToInt32(cbStartMonth.SelectedItem), 1);
             projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedItem), Convert.ToInt32(cbEndMonth.SelectedItem), 1);
+            projektdaten.costsyear1 = year1;
+            projektdaten.costyear2 = year2;
+            projektdaten.costyeae3 = year3;
         }
 
         #region textboxes

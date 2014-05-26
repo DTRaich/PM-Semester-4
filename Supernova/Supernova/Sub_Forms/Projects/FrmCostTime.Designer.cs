@@ -117,7 +117,7 @@
             // mtbNPV
             // 
             this.mtbNPV.Location = new System.Drawing.Point(394, 254);
-            this.mtbNPV.Mask = "00,000";
+            this.mtbNPV.Mask = "00.000";
             this.mtbNPV.Name = "mtbNPV";
             this.mtbNPV.Size = new System.Drawing.Size(136, 20);
             this.mtbNPV.TabIndex = 25;

@@ -78,13 +78,23 @@ namespace Supernova.Sub_Forms.Projects
         private bool AllNull()
         {
             bool retval = true;
-
+            int columnCount =  CapaSource.Columns.Count;
             foreach (DataRow dr in CapaSource.Rows)
             {
-                if (!dr.ToString().Equals("0"))
-                {
-                    retval = false;
-                }
+                
+                    if (!dr[2].ToString().Equals("0"))
+                    {
+                        retval = false;
+                    }
+                if (!dr[3].ToString().Equals("0"))
+                    {
+                        retval = false;
+                    }
+                if (!dr[4].ToString().Equals("0"))
+                    {
+                        retval = false;
+                    }
+                 
             }
             return retval;
         }
@@ -101,7 +111,7 @@ namespace Supernova.Sub_Forms.Projects
         void Control_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
-             && e.KeyChar != ',')
+             || e.KeyChar == ',')
             {
                 e.Handled = true;
             }

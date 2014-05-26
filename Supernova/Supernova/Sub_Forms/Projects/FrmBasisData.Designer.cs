@@ -130,6 +130,7 @@
             this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Bitte ausfüllen";
+            this.label5.Visible = false;
             // 
             // label6
             // 
@@ -140,6 +141,7 @@
             this.label6.Size = new System.Drawing.Size(73, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Bitte ausfüllen";
+            this.label6.Visible = false;
             // 
             // FrmBasisData
             // 
