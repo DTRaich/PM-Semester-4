@@ -14,6 +14,8 @@ namespace Supernova.Sub_Forms.Overview
     {
         DataLoad dl = new DataLoad();
         private int currentProjectID = 0;
+        String currentProjectName;
+        private int currentPoints = 0;
         public FrmProjectOverview()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace Supernova.Sub_Forms.Overview
 
         private void tsmDetail_Click(object sender, EventArgs e)
         {
-            FrmProjectDetails detail = new FrmProjectDetails(currentProjectID);
+            FrmProjectDetails detail = new FrmProjectDetails(currentProjectID, currentPoints, currentProjectName);
             detail.ShowDialog();
         }
 
@@ -48,6 +50,9 @@ namespace Supernova.Sub_Forms.Overview
             if (currentMouseOverRow != -1)
             {
                 currentProjectID = Convert.ToInt32(mainGrid[0, currentMouseOverRow].Value);
+                currentPoints = Convert.ToInt32(mainGrid[7, currentMouseOverRow].Value);
+                currentProjectName = mainGrid[1, currentMouseOverRow].Value.ToString();
+
             }
 
             if (e.Button == System.Windows.Forms.MouseButtons.Right)

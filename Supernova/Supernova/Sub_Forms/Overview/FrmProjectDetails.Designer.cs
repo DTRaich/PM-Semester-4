@@ -31,18 +31,20 @@
             this.detailsGrid = new System.Windows.Forms.DataGridView();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPoints = new System.Windows.Forms.TextBox();
             this.lblHeader = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // detailsGrid
             // 
+            this.detailsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.detailsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.detailsGrid.Location = new System.Drawing.Point(47, 154);
+            this.detailsGrid.Location = new System.Drawing.Point(130, 153);
             this.detailsGrid.Name = "detailsGrid";
-            this.detailsGrid.Size = new System.Drawing.Size(557, 154);
+            this.detailsGrid.ReadOnly = true;
+            this.detailsGrid.Size = new System.Drawing.Size(397, 150);
             this.detailsGrid.TabIndex = 0;
             // 
             // lblName
@@ -61,25 +63,25 @@
             this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoints.Location = new System.Drawing.Point(173, 111);
             this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(118, 17);
+            this.lblPoints.Size = new System.Drawing.Size(121, 17);
             this.lblPoints.TabIndex = 2;
-            this.lblPoints.Text = "Gesamtpunktzahl";
+            this.lblPoints.Text = "Priorisierungswert";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(328, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(138, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtName.Location = new System.Drawing.Point(328, 73);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(138, 20);
+            this.txtName.TabIndex = 3;
             // 
-            // textBox2
+            // txtPoints
             // 
-            this.textBox2.Location = new System.Drawing.Point(328, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(138, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtPoints.Location = new System.Drawing.Point(328, 110);
+            this.txtPoints.Name = "txtPoints";
+            this.txtPoints.ReadOnly = true;
+            this.txtPoints.Size = new System.Drawing.Size(138, 20);
+            this.txtPoints.TabIndex = 4;
             // 
             // lblHeader
             // 
@@ -97,8 +99,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 332);
             this.Controls.Add(this.lblHeader);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPoints);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblPoints);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.detailsGrid);
@@ -115,8 +117,8 @@
         private System.Windows.Forms.DataGridView detailsGrid;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPoints;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPoints;
         private System.Windows.Forms.Label lblHeader;
     }
 }
