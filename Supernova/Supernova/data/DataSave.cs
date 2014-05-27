@@ -880,10 +880,10 @@ namespace Supernova.data
                     cmd.Parameters.AddWithValue("critID", Convert.ToInt32(dr[0].ToString()));
                     cmd.Parameters["critID"].Direction = ParameterDirection.Input;                   
 
-                    cmd.Parameters.AddWithValue("max", Convert.ToDecimal(dr[3].ToString()));
+                    cmd.Parameters.AddWithValue("max", Convert.ToDecimal(dr[4].ToString()));
                     cmd.Parameters["max"].Direction = ParameterDirection.Input;
 
-                    cmd.Parameters.AddWithValue("min", Convert.ToDecimal(dr[4].ToString()));
+                    cmd.Parameters.AddWithValue("min", Convert.ToDecimal(dr[3].ToString()));
                     cmd.Parameters["min"].Direction = ParameterDirection.Input;
                                         
 

@@ -173,6 +173,7 @@
             // 
             // btnSaveScale
             // 
+            this.btnSaveScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveScale.Location = new System.Drawing.Point(580, 303);
             this.btnSaveScale.Name = "btnSaveScale";
             this.btnSaveScale.Size = new System.Drawing.Size(75, 23);
@@ -183,6 +184,7 @@
             // 
             // btnDiscadScale
             // 
+            this.btnDiscadScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDiscadScale.Location = new System.Drawing.Point(6, 303);
             this.btnDiscadScale.Name = "btnDiscadScale";
             this.btnDiscadScale.Size = new System.Drawing.Size(75, 23);
