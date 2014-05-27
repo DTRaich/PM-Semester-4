@@ -36,7 +36,6 @@
             this.kriterienPriorisierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abteilungskapazitätToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +95,6 @@
             this.kriterienPriorisierenToolStripMenuItem,
             this.abteilungskapazitätToolStripMenuItem,
             this.budgetToolStripMenuItem,
-            this.rechteverwaltungToolStripMenuItem,
             this.benutzerAnlegenToolStripMenuItem});
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
             this.adminToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
@@ -123,14 +121,6 @@
             this.budgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.budgetToolStripMenuItem.Text = "Budget";
             this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
-            // 
-            // rechteverwaltungToolStripMenuItem
-            // 
-            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
-            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
-            this.rechteverwaltungToolStripMenuItem.Visible = false;
-            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click);
             // 
             // benutzerAnlegenToolStripMenuItem
             // 
@@ -259,7 +249,6 @@
         private System.Windows.Forms.ToolStripMenuItem ausloggenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem kriterienPriorisierenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rechteverwaltungToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abteilungskapazitätToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem benutzerAnlegenToolStripMenuItem;

@@ -61,7 +61,7 @@ namespace Supernova
         {
             adminToolStripMenuItem1.Visible = true;
             kriterienPriorisierenToolStripMenuItem.Visible = false;
-            rechteverwaltungToolStripMenuItem.Visible = false;
+            //rechteverwaltungToolStripMenuItem.Visible = false;
             budgetToolStripMenuItem.Visible = false;
             benutzerAnlegenToolStripMenuItem.Visible = false;
         }
@@ -169,7 +169,7 @@ namespace Supernova
             adminToolStripMenuItem1.Visible = false;
 
             kriterienPriorisierenToolStripMenuItem.Visible = true;
-            rechteverwaltungToolStripMenuItem.Visible = true;
+            //rechteverwaltungToolStripMenuItem.Visible = true;
             budgetToolStripMenuItem.Visible = true;
             benutzerAnlegenToolStripMenuItem.Visible = true;
         }      

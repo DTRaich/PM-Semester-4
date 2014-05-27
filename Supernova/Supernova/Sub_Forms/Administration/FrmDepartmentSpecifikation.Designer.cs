@@ -284,6 +284,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmDepartmentSpecifikation";
             this.Text = "FrmDepartmentSpecifikation";
+            this.Shown += new System.EventHandler(this.FrmDepartmentSpecifikation_Shown);
             this.gpLoad.ResumeLayout(false);
             this.gpLoad.PerformLayout();
             this.gpDetails.ResumeLayout(false);

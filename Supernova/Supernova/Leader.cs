@@ -231,7 +231,7 @@ namespace Supernova
             return list;
         }
 
-        private void ClearUpMainPanel()
+        public  void ClearUpMainPanel()
         {
             foreach (Form forms in mainPanel.Controls)
             {

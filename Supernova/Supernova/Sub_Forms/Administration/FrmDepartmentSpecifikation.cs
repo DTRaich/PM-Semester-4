@@ -16,7 +16,7 @@ namespace Supernova.Sub_Forms.Administration
         DataTable depComboTab;
         DataTable depDataTab;
         int currentid = 0;
-       
+        int USER = 0;
         
         ParameterLoad pl = new ParameterLoad();
         DataLoad loader = new DataLoad();
@@ -27,9 +27,7 @@ namespace Supernova.Sub_Forms.Administration
             // Aufbau der Form
 
             InitializeComponent();
-            prepareBoxes();
-            setRights(userid);
-            prepareFields();
+            USER = userid;
            
         }
 
@@ -86,8 +84,9 @@ namespace Supernova.Sub_Forms.Administration
                 // AL ohne Abteilung
                 FrmAfirmative noDep = new FrmAfirmative("Ihnen ist keine Abteilung zugewiesen.", 'e');
                 noDep.ShowDialog();
-
                 this.Close();
+                Leader ld = Leader.getLeaderInst();
+                ld.ClearUpMainPanel();
             }
         }
 
@@ -203,6 +202,13 @@ namespace Supernova.Sub_Forms.Administration
         }
 
         #endregion
+
+        private void FrmDepartmentSpecifikation_Shown(object sender, EventArgs e)
+        {
+            prepareBoxes();
+            setRights(USER);
+            prepareFields();
+        }
 
     }
 }
