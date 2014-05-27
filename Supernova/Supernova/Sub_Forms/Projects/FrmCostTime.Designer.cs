@@ -276,7 +276,7 @@
             this.maskedTextBox1.Size = new System.Drawing.Size(132, 20);
             this.maskedTextBox1.TabIndex = 44;
             this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.maskedTextBox1.TextChanged += new System.EventHandler(this.maskedTextBox1_TextChanged);
+            this.maskedTextBox1.Validated += new System.EventHandler(this.maskedTextBox1_Validated);
             // 
             // maskedTextBox2
             // 
@@ -287,7 +287,7 @@
             this.maskedTextBox2.Size = new System.Drawing.Size(132, 20);
             this.maskedTextBox2.TabIndex = 45;
             this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.maskedTextBox2.TextChanged += new System.EventHandler(this.maskedTextBox2_TextChanged);
+            this.maskedTextBox2.Validated += new System.EventHandler(this.maskedTextBox2_Validated);
             // 
             // maskedTextBox3
             // 
@@ -298,7 +298,7 @@
             this.maskedTextBox3.Size = new System.Drawing.Size(132, 20);
             this.maskedTextBox3.TabIndex = 46;
             this.maskedTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.maskedTextBox3.TextChanged += new System.EventHandler(this.maskedTextBox3_TextChanged);
+            this.maskedTextBox3.Validated += new System.EventHandler(this.maskedTextBox3_Validated);
             // 
             // FrmCostTime
             // 

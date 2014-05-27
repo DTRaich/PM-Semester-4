@@ -72,7 +72,7 @@ namespace Supernova.Sub_Forms.Projects
             yearEnd.Columns.Add(dcy2);
 
             DataRow dr2;
-            for (int i = 2014; i <= 2034; i++)
+            for (int i = 2014; i < 2034; i++)
             {
                 dr2 = yearEnd.NewRow();
                 dr2[0] = i;
@@ -198,57 +198,28 @@ namespace Supernova.Sub_Forms.Projects
             projektdaten.ProjectDuration = ts.Days / 30;
         }
         #endregion
-        #region textboxes
-        private void maskedTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                gesamtkosten = gesamtkosten - year1;
-                year1 = Convert.ToDouble(maskedTextBox1.Text);
-                gesamtkosten = gesamtkosten + year1;
-                tbCostAll.Text = gesamtkosten.ToString();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
+        //#region textboxes
+        //private void maskedTextBox1_TextChanged(object sender, EventArgs e)
+        //{
+            
+        //}
 
-        private void maskedTextBox2_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-            gesamtkosten = gesamtkosten - year2;
-            year2 = Convert.ToDouble(maskedTextBox2.Text);
-            gesamtkosten = gesamtkosten + year2;
-            tbCostAll.Text = gesamtkosten.ToString();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
+        //private void maskedTextBox2_TextChanged(object sender, EventArgs e)
+        //{
+            
+        //}
 
-        private void maskedTextBox3_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-            gesamtkosten = gesamtkosten - year3;
-            year3 = Convert.ToDouble(maskedTextBox3.Text);
-            gesamtkosten = gesamtkosten + year3;
-            tbCostAll.Text = gesamtkosten.ToString();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
+        //private void maskedTextBox3_TextChanged(object sender, EventArgs e)
+        //{
+            
+        //}
 
-        #endregion
+        //#endregion
 
-
+        #region value Changed
         private void cbStartYear_SelectedValueChanged(object sender, EventArgs e)
         {
-            // wenn start year gleich end year
-               // dann mindestens month +1
-           
+                  
 
         }
 
@@ -267,6 +238,50 @@ namespace Supernova.Sub_Forms.Projects
         private void cbEndYear_SelectedValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        #endregion
+
+        private void maskedTextBox1_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                gesamtkosten = gesamtkosten - year1;
+                year1 = Convert.ToDouble(maskedTextBox1.Text);
+                gesamtkosten = gesamtkosten + year1;
+                tbCostAll.Text = gesamtkosten.ToString();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void maskedTextBox2_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                gesamtkosten = gesamtkosten - year2;
+                year2 = Convert.ToDouble(maskedTextBox2.Text);
+                gesamtkosten = gesamtkosten + year2;
+                tbCostAll.Text = gesamtkosten.ToString();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void maskedTextBox3_Validated(object sender, EventArgs e)
+        {
+            try
+            {
+                gesamtkosten = gesamtkosten - year3;
+                year3 = Convert.ToDouble(maskedTextBox3.Text);
+                gesamtkosten = gesamtkosten + year3;
+                tbCostAll.Text = gesamtkosten.ToString();
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }
