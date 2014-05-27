@@ -13,7 +13,7 @@ namespace Supernova.Sub_Forms.Overview
     public partial class FrmProjectDetails : Form
     {
         private int currentProjectID;
-        private int currentPoints;
+        private double currentPoints;
         String currentProjectName;
 
         DataTable details;
@@ -23,7 +23,7 @@ namespace Supernova.Sub_Forms.Overview
             fillGrid();
            
         }
-        public FrmProjectDetails(int currentProjectID,int currentPoints,String currentProjectName)
+        public FrmProjectDetails(int currentProjectID,double currentPoints,String currentProjectName)
         {
             this.currentProjectID = currentProjectID;
             this.currentPoints = currentPoints;
@@ -47,6 +47,11 @@ namespace Supernova.Sub_Forms.Overview
             txtName.Text = currentProjectName;
             txtPoints.Text = currentPoints.ToString();
             
+        }
+
+        private void detailsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
        

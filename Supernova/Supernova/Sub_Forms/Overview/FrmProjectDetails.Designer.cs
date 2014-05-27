@@ -44,8 +44,10 @@
             this.detailsGrid.Location = new System.Drawing.Point(130, 153);
             this.detailsGrid.Name = "detailsGrid";
             this.detailsGrid.ReadOnly = true;
+            this.detailsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.detailsGrid.Size = new System.Drawing.Size(397, 150);
             this.detailsGrid.TabIndex = 0;
+            this.detailsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.detailsGrid_CellContentClick);
             // 
             // lblName
             // 
