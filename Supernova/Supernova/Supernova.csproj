@@ -270,6 +270,9 @@
     <EmbeddedResource Include="Sub_Forms\Help\FrmUserHelp.resx">
       <DependentUpon>FrmUserHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectDetails.resx">
+      <DependentUpon>FrmProjectDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectOverview.resx">
       <DependentUpon>FrmProjectOverview.cs</DependentUpon>
     </EmbeddedResource>

@@ -359,6 +359,42 @@ namespace Supernova.data
             return dt;
         }
 
+        public DataTable LoadProjectDetails(int projectId)
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Call ShowProjectDetails(@pId)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("pId", projectId);
+                cmd.Parameters["pId"].Direction = ParameterDirection.Input;
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+
             #endregion projectLoad
         #region department
         public int LoadMyDepartment(int userid)
@@ -700,6 +736,9 @@ namespace Supernova.data
             }
             return dt;
         }
+
+       
+      
 
         #region overview
         public DataTable LoadGenerealOverview()
