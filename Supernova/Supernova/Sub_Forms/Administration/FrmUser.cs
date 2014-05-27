@@ -134,6 +134,7 @@ namespace Supernova.Sub_Forms.Administration
                 if (txtUsername.ReadOnly)
                 {
                     normalUpdateSave();
+                    initializeComboBox();
                 }
                 else
                 {
@@ -146,6 +147,7 @@ namespace Supernova.Sub_Forms.Administration
                     else
                     {
                         normalUpdateSave();
+                        initializeComboBox();
                     }
                 }
                 
