@@ -785,11 +785,11 @@ namespace Supernova.data
                 string com1 = "Select PROJECT_ID, P_NAME as Projekttitel,P_DESCRIPTION AS Beschreibung,PC_NAME AS Projektkategorie,";
                 string com2 = " U_NAME as Projektleiter,P_STARTDATE AS Anfangsdatum,P_ENDDATE AS Enddatum,P_WERT AS Priorisierung,";
                 string com3 = " P_OPTIVAL AS Optimierungswert,P_HaveTo AS MUSS_Projekt from Projects, ProjectCategory, user where";             
-                string category = "P_PCID = "+ categoryid + " AND ";
-                string havetoo = "P_HaveTo = "+ haveto + " AND " ;
-                string userID = "P_LEADER = " + userid + " AND ";
-                string strategy = "PROJECT_ID IN (Select PTC_PROJECT from Projects_to_CRITERIA WHERE PTC_CRITERIA = " + strategyid + " AND ";
-                string end = " P_LEADER = USER_ID AND P_PCID =  PC_ID order by P_OPTIVAL ASC, HaveTo;";
+                string category = " P_PCID = "+ categoryid + " AND ";
+                string havetoo = " P_HaveTo = "+ haveto + " AND " ;
+                string userID = " P_LEADER = " + userid + " AND ";
+                string strategy = " PROJECT_ID IN (Select PTC_PROJECT from Projects_to_CRITERIA WHERE PTC_CRITERIA = " + strategyid + "  AND PTC_POINTS > 5 ) AND ";
+                string end = " P_LEADER = USER_ID AND P_PCID =  PC_ID order by P_OPTIVAL ASC, P_HaveTo;";
 
                 string comand = com1 + com2 + com3;
                 if (categoryid != 0) 
