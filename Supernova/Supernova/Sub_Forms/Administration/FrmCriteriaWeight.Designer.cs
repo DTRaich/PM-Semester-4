@@ -164,6 +164,7 @@
             this.scalingGrid.AllowUserToOrderColumns = true;
             this.scalingGrid.AllowUserToResizeColumns = false;
             this.scalingGrid.AllowUserToResizeRows = false;
+            this.scalingGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.scalingGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.scalingGrid.Location = new System.Drawing.Point(7, 6);
             this.scalingGrid.Name = "scalingGrid";

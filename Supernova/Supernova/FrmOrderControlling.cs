@@ -71,7 +71,7 @@ namespace Supernova
             }
             catch (Exception ex)
             {
-                FrmAfirmative fatalError = new FrmAfirmative("Projektfehler!\n Bitte wenden Sie sich umgehend an den Administrator", 'e');
+                FrmAfirmative fatalError = new FrmAfirmative("Projektfehler!\nBitte wenden Sie sich umgehend an den Administrator", 'e');
                 fatalError.ShowDialog();
                 this.Close();
             }
@@ -81,7 +81,7 @@ namespace Supernova
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            FrmAfirmative cancel  = new FrmAfirmative("Abbrechen? \n Projekterstellung abbrechen?\n",'c');
+            FrmAfirmative cancel  = new FrmAfirmative("Abbrechen?\nProjekterstellung abbrechen?\n",'c');
             if (cancel.ShowDialog() == DialogResult.OK)
             {
                 this.Close();

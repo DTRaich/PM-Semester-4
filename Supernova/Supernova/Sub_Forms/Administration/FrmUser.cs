@@ -180,7 +180,7 @@ namespace Supernova.Sub_Forms.Administration
                 }
                 else 
                 {
-                    FrmAfirmative notDeleted = new FrmAfirmative("Der Benutzer konnte nicht gelöscht werden. \n ", 'e');
+                    FrmAfirmative notDeleted = new FrmAfirmative("Der Benutzer konnte nicht gelöscht werden.\nBitte überprüfen Sie ob der Benutzer als Projektleiter eingetragen wurde.", 'e');
                     notDeleted.ShowDialog();
                 }
               }    

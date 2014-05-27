@@ -49,6 +49,7 @@
             this.capaGrid.AllowUserToDeleteRows = false;
             this.capaGrid.AllowUserToResizeColumns = false;
             this.capaGrid.AllowUserToResizeRows = false;
+            this.capaGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.capaGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.capaGrid.Location = new System.Drawing.Point(232, 60);
             this.capaGrid.Name = "capaGrid";
