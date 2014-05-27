@@ -16,16 +16,51 @@ namespace Supernova.Sub_Forms.Overview
         private int currentProjectID = 0;
         String currentProjectName;
         private double currentPoints = 0;
+        DataTable strategies;
+        DataTable categories;
+        DataTable source;
         public FrmProjectOverview()
         {
             InitializeComponent();
             LoadMainGrid();
+            fillFilter();
            
+        }
+
+        private void fillFilter()
+        {
+            ParameterLoad loader = new ParameterLoad();
+            strategies = loader.loadStrategies();
+            categories = loader.loadProjectKategorie();
+
+            DataRow dr = strategies.NewRow();
+            dr[0] = 0;
+            dr[1] = "Keine";
+            strategies.Rows.Add(dr);
+
+            DataRow dr2 = categories.NewRow();
+            dr2[0] = 0;
+            dr2[1] = "Keine";
+            categories.Rows.Add(dr2);
+
+
+            cbStrategy.DataSource = strategies;
+            cbStrategy.ValueMember = "CRITERIA_ID";
+            cbStrategy.DisplayMember = "C_NAME";
+
+            cbCategory.DataSource = categories;
+            cbCategory.ValueMember = "PC_ID";
+            cbCategory.DisplayMember = "PC_NAME";
+
+            cbStrategy.SelectedValue = 0;
+            cbCategory.SelectedValue = 0;
+
+
         }
 
         private void LoadMainGrid()
         {
-            DataTable source = dl.LoadGenerealOverview();
+            source = dl.LoadGenerealOverview();
             mainGrid.DataSource = source;
             mainGrid.ReadOnly = true;
 
@@ -59,6 +94,37 @@ namespace Supernova.Sub_Forms.Overview
             {                
                 cmsGridMenu.Show(mainGrid, new Point(e.X, e.Y));
             }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            getFilter();
+        }
+
+        private void getFilter()
+        {
+            int categoryid = 0;
+            int strategyid = 0;
+            int userid = 0;
+            int haveto = 0;
+            DataLoad dl = new DataLoad();
+
+            categoryid = Convert.ToInt32(cbCategory.SelectedValue);
+            strategyid = Convert.ToInt32(cbStrategy.SelectedValue);
+            if (cbMust.Checked)
+            {
+                haveto = 1;
+            }
+           
+            if (cbMy.Checked) 
+            {
+                userid = Leader.getLeaderInst().getUserID();
+            }
+            source = null;
+            mainGrid.DataSource = null;
+           source =  dl.LoadOverviewFilter(categoryid,strategyid,userid,haveto);
+           mainGrid.DataSource = source;
+
         }
     }
 }

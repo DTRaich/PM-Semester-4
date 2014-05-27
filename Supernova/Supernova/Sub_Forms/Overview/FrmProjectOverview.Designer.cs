@@ -32,17 +32,25 @@
             this.btnUseFilter = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.mainGrid = new System.Windows.Forms.DataGridView();
-            this.mainpnl = new System.Windows.Forms.Panel();
-            this.gbFilterSort = new System.Windows.Forms.GroupBox();
-            this.gbAnalysis = new System.Windows.Forms.GroupBox();
             this.cmsGridMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmChange = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHaveTo = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainpnl = new System.Windows.Forms.Panel();
+            this.gbAnalysis = new System.Windows.Forms.GroupBox();
+            this.gbFilterSort = new System.Windows.Forms.GroupBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.cbMust = new System.Windows.Forms.CheckBox();
+            this.cbMy = new System.Windows.Forms.CheckBox();
+            this.cbStrategy = new System.Windows.Forms.ComboBox();
+            this.lblStrategy = new System.Windows.Forms.Label();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
-            this.mainpnl.SuspendLayout();
             this.cmsGridMenu.SuspendLayout();
+            this.mainpnl.SuspendLayout();
+            this.gbFilterSort.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnUseFilter
@@ -85,34 +93,6 @@
             this.mainGrid.TabIndex = 0;
             this.mainGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mainGrid_MouseClick);
             // 
-            // mainpnl
-            // 
-            this.mainpnl.Controls.Add(this.gbAnalysis);
-            this.mainpnl.Controls.Add(this.gbFilterSort);
-            this.mainpnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainpnl.Location = new System.Drawing.Point(3, 3);
-            this.mainpnl.Name = "mainpnl";
-            this.mainpnl.Size = new System.Drawing.Size(944, 144);
-            this.mainpnl.TabIndex = 1;
-            // 
-            // gbFilterSort
-            // 
-            this.gbFilterSort.Location = new System.Drawing.Point(9, 9);
-            this.gbFilterSort.Name = "gbFilterSort";
-            this.gbFilterSort.Size = new System.Drawing.Size(443, 123);
-            this.gbFilterSort.TabIndex = 0;
-            this.gbFilterSort.TabStop = false;
-            this.gbFilterSort.Text = "Filtern und Sortieren";
-            // 
-            // gbAnalysis
-            // 
-            this.gbAnalysis.Location = new System.Drawing.Point(492, 18);
-            this.gbAnalysis.Name = "gbAnalysis";
-            this.gbAnalysis.Size = new System.Drawing.Size(311, 100);
-            this.gbAnalysis.TabIndex = 0;
-            this.gbAnalysis.TabStop = false;
-            this.gbAnalysis.Text = "Auswertungen";
-            // 
             // cmsGridMenu
             // 
             this.cmsGridMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -143,6 +123,107 @@
             this.tsmHaveTo.Size = new System.Drawing.Size(155, 22);
             this.tsmHaveTo.Text = "\"Muss\" Projekt ";
             // 
+            // mainpnl
+            // 
+            this.mainpnl.Controls.Add(this.gbAnalysis);
+            this.mainpnl.Controls.Add(this.gbFilterSort);
+            this.mainpnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainpnl.Location = new System.Drawing.Point(3, 3);
+            this.mainpnl.Name = "mainpnl";
+            this.mainpnl.Size = new System.Drawing.Size(944, 144);
+            this.mainpnl.TabIndex = 1;
+            // 
+            // gbAnalysis
+            // 
+            this.gbAnalysis.Location = new System.Drawing.Point(477, 9);
+            this.gbAnalysis.Name = "gbAnalysis";
+            this.gbAnalysis.Size = new System.Drawing.Size(458, 132);
+            this.gbAnalysis.TabIndex = 0;
+            this.gbAnalysis.TabStop = false;
+            this.gbAnalysis.Text = "Auswertungen";
+            // 
+            // gbFilterSort
+            // 
+            this.gbFilterSort.Controls.Add(this.btnFilter);
+            this.gbFilterSort.Controls.Add(this.cbCategory);
+            this.gbFilterSort.Controls.Add(this.lblCategory);
+            this.gbFilterSort.Controls.Add(this.cbMust);
+            this.gbFilterSort.Controls.Add(this.cbMy);
+            this.gbFilterSort.Controls.Add(this.cbStrategy);
+            this.gbFilterSort.Controls.Add(this.lblStrategy);
+            this.gbFilterSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFilterSort.Location = new System.Drawing.Point(9, 9);
+            this.gbFilterSort.Name = "gbFilterSort";
+            this.gbFilterSort.Size = new System.Drawing.Size(443, 132);
+            this.gbFilterSort.TabIndex = 0;
+            this.gbFilterSort.TabStop = false;
+            this.gbFilterSort.Text = "Filtern";
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(96, 72);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(164, 24);
+            this.cbCategory.TabIndex = 7;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(6, 75);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(69, 17);
+            this.lblCategory.TabIndex = 6;
+            this.lblCategory.Text = "Kategorie";
+            // 
+            // cbMust
+            // 
+            this.cbMust.AutoSize = true;
+            this.cbMust.Location = new System.Drawing.Point(297, 31);
+            this.cbMust.Name = "cbMust";
+            this.cbMust.Size = new System.Drawing.Size(126, 21);
+            this.cbMust.TabIndex = 5;
+            this.cbMust.Text = "\"Muss\" Projekte";
+            this.cbMust.UseVisualStyleBackColor = true;
+            // 
+            // cbMy
+            // 
+            this.cbMy.AutoSize = true;
+            this.cbMy.Location = new System.Drawing.Point(297, 74);
+            this.cbMy.Name = "cbMy";
+            this.cbMy.Size = new System.Drawing.Size(121, 21);
+            this.cbMy.TabIndex = 3;
+            this.cbMy.Text = "Meine Projekte";
+            this.cbMy.UseVisualStyleBackColor = true;
+            // 
+            // cbStrategy
+            // 
+            this.cbStrategy.FormattingEnabled = true;
+            this.cbStrategy.Location = new System.Drawing.Point(96, 28);
+            this.cbStrategy.Name = "cbStrategy";
+            this.cbStrategy.Size = new System.Drawing.Size(164, 24);
+            this.cbStrategy.TabIndex = 1;
+            // 
+            // lblStrategy
+            // 
+            this.lblStrategy.AutoSize = true;
+            this.lblStrategy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStrategy.Location = new System.Drawing.Point(10, 28);
+            this.lblStrategy.Name = "lblStrategy";
+            this.lblStrategy.Size = new System.Drawing.Size(65, 17);
+            this.lblStrategy.TabIndex = 0;
+            this.lblStrategy.Text = "Strategie";
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Location = new System.Drawing.Point(362, 103);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(75, 24);
+            this.btnFilter.TabIndex = 8;
+            this.btnFilter.Text = "Filtern";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // FrmProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,8 +236,10 @@
             this.Text = "FrmProjectOverview";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).EndInit();
-            this.mainpnl.ResumeLayout(false);
             this.cmsGridMenu.ResumeLayout(false);
+            this.mainpnl.ResumeLayout(false);
+            this.gbFilterSort.ResumeLayout(false);
+            this.gbFilterSort.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -173,5 +256,12 @@
         private System.Windows.Forms.ToolStripMenuItem tsmDetail;
         private System.Windows.Forms.ToolStripMenuItem tsmChange;
         private System.Windows.Forms.ToolStripMenuItem tsmHaveTo;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.CheckBox cbMust;
+        private System.Windows.Forms.CheckBox cbMy;
+        private System.Windows.Forms.ComboBox cbStrategy;
+        private System.Windows.Forms.Label lblStrategy;
+        private System.Windows.Forms.Button btnFilter;
     }
 }
