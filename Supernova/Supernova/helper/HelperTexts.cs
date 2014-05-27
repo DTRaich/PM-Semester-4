@@ -10,7 +10,7 @@ namespace Supernova.helper
 
         public string GetLogin()
         {
-            string meintext = "sfsdfdsfsdsdfdsf...sfdsfsdfdsfsf.\ndsfsdfsdfsdfdsf\n sdfsdfsdfdsfdf";
+            string meintext = "sfsdfdsfsdsdfdsf...sfdsfsdfdsfsf.\n dsfsdfsdfsdfdsf\n sdfsdfsdfdsfdf";
             return meintext;
         }
     }

@@ -137,6 +137,7 @@
             this.cbStartMonth.Name = "cbStartMonth";
             this.cbStartMonth.Size = new System.Drawing.Size(65, 21);
             this.cbStartMonth.TabIndex = 27;
+            this.cbStartMonth.SelectedValueChanged += new System.EventHandler(this.cbStartMonth_SelectedValueChanged);
             // 
             // cbStartYear
             // 
@@ -145,7 +146,7 @@
             this.cbStartYear.Name = "cbStartYear";
             this.cbStartYear.Size = new System.Drawing.Size(65, 21);
             this.cbStartYear.TabIndex = 28;
-            this.cbStartYear.SelectedIndexChanged += new System.EventHandler(this.cbStartYear_SelectedIndexChanged);
+            this.cbStartYear.SelectedValueChanged += new System.EventHandler(this.cbStartYear_SelectedValueChanged);
             // 
             // cbEndYear
             // 
@@ -154,6 +155,7 @@
             this.cbEndYear.Name = "cbEndYear";
             this.cbEndYear.Size = new System.Drawing.Size(65, 21);
             this.cbEndYear.TabIndex = 30;
+            this.cbEndYear.SelectedValueChanged += new System.EventHandler(this.cbEndYear_SelectedValueChanged);
             // 
             // cbEndMonth
             // 
@@ -162,6 +164,7 @@
             this.cbEndMonth.Name = "cbEndMonth";
             this.cbEndMonth.Size = new System.Drawing.Size(65, 21);
             this.cbEndMonth.TabIndex = 29;
+            this.cbEndMonth.SelectedValueChanged += new System.EventHandler(this.cbEndMonth_SelectedValueChanged_1);
             // 
             // errMsgStartEndDate
             // 

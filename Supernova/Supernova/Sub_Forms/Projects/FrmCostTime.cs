@@ -148,6 +148,7 @@ namespace Supernova.Sub_Forms.Projects
             }
         }
 
+        #region checks
         public bool checkAndValidateForm()
         {
             collectData();
@@ -193,8 +194,10 @@ namespace Supernova.Sub_Forms.Projects
             projektdaten.costsyear1 = year1;
             projektdaten.costyear2 = year2;
             projektdaten.costyeae3 = year3;
+            TimeSpan ts = projektdaten.ProjectEndDate - projektdaten.ProjectStartDate;
+            projektdaten.ProjectDuration = ts.Days / 30;
         }
-
+        #endregion
         #region textboxes
         private void maskedTextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -240,7 +243,28 @@ namespace Supernova.Sub_Forms.Projects
 
         #endregion
 
-        private void cbStartYear_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void cbStartYear_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // wenn start year gleich end year
+               // dann mindestens month +1
+           
+
+        }
+
+        private void cbStartMonth_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbEndMonth_SelectedValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void cbEndYear_SelectedValueChanged(object sender, EventArgs e)
         {
 
         }

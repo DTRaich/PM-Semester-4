@@ -153,7 +153,7 @@ namespace Supernova.Sub_Forms.Administration
                 }
                 else
                 {
-                    FrmAfirmative dataSaved = new FrmAfirmative("Daten konnten nicht gespeichert werden. \n Bitte wenden Sie sich an den Administrator.", 'e');
+                    FrmAfirmative dataSaved = new FrmAfirmative("Daten konnten nicht gespeichert werden.", 'e');
                     dataSaved.ShowDialog();
                 }
 
@@ -181,7 +181,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnDeleteDep_Click(object sender, EventArgs e)
         {
-            FrmAfirmative delete = new FrmAfirmative(" Wollen sie die aktuelle Abteilung löschen?",'d');
+            FrmAfirmative delete = new FrmAfirmative("Wollen sie die aktuelle Abteilung löschen?",'d');
             if (delete.ShowDialog() == DialogResult.OK) 
             {
                 if (saver.DeleteDep(currentid)) 
@@ -194,7 +194,7 @@ namespace Supernova.Sub_Forms.Administration
 
                 }else
                 {
-                    FrmAfirmative deleteError = new FrmAfirmative("Löschen nicht möglich.",'e');
+                    FrmAfirmative deleteError = new FrmAfirmative("Daten konnten nicht gespeichert werden. \n Stellen Sie sicher, dass alle Referenzen auf die Abteilung (Projektbedürfnisse) gelöscht wurden.", 'e');
                     deleteError.ShowDialog();
                 }
             }
