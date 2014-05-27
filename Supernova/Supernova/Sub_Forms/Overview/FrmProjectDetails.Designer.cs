@@ -39,13 +39,17 @@
             // 
             // detailsGrid
             // 
-            this.detailsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.detailsGrid.AllowUserToAddRows = false;
+            this.detailsGrid.AllowUserToDeleteRows = false;
+            this.detailsGrid.AllowUserToResizeColumns = false;
+            this.detailsGrid.AllowUserToResizeRows = false;
+            this.detailsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.detailsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.detailsGrid.Location = new System.Drawing.Point(130, 153);
+            this.detailsGrid.Location = new System.Drawing.Point(93, 153);
             this.detailsGrid.Name = "detailsGrid";
             this.detailsGrid.ReadOnly = true;
             this.detailsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.detailsGrid.Size = new System.Drawing.Size(397, 150);
+            this.detailsGrid.Size = new System.Drawing.Size(468, 150);
             this.detailsGrid.TabIndex = 0;
             this.detailsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.detailsGrid_CellContentClick);
             // 
