@@ -106,7 +106,7 @@
             this.tsmChange,
             this.tsmHaveTo});
             this.cmsGridMenu.Name = "cmsGridMenu";
-            this.cmsGridMenu.Size = new System.Drawing.Size(156, 70);
+            this.cmsGridMenu.Size = new System.Drawing.Size(201, 92);
             this.cmsGridMenu.Text = "Menu";
             // 
             // tsmDetail
@@ -126,8 +126,9 @@
             // tsmHaveTo
             // 
             this.tsmHaveTo.Name = "tsmHaveTo";
-            this.tsmHaveTo.Size = new System.Drawing.Size(155, 22);
-            this.tsmHaveTo.Text = "\"Muss\" Projekt ";
+            this.tsmHaveTo.Size = new System.Drawing.Size(200, 22);
+            this.tsmHaveTo.Text = "\"Muss\" Projekt(Ja/Nein)";
+            this.tsmHaveTo.Click += new System.EventHandler(this.tsmHaveTo_Click);
             // 
             // mainpnl
             // 

@@ -16,7 +16,8 @@ namespace Supernova.Sub_Forms.Overview
     #region  fields
         DataLoad dl = new DataLoad();
         private int currentProjectID = 0;
-        String currentProjectName;
+        private int currentHaveTo = 0;
+        string currentProjectName;
         private double currentPoints = 0;
         DataTable strategies;
         DataTable categories;
@@ -27,12 +28,34 @@ namespace Supernova.Sub_Forms.Overview
         public FrmProjectOverview()
         {
             InitializeComponent();
-            LoadMainGrid();
-            fillFilter();
-            fillDragDropTable();
+            InitializeCustom();
 
         }
 
+        private void InitializeCustom()
+        {
+            resetAllStuff();
+            LoadMainGrid();
+            fillFilter();
+            fillDragDropTable();
+        }
+
+        
+
+    #region fill and Load
+        private void resetAllStuff()
+        {
+            currentProjectID = 0;
+            currentProjectName = string.Empty;
+            currentPoints = 0;
+            strategies = null;
+            strategies = new DataTable();
+            categories = null;
+            categories = new DataTable();
+            dragTable = null;
+            dragTable = new DataTable();
+
+        }
         private void fillDragDropTable()
         {
             DataColumn dc1 = new DataColumn();
@@ -41,8 +64,7 @@ namespace Supernova.Sub_Forms.Overview
             dragTable.Columns.Add(dc2);
             dragTable.AcceptChanges();
         }
-
-    #region fill and Load
+        
         private void fillFilter()
         {
             ParameterLoad loader = new ParameterLoad();
@@ -51,12 +73,12 @@ namespace Supernova.Sub_Forms.Overview
 
             DataRow dr = strategies.NewRow();
             dr[0] = 0;
-            dr[1] = "Keine";
+            dr[1] = "Alle";
             strategies.Rows.Add(dr);
 
             DataRow dr2 = categories.NewRow();
             dr2[0] = 0;
-            dr2[1] = "Keine";
+            dr2[1] = "Alle";
             categories.Rows.Add(dr2);
 
 
@@ -77,11 +99,28 @@ namespace Supernova.Sub_Forms.Overview
         private void LoadMainGrid()
         {
             source = dl.LoadGenerealOverview();
+            source.Columns.Add("Muss-Projekt", System.Type.GetType("System.Boolean"));
+
+            foreach (DataRow dataRow in source.Rows)
+            {
+                if (dataRow["MUSS_Projekt"].ToString().Equals("1"))
+                {
+                    dataRow["Muss-Projekt"] = true;
+                }
+                else
+                {
+                    dataRow["Muss-Projekt"] = false;
+                }
+            }
+
             mainGrid.DataSource = source;
             mainGrid.ReadOnly = true;
+            mainGrid.Columns[0].Visible = false;
+            mainGrid.Columns["MUSS_Projekt"].Visible = false;
+
 
         }
-#endregion 
+    #endregion 
     #region CMSCLICk
         private void tsmDetail_Click(object sender, EventArgs e)
         {
@@ -97,6 +136,26 @@ namespace Supernova.Sub_Forms.Overview
 
         }
 
+        private void tsmHaveTo_Click(object sender, EventArgs e)
+        {
+            ValidationData valDat = new ValidationData();
+
+            DataTable val = valDat.SaveAndValidateHaveTo(currentProjectID,currentHaveTo);
+
+            if (val.Rows.Count > 0)
+            {
+                FrmHaveToErrorPopUp errorHave = new FrmHaveToErrorPopUp(val);
+                errorHave.StartPosition = FormStartPosition.CenterParent;
+                errorHave.ShowDialog();
+            }
+            else
+            {
+                InitializeCustom();
+            }
+            
+           
+        }
+
         private void mainGrid_MouseClick(object sender, MouseEventArgs e)
         {
             int currentMouseOverRow = mainGrid.HitTest(e.X, e.Y).RowIndex;
@@ -105,6 +164,17 @@ namespace Supernova.Sub_Forms.Overview
                 currentProjectID = Convert.ToInt32(mainGrid[0, currentMouseOverRow].Value);
                 currentPoints = Convert.ToDouble(mainGrid[7, currentMouseOverRow].Value);
                 currentProjectName = mainGrid[1, currentMouseOverRow].Value.ToString();
+                currentHaveTo = Convert.ToInt32(mainGrid[0, currentMouseOverRow].Value);
+
+                // drehen, damit richtiges abgespeichert werden kann
+                if (currentHaveTo == 0)
+                {
+                    currentHaveTo = 1;
+                }
+                else
+                {
+                    currentHaveTo = 0;
+                }
 
             }
 
@@ -131,10 +201,13 @@ namespace Supernova.Sub_Forms.Overview
 
         private void btnRiskCostAnalysis_Click(object sender, EventArgs e)
         {
-            FrmProjectAnalysis frm = new FrmProjectAnalysis(dragTable);
+            DataTable analyse = getAnaylseProject();
+            FrmProjectAnalysis frm = new FrmProjectAnalysis(analyse);
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+       
         private void btnFilter_Click(object sender, EventArgs e)
         {
             getFilter();
@@ -168,6 +241,31 @@ namespace Supernova.Sub_Forms.Overview
     #endregion
 
     #region drag and Drop
+
+        private DataTable getAnaylseProject()
+        {
+            DataTable dt = new DataTable();
+            dt = dragTable.Copy();
+            dt.Clear();
+            dt.AcceptChanges();
+            foreach(DataRow dr in dragTable.Rows){
+            for (int i = 0; i < clbBox.Items.Count; i++)
+            {
+                if (clbBox.Items[i].ToString().Equals(dr[1].ToString()) &&clbBox.GetSelected(i))
+                {
+                    DataRow r = dt.NewRow();
+                    r[0] = dr[0];
+                    r[1] = dr[1];
+                    dt.Rows.Add(r);
+
+                }
+            }
+            }
+            dt.AcceptChanges();
+
+            return dt;
+        }
+
         private void mainGrid_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -237,6 +335,7 @@ namespace Supernova.Sub_Forms.Overview
         private void addValuetoList(string proName)
         {
             clbBox.Items.Add(proName);
+            clbBox.SetItemChecked(clbBox.Items.Count-1,true);
 
         }
 
@@ -264,6 +363,7 @@ namespace Supernova.Sub_Forms.Overview
         }
 
         #endregion
+
 
 
        
