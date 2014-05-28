@@ -246,10 +246,14 @@ namespace Supernova.Sub_Forms.Overview
 
         private bool checkCountOFList()
         {
-           bool  retval = false;
-
-
-            return retval;
+            int c = clbBox.CheckedItems.Count;
+            if(c < 5)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
         }
 
         #endregion
