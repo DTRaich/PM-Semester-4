@@ -9,18 +9,11 @@ using System.Windows.Forms;
 
 namespace Supernova.Sub_Forms.Overview
 {
-    public partial class FrmProjectAnalysis : Form
+    public partial class FrmStrategieAnalysis : Form
     {
-        private DataTable dragTable;
-
-        public FrmProjectAnalysis()
+        public FrmStrategieAnalysis()
         {
             InitializeComponent();
-        }
-
-        public FrmProjectAnalysis(DataTable dragTable)
-        {
-            this.dragTable = dragTable;
         }
     }
 }

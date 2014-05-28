@@ -86,6 +86,7 @@ namespace Supernova.Sub_Forms.Overview
         private void tsmDetail_Click(object sender, EventArgs e)
         {
             FrmProjectDetails detail = new FrmProjectDetails(currentProjectID, currentPoints, currentProjectName);
+            detail.StartPosition = FormStartPosition.CenterParent;
             detail.ShowDialog();
         }
 
@@ -126,7 +127,9 @@ namespace Supernova.Sub_Forms.Overview
 
         private void btnRiskCostAnalysis_Click(object sender, EventArgs e)
         {
-
+            FrmProjectAnalysis frm = new FrmProjectAnalysis(dragTable);
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
         private void btnFilter_Click(object sender, EventArgs e)
         {
