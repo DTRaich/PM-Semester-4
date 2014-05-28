@@ -25,6 +25,14 @@ namespace Supernova.Sub_Forms.Help
             {
                 case "login": ShowLogin();
                     break;
+                case "abteilungskapazitaet": ShowAbteilungskapazitaet();
+                    break;
+                case "benutzerinformationen": ShowBenutzerinformationen();
+                    break;
+                case "benutzerverwaltung": ShowBenutzerverwaltung();
+                    break;
+                case "passwort_aendern": ShowPasswortAendern();
+                    break;
             }
 
         }
@@ -32,6 +40,26 @@ namespace Supernova.Sub_Forms.Help
         private void ShowLogin()
         {
             rtbText.Text = texter.GetLogin();
+        }
+
+        private void ShowAbteilungskapazitaet()
+        {
+            rtbText.Text = texter.GetAbteilungskapazitaet();
+        }
+
+        private void ShowBenutzerinformationen()
+        {
+            rtbText.Text = texter.GetBenutzerinformationen();
+        }
+
+        private void ShowBenutzerverwaltung()
+        {
+            rtbText.Text = texter.GetBenutzerverwaltung();
+        }
+
+        private void ShowPasswortAendern()
+        {
+            rtbText.Text = texter.GetPasswortAendern();
         }
     }
 }

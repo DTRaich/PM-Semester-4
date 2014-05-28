@@ -28,25 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Login / Logout");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Erstellen");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Anzeigen");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Ändern");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Projekt", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Login");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Abteilungskapazität");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Benutzerinformationen");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Benutzerverwaltung");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Passwort ändern");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Hilfe", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
             treeNode2,
             treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Knoten16");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Account", new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Knoten15");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Administration", new System.Windows.Forms.TreeNode[] {
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Hilfe", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode5,
-            treeNode7,
-            treeNode9});
+            treeNode4,
+            treeNode5});
             this.tvUserHelp = new System.Windows.Forms.TreeView();
             this.rtbText = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
@@ -56,27 +48,19 @@
             this.tvUserHelp.Location = new System.Drawing.Point(12, 12);
             this.tvUserHelp.Name = "tvUserHelp";
             treeNode1.Name = "login";
-            treeNode1.Text = "Login / Logout";
-            treeNode2.Name = "creatPro";
-            treeNode2.Text = "Erstellen";
-            treeNode3.Name = "showPro";
-            treeNode3.Text = "Anzeigen";
-            treeNode4.Name = "updatePro";
-            treeNode4.Text = "Ändern";
-            treeNode5.Name = "Knoten7";
-            treeNode5.Text = "Projekt";
-            treeNode6.Name = "Knoten16";
-            treeNode6.Text = "Knoten16";
-            treeNode7.Name = "Knoten13";
-            treeNode7.Text = "Account";
-            treeNode8.Name = "Knoten15";
-            treeNode8.Text = "Knoten15";
-            treeNode9.Name = "Knoten14";
-            treeNode9.Text = "Administration";
-            treeNode10.Name = "Node0";
-            treeNode10.Text = "Hilfe";
+            treeNode1.Text = "Login";
+            treeNode2.Name = "abteilungskapazitaet";
+            treeNode2.Text = "Abteilungskapazität";
+            treeNode3.Name = "benutzerinformationen";
+            treeNode3.Text = "Benutzerinformationen";
+            treeNode4.Name = "benutzerverwaltung";
+            treeNode4.Text = "Benutzerverwaltung";
+            treeNode5.Name = "passwort_aendern";
+            treeNode5.Text = "Passwort ändern";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Hilfe";
             this.tvUserHelp.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode6});
             this.tvUserHelp.Size = new System.Drawing.Size(186, 353);
             this.tvUserHelp.TabIndex = 0;
             this.tvUserHelp.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvUserHelp_NodeMouseDoubleClick);
