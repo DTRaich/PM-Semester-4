@@ -158,25 +158,6 @@ namespace Supernova.Sub_Forms.Overview
 
         private void mainGrid_MouseClick(object sender, MouseEventArgs e)
         {
-            int currentMouseOverRow = mainGrid.HitTest(e.X, e.Y).RowIndex;
-            if (currentMouseOverRow != -1)
-            {
-                currentProjectID = Convert.ToInt32(mainGrid[0, currentMouseOverRow].Value);
-                currentPoints = Convert.ToDouble(mainGrid[7, currentMouseOverRow].Value);
-                currentProjectName = mainGrid[1, currentMouseOverRow].Value.ToString();
-                currentHaveTo = Convert.ToInt32(mainGrid[0, currentMouseOverRow].Value);
-
-                // drehen, damit richtiges abgespeichert werden kann
-                if (currentHaveTo == 0)
-                {
-                    currentHaveTo = 1;
-                }
-                else
-                {
-                    currentHaveTo = 0;
-                }
-
-            }
 
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
@@ -280,6 +261,36 @@ namespace Supernova.Sub_Forms.Overview
                     }
                 }
             }
+
+            getCurrentStuff();
+           
+
+        }
+
+        private void getCurrentStuff()
+        {
+            int row = mainGrid.CurrentRow.Index;
+
+         
+
+            if (row != -1)
+            {
+                currentProjectID = Convert.ToInt32(mainGrid[0, row].Value);
+                currentPoints = Convert.ToDouble(mainGrid[7, row].Value);
+                currentProjectName = mainGrid[1, row].Value.ToString();
+                currentHaveTo = Convert.ToInt32(mainGrid["MUSS_Projekt", row].Value);
+
+                // drehen, damit richtiges abgespeichert werden kann
+                if (currentHaveTo == 0)
+                {
+                    currentHaveTo = 1;
+                }
+                else
+                {
+                    currentHaveTo = 0;
+                }
+
+            }
         }
           
 
@@ -366,6 +377,7 @@ namespace Supernova.Sub_Forms.Overview
 
 
 
-       
+
+
     }
 }

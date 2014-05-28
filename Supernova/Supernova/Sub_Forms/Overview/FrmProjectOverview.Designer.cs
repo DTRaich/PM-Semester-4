@@ -106,20 +106,20 @@
             this.tsmChange,
             this.tsmHaveTo});
             this.cmsGridMenu.Name = "cmsGridMenu";
-            this.cmsGridMenu.Size = new System.Drawing.Size(201, 92);
+            this.cmsGridMenu.Size = new System.Drawing.Size(201, 70);
             this.cmsGridMenu.Text = "Menu";
             // 
             // tsmDetail
             // 
             this.tsmDetail.Name = "tsmDetail";
-            this.tsmDetail.Size = new System.Drawing.Size(155, 22);
+            this.tsmDetail.Size = new System.Drawing.Size(200, 22);
             this.tsmDetail.Text = "Details";
             this.tsmDetail.Click += new System.EventHandler(this.tsmDetail_Click);
             // 
             // tsmChange
             // 
             this.tsmChange.Name = "tsmChange";
-            this.tsmChange.Size = new System.Drawing.Size(155, 22);
+            this.tsmChange.Size = new System.Drawing.Size(200, 22);
             this.tsmChange.Text = "Projekt ändern";
             this.tsmChange.Click += new System.EventHandler(this.tsmChange_Click);
             // 

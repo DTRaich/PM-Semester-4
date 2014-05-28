@@ -279,6 +279,9 @@
     <EmbeddedResource Include="Sub_Forms\Overview\FrmGeneralAnalysis.resx">
       <DependentUpon>FrmGeneralAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Overview\FrmHaveToErrorPopUp.resx">
+      <DependentUpon>FrmHaveToErrorPopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectAnalysis.resx">
       <DependentUpon>FrmProjectAnalysis.cs</DependentUpon>
     </EmbeddedResource>

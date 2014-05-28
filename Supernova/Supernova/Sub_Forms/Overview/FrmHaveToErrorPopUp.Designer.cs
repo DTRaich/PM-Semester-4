@@ -88,6 +88,7 @@
             this.errorGrid.Name = "errorGrid";
             this.errorGrid.Size = new System.Drawing.Size(612, 174);
             this.errorGrid.TabIndex = 4;
+            this.errorGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.errorGrid_CellValueChanged);
             // 
             // FrmHaveToErrorPopUp
             // 
