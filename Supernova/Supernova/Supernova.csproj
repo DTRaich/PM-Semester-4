@@ -186,6 +186,12 @@
     <Compile Include="Sub_Forms\Overview\FrmProjectOverview.Designer.cs">
       <DependentUpon>FrmProjectOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmStrategieAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Overview\FrmStrategieAnalysis.Designer.cs">
+      <DependentUpon>FrmStrategieAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sub_Forms\Projects\FrmBasisData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,11 +276,20 @@
     <EmbeddedResource Include="Sub_Forms\Help\FrmUserHelp.resx">
       <DependentUpon>FrmUserHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Overview\FrmGeneralAnalysis.resx">
+      <DependentUpon>FrmGeneralAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectAnalysis.resx">
+      <DependentUpon>FrmProjectAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectDetails.resx">
       <DependentUpon>FrmProjectDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Overview\FrmProjectOverview.resx">
       <DependentUpon>FrmProjectOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Overview\FrmStrategieAnalysis.resx">
+      <DependentUpon>FrmStrategieAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Projects\FrmBasisData.resx">
       <DependentUpon>FrmBasisData.cs</DependentUpon>
