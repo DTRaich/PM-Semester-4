@@ -13,7 +13,7 @@ namespace Supernova.Sub_Forms.Overview
 {
     public partial class FrmProjectOverview : Form
     {
-#region  fields
+    #region  fields
         DataLoad dl = new DataLoad();
         private int currentProjectID = 0;
         String currentProjectName;
@@ -42,7 +42,7 @@ namespace Supernova.Sub_Forms.Overview
             dragTable.AcceptChanges();
         }
 
-#region fill and Load
+    #region fill and Load
         private void fillFilter()
         {
             ParameterLoad loader = new ParameterLoad();
@@ -82,7 +82,7 @@ namespace Supernova.Sub_Forms.Overview
 
         }
 #endregion 
-#region CMSCLICk
+    #region CMSCLICk
         private void tsmDetail_Click(object sender, EventArgs e)
         {
             FrmProjectDetails detail = new FrmProjectDetails(currentProjectID, currentPoints, currentProjectName);
@@ -113,16 +113,20 @@ namespace Supernova.Sub_Forms.Overview
                 cmsGridMenu.Show(mainGrid, new Point(e.X, e.Y));
             }
         }
-#endregion
-#region buttonEvents
+        #endregion
+    #region buttonEvents
         private void btnDepBudAnalysis_Click(object sender, EventArgs e)
         {
-
+            FrmGeneralAnalysis frm = new FrmGeneralAnalysis();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
 
         private void btnStrategieAnalysis_Click(object sender, EventArgs e)
         {
-
+            FrmStrategieAnalysis frm = new FrmStrategieAnalysis();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
 
         private void btnRiskCostAnalysis_Click(object sender, EventArgs e)
@@ -161,9 +165,9 @@ namespace Supernova.Sub_Forms.Overview
             mainGrid.DataSource = source;
 
         }
-#endregion
+    #endregion
 
-#region drag and Drop
+    #region drag and Drop
         private void mainGrid_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

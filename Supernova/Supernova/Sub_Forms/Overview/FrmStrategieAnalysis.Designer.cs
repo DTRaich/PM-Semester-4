@@ -28,9 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FrmStrategieAnalysis
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FrmStrategieAnalysis";
+            this.ClientSize = new System.Drawing.Size(778, 334);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "FrmStrategieAnalysis";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Strategie Auswertung";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
