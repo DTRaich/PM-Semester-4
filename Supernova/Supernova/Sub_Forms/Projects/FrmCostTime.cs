@@ -171,10 +171,10 @@ namespace Supernova.Sub_Forms.Projects
             bool retVal = true;
             int startYear = Convert.ToInt32(cbStartYear.SelectedValue);
             int endYear = Convert.ToInt32(cbEndYear.SelectedValue);
-             int startMonth = Convert.ToInt32(cbStartYear.SelectedValue);
+            int startMonth = Convert.ToInt32(cbStartYear.SelectedValue);
             int endMonth = Convert.ToInt32(cbEndYear.SelectedValue);
 
-            if ((startYear > endYear) || ((startYear == endYear) && (endMonth > startMonth)))
+            if ((startYear > endYear) || ((startYear == endYear) && (startMonth >= endMonth)))
             {
                 errMsgStartEndDate.Visible = true;
                 retVal = false;
@@ -202,7 +202,7 @@ namespace Supernova.Sub_Forms.Projects
         private void collectData()
         {
             projektdaten.ProjectStartDate = new DateTime(Convert.ToInt32(cbStartYear.SelectedValue), Convert.ToInt32(cbStartMonth.SelectedValue), 1);
-            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedValue), Convert.ToInt32(cbEndMonth.SelectedValue), 30);
+            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedValue), Convert.ToInt32(cbEndMonth.SelectedValue), 1);
             projektdaten.costsyear1 = year1;
             projektdaten.costyear2 = year2;
             projektdaten.costyeae3 = year3;

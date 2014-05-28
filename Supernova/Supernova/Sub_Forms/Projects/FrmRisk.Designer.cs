@@ -49,7 +49,6 @@
             // tbTechnicalRisk
             // 
             this.tbTechnicalRisk.Location = new System.Drawing.Point(475, 44);
-            this.tbTechnicalRisk.Minimum = 1;
             this.tbTechnicalRisk.Name = "tbTechnicalRisk";
             this.tbTechnicalRisk.Size = new System.Drawing.Size(104, 45);
             this.tbTechnicalRisk.TabIndex = 0;
@@ -69,7 +68,6 @@
             // tbFinancialRisk
             // 
             this.tbFinancialRisk.Location = new System.Drawing.Point(475, 104);
-            this.tbFinancialRisk.Minimum = 1;
             this.tbFinancialRisk.Name = "tbFinancialRisk";
             this.tbFinancialRisk.Size = new System.Drawing.Size(104, 45);
             this.tbFinancialRisk.TabIndex = 2;
@@ -89,7 +87,6 @@
             // tbSecurityRisk
             // 
             this.tbSecurityRisk.Location = new System.Drawing.Point(475, 164);
-            this.tbSecurityRisk.Minimum = 1;
             this.tbSecurityRisk.Name = "tbSecurityRisk";
             this.tbSecurityRisk.Size = new System.Drawing.Size(104, 45);
             this.tbSecurityRisk.TabIndex = 4;
@@ -109,7 +106,6 @@
             // tbQualityRisk
             // 
             this.tbQualityRisk.Location = new System.Drawing.Point(475, 225);
-            this.tbQualityRisk.Minimum = 1;
             this.tbQualityRisk.Name = "tbQualityRisk";
             this.tbQualityRisk.Size = new System.Drawing.Size(104, 45);
             this.tbQualityRisk.TabIndex = 6;
