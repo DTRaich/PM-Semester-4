@@ -12,6 +12,7 @@ namespace Supernova.Sub_Forms.Projects
 {
     public partial class FrmCostTime : Form, ICriteriaChecking
     {
+        #region fields
         private objects.ProjektDataDummy projektdaten;
         private double gesamtkosten = 0;
         private double year1 = 0;
@@ -22,6 +23,7 @@ namespace Supernova.Sub_Forms.Projects
         DataTable monthEnd = new DataTable();
         DataTable yearEnd = new DataTable();
 
+        #endregion
         public FrmCostTime()
         {
             InitializeComponent();
@@ -244,8 +246,26 @@ namespace Supernova.Sub_Forms.Projects
 
         private void cbEndYear_SelectedValueChanged(object sender, EventArgs e)
         {
+           
+            // ein ausblende logik
             try
             {
+
+                // monat abfüllen
+                if (Convert.ToInt32(cbStartYear.SelectedValue) < Convert.ToInt32(cbEndYear.SelectedValue))
+                {
+                    fillEndMonth(1);
+
+                }
+                // monat abfüllen
+                if (Convert.ToInt32(cbStartYear.SelectedValue) == Convert.ToInt32(cbEndYear.SelectedValue))
+                {
+
+                    fillEndMonth(Convert.ToInt32(cbStartMonth.SelectedValue));
+
+                }
+
+
                 int range = Convert.ToInt32(cbEndYear.SelectedValue) - Convert.ToInt32(cbStartYear.SelectedValue);
                 switch (range)
                 {

@@ -38,18 +38,23 @@
             this.tsmHaveTo = new System.Windows.Forms.ToolStripMenuItem();
             this.mainpnl = new System.Windows.Forms.Panel();
             this.gbAnalysis = new System.Windows.Forms.GroupBox();
+            this.clbBox = new System.Windows.Forms.CheckedListBox();
+            this.btnRiskCostAnalysis = new System.Windows.Forms.Button();
+            this.btnStrategieAnalysis = new System.Windows.Forms.Button();
+            this.btnDepBudAnalysis = new System.Windows.Forms.Button();
             this.gbFilterSort = new System.Windows.Forms.GroupBox();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.lblCategory = new System.Windows.Forms.Label();
             this.cbMust = new System.Windows.Forms.CheckBox();
             this.cbMy = new System.Windows.Forms.CheckBox();
             this.cbStrategy = new System.Windows.Forms.ComboBox();
             this.lblStrategy = new System.Windows.Forms.Label();
-            this.btnFilter = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.cmsGridMenu.SuspendLayout();
             this.mainpnl.SuspendLayout();
+            this.gbAnalysis.SuspendLayout();
             this.gbFilterSort.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +97,7 @@
             this.mainGrid.Size = new System.Drawing.Size(944, 221);
             this.mainGrid.TabIndex = 0;
             this.mainGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mainGrid_MouseClick);
+            this.mainGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mainGrid_MouseDown);
             // 
             // cmsGridMenu
             // 
@@ -135,12 +141,59 @@
             // 
             // gbAnalysis
             // 
-            this.gbAnalysis.Location = new System.Drawing.Point(477, 9);
+            this.gbAnalysis.Controls.Add(this.clbBox);
+            this.gbAnalysis.Controls.Add(this.btnRiskCostAnalysis);
+            this.gbAnalysis.Controls.Add(this.btnStrategieAnalysis);
+            this.gbAnalysis.Controls.Add(this.btnDepBudAnalysis);
+            this.gbAnalysis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbAnalysis.Location = new System.Drawing.Point(458, 9);
             this.gbAnalysis.Name = "gbAnalysis";
-            this.gbAnalysis.Size = new System.Drawing.Size(458, 132);
+            this.gbAnalysis.Size = new System.Drawing.Size(477, 132);
             this.gbAnalysis.TabIndex = 0;
             this.gbAnalysis.TabStop = false;
             this.gbAnalysis.Text = "Auswertungen";
+            // 
+            // clbBox
+            // 
+            this.clbBox.AllowDrop = true;
+            this.clbBox.CheckOnClick = true;
+            this.clbBox.FormattingEnabled = true;
+            this.clbBox.Location = new System.Drawing.Point(210, 51);
+            this.clbBox.Name = "clbBox";
+            this.clbBox.Size = new System.Drawing.Size(261, 76);
+            this.clbBox.TabIndex = 4;
+            this.clbBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.clbBox_DragDrop);
+            this.clbBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.clbBox_DragEnter);
+            // 
+            // btnRiskCostAnalysis
+            // 
+            this.btnRiskCostAnalysis.Location = new System.Drawing.Point(210, 14);
+            this.btnRiskCostAnalysis.Name = "btnRiskCostAnalysis";
+            this.btnRiskCostAnalysis.Size = new System.Drawing.Size(168, 31);
+            this.btnRiskCostAnalysis.TabIndex = 2;
+            this.btnRiskCostAnalysis.Text = "Projekt-Analyse";
+            this.btnRiskCostAnalysis.UseVisualStyleBackColor = true;
+            this.btnRiskCostAnalysis.Click += new System.EventHandler(this.btnRiskCostAnalysis_Click);
+            // 
+            // btnStrategieAnalysis
+            // 
+            this.btnStrategieAnalysis.Location = new System.Drawing.Point(6, 75);
+            this.btnStrategieAnalysis.Name = "btnStrategieAnalysis";
+            this.btnStrategieAnalysis.Size = new System.Drawing.Size(168, 34);
+            this.btnStrategieAnalysis.TabIndex = 1;
+            this.btnStrategieAnalysis.Text = "Strategie Auswertung";
+            this.btnStrategieAnalysis.UseVisualStyleBackColor = true;
+            this.btnStrategieAnalysis.Click += new System.EventHandler(this.btnStrategieAnalysis_Click);
+            // 
+            // btnDepBudAnalysis
+            // 
+            this.btnDepBudAnalysis.Location = new System.Drawing.Point(6, 31);
+            this.btnDepBudAnalysis.Name = "btnDepBudAnalysis";
+            this.btnDepBudAnalysis.Size = new System.Drawing.Size(168, 34);
+            this.btnDepBudAnalysis.TabIndex = 0;
+            this.btnDepBudAnalysis.Text = "Ressourcen-Auslastung";
+            this.btnDepBudAnalysis.UseVisualStyleBackColor = true;
+            this.btnDepBudAnalysis.Click += new System.EventHandler(this.btnDepBudAnalysis_Click);
             // 
             // gbFilterSort
             // 
@@ -158,6 +211,16 @@
             this.gbFilterSort.TabIndex = 0;
             this.gbFilterSort.TabStop = false;
             this.gbFilterSort.Text = "Filtern";
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Location = new System.Drawing.Point(362, 103);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(75, 24);
+            this.btnFilter.TabIndex = 8;
+            this.btnFilter.Text = "Filtern";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // cbCategory
             // 
@@ -214,16 +277,6 @@
             this.lblStrategy.TabIndex = 0;
             this.lblStrategy.Text = "Strategie";
             // 
-            // btnFilter
-            // 
-            this.btnFilter.Location = new System.Drawing.Point(362, 103);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(75, 24);
-            this.btnFilter.TabIndex = 8;
-            this.btnFilter.Text = "Filtern";
-            this.btnFilter.UseVisualStyleBackColor = true;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
             // FrmProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).EndInit();
             this.cmsGridMenu.ResumeLayout(false);
             this.mainpnl.ResumeLayout(false);
+            this.gbAnalysis.ResumeLayout(false);
             this.gbFilterSort.ResumeLayout(false);
             this.gbFilterSort.PerformLayout();
             this.ResumeLayout(false);
@@ -263,5 +317,9 @@
         private System.Windows.Forms.ComboBox cbStrategy;
         private System.Windows.Forms.Label lblStrategy;
         private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.Button btnDepBudAnalysis;
+        private System.Windows.Forms.Button btnRiskCostAnalysis;
+        private System.Windows.Forms.Button btnStrategieAnalysis;
+        private System.Windows.Forms.CheckedListBox clbBox;
     }
 }
