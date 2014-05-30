@@ -22,6 +22,7 @@ namespace Supernova.Sub_Forms.Projects
         DataTable year = new DataTable();
         DataTable monthEnd = new DataTable();
         DataTable yearEnd = new DataTable();
+        int prevValEndMonth = 1;
 
         #endregion
         public FrmCostTime()
@@ -174,7 +175,7 @@ namespace Supernova.Sub_Forms.Projects
             int startMonth = Convert.ToInt32(cbStartYear.SelectedValue);
             int endMonth = Convert.ToInt32(cbEndYear.SelectedValue);
 
-            if ((startYear > endYear) || ((startYear == endYear) && (startMonth >= endMonth)))
+            if ((startYear > endYear) || ((startYear == endYear) && (startMonth > endMonth)))
             {
                 errMsgStartEndDate.Visible = true;
                 retVal = false;
@@ -202,7 +203,7 @@ namespace Supernova.Sub_Forms.Projects
         private void collectData()
         {
             projektdaten.ProjectStartDate = new DateTime(Convert.ToInt32(cbStartYear.SelectedValue), Convert.ToInt32(cbStartMonth.SelectedValue), 1);
-            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedValue), Convert.ToInt32(cbEndMonth.SelectedValue), 1);
+            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedValue), Convert.ToInt32(cbEndMonth.SelectedValue), 30);
             projektdaten.costsyear1 = year1;
             projektdaten.costyear2 = year2;
             projektdaten.costyeae3 = year3;
@@ -223,6 +224,8 @@ namespace Supernova.Sub_Forms.Projects
         {
             try
             {
+                prevValEndMonth = Convert.ToInt32(cbEndMonth.SelectedValue);
+
                 if (Convert.ToInt32(cbStartYear.SelectedValue) == Convert.ToInt32(cbEndYear.SelectedValue))
                 {
                     fillEndMonth(Convert.ToInt32(cbStartMonth.SelectedValue));
@@ -231,6 +234,9 @@ namespace Supernova.Sub_Forms.Projects
                 {
                     fillEndMonth(1);
                 }
+
+                cbEndMonth.SelectedValue = prevValEndMonth;
+
             }
             catch (Exception ex)
             {
@@ -242,15 +248,14 @@ namespace Supernova.Sub_Forms.Projects
             // auch nix machen
         }
 
-       
 
+        
         private void cbEndYear_SelectedValueChanged(object sender, EventArgs e)
         {
-           
             // ein ausblende logik
             try
             {
-
+                prevValEndMonth = Convert.ToInt32(cbEndMonth.SelectedValue);
                 // monat abfüllen
                 if (Convert.ToInt32(cbStartYear.SelectedValue) < Convert.ToInt32(cbEndYear.SelectedValue))
                 {
@@ -265,6 +270,7 @@ namespace Supernova.Sub_Forms.Projects
 
                 }
 
+                cbEndMonth.SelectedValue = prevValEndMonth;
 
                 int range = Convert.ToInt32(cbEndYear.SelectedValue) - Convert.ToInt32(cbStartYear.SelectedValue);
                 switch (range)
