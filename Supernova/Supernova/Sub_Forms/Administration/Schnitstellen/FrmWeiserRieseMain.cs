@@ -12,7 +12,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 {
     public partial class FrmWeiserRieseMain : Form
     {
-        //  EmployeeType empType = (EmployeeType)Enum.Parse(ddl.SelectedValue); 
+        DBTYPE DB;
+        MySqlConnector mysql = new MySqlConnector();
         public FrmWeiserRieseMain()
         {
             InitializeComponent();
@@ -32,7 +33,22 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
       #region click leftside
         private void btnTest_Click(object sender, EventArgs e)
         {
+              DB = (DBTYPE)Enum.Parse(typeof(DBTYPE), cbDBTYPE.SelectedItem.ToString());
+           
+            switch (DB)
+            {
+                case DBTYPE.MySql: SetUpMysql();
+                                        
+                    break;
+            }
+          
+           
+        }
 
+        private void SetUpMysql()
+        {
+            mysql = new MySqlConnector();
+            mysql.ConString = txtConnect.Text;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)

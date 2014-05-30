@@ -9,7 +9,7 @@ namespace Supernova.interfaces
     interface IConnector
     {
         bool connectToDB();
-        DataTable SelectTable();
+        DataTable SelectTable(string TableName, DataTable Filter);
        
     }
 }

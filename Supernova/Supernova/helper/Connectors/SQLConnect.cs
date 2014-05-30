@@ -13,7 +13,8 @@ namespace Supernova.helper.Connectors
             throw new NotImplementedException();
         }
 
-        public System.Data.DataTable SelectTable()
+
+        public System.Data.DataTable SelectTable(string TableName, System.Data.DataTable Filter)
         {
             throw new NotImplementedException();
         }

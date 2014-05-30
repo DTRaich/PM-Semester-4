@@ -249,8 +249,9 @@
             // 
             this.txtConnect.Location = new System.Drawing.Point(134, 61);
             this.txtConnect.Name = "txtConnect";
-            this.txtConnect.Size = new System.Drawing.Size(274, 23);
+            this.txtConnect.Size = new System.Drawing.Size(334, 23);
             this.txtConnect.TabIndex = 7;
+            this.txtConnect.Text = "Database=DEMO_RIESE;Data Source=188.226.215.238;User Id=user1;Password=password";
             // 
             // lblDone
             // 

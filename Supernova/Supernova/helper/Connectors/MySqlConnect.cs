@@ -1,4 +1,5 @@
-﻿using Supernova.interfaces;
+﻿using MySql.Data.MySqlClient;
+using Supernova.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,40 @@ namespace Supernova.helper.Connectors
 {
     class MySqlConnector : IConnector
     {
-        public bool connectToDB()
+        string conString;
+
+        public string ConString
         {
-            throw new NotImplementedException();
+            get { return conString; }
+            set { conString = value; }
         }
 
-        public System.Data.DataTable SelectTable()
+
+        public bool connectToDB()
+        {
+            MySqlConnection connection = new MySqlConnection(conString);
+            bool retval = true;
+            try
+            {
+              connection.Open();
+               
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return retval;
+        }
+        
+        public System.Data.DataTable SelectTable(string TableName, System.Data.DataTable Filter)
         {
             throw new NotImplementedException();
         }
