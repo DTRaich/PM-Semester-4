@@ -96,6 +96,20 @@ namespace Supernova.helper
             }
             return Cat;
         }
+        public double[] getProjectAnalysis(int ProjID)
+        {
+            double[] Values = new double[3];
+
+            DataTable dt = aloader.LoadProjectAnalysis(ProjID);
+
+            for (int i = 0; i <= 2; i++)
+            {
+                Values[i] = Convert.ToDouble(dt.Rows[0][i].ToString());
+            }
+
+            return Values;
+        }
+
 
     }
 }

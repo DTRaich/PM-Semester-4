@@ -212,5 +212,41 @@ namespace Supernova.data
 
             return dt;
         }
+        public DataTable LoadProjectAnalysis(int ProjID)
+        {
+            dbError.deleteDBError();
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+                string commandText = "Call GetProjectAnalysis(@ProjID)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("ProjID", ProjID);
+                cmd.Parameters["ProjID"].Direction = ParameterDirection.Input;
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+
     }
 }
