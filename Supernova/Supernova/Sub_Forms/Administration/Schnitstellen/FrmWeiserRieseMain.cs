@@ -62,6 +62,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         private void testConnection(DBTYPE dbty)
         {
+            lblDone.Visible = false;
             string connectString = txtConnect.Text;
             if (!String.IsNullOrEmpty(connectString))
             {

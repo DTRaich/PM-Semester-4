@@ -190,9 +190,13 @@ namespace Supernova.Sub_Forms.Overview
         private void btnRiskCostAnalysis_Click(object sender, EventArgs e)
         {
             DataTable analyse = getAnaylseProject();
-            FrmProjectAnalysis frm = new FrmProjectAnalysis(analyse);
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog();
+            if (analyse.Rows.Count > 0)
+            {
+                FrmProjectAnalysis frm = new FrmProjectAnalysis(analyse);
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
+           
         }
         private void btnExcelExport_Click(object sender, EventArgs e)
         {
