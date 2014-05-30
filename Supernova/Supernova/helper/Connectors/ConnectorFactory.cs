@@ -5,15 +5,24 @@ using System.Text;
 
 namespace Supernova.helper.Connectors
 {
+    abstract class CONNECTOR
+    {
+        
+    }
     class ConnectorFactory
     {
-        private MySqlConnector mysql;
-        private OracleConnect oracle;
-        private SQLConnect sql;
 
-        //public ConnectorFactory define(DBTYPE dbtype)
+        //public static CONNECTOR getConnector(DBTYPE db)
         //{
-        //    //ConnectorFactory cs =  new MySqlConnector();
+        //    switch (db)
+        //    {
+        //        //case DBTYPE.MySql: return new MySqlConnector();
+        //        //    break;
+        //        //case DBTYPE.Oracle:
+        //        //    break;
+        //        //case DBTYPE.SQL:
+        //        //    break;
+        //    }
         //}
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Supernova.helper.Connectors
 {
-    class MySqlConnector : IConnector
+    class MySqlConnector : IConnector, CONNECTOR
     {
         string conString;
 
@@ -44,7 +44,7 @@ namespace Supernova.helper.Connectors
         
         public System.Data.DataTable SelectTable(string TableName, System.Data.DataTable Filter)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 }

@@ -37,24 +37,31 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
            
             switch (DB)
             {
-                case DBTYPE.MySql: SetUpMysql();
-                                        
+                case DBTYPE.MySql: SetUpMysql();                                        
+                    break;
+                case DBTYPE.Oracle: SetUpOracle();
+                    break;
+                case DBTYPE.SQL: SetUpSQl();
                     break;
             }
           
            
         }
 
-        private void SetUpMysql()
-        {
-            mysql = new MySqlConnector();
-            mysql.ConString = txtConnect.Text;
-        }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
+            DB = (DBTYPE)Enum.Parse(typeof(DBTYPE), cbDBTYPE.SelectedItem.ToString());
+            SelectTable(DB);
+           
         }
+
+        private void SelectTable(DBTYPE DB)
+        {
+            
+        }
+
+       
 
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -65,9 +72,39 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             txtvalue1.Text = string.Empty;
             txtvalue2.Text = string.Empty;    
         }
-#endregion
+        #endregion
 
+        #region mysql
+        private void SetUpMysql()
+        {
+            mysql = new MySqlConnector();
+            mysql.ConString = txtConnect.Text;
+            if (mysql.connectToDB())
+            {
+                lblDone.Visible = true;
+                lblDone.Text = "Erfolgreich";
+                lblDone.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblDone.Visible = true;
+                lblDone.Text = "Fehlgeschlagen";
+                lblDone.ForeColor = Color.Red;
+            }
+        }
+        #endregion
+        #region not implemented
+        private void SetUpSQl()
+        {
+            
+        }
 
+        private void SetUpOracle()
+        {
+          
+        }
+        #endregion
+        
 
 
     }
