@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Supernova.helper.Connectors
 {
-    class MySqlConnector : CONNECTOR, IConnector
+    class MySqlConnector : CONNECTOR
     {
         string conString;
 

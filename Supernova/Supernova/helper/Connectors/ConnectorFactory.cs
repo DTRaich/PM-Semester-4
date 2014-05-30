@@ -1,17 +1,35 @@
-﻿using System;
+﻿using Supernova.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Supernova.helper.Connectors
 {
-    public abstract class CONNECTOR
+    #region connector klasse
+    public abstract class CONNECTOR : IConnector
     {
-        public string test()
+        string conString;
+
+        public string ConString
         {
-            return "sdasd";
+            get { return conString; }
+            set { conString = value; }
+        }
+
+
+        public bool connectToDB()
+        {
+            return true;
+        }
+
+        public System.Data.DataTable SelectTable(string TableName, System.Data.DataTable Filter)
+        {
+            return null;
         }
     }
+    #endregion
+   
     static class ConnectorFactory
     {
 

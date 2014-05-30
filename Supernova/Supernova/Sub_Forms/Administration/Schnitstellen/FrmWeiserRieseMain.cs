@@ -1,4 +1,5 @@
 ﻿using Supernova.helper.Connectors;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,9 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
     public partial class FrmWeiserRieseMain : Form
     {
         DBTYPE DB;
-        MySqlConnector mysql = new MySqlConnector();
+        CONNECTOR connect;
+        DataTable externTable;
+
         public FrmWeiserRieseMain()
         {
             InitializeComponent();
@@ -34,18 +37,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         private void btnTest_Click(object sender, EventArgs e)
         {
               DB = (DBTYPE)Enum.Parse(typeof(DBTYPE), cbDBTYPE.SelectedItem.ToString());
-           
-            switch (DB)
-            {
-                case DBTYPE.MySql: SetUpMysql();                                        
-                    break;
-                case DBTYPE.Oracle: SetUpOracle();
-                    break;
-                case DBTYPE.SQL: SetUpSQl();
-                    break;
-            }
-          
-           
+              testConnection(DB);  
         }
 
 
@@ -55,13 +47,6 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             SelectTable(DB);
            
         }
-
-        private void SelectTable(DBTYPE DB)
-        {
-            
-        }
-
-       
 
         private void btnReset_Click(object sender, EventArgs e)
         {
@@ -74,36 +59,75 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         }
         #endregion
 
-        #region mysql
-        private void SetUpMysql()
+
+        private void testConnection(DBTYPE dbty)
         {
-            mysql = new MySqlConnector();
-            mysql.ConString = txtConnect.Text;
-            if (mysql.connectToDB())
+            string connectString = txtConnect.Text;
+            if (!String.IsNullOrEmpty(connectString))
             {
-                lblDone.Visible = true;
-                lblDone.Text = "Erfolgreich";
-                lblDone.ForeColor = Color.Green;
-            }
-            else
-            {
+                connect = ConnectorFactory.getConnector(dbty);
+                connect.ConString = connectString;
+                if (connect.connectToDB())
+                {
+                  lblDone.Visible = true;
+                 lblDone.Text = "Erfolgreich";
+                 lblDone.ForeColor = Color.Green;
+                }
+                else
+                {
                 lblDone.Visible = true;
                 lblDone.Text = "Fehlgeschlagen";
                 lblDone.ForeColor = Color.Red;
+                }
             }
-        }
-        #endregion
-        #region not implemented
-        private void SetUpSQl()
-        {
+            else
+            {
+                FrmAfirmative frm = new FrmAfirmative("Bitte Connection-String angeben", 'e');
+                frm.ShowDialog();
+            }
             
         }
 
-        private void SetUpOracle()
+        private void SelectTable(DBTYPE DB)
         {
-          
+            string tableName = txtTabelle.Text;
+            string connectString = txtConnect.Text;
+            if (!String.IsNullOrEmpty(tableName) && !String.IsNullOrEmpty(connectString))
+            {
+                LoadTable(DB, connectString, tableName);
+            }
+            else
+            {
+                FrmAfirmative frm = new FrmAfirmative("Bitte Connection-String angeben\nBitte Tabellen-Name angeben", 'e');
+                frm.ShowDialog();
+            }
         }
-        #endregion
+
+        private void LoadTable(DBTYPE dbty, string con, string tableName)
+        {
+           DataTable filter = getFilterStuff();
+           connect = ConnectorFactory.getConnector(dbty);
+           externTable = connect.SelectTable(tableName, filter);
+             
+        }
+
+        private DataTable getFilterStuff()
+        {
+            #region build table
+            DataTable dt = new DataTable();
+            DataColumn dc = new DataColumn("Spalte");
+            DataColumn dc1 = new DataColumn("Operant");
+            DataColumn dc2 = new DataColumn("Wert");
+            DataColumn dc3 = new DataColumn("Connect");
+            dt.Columns.Add(dc);
+            dt.Columns.Add(dc1);
+            dt.Columns.Add(dc2);
+            dt.Columns.Add(dc3);
+            dt.AcceptChanges();
+            #endregion
+            return dt;
+        }
+       
         
 
 
