@@ -10,6 +10,7 @@ using System.Text;
 using System.Reflection; 
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace Supernova.Sub_Forms.Overview
 {
@@ -449,15 +450,23 @@ namespace Supernova.Sub_Forms.Overview
             xlWorkBook = xlApp.Workbooks.Add(misValue);
 
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-            for (i = 0; i <= mainGrid.RowCount - 2; i++)
+            for (i = 1; i < mainGrid.ColumnCount - 2; i++)
             {
-                for (j = 0; j <= mainGrid.ColumnCount - 1; j++)
+                xlWorkSheet.Cells[1, i] = mainGrid.Columns[i].Name.ToString();
+            }
+
+            for (i = 0; i <= mainGrid.RowCount -2; i++)
+            {
+                for (j = 1; j < mainGrid.ColumnCount - 2; j++)
                 {
-                    xlWorkSheet.Cells[i + 1, j + 1] = mainGrid[j, i].Value.ToString();
+                    xlWorkSheet.Cells[i + 2, j ] = mainGrid[j, i].Value.ToString();
                 }
             }
 
+            if (File.Exists(@"C:\Users\Public\Documents\ProjectOverview.xls"))
+            {
+                File.Delete(@"C:\Users\Public\Documents\ProjectOverview.xls");
+            }
             xlWorkBook.SaveAs(@"C:\Users\Public\Documents\ProjectOverview.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
@@ -465,6 +474,8 @@ namespace Supernova.Sub_Forms.Overview
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
+
+            MessageBox.Show("Die Excel-Datei wurde unter 'C:\\Users\\Public\\Documents\\ProjectOverview.xls' abgelegt.");
         }
         private void releaseObject(object obj)
         {
