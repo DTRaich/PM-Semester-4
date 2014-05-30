@@ -1,0 +1,6 @@
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\WeiserRiese\bin\Debug\WeiserRiese.exe.config
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\WeiserRiese\bin\Debug\WeiserRiese.exe
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\WeiserRiese\bin\Debug\WeiserRiese.pdb
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\WeiserRiese\obj\Debug\WeiserRiese.csprojResolveAssemblyReference.cache
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\WeiserRiese\obj\Debug\WeiserRiese.exe
+C:\Users\Daniel Trefzer\Documents\GitHub\PM-Semester-4\Supernova\WeiserRiese\obj\Debug\WeiserRiese.pdb
