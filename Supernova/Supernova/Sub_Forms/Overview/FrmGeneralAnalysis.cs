@@ -65,6 +65,7 @@ namespace Supernova.Sub_Forms.Overview
 
         private void LoadCharts()
         {
+            chartCapacity.Legends.Clear();
             Series s = new Series
             {
                 Name = "Department",
@@ -73,6 +74,8 @@ namespace Supernova.Sub_Forms.Overview
             };
             this.chartCapacity.Series.Add(s);
 
+
+            chartBudget.Legends.Clear();
             Series ss = new Series
             {
                 Name = "Budget",

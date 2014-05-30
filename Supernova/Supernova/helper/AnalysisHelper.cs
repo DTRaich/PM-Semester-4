@@ -48,6 +48,54 @@ namespace Supernova.helper
             return BudgetSeries;
         }
 
+        public int[] getSeriesStrategyValue()
+        {
+            int[] Strat = new int[5];
+
+            DataTable dt = aloader.LoadCategory();
+
+            for (int i = 0; i <= 4; i++)
+            {
+                Strat[i] = Convert.ToInt32(dt.Rows[i][1].ToString());
+            }
+            return Strat;
+        }
+        public String[] getSeriesStrategyName()
+        {
+            String[] Strat = new String[5];
+
+            DataTable dt = aloader.LoadCategory();
+
+            for (int i = 0; i <= 4; i++)
+            {
+                Strat[i] = dt.Rows[i][0].ToString();
+            }
+            return Strat;
+        }
+        public int[] getSeriesCategoryValue()
+        {
+            int[] Cat = new int[7];
+
+            DataTable dt = aloader.LoadCategory();
+
+            for (int i = 0; i <= 6; i++)
+            {
+                Cat[i] = Convert.ToInt32(dt.Rows[i][1].ToString());
+            }
+            return Cat;
+        }
+        public String[] getSeriesCategoryyName()
+        {
+            String[] Cat = new String[7];
+
+            DataTable dt = aloader.LoadCategory();
+
+            for (int i = 0; i <= 6; i++)
+            {                
+                Cat[i] =dt.Rows[i][0].ToString();
+            }
+            return Cat;
+        }
 
     }
 }
