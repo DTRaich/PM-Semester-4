@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Supernova.interfaces
 {
-    interface IWhatToDoWithProjects
+    interface IConnector
     {
         bool saveProjects();
         bool cancelProjects();
