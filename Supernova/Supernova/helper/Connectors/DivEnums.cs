@@ -30,4 +30,10 @@ namespace Supernova.helper.Connectors
         biggerEqual
         
     }
+
+    public enum Tables
+    {
+        Abteilungen,
+        Benutzer  
+    }
 }

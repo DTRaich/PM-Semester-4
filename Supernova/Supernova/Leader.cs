@@ -166,8 +166,9 @@ namespace Supernova
             ClearUpMainPanel();
             mainPanel.Controls.Clear();
             FrmWeiserRieseMain frm = new FrmWeiserRieseMain();
-            mainPanel.Controls.Add(prepareForm(frm));
-            frm.Show();
+            frm.ShowDialog();
+            //mainPanel.Controls.Add(prepareForm(frm));
+            //frm.Show();
         }
       
 
