@@ -106,8 +106,9 @@
             this.tsmChange,
             this.tsmHaveTo});
             this.cmsGridMenu.Name = "cmsGridMenu";
-            this.cmsGridMenu.Size = new System.Drawing.Size(201, 70);
+            this.cmsGridMenu.Size = new System.Drawing.Size(201, 92);
             this.cmsGridMenu.Text = "Menu";
+            this.cmsGridMenu.Opening += new System.ComponentModel.CancelEventHandler(this.cmsGridMenu_Opening);
             // 
             // tsmDetail
             // 

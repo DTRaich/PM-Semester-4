@@ -23,13 +23,14 @@ namespace Supernova.Sub_Forms.Overview
         DataTable categories;
         DataTable source;
         DataTable dragTable = new DataTable();
+        private int currentRow = 0;
+        private bool adminorGLVal;
         
 #endregion fields
         public FrmProjectOverview()
         {
             InitializeComponent();
-            InitializeCustom();
-
+            InitializeCustom();            
         }
 
         private void InitializeCustom()
@@ -38,6 +39,7 @@ namespace Supernova.Sub_Forms.Overview
             LoadMainGrid();
             fillFilter();
             fillDragDropTable();
+           adminorGLVal=  checkAdminOrGL();
         }
 
         
@@ -46,6 +48,7 @@ namespace Supernova.Sub_Forms.Overview
         private void resetAllStuff()
         {
             currentProjectID = 0;
+            currentRow = 0;
             currentProjectName = string.Empty;
             currentPoints = 0;
             strategies = null;
@@ -117,6 +120,7 @@ namespace Supernova.Sub_Forms.Overview
             mainGrid.ReadOnly = true;
             mainGrid.Columns[0].Visible = false;
             mainGrid.Columns["MUSS_Projekt"].Visible = false;
+            mainGrid.Columns[mainGrid.Columns.Count-2].Visible = false;
 
 
         }
@@ -279,6 +283,7 @@ namespace Supernova.Sub_Forms.Overview
                 currentPoints = Convert.ToDouble(mainGrid[7, row].Value);
                 currentProjectName = mainGrid[1, row].Value.ToString();
                 currentHaveTo = Convert.ToInt32(mainGrid["MUSS_Projekt", row].Value);
+                currentRow = row;
 
                 // drehen, damit richtiges abgespeichert werden kann
                 if (currentHaveTo == 0)
@@ -375,7 +380,53 @@ namespace Supernova.Sub_Forms.Overview
 
         #endregion
 
+        private void cmsGridMenu_Opening(object sender, CancelEventArgs e)
+        {
+            if(AllowChanging())
+            {
+                tsmChange.Enabled = true;
 
+            }else
+            {
+                tsmChange.Enabled = false;
+            }
+           
+        }
+
+        private bool AllowChanging()
+        {
+            bool retval = false;          
+            if (adminorGLVal)
+            {
+                retval = true;
+            }
+            else
+            {
+                int userid = Leader.getLeaderInst().getUserID();
+                int columindex = mainGrid.Columns.Count - 2;
+
+                if (userid == Convert.ToInt32(mainGrid[columindex, currentRow].Value.ToString()))
+                {
+                    retval = true;
+                }
+            }
+            return retval;
+        }
+
+        private bool checkAdminOrGL()
+        {
+            bool retval = false;
+            int RightsID = dl.UserRight(Leader.getLeaderInst().getUserID(), this.Name);
+            switch (RightsID)
+            {
+                case 16:  retval= true; // ADmin
+                    break;
+                case 17:  retval = true; // GL
+                    break;
+
+            }
+            return retval;
+        }
 
 
 

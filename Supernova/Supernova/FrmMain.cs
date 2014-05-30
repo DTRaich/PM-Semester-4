@@ -77,14 +77,16 @@ namespace Supernova
         {
             adminToolStripMenuItem1.Visible = true;
             benutzerAnlegenToolStripMenuItem.Visible = true;
-            rechteverwaltungToolStripMenuItem.Visible = true;
-            schnittstellenverwaltungToolStripMenuItem.Visible = true;
+            budgetToolStripMenuItem.Visible = true;
+            rechteverwaltungToolStripMenuItem.Visible = false;
+            schnittstellenverwaltungToolStripMenuItem.Visible = false;
 
         }
 
         private void initializeAdmin()
         {
             adminToolStripMenuItem1.Visible = true;
+            benutzerAnlegenToolStripMenuItem.Visible = true;
             benutzerAnlegenToolStripMenuItem.Visible = true;
             rechteverwaltungToolStripMenuItem.Visible = true;
             schnittstellenverwaltungToolStripMenuItem.Visible = true;
