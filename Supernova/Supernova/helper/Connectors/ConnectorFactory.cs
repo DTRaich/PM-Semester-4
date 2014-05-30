@@ -19,13 +19,13 @@ namespace Supernova.helper.Connectors
         {
             switch (db)
             {
-                case DBTYPE.MySql: return new MySqlConnector();
+                case DBTYPE.MySql:
+                   
                     break;
-                case DBTYPE.Oracle:
-                    break;
-                case DBTYPE.SQL:
-                    break;
+               
             }
-        }
+            return new MySqlConnector();
+
+         }
     }
 }
