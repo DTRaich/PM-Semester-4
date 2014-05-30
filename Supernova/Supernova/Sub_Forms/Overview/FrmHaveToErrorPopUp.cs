@@ -1,4 +1,6 @@
 ﻿using Supernova.data;
+using Supernova.helper;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,17 +15,20 @@ namespace Supernova.Sub_Forms.Overview
     public partial class FrmHaveToErrorPopUp : Form
     {
         private DataTable val;
+        private DataTable valOrigin;
 
+        int clickedProjektS;
         public FrmHaveToErrorPopUp()
         {
             InitializeComponent();
         }
 
-        public FrmHaveToErrorPopUp(DataTable val)
+        public FrmHaveToErrorPopUp(DataTable val, int clickedProjekt)
         {
+           InitializeComponent();
            this.val = val;
            PrepareGrid();
-           Leader l = Leader.getLeaderInst();        
+           clickedProjektS = clickedProjekt;
         }
 
         private void PrepareGrid()
@@ -32,7 +37,7 @@ namespace Supernova.Sub_Forms.Overview
 
             foreach (DataRow dataRow in val.Rows)
             {
-                if (dataRow["P_HaveTo"].ToString().Equals("1"))
+                if (dataRow["Muss_Projekt"].ToString().Equals("1"))
                 {
                     dataRow["Muss-Projekt"] = true;
                 }
@@ -44,7 +49,10 @@ namespace Supernova.Sub_Forms.Overview
             val.AcceptChanges();
 
             errorGrid.DataSource = val;
-            errorGrid.Columns["P_HaveTo"].Visible = false;
+            valOrigin =  val.Copy();
+            errorGrid.Columns[0].Visible = false;
+            errorGrid.Columns["Muss_Projekt"].Visible = false;
+
 
             foreach (DataGridViewColumn col in errorGrid.Columns)
             {
@@ -60,14 +68,23 @@ namespace Supernova.Sub_Forms.Overview
             }
         }
 
-        private void errorGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            revertDesision(clickedProjektS);
+            this.Close();
+
+        }
+
+        private void revertDesision(int id)
         {
             ValidationData vl = new ValidationData();
 
             try
             {
-                int currentId = Convert.ToInt32(errorGrid[0,e.RowIndex].Value);
-                DataTable dt = vl.SaveAndValidateHaveTo(currentId,0);
+                
+                DataTable dt = vl.SaveAndValidateHaveTo(id, 0);
                 if (dt.Rows.Count > 0)
                 {
                     val = null;
@@ -86,7 +103,28 @@ namespace Supernova.Sub_Forms.Overview
             {
 
             }
-                
+        }
+
+        private void FrmHaveToErrorPopUp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            revertDesision(clickedProjektS);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ParameterHelper pm = new ParameterHelper();
+            DataTable Differenz = pm.CompareTables(valOrigin, val);
+
+            if (Differenz.Rows.Count < 1)
+            {
+                FrmAfirmative frm = new FrmAfirmative("Fehler\nKeine Ändrungen erkannt",'e');
+                frm.ShowDialog();
+            }
+            else
+            {
+            }
+
+            revertDesision(1);
         }
    
     

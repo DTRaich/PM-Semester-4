@@ -35,7 +35,8 @@ namespace Supernova.data
 
               
                 connection.Open();
-                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                 MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
 
                 connection.Close();
 

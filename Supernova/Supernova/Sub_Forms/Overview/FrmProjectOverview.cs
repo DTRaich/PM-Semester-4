@@ -144,7 +144,7 @@ namespace Supernova.Sub_Forms.Overview
 
             if (val.Rows.Count > 0)
             {
-                FrmHaveToErrorPopUp errorHave = new FrmHaveToErrorPopUp(val);
+                FrmHaveToErrorPopUp errorHave = new FrmHaveToErrorPopUp(val, currentProjectID);
                 errorHave.StartPosition = FormStartPosition.CenterParent;
                 errorHave.ShowDialog();
             }
