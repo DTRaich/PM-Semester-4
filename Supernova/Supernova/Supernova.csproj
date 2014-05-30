@@ -138,6 +138,12 @@
     <Compile Include="Sub_Forms\Administration\FrmUserList.Designer.cs">
       <DependentUpon>FrmUserList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sub_Forms\Administration\Schnitstellen\FrmWeiserRieseMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sub_Forms\Administration\Schnitstellen\FrmWeiserRieseMain.Designer.cs">
+      <DependentUpon>FrmWeiserRieseMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sub_Forms\General\FrmAfirmative.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\Administration\FrmUserList.resx">
       <DependentUpon>FrmUserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sub_Forms\Administration\Schnitstellen\FrmWeiserRieseMain.resx">
+      <DependentUpon>FrmWeiserRieseMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub_Forms\General\FrmAfirmative.resx">
       <DependentUpon>FrmAfirmative.cs</DependentUpon>

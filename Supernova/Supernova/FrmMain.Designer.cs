@@ -47,6 +47,8 @@
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.dbErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schnittstellenverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.sStateStrip.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +97,9 @@
             this.kriterienPriorisierenToolStripMenuItem,
             this.abteilungskapazitätToolStripMenuItem,
             this.budgetToolStripMenuItem,
-            this.benutzerAnlegenToolStripMenuItem});
+            this.benutzerAnlegenToolStripMenuItem,
+            this.rechteverwaltungToolStripMenuItem,
+            this.schnittstellenverwaltungToolStripMenuItem});
             this.adminToolStripMenuItem1.Name = "adminToolStripMenuItem1";
             this.adminToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem1.Text = "Admin";
@@ -209,6 +213,20 @@
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
             // 
+            // rechteverwaltungToolStripMenuItem
+            // 
+            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
+            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click_1);
+            // 
+            // schnittstellenverwaltungToolStripMenuItem
+            // 
+            this.schnittstellenverwaltungToolStripMenuItem.Name = "schnittstellenverwaltungToolStripMenuItem";
+            this.schnittstellenverwaltungToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.schnittstellenverwaltungToolStripMenuItem.Text = "Schnittstellenverwaltung";
+            this.schnittstellenverwaltungToolStripMenuItem.Click += new System.EventHandler(this.schnittstellenverwaltungToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,7 +237,12 @@
             this.Controls.Add(this.msMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.msMenu;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(961, 465);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(961, 465);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supernova Version 1.0.0";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -253,6 +276,8 @@
         private System.Windows.Forms.ToolStripMenuItem budgetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem benutzerAnlegenToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel dbErrorLabel;
+        private System.Windows.Forms.ToolStripMenuItem rechteverwaltungToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schnittstellenverwaltungToolStripMenuItem;
     }
 }
 

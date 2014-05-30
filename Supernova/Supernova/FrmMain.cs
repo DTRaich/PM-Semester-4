@@ -63,6 +63,9 @@ namespace Supernova
             kriterienPriorisierenToolStripMenuItem.Visible = false;
             budgetToolStripMenuItem.Visible = false;
             benutzerAnlegenToolStripMenuItem.Visible = false;
+            rechteverwaltungToolStripMenuItem.Visible = false;
+            schnittstellenverwaltungToolStripMenuItem.Visible = false;
+
         }
 
         private void initializePl()
@@ -74,18 +77,33 @@ namespace Supernova
         {
             adminToolStripMenuItem1.Visible = true;
             benutzerAnlegenToolStripMenuItem.Visible = true;
+            rechteverwaltungToolStripMenuItem.Visible = true;
+            schnittstellenverwaltungToolStripMenuItem.Visible = true;
+
         }
 
         private void initializeAdmin()
         {
             adminToolStripMenuItem1.Visible = true;
             benutzerAnlegenToolStripMenuItem.Visible = true;
+            rechteverwaltungToolStripMenuItem.Visible = true;
+            schnittstellenverwaltungToolStripMenuItem.Visible = true;
+
         }
 
        
 
         #region ToolclickEvents
 
+        private void rechteverwaltungToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            leader.LoadUserRights();
+        }
+
+        private void schnittstellenverwaltungToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leader.LoadWeiserRiese();
+        }   
 
         private void ausloggenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -172,7 +190,11 @@ namespace Supernova
             kriterienPriorisierenToolStripMenuItem.Visible = true;
             budgetToolStripMenuItem.Visible = true;
             benutzerAnlegenToolStripMenuItem.Visible = true;
-        }      
+            rechteverwaltungToolStripMenuItem.Visible = true;
+            schnittstellenverwaltungToolStripMenuItem.Visible = true;
+
+        }
+   
 
     }
 }

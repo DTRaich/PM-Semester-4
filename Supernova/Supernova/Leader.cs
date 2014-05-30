@@ -12,6 +12,7 @@ using Supernova.Sub_Forms.Overview;
 using Supernova.Sub_Forms.Projects;
 using Supernova.objects;
 using Supernova.Sub_Forms.Account;
+using Supernova.Sub_Forms.Administration.Schnitstellen;
 
 
 namespace Supernova
@@ -160,6 +161,14 @@ namespace Supernova
             frm.Show();
         }
 
+        public void LoadWeiserRiese()
+        {
+            ClearUpMainPanel();
+            mainPanel.Controls.Clear();
+            FrmWeiserRieseMain frm = new FrmWeiserRieseMain();
+            mainPanel.Controls.Add(prepareForm(frm));
+            frm.Show();
+        }
       
 
         public void LoadUserInfo()
@@ -266,6 +275,6 @@ namespace Supernova
 
 
 
-        
+
     }
 }
