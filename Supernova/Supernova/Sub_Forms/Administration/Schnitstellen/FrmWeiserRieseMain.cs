@@ -14,6 +14,16 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         public FrmWeiserRieseMain()
         {
             InitializeComponent();
+           // cbDBTYPE.
         }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //ddl.DataSource = Enum.GetNames(typeof(EmployeeType));
+        //ddl.DataBind();
+      //  EmployeeType empType = (EmployeeType)Enum.Parse(ddl.SelectedValue); 
     }
 }
