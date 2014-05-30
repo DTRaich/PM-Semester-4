@@ -29,13 +29,30 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         }
 
+      #region click leftside
         private void btnTest_Click(object sender, EventArgs e)
         {
 
         }
 
-   
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
 
-       
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtcolumn1.Text = string.Empty;
+            txtcolumn2.Text = string.Empty;
+            txtConnect.Text = string.Empty;
+            txtTabelle.Text = string.Empty;
+            txtvalue1.Text = string.Empty;
+            txtvalue2.Text = string.Empty;    
+        }
+#endregion
+
+
+
+
     }
 }

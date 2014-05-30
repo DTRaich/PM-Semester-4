@@ -236,7 +236,7 @@ namespace Supernova.Sub_Forms.Overview
             foreach(DataRow dr in dragTable.Rows){
             for (int i = 0; i < clbBox.Items.Count; i++)
             {
-                if (clbBox.Items[i].ToString().Equals(dr[1].ToString()) &&clbBox.GetSelected(i))
+                if (clbBox.Items[i].ToString().Equals(dr[1].ToString()) &&clbBox.GetItemCheckState(i) == CheckState.Checked)
                 {
                     DataRow r = dt.NewRow();
                     r[0] = dr[0];

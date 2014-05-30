@@ -30,7 +30,10 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvExtern = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.cbConnector = new System.Windows.Forms.ComboBox();
             this.Operant = new System.Windows.Forms.Label();
             this.txtvalue2 = new System.Windows.Forms.TextBox();
@@ -50,20 +53,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblDBTYP = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnLoad = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.dgvExtern = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbOriginTable = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -91,6 +91,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(486, 535);
             this.panel1.TabIndex = 0;
+            // 
+            // dgvExtern
+            // 
+            this.dgvExtern.AllowUserToAddRows = false;
+            this.dgvExtern.AllowUserToDeleteRows = false;
+            this.dgvExtern.AllowUserToOrderColumns = true;
+            this.dgvExtern.AllowUserToResizeColumns = false;
+            this.dgvExtern.AllowUserToResizeRows = false;
+            this.dgvExtern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExtern.Location = new System.Drawing.Point(9, 250);
+            this.dgvExtern.Name = "dgvExtern";
+            this.dgvExtern.ReadOnly = true;
+            this.dgvExtern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvExtern.Size = new System.Drawing.Size(470, 282);
+            this.dgvExtern.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -121,6 +136,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SetUp";
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(6, 201);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(81, 26);
+            this.btnReset.TabIndex = 20;
+            this.btnReset.Text = "Verwerfen";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(344, 201);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(126, 29);
+            this.btnLoad.TabIndex = 19;
+            this.btnLoad.Text = "Anzeigen";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // cbConnector
             // 
@@ -283,6 +318,14 @@
             this.panel2.Size = new System.Drawing.Size(487, 535);
             this.panel2.TabIndex = 1;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(4, 250);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(474, 282);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cbOriginTable);
@@ -295,38 +338,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Referenz";
             // 
-            // btnLoad
+            // cbOriginTable
             // 
-            this.btnLoad.Location = new System.Drawing.Point(344, 201);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(126, 29);
-            this.btnLoad.TabIndex = 19;
-            this.btnLoad.Text = "Anzeigen";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(6, 204);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 20;
-            this.btnReset.Text = "Verwerfen";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // dgvExtern
-            // 
-            this.dgvExtern.AllowUserToAddRows = false;
-            this.dgvExtern.AllowUserToDeleteRows = false;
-            this.dgvExtern.AllowUserToOrderColumns = true;
-            this.dgvExtern.AllowUserToResizeColumns = false;
-            this.dgvExtern.AllowUserToResizeRows = false;
-            this.dgvExtern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExtern.Location = new System.Drawing.Point(9, 250);
-            this.dgvExtern.Name = "dgvExtern";
-            this.dgvExtern.ReadOnly = true;
-            this.dgvExtern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvExtern.Size = new System.Drawing.Size(470, 282);
-            this.dgvExtern.TabIndex = 1;
+            this.cbOriginTable.FormattingEnabled = true;
+            this.cbOriginTable.Location = new System.Drawing.Point(94, 28);
+            this.cbOriginTable.Name = "cbOriginTable";
+            this.cbOriginTable.Size = new System.Drawing.Size(175, 24);
+            this.cbOriginTable.TabIndex = 1;
             // 
             // label5
             // 
@@ -336,22 +354,6 @@
             this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tabelle";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 250);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(474, 282);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // cbOriginTable
-            // 
-            this.cbOriginTable.FormattingEnabled = true;
-            this.cbOriginTable.Location = new System.Drawing.Point(94, 28);
-            this.cbOriginTable.Name = "cbOriginTable";
-            this.cbOriginTable.Size = new System.Drawing.Size(175, 24);
-            this.cbOriginTable.TabIndex = 1;
             // 
             // FrmWeiserRieseMain
             // 
@@ -366,13 +368,13 @@
             this.Text = "Schnittstelle-Weiser Riese";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
