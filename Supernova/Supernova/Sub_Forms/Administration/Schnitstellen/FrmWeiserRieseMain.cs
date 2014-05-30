@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supernova.helper.Connectors;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 {
     public partial class FrmWeiserRieseMain : Form
     {
+        //  EmployeeType empType = (EmployeeType)Enum.Parse(ddl.SelectedValue); 
         public FrmWeiserRieseMain()
         {
             InitializeComponent();
@@ -19,7 +21,9 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         private void fillBoxes()
         {
-           
+            cbDBTYPE.DataSource = Enum.GetNames(typeof(DBTYPE));
+          
+            
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -27,8 +31,6 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         }
 
-        //ddl.DataSource = Enum.GetNames(typeof(EmployeeType));
-        //ddl.DataBind();
-      //  EmployeeType empType = (EmployeeType)Enum.Parse(ddl.SelectedValue); 
+       
     }
 }
