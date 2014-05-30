@@ -65,46 +65,56 @@ namespace Supernova.Sub_Forms.Overview
 
         private void LoadCharts()
         {
+            Series s = new Series
+            {
+                Name = "Department",
+                IsVisibleInLegend = false,
+                ChartType = SeriesChartType.Column
+            };
+            this.chartCapacity.Series.Add(s);
+
+            Series ss = new Series
+            {
+                Name = "Budget",
+                IsVisibleInLegend = false,
+                ChartType = SeriesChartType.Column
+            };
+            this.chartBudget.Series.Add(ss);
+
             for (int i = 0; i <= 5; i++)
             {
-                Series s = new Series
-                {
-                    Name = stringSeries[i],
-                    IsVisibleInLegend = false,
-                    ChartType = SeriesChartType.Column
-                };
-                this.chartCapacity.Series.Add(s);
-                Series ss = new Series
-                {
-                    Name = stringSeries[i],
-                    IsVisibleInLegend = false,
-                    ChartType = SeriesChartType.Column
-                };
-                this.chartBudget.Series.Add(ss);
                 s.Points.Add(DepSeries[i]);
-                s.Color = c[i];
-                s.AxisLabel = stringSeries[i];
+                var p = s.Points[i];
+                p.AxisLabel = stringSeries[i];
+                p.LegendText = stringSeries[i];                
+                p.Color = c[i];
+
                 ss.Points.Add(BudgetSeries[i]);
-                ss.Color = c[i];
-                ss.AxisLabel = stringSeries[i];
+                var p2 = ss.Points[i];
+                p2.AxisLabel = stringSeries[i];
+                p2.LegendText = stringSeries[i];
+                p2.Color = c[i];
             }
         }
 
         private void reloadDepCapa()
         {
+            chartCapacity.ResetAutoValues();
             chartCapacity.Series.Clear();
+            Series s = new Series
+            {
+                Name = "series",
+                IsVisibleInLegend = false,
+                ChartType = SeriesChartType.Column
+            };
+            this.chartCapacity.Series.Add(s);
             for (int i = 0; i <= 5; i++)
             {
-                Series s = new Series
-                {
-                    Name = stringSeries[i],
-                    IsVisibleInLegend = false,
-                    ChartType = SeriesChartType.Column
-                };
-                this.chartCapacity.Series.Add(s);
                 s.Points.Add(DepSeries[i]);
-                s.Color = c[i];
-                s.AxisLabel = stringSeries[i];
+                var p = s.Points[i];
+                p.AxisLabel = stringSeries[i];
+                p.LegendText = stringSeries[i];                
+                p.Color = c[i];
 
             }
         }
