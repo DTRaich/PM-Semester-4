@@ -7,7 +7,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Reflection; 
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Supernova.Sub_Forms.Overview
 {
@@ -191,7 +193,10 @@ namespace Supernova.Sub_Forms.Overview
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+        private void btnExcelExport_Click(object sender, EventArgs e)
+        {
 
+        }
        
         private void btnFilter_Click(object sender, EventArgs e)
         {
@@ -223,6 +228,8 @@ namespace Supernova.Sub_Forms.Overview
             mainGrid.DataSource = source;
 
         }
+        
+
     #endregion
 
     #region drag and Drop
@@ -428,6 +435,55 @@ namespace Supernova.Sub_Forms.Overview
             return retval;
         }
 
+
+        private void ExcelExport()
+        {
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            Int16 i, j;
+
+            xlApp = new Excel.ApplicationClass();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            for (i = 0; i <= mainGrid.RowCount - 2; i++)
+            {
+                for (j = 0; j <= mainGrid.ColumnCount - 1; j++)
+                {
+                    xlWorkSheet.Cells[i + 1, j + 1] = mainGrid[j, i].Value.ToString();
+                }
+            }
+
+            xlWorkBook.SaveAs(@"c:\csharp.net-informations.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            releaseObject(xlWorkSheet);
+            releaseObject(xlWorkBook);
+            releaseObject(xlApp);
+        }
+        private void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
+        
 
 
     }

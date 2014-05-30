@@ -50,6 +50,7 @@
             this.cbMy = new System.Windows.Forms.CheckBox();
             this.cbStrategy = new System.Windows.Forms.ComboBox();
             this.lblStrategy = new System.Windows.Forms.Label();
+            this.btnExcelExport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.cmsGridMenu.SuspendLayout();
@@ -106,7 +107,7 @@
             this.tsmChange,
             this.tsmHaveTo});
             this.cmsGridMenu.Name = "cmsGridMenu";
-            this.cmsGridMenu.Size = new System.Drawing.Size(201, 92);
+            this.cmsGridMenu.Size = new System.Drawing.Size(201, 70);
             this.cmsGridMenu.Text = "Menu";
             this.cmsGridMenu.Opening += new System.ComponentModel.CancelEventHandler(this.cmsGridMenu_Opening);
             // 
@@ -143,6 +144,7 @@
             // 
             // gbAnalysis
             // 
+            this.gbAnalysis.Controls.Add(this.btnExcelExport);
             this.gbAnalysis.Controls.Add(this.clbBox);
             this.gbAnalysis.Controls.Add(this.btnRiskCostAnalysis);
             this.gbAnalysis.Controls.Add(this.btnStrategieAnalysis);
@@ -179,7 +181,7 @@
             // 
             // btnStrategieAnalysis
             // 
-            this.btnStrategieAnalysis.Location = new System.Drawing.Point(6, 75);
+            this.btnStrategieAnalysis.Location = new System.Drawing.Point(6, 58);
             this.btnStrategieAnalysis.Name = "btnStrategieAnalysis";
             this.btnStrategieAnalysis.Size = new System.Drawing.Size(168, 34);
             this.btnStrategieAnalysis.TabIndex = 1;
@@ -189,7 +191,7 @@
             // 
             // btnDepBudAnalysis
             // 
-            this.btnDepBudAnalysis.Location = new System.Drawing.Point(6, 31);
+            this.btnDepBudAnalysis.Location = new System.Drawing.Point(6, 18);
             this.btnDepBudAnalysis.Name = "btnDepBudAnalysis";
             this.btnDepBudAnalysis.Size = new System.Drawing.Size(168, 34);
             this.btnDepBudAnalysis.TabIndex = 0;
@@ -279,6 +281,16 @@
             this.lblStrategy.TabIndex = 0;
             this.lblStrategy.Text = "Strategie";
             // 
+            // btnExcelExport
+            // 
+            this.btnExcelExport.Location = new System.Drawing.Point(6, 98);
+            this.btnExcelExport.Name = "btnExcelExport";
+            this.btnExcelExport.Size = new System.Drawing.Size(168, 34);
+            this.btnExcelExport.TabIndex = 5;
+            this.btnExcelExport.Text = "Excel Export";
+            this.btnExcelExport.UseVisualStyleBackColor = true;
+            this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
+            // 
             // FrmProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,5 +335,6 @@
         private System.Windows.Forms.Button btnRiskCostAnalysis;
         private System.Windows.Forms.Button btnStrategieAnalysis;
         private System.Windows.Forms.CheckedListBox clbBox;
+        private System.Windows.Forms.Button btnExcelExport;
     }
 }
