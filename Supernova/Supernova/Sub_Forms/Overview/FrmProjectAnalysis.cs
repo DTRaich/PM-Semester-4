@@ -14,6 +14,10 @@ namespace Supernova.Sub_Forms.Overview
     {
         private DataTable dragTable;
 
+
+        // Risiko -> x achse
+        // NPV --> 
+        // Kosten --> y achse
         public FrmProjectAnalysis()
         {
             InitializeComponent();
@@ -23,23 +27,27 @@ namespace Supernova.Sub_Forms.Overview
         {
             InitializeComponent();
             this.dragTable = dragTable;
+            ChartArea area = new ChartArea("Analyse");
+            area.AxisX.Title = "sdsd";
+            area.AxisY.Title = "sddsfdfdfs";
+
             Series ss = new Series("TestSeries");
-            chartCost.Series.Add(ss);
-            chartCost.Series["TestSeries"].ChartType = SeriesChartType.Bubble;
-            chartCost.Series["TestSeries"].MarkerStyle = MarkerStyle.Circle;
-            chartCost.Series["TestSeries"].Points.AddXY(1, 2, 10);
+            chartKostRisk.Series.Add(ss);
+            chartKostRisk.Series["TestSeries"].ChartType = SeriesChartType.Bubble;
+            chartKostRisk.Series["TestSeries"].MarkerStyle = MarkerStyle.Circle;
+            chartKostRisk.Series["TestSeries"].Points.AddXY(1, 2, 10);
 
             Series sb = new Series("1");
-            chartCost.Series.Add(sb);
-            chartCost.Series["1"].ChartType = SeriesChartType.Bubble;
-            chartCost.Series["1"].MarkerStyle = MarkerStyle.Circle;
-            chartCost.Series["1"].Points.AddXY(6, 6, 10);
+            chartKostRisk.Series.Add(sb);
+            chartKostRisk.Series["1"].ChartType = SeriesChartType.Bubble;
+            chartKostRisk.Series["1"].MarkerStyle = MarkerStyle.Circle;
+            chartKostRisk.Series["1"].Points.AddXY(6, 6, 10);
 
             Series sa = new Series("2");
-            chartCost.Series.Add(sa);
-            chartCost.Series["2"].ChartType = SeriesChartType.Bubble;
-            chartCost.Series["2"].MarkerStyle = MarkerStyle.Circle;
-            chartCost.Series["2"].Points.AddXY(4, 7, 3);
+            chartKostRisk.Series.Add(sa);
+            chartKostRisk.Series["2"].ChartType = SeriesChartType.Bubble;
+            chartKostRisk.Series["2"].MarkerStyle = MarkerStyle.Circle;
+            chartKostRisk.Series["2"].Points.AddXY(4, 7, 3);
       
 
 
