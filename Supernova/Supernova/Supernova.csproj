@@ -75,10 +75,16 @@
       <DependentUpon>FrmOrderControlling.cs</DependentUpon>
     </Compile>
     <Compile Include="helper\AnalysisHelper.cs" />
+    <Compile Include="helper\Connectors\ConnectorFactory.cs" />
+    <Compile Include="helper\Connectors\OwnSaver.cs" />
+    <Compile Include="helper\Connectors\SQLConnect.cs" />
     <Compile Include="helper\DBerror.cs" />
+    <Compile Include="helper\Connectors\DivEnums.cs" />
     <Compile Include="helper\HelperTexts.cs" />
+    <Compile Include="helper\Connectors\MySqlConnect.cs" />
+    <Compile Include="helper\Connectors\OracleConnect.cs" />
     <Compile Include="helper\ParameterHelper.cs" />
-    <Compile Include="interfaces\IWhatToDoWithProjects.cs" />
+    <Compile Include="interfaces\IConnector.cs" />
     <Compile Include="objects\ProjektDataDummy.cs" />
     <Compile Include="helper\ValidationHelper.cs" />
     <Compile Include="interfaces\ICriteriaChecking.cs" />

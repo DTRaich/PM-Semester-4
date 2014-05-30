@@ -14,7 +14,12 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         public FrmWeiserRieseMain()
         {
             InitializeComponent();
-           // cbDBTYPE.
+            fillBoxes();
+        }
+
+        private void fillBoxes()
+        {
+           
         }
 
         private void btnTest_Click(object sender, EventArgs e)

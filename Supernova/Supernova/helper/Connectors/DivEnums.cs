@@ -5,7 +5,29 @@ using System.Text;
 
 namespace Supernova.helper.Connectors
 {
-    class DivEnums
+    //class DivEnums
+    //{
+    //}
+    public enum DBTYPE
     {
+        Oracle,
+        MySql,
+        SQL
+    }
+
+    public enum Connector
+    {
+        AND,
+        OR      
+    }
+
+    public enum Operant
+    {
+        smaller,
+        equal,
+        bigger,
+        samllerEqual,
+        biggerEqual
+        
     }
 }

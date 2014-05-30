@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -7,8 +8,8 @@ namespace Supernova.interfaces
 {
     interface IConnector
     {
-        bool saveProjects();
-        bool cancelProjects();
-        bool loadProjects();
+        bool connectToDB();
+        DataTable SelectTable();
+       
     }
 }
