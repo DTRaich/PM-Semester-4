@@ -27,21 +27,20 @@ namespace Supernova.Sub_Forms.Overview
 
         public FrmProjectAnalysis(DataTable dragTable)
         {
+
             InitializeComponent();
             this.dragTable = dragTable;
-            ChartArea area = new ChartArea("Analyse");
-            area.AxisX.Title = "sdsd";
-            area.AxisY.Title = "sddsfdfdfs";
-            Series working;
+
+
+            //Series working;
             foreach (DataRow dr in dragTable.Rows)
             {
-                working = new Series(dr[1].ToString());
-                //load values
+                Series working = new Series(dr[1].ToString());
                 double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
                 chartKostRisk.Series.Add(working);
-                chartKostRisk.Series["TestSeries"].ChartType = SeriesChartType.Bubble;
-                chartKostRisk.Series["TestSeries"].MarkerStyle = MarkerStyle.Circle;
-                chartKostRisk.Series["TestSeries"].Points.AddXY(value[0], value[1], value[2]);
+                chartKostRisk.Series[dr[1].ToString()].ChartType = SeriesChartType.Bubble;
+                chartKostRisk.Series[dr[1].ToString()].MarkerStyle = MarkerStyle.Circle;
+                chartKostRisk.Series[dr[1].ToString()].Points.AddXY(value[0], value[1], value[2]);
                 
             }
 
