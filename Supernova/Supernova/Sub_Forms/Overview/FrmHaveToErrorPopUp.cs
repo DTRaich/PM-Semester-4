@@ -16,6 +16,8 @@ namespace Supernova.Sub_Forms.Overview
     {
         private DataTable val;
         private DataTable valOrigin;
+        bool formclosing = false;
+        bool normalRevert = false;
 
         int clickedProjektS;
         public FrmHaveToErrorPopUp()
@@ -72,8 +74,11 @@ namespace Supernova.Sub_Forms.Overview
 
         private void button1_Click(object sender, EventArgs e)
         {
-            revertDesision(clickedProjektS);
-            this.Close();
+            if (normalRevert == false)
+            {
+                revertDesision(clickedProjektS);
+                this.Close();
+            }
 
         }
 
@@ -96,6 +101,11 @@ namespace Supernova.Sub_Forms.Overview
                 {
                     Leader lead = Leader.getLeaderInst();
                     lead.LoadProjektView();
+                    if (!formclosing)
+                    {
+                        normalRevert = true;
+                        this.Close();
+                    }
 
                 }
             }
@@ -107,6 +117,7 @@ namespace Supernova.Sub_Forms.Overview
 
         private void FrmHaveToErrorPopUp_FormClosing(object sender, FormClosingEventArgs e)
         {
+            formclosing = true;
             revertDesision(clickedProjektS);
         }
 
@@ -122,9 +133,19 @@ namespace Supernova.Sub_Forms.Overview
             }
             else
             {
+                if (Differenz.Rows.Count > 1)
+                {
+                    FrmAfirmative frm = new FrmAfirmative("Fehler\nBitte nur eine Änderung durchführen", 'e');
+                    frm.ShowDialog();
+                }
+                else
+                {
+                   int id = Convert.ToInt32(Differenz.Rows[0][0].ToString());
+                   revertDesision(id);
+
+                }
             }
 
-            revertDesision(1);
         }
    
     
