@@ -9,20 +9,20 @@ namespace Supernova.helper.Connectors
     {
         
     }
-    class ConnectorFactory
+    static class ConnectorFactory
     {
 
-        //public static CONNECTOR getConnector(DBTYPE db)
-        //{
-        //    switch (db)
-        //    {
-        //        //case DBTYPE.MySql: return new MySqlConnector();
-        //        //    break;
-        //        //case DBTYPE.Oracle:
-        //        //    break;
-        //        //case DBTYPE.SQL:
-        //        //    break;
-        //    }
-        //}
+        public static CONNECTOR getConnector(DBTYPE db)
+        {
+            switch (db)
+            {
+                case DBTYPE.MySql: return new MySqlConnector();
+                    break;
+                case DBTYPE.Oracle:
+                    break;
+                case DBTYPE.SQL:
+                    break;
+            }
+        }
     }
 }
