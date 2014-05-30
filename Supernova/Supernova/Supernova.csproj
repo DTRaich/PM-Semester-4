@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="data\AnalysisLoad.cs" />
     <Compile Include="data\DataLoad.cs" />
     <Compile Include="data\DataSave.cs" />
     <Compile Include="data\ParameterLoad.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="FrmOrderControlling.Designer.cs">
       <DependentUpon>FrmOrderControlling.cs</DependentUpon>
     </Compile>
+    <Compile Include="helper\AnalysisHelper.cs" />
     <Compile Include="helper\DBerror.cs" />
     <Compile Include="helper\HelperTexts.cs" />
     <Compile Include="helper\ParameterHelper.cs" />
