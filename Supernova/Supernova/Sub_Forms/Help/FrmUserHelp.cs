@@ -39,27 +39,27 @@ namespace Supernova.Sub_Forms.Help
 
         private void ShowLogin()
         {
-            rtbText.Text = texter.GetLogin();
+            rtbText.Rtf = texter.GetLogin();
         }
 
         private void ShowAbteilungskapazitaet()
         {
-            rtbText.Text = texter.GetAbteilungskapazitaet();
+            rtbText.Rtf = texter.GetAbteilungskapazitaet();
         }
 
         private void ShowBenutzerinformationen()
         {
-            rtbText.Text = texter.GetBenutzerinformationen();
+            rtbText.Rtf = texter.GetBenutzerinformationen();
         }
 
         private void ShowBenutzerverwaltung()
         {
-            rtbText.Text = texter.GetBenutzerverwaltung();
+            rtbText.Rtf = texter.GetBenutzerverwaltung();
         }
 
         private void ShowPasswortAendern()
         {
-            rtbText.Text = texter.GetPasswortAendern();
+            rtbText.Rtf = texter.GetPasswortAendern();
         }
     }
 }
