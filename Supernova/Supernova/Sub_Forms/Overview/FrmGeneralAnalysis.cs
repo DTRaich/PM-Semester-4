@@ -67,8 +67,20 @@ namespace Supernova.Sub_Forms.Overview
         {
             for (int i = 0; i <= 5; i++)
             {
-                Series s = this.chartCapacity.Series.Add(stringSeries[i]);
-                Series ss = this.chartBudget.Series.Add(stringSeries[i]);
+                Series s = new Series
+                {
+                    Name = stringSeries[i],
+                    IsVisibleInLegend = false,
+                    ChartType = SeriesChartType.Column
+                };
+                this.chartCapacity.Series.Add(s);
+                Series ss = new Series
+                {
+                    Name = stringSeries[i],
+                    IsVisibleInLegend = false,
+                    ChartType = SeriesChartType.Column
+                };
+                this.chartBudget.Series.Add(ss);
                 s.Points.Add(DepSeries[i]);
                 s.Color = c[i];
                 s.AxisLabel = stringSeries[i];
@@ -81,10 +93,15 @@ namespace Supernova.Sub_Forms.Overview
         private void reloadDepCapa()
         {
             chartCapacity.Series.Clear();
-            
             for (int i = 0; i <= 5; i++)
             {
-                Series s = this.chartCapacity.Series.Add(stringSeries[i]);
+                Series s = new Series
+                {
+                    Name = stringSeries[i],
+                    IsVisibleInLegend = false,
+                    ChartType = SeriesChartType.Column
+                };
+                this.chartCapacity.Series.Add(s);
                 s.Points.Add(DepSeries[i]);
                 s.Color = c[i];
                 s.AxisLabel = stringSeries[i];
