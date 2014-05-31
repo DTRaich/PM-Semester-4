@@ -9,6 +9,7 @@ namespace WeiserRieseCon
     {
         static void Main(string[] args)
         {
+            Console.ReadLine();
         }
     }
 }
