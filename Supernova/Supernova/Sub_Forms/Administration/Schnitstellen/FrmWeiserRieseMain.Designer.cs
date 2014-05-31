@@ -106,6 +106,7 @@
             this.dgvExtern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvExtern.Size = new System.Drawing.Size(470, 282);
             this.dgvExtern.TabIndex = 1;
+            this.dgvExtern.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvExtern_MouseDown);
             // 
             // groupBox1
             // 

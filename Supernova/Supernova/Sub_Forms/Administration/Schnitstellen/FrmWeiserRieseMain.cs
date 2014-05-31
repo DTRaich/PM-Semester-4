@@ -13,6 +13,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 {
     public partial class FrmWeiserRieseMain : Form
     {
+        #region setup
         DBTYPE DB;
         CONNECTOR connect;
         DataTable externTable;
@@ -32,8 +33,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             cbOriginTable.DataSource = Enum.GetNames(typeof(Tables));
 
         }
-
-      #region click leftside
+        #endregion
+        #region click leftside
         private void btnTest_Click(object sender, EventArgs e)
         {
               DB = (DBTYPE)Enum.Parse(typeof(DBTYPE), cbDBTYPE.SelectedItem.ToString());
@@ -59,7 +60,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         }
         #endregion
 
-
+        #region methods leftside
         private void testConnection(DBTYPE dbty)
         {
             lblDone.Visible = false;
@@ -166,8 +167,28 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             dt.AcceptChanges();
             return dt;
         }
-       
-        
+#endregion 
+        #region drag and Drop
+        private void dgvExtern_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DataGridView.HitTestInfo info = dgvExtern.HitTest(e.X, e.Y);
+                if (info.RowIndex >= 0)
+                {
+                    DataRowView view = (DataRowView)dgvExtern.Rows[info.RowIndex].DataBoundItem;
+                    if (view != null)
+                    {
+                        dgvExtern.DoDragDrop(view, DragDropEffects.Copy);
+                    }
+                }
+            }           
+        }
+
+
+        #endregion
+
+
 
 
     }
