@@ -21,7 +21,7 @@ namespace Supernova.Sub_Forms.Overview
         DataTable depComboTab;
 
 
-        String[] stringSeries = { "geplant Jahr1", "offen Jahr1", "geplant Jahr2", "offen Jahr2", "geplantJahr3", "offen Jahr3" };
+        String[] stringSeries = { "geplant Jahr 1", "offen Jahr 1", "geplant Jahr 2", "offen Jahr 2", "geplant Jahr 3", "offen Jahr 3" };
         Color[] c = { Color.Green, Color.Blue, Color.Green, Color.Blue, Color.Green, Color.Blue };
 
         int[] DepSeries;

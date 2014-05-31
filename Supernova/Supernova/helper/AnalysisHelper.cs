@@ -41,7 +41,7 @@ namespace Supernova.helper
             {
                 BudgetSeries[y] = Convert.ToDouble(dt1.Rows[0][i].ToString());
                 y++;
-                BudgetSeries[y] = Convert.ToDouble(dt1.Rows[0][i].ToString());
+                BudgetSeries[y] = Convert.ToDouble(dt2.Rows[0][i].ToString());
                 y++;
             }
 
