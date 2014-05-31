@@ -150,10 +150,20 @@ namespace Supernova.Sub_Forms.Administration
             DataRow dr;
             foreach (DataGridViewRow r in rightsGrid.Rows) 
             {
-                //dr = newRights.NewRow();
-                //dr[0] = Convert.ToInt32(r.Cells[0].Value);
-                //dr[1] = Convert.ToInt32(r.Cells[5].Value);
-                //newRights.Rows.Add(dr);
+                if (r.Cells[5].Value == null || Convert.ToInt32(r.Cells[5].Value) == 0)
+                {
+                    // mache nichts
+                }
+                else 
+                
+                { 
+                    dr = newRights.NewRow();
+                    dr[0] = Convert.ToInt32(r.Cells[0].Value);
+                    dr[1] = Convert.ToInt32(r.Cells[5].Value);
+                    newRights.Rows.Add(dr);
+                }
+
+               
             }
             newRights.AcceptChanges();
             DataSave saver = new DataSave();

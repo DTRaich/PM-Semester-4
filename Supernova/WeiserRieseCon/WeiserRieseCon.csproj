@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>867b1e40-2552-4883-9641-dfba9e7a72bf</ProjectGuid>
+    <ProjectGuid>{CA9FD2B4-BC9D-4A45-AB0C-68F2B18CC00F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WeiserRieseCon</RootNamespace>

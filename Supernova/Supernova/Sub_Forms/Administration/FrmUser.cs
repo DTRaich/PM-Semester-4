@@ -425,11 +425,20 @@ namespace Supernova.Sub_Forms.Administration
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            if (Leader.getLeaderInst().getUserID() == userdata.userID)
+            {
+                FrmAfirmative noDelete = new FrmAfirmative("Der eigene User kann nicht ausgeloggt werden.", 'e');
+                noDelete.ShowDialog();
+            }
+            else {
             DataSave saver = new DataSave();
             saver.UnlockUser(userdata.userID);
 
             FrmAfirmative unlocked = new FrmAfirmative("User wurder erfolgreich ausgeloggt.", 'i');
-            unlocked.ShowDialog();
+            unlocked.ShowDialog(); 
+            
+            }
+            
             
         }
   
