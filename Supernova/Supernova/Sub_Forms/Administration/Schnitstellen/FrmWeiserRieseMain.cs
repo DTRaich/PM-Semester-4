@@ -1,4 +1,5 @@
-﻿using Supernova.helper.Connectors;
+﻿using Supernova.data;
+using Supernova.helper.Connectors;
 using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             cbConnector.DataSource = Enum.GetNames(typeof(Connector));
             cbOperant1.DataSource = Enum.GetNames(typeof(Operant));
             cbOperant2.DataSource = Enum.GetNames(typeof(Operant));
-            cbOriginTable.DataSource = Enum.GetNames(typeof(Tables));
+            cbOriginTable.DataSource = Enum.GetNames(typeof(Tables));            
 
         }
         #endregion
@@ -59,7 +60,6 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             txtvalue2.Text = string.Empty;    
         }
         #endregion
-
         #region methods leftside
         private void testConnection(DBTYPE dbty)
         {
@@ -114,6 +114,11 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
            dgvExtern.DataSource = null;
            dgvExtern.DataSource = externTable;
 
+           for (int i = 0; i < dgvExtern.Columns.Count; i++)
+           {
+               dgvExtern.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+           }
+
              
         }
 
@@ -167,7 +172,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             dt.AcceptChanges();
             return dt;
         }
-#endregion 
+        #endregion 
         #region drag and Drop
         private void dgvExtern_MouseDown(object sender, MouseEventArgs e)
         {
@@ -186,8 +191,61 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         }
 
 
+
+        private void dgvWeiserRiese_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void dgvWeiserRiese_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(DataRowView)))
+            {
+
+                DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));             
+
+            }
+
+        }
+        #endregion
+      
+        #region rightside click
+        private void btnStruct_Click(object sender, EventArgs e)
+        {
+            ValidationData val = new ValidationData();
+            Tables tabl = (Tables)Enum.Parse(typeof(Tables), cbOriginTable.SelectedItem.ToString());
+            DataTable dt;
+
+            if (tabl == Tables.Abteilungen)
+            {
+                dt = val.GetAllColumnsDepartment();
+            }
+            else
+            {
+                dt = val.GetAllColumnsUser();
+            }
+            DataColumn dc = new DataColumn("Referenz-Spalte");
+            dt.Columns.Add(dc);
+            dgvWeiserRiese.DataSource = null;
+            dgvWeiserRiese.DataSource = dt;
+
+            for (int i = 0; i < dgvWeiserRiese.Columns.Count; i++)
+            {
+                dgvWeiserRiese.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+        }
+        private void btnGetNewData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         #endregion
 
+        #region rightside methods
+
+        #endregion
 
 
 

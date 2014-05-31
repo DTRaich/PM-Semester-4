@@ -53,16 +53,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblDBTYP = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvWeiserRiese = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbOriginTable = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnStruct = new System.Windows.Forms.Button();
+            this.btnGetNewData = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRiese)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,6 +103,7 @@
             this.dgvExtern.AllowUserToResizeRows = false;
             this.dgvExtern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExtern.Location = new System.Drawing.Point(9, 250);
+            this.dgvExtern.MultiSelect = false;
             this.dgvExtern.Name = "dgvExtern";
             this.dgvExtern.ReadOnly = true;
             this.dgvExtern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -177,7 +180,7 @@
             // 
             // txtvalue2
             // 
-            this.txtvalue2.Location = new System.Drawing.Point(345, 172);
+            this.txtvalue2.Location = new System.Drawing.Point(390, 172);
             this.txtvalue2.Name = "txtvalue2";
             this.txtvalue2.Size = new System.Drawing.Size(63, 23);
             this.txtvalue2.TabIndex = 16;
@@ -194,7 +197,7 @@
             this.cbOperant2.FormattingEnabled = true;
             this.cbOperant2.Location = new System.Drawing.Point(258, 172);
             this.cbOperant2.Name = "cbOperant2";
-            this.cbOperant2.Size = new System.Drawing.Size(67, 24);
+            this.cbOperant2.Size = new System.Drawing.Size(115, 24);
             this.cbOperant2.TabIndex = 14;
             // 
             // label4
@@ -208,7 +211,7 @@
             // 
             // txtvalue1
             // 
-            this.txtvalue1.Location = new System.Drawing.Point(344, 116);
+            this.txtvalue1.Location = new System.Drawing.Point(390, 116);
             this.txtvalue1.Name = "txtvalue1";
             this.txtvalue1.Size = new System.Drawing.Size(63, 23);
             this.txtvalue1.TabIndex = 12;
@@ -218,7 +221,7 @@
             this.cbOperant1.FormattingEnabled = true;
             this.cbOperant1.Location = new System.Drawing.Point(257, 116);
             this.cbOperant1.Name = "cbOperant1";
-            this.cbOperant1.Size = new System.Drawing.Size(67, 24);
+            this.cbOperant1.Size = new System.Drawing.Size(116, 24);
             this.cbOperant1.TabIndex = 11;
             // 
             // txtcolumn1
@@ -311,7 +314,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dgvWeiserRiese);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(495, 3);
@@ -319,22 +322,32 @@
             this.panel2.Size = new System.Drawing.Size(487, 535);
             this.panel2.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvWeiserRiese
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 250);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(474, 282);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvWeiserRiese.AllowDrop = true;
+            this.dgvWeiserRiese.AllowUserToAddRows = false;
+            this.dgvWeiserRiese.AllowUserToDeleteRows = false;
+            this.dgvWeiserRiese.AllowUserToResizeColumns = false;
+            this.dgvWeiserRiese.AllowUserToResizeRows = false;
+            this.dgvWeiserRiese.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvWeiserRiese.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWeiserRiese.Location = new System.Drawing.Point(4, 128);
+            this.dgvWeiserRiese.Name = "dgvWeiserRiese";
+            this.dgvWeiserRiese.Size = new System.Drawing.Size(474, 404);
+            this.dgvWeiserRiese.TabIndex = 1;
+            this.dgvWeiserRiese.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRiese_DragDrop);
+            this.dgvWeiserRiese.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRiese_DragEnter);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnGetNewData);
+            this.groupBox2.Controls.Add(this.btnStruct);
             this.groupBox2.Controls.Add(this.cbOriginTable);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(474, 235);
+            this.groupBox2.Size = new System.Drawing.Size(474, 113);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Referenz";
@@ -344,7 +357,7 @@
             this.cbOriginTable.FormattingEnabled = true;
             this.cbOriginTable.Location = new System.Drawing.Point(94, 28);
             this.cbOriginTable.Name = "cbOriginTable";
-            this.cbOriginTable.Size = new System.Drawing.Size(175, 24);
+            this.cbOriginTable.Size = new System.Drawing.Size(146, 24);
             this.cbOriginTable.TabIndex = 1;
             // 
             // label5
@@ -355,6 +368,26 @@
             this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tabelle";
+            // 
+            // btnStruct
+            // 
+            this.btnStruct.Location = new System.Drawing.Point(278, 28);
+            this.btnStruct.Name = "btnStruct";
+            this.btnStruct.Size = new System.Drawing.Size(132, 23);
+            this.btnStruct.TabIndex = 2;
+            this.btnStruct.Text = "Struktur Laden";
+            this.btnStruct.UseVisualStyleBackColor = true;
+            this.btnStruct.Click += new System.EventHandler(this.btnStruct_Click);
+            // 
+            // btnGetNewData
+            // 
+            this.btnGetNewData.Location = new System.Drawing.Point(9, 65);
+            this.btnGetNewData.Name = "btnGetNewData";
+            this.btnGetNewData.Size = new System.Drawing.Size(170, 42);
+            this.btnGetNewData.TabIndex = 3;
+            this.btnGetNewData.Text = "Tabelle Übertragen";
+            this.btnGetNewData.UseVisualStyleBackColor = true;
+            this.btnGetNewData.Click += new System.EventHandler(this.btnGetNewData_Click);
             // 
             // FrmWeiserRieseMain
             // 
@@ -373,7 +406,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRiese)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -408,8 +441,10 @@
         private System.Windows.Forms.DataGridView dgvExtern;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvWeiserRiese;
         private System.Windows.Forms.ComboBox cbOriginTable;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnStruct;
+        private System.Windows.Forms.Button btnGetNewData;
     }
 }

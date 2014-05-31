@@ -57,5 +57,83 @@ namespace Supernova.data
 
             return dt;
         }
+
+        public DataTable GetAllColumnsUser()
+        {
+            DataTable dt = new DataTable();
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                string commandText = "Call GetTableStruct(@tabname)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("tabname", "user");
+                cmd.Parameters["tabname"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+
+        }
+
+        public DataTable GetAllColumnsDepartment()
+        {
+            DataTable dt = new DataTable();
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                string commandText = "Call GetTableStruct(@tabname)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("tabname", "Departments");
+                cmd.Parameters["tabname"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                MySqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                dt.Load(rdr);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
     }
 }
