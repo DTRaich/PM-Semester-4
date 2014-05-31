@@ -24,7 +24,6 @@ namespace Supernova.data
 
             try
             {
-                //SaveOrUpdateUser firstN, lastN,u_name,email,Passwort, groupsid, depid, userID 
 
                 string commandText = "Call DeleteUser(@deletID)";
                 MySqlCommand cmd = new MySqlCommand();
@@ -963,6 +962,43 @@ namespace Supernova.data
             return retval;
 
         }
-        
+
+
+        public void DeleteProject(int id)
+        {
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+
+            try
+            {
+
+                string commandText = "Call DeleteProject(@id)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("id", id);
+                cmd.Parameters["id"].Direction = ParameterDirection.Input;   
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }

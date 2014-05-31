@@ -42,7 +42,7 @@ namespace Supernova.Sub_Forms.Overview
             LoadMainGrid();
             fillFilter();
             fillDragDropTable();
-           adminorGLVal=  checkAdminOrGL();
+            adminorGLVal=  checkAdminOrGL();
         }
 
         
@@ -130,6 +130,14 @@ namespace Supernova.Sub_Forms.Overview
         }
     #endregion 
     #region CMSCLICk
+
+        private void tsmDelete_Click(object sender, EventArgs e)
+        {
+            DataSave saver = new DataSave();
+            saver.DeleteProject(currentProjectID);
+            InitializeCustom();
+        }
+
         private void tsmDetail_Click(object sender, EventArgs e)
         {
             FrmProjectDetails detail = new FrmProjectDetails(currentProjectID, currentPoints, currentProjectName);
@@ -141,6 +149,7 @@ namespace Supernova.Sub_Forms.Overview
         {
             Leader lead = Leader.getLeaderInst();
             lead.LoadEditProjects(currentProjectID);
+
 
         }
 
@@ -398,10 +407,14 @@ namespace Supernova.Sub_Forms.Overview
             if(AllowChanging())
             {
                 tsmChange.Enabled = true;
+                tsmDelete.Enabled = true;
+                
 
             }else
             {
                 tsmChange.Enabled = false;
+                tsmDelete.Enabled = false;
+
             }
            
         }
@@ -502,6 +515,10 @@ namespace Supernova.Sub_Forms.Overview
                 GC.Collect();
             }
         }
+
+       
+
+       
         
 
 

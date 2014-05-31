@@ -36,8 +36,10 @@
             this.tsmDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmChange = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmHaveTo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.mainpnl = new System.Windows.Forms.Panel();
             this.gbAnalysis = new System.Windows.Forms.GroupBox();
+            this.btnExcelExport = new System.Windows.Forms.Button();
             this.clbBox = new System.Windows.Forms.CheckedListBox();
             this.btnRiskCostAnalysis = new System.Windows.Forms.Button();
             this.btnStrategieAnalysis = new System.Windows.Forms.Button();
@@ -50,7 +52,6 @@
             this.cbMy = new System.Windows.Forms.CheckBox();
             this.cbStrategy = new System.Windows.Forms.ComboBox();
             this.lblStrategy = new System.Windows.Forms.Label();
-            this.btnExcelExport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.cmsGridMenu.SuspendLayout();
@@ -105,9 +106,10 @@
             this.cmsGridMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmDetail,
             this.tsmChange,
-            this.tsmHaveTo});
+            this.tsmHaveTo,
+            this.tsmDelete});
             this.cmsGridMenu.Name = "cmsGridMenu";
-            this.cmsGridMenu.Size = new System.Drawing.Size(201, 70);
+            this.cmsGridMenu.Size = new System.Drawing.Size(201, 114);
             this.cmsGridMenu.Text = "Menu";
             this.cmsGridMenu.Opening += new System.ComponentModel.CancelEventHandler(this.cmsGridMenu_Opening);
             // 
@@ -131,6 +133,13 @@
             this.tsmHaveTo.Size = new System.Drawing.Size(200, 22);
             this.tsmHaveTo.Text = "\"Muss\" Projekt(Ja/Nein)";
             this.tsmHaveTo.Click += new System.EventHandler(this.tsmHaveTo_Click);
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(200, 22);
+            this.tsmDelete.Text = "Projekt löschen";
+            this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
             // 
             // mainpnl
             // 
@@ -156,6 +165,16 @@
             this.gbAnalysis.TabIndex = 0;
             this.gbAnalysis.TabStop = false;
             this.gbAnalysis.Text = "Auswertungen";
+            // 
+            // btnExcelExport
+            // 
+            this.btnExcelExport.Location = new System.Drawing.Point(6, 98);
+            this.btnExcelExport.Name = "btnExcelExport";
+            this.btnExcelExport.Size = new System.Drawing.Size(168, 34);
+            this.btnExcelExport.TabIndex = 5;
+            this.btnExcelExport.Text = "Excel Export";
+            this.btnExcelExport.UseVisualStyleBackColor = true;
+            this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
             // 
             // clbBox
             // 
@@ -281,16 +300,6 @@
             this.lblStrategy.TabIndex = 0;
             this.lblStrategy.Text = "Strategie";
             // 
-            // btnExcelExport
-            // 
-            this.btnExcelExport.Location = new System.Drawing.Point(6, 98);
-            this.btnExcelExport.Name = "btnExcelExport";
-            this.btnExcelExport.Size = new System.Drawing.Size(168, 34);
-            this.btnExcelExport.TabIndex = 5;
-            this.btnExcelExport.Text = "Excel Export";
-            this.btnExcelExport.UseVisualStyleBackColor = true;
-            this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
-            // 
             // FrmProjectOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,5 +345,6 @@
         private System.Windows.Forms.Button btnStrategieAnalysis;
         private System.Windows.Forms.CheckedListBox clbBox;
         private System.Windows.Forms.Button btnExcelExport;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
     }
 }
