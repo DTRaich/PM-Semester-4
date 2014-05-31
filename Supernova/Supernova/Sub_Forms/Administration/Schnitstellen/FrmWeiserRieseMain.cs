@@ -110,6 +110,9 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
            connect = ConnectorFactory.getConnector(dbty);
            connect.ConString = con;
            externTable = connect.SelectTable(tableName, filter);
+           dgvExtern.DataSource = null;
+           dgvExtern.DataSource = externTable;
+
              
         }
 

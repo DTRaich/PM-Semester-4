@@ -17,14 +17,6 @@ namespace Supernova.Sub_Forms.Overview
 
         AnalysisHelper ah = new AnalysisHelper();
 
-        // Risiko -> x achse
-        // NPV --> 
-        // Kosten --> y achse
-        //public FrmProjectAnalysis()
-        //{
-        //    InitializeComponent();
-        //}
-
         public FrmProjectAnalysis(DataTable dragTable)
         {
 
@@ -43,10 +35,6 @@ namespace Supernova.Sub_Forms.Overview
                 chartKostRisk.Series[dr[1].ToString()].Points.AddXY(value[0], value[1], value[2]);
                 
             }
-
-            
-      
-
 
         }
     }

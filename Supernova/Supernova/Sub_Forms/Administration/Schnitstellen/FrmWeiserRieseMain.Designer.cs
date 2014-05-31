@@ -187,7 +187,6 @@
             this.txtcolumn2.Name = "txtcolumn2";
             this.txtcolumn2.Size = new System.Drawing.Size(117, 23);
             this.txtcolumn2.TabIndex = 15;
-            this.txtcolumn2.Text = "Spaltenname";
             // 
             // cbOperant2
             // 
@@ -227,7 +226,6 @@
             this.txtcolumn1.Name = "txtcolumn1";
             this.txtcolumn1.Size = new System.Drawing.Size(117, 23);
             this.txtcolumn1.TabIndex = 10;
-            this.txtcolumn1.Text = "Spaltenname";
             // 
             // label1
             // 
@@ -244,6 +242,7 @@
             this.txtTabelle.Name = "txtTabelle";
             this.txtTabelle.Size = new System.Drawing.Size(117, 23);
             this.txtTabelle.TabIndex = 8;
+            this.txtTabelle.Text = "USER_DEMO_A";
             // 
             // txtConnect
             // 

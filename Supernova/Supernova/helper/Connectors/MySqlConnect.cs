@@ -67,8 +67,24 @@ namespace Supernova.helper.Connectors
             try
             {
                 connection.Open();
-                string com1 = "Select ";
-                string comand = "Select GR_FORMS,GR_RIGHTS,GR_GROUP from group_rights where GR_GROUP = " + groupID;
+                string cm1 = "Select * from " + TableName;
+                string cm2 = string.Empty;
+                string cm3 = string.Empty;
+
+                if (Filter.Rows.Count > 0 && Filter.Rows.Count < 2)
+                {
+                    cm2 = " Where " + Filter.Rows[0][0].ToString() + " " + getOperant(Filter.Rows[0][1].ToString()) + " "+Filter.Rows[0][1].ToString()+" ;";
+                }
+                else
+                {
+                    if (Filter.Rows.Count == 2)
+                    {
+                        cm2 = " Where " + Filter.Rows[0][0].ToString() + " " + getOperant(Filter.Rows[0][1].ToString()) + " " + Filter.Rows[0][2].ToString() + " ;";
+                        cm3 = " " + getConnector(Filter.Rows[0][3].ToString()) + " " + Filter.Rows[1][0].ToString() + " " + getOperant(Filter.Rows[1][1].ToString()) + " " + Filter.Rows[1][2].ToString() + " ;";
+
+                    }
+                }     
+                string comand = cm1+ cm2+cm3;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
 
@@ -87,5 +103,7 @@ namespace Supernova.helper.Connectors
 
             return dt;
         }
+
+ 
     }
 }
