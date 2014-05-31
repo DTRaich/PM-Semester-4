@@ -226,12 +226,12 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             }
             DataColumn dc = new DataColumn("Referenz-Spalte");
             dt.Columns.Add(dc);
-            dgvWeiserRiese.DataSource = null;
-            dgvWeiserRiese.DataSource = dt;
+            dgvWeiserRieseStruct.DataSource = null;
+            dgvWeiserRieseStruct.DataSource = dt;
 
-            for (int i = 0; i < dgvWeiserRiese.Columns.Count; i++)
+            for (int i = 0; i < dgvWeiserRieseStruct.Columns.Count; i++)
             {
-                dgvWeiserRiese.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                dgvWeiserRieseStruct.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
         }

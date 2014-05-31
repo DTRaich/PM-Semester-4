@@ -30,7 +30,6 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvExtern = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -53,19 +52,38 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblDBTYP = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvWeiserRiese = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnGetStructAndWholetable = new System.Windows.Forms.Button();
+            this.btnStruct = new System.Windows.Forms.Button();
             this.cbOriginTable = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnStruct = new System.Windows.Forms.Button();
-            this.btnGetNewData = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvExtern = new System.Windows.Forms.DataGridView();
+            this.dgvExternStruct = new System.Windows.Forms.DataGridView();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dgvWeiserRieseStruct = new System.Windows.Forms.DataGridView();
+            this.dgvWeiserRieseInhalt = new System.Windows.Forms.DataGridView();
+            this.btnGetAViewData = new System.Windows.Forms.Button();
+            this.btnDiscardSettings = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRiese)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExternStruct)).BeginInit();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRieseStruct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRieseInhalt)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -86,30 +104,13 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dgvExtern);
+            this.panel1.Controls.Add(this.tabControl1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(486, 535);
             this.panel1.TabIndex = 0;
-            // 
-            // dgvExtern
-            // 
-            this.dgvExtern.AllowUserToAddRows = false;
-            this.dgvExtern.AllowUserToDeleteRows = false;
-            this.dgvExtern.AllowUserToOrderColumns = true;
-            this.dgvExtern.AllowUserToResizeColumns = false;
-            this.dgvExtern.AllowUserToResizeRows = false;
-            this.dgvExtern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExtern.Location = new System.Drawing.Point(9, 250);
-            this.dgvExtern.MultiSelect = false;
-            this.dgvExtern.Name = "dgvExtern";
-            this.dgvExtern.ReadOnly = true;
-            this.dgvExtern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvExtern.Size = new System.Drawing.Size(470, 282);
-            this.dgvExtern.TabIndex = 1;
-            this.dgvExtern.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvExtern_MouseDown);
             // 
             // groupBox1
             // 
@@ -314,7 +315,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgvWeiserRiese);
+            this.panel2.Controls.Add(this.tabControl2);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(495, 3);
@@ -322,25 +323,11 @@
             this.panel2.Size = new System.Drawing.Size(487, 535);
             this.panel2.TabIndex = 1;
             // 
-            // dgvWeiserRiese
-            // 
-            this.dgvWeiserRiese.AllowDrop = true;
-            this.dgvWeiserRiese.AllowUserToAddRows = false;
-            this.dgvWeiserRiese.AllowUserToDeleteRows = false;
-            this.dgvWeiserRiese.AllowUserToResizeColumns = false;
-            this.dgvWeiserRiese.AllowUserToResizeRows = false;
-            this.dgvWeiserRiese.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dgvWeiserRiese.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvWeiserRiese.Location = new System.Drawing.Point(4, 128);
-            this.dgvWeiserRiese.Name = "dgvWeiserRiese";
-            this.dgvWeiserRiese.Size = new System.Drawing.Size(474, 404);
-            this.dgvWeiserRiese.TabIndex = 1;
-            this.dgvWeiserRiese.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRiese_DragDrop);
-            this.dgvWeiserRiese.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRiese_DragEnter);
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnGetNewData);
+            this.groupBox2.Controls.Add(this.btnDiscardSettings);
+            this.groupBox2.Controls.Add(this.btnGetAViewData);
+            this.groupBox2.Controls.Add(this.btnGetStructAndWholetable);
             this.groupBox2.Controls.Add(this.btnStruct);
             this.groupBox2.Controls.Add(this.cbOriginTable);
             this.groupBox2.Controls.Add(this.label5);
@@ -351,6 +338,26 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Referenz";
+            // 
+            // btnGetStructAndWholetable
+            // 
+            this.btnGetStructAndWholetable.Location = new System.Drawing.Point(6, 65);
+            this.btnGetStructAndWholetable.Name = "btnGetStructAndWholetable";
+            this.btnGetStructAndWholetable.Size = new System.Drawing.Size(118, 42);
+            this.btnGetStructAndWholetable.TabIndex = 3;
+            this.btnGetStructAndWholetable.Text = "Tabelle Übertragen";
+            this.btnGetStructAndWholetable.UseVisualStyleBackColor = true;
+            this.btnGetStructAndWholetable.Click += new System.EventHandler(this.btnGetNewData_Click);
+            // 
+            // btnStruct
+            // 
+            this.btnStruct.Location = new System.Drawing.Point(278, 28);
+            this.btnStruct.Name = "btnStruct";
+            this.btnStruct.Size = new System.Drawing.Size(132, 23);
+            this.btnStruct.TabIndex = 2;
+            this.btnStruct.Text = "Struktur Laden";
+            this.btnStruct.UseVisualStyleBackColor = true;
+            this.btnStruct.Click += new System.EventHandler(this.btnStruct_Click);
             // 
             // cbOriginTable
             // 
@@ -369,25 +376,154 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Tabelle";
             // 
-            // btnStruct
+            // tabControl1
             // 
-            this.btnStruct.Location = new System.Drawing.Point(278, 28);
-            this.btnStruct.Name = "btnStruct";
-            this.btnStruct.Size = new System.Drawing.Size(132, 23);
-            this.btnStruct.TabIndex = 2;
-            this.btnStruct.Text = "Struktur Laden";
-            this.btnStruct.UseVisualStyleBackColor = true;
-            this.btnStruct.Click += new System.EventHandler(this.btnStruct_Click);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(9, 250);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(470, 282);
+            this.tabControl1.TabIndex = 2;
             // 
-            // btnGetNewData
+            // tabPage1
             // 
-            this.btnGetNewData.Location = new System.Drawing.Point(9, 65);
-            this.btnGetNewData.Name = "btnGetNewData";
-            this.btnGetNewData.Size = new System.Drawing.Size(170, 42);
-            this.btnGetNewData.TabIndex = 3;
-            this.btnGetNewData.Text = "Tabelle Übertragen";
-            this.btnGetNewData.UseVisualStyleBackColor = true;
-            this.btnGetNewData.Click += new System.EventHandler(this.btnGetNewData_Click);
+            this.tabPage1.Controls.Add(this.dgvExternStruct);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(462, 256);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Struktur";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dgvExtern);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(462, 256);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Inhalt";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvExtern
+            // 
+            this.dgvExtern.AllowUserToAddRows = false;
+            this.dgvExtern.AllowUserToDeleteRows = false;
+            this.dgvExtern.AllowUserToOrderColumns = true;
+            this.dgvExtern.AllowUserToResizeColumns = false;
+            this.dgvExtern.AllowUserToResizeRows = false;
+            this.dgvExtern.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExtern.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvExtern.Location = new System.Drawing.Point(3, 3);
+            this.dgvExtern.MultiSelect = false;
+            this.dgvExtern.Name = "dgvExtern";
+            this.dgvExtern.ReadOnly = true;
+            this.dgvExtern.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvExtern.Size = new System.Drawing.Size(456, 250);
+            this.dgvExtern.TabIndex = 3;
+            // 
+            // dgvExternStruct
+            // 
+            this.dgvExternStruct.AllowUserToAddRows = false;
+            this.dgvExternStruct.AllowUserToDeleteRows = false;
+            this.dgvExternStruct.AllowUserToOrderColumns = true;
+            this.dgvExternStruct.AllowUserToResizeColumns = false;
+            this.dgvExternStruct.AllowUserToResizeRows = false;
+            this.dgvExternStruct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExternStruct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvExternStruct.Location = new System.Drawing.Point(3, 3);
+            this.dgvExternStruct.MultiSelect = false;
+            this.dgvExternStruct.Name = "dgvExternStruct";
+            this.dgvExternStruct.ReadOnly = true;
+            this.dgvExternStruct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvExternStruct.Size = new System.Drawing.Size(456, 250);
+            this.dgvExternStruct.TabIndex = 0;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Location = new System.Drawing.Point(13, 123);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(465, 409);
+            this.tabControl2.TabIndex = 2;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvWeiserRieseStruct);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(457, 383);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Struktur";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dgvWeiserRieseInhalt);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(457, 383);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "Inhalt";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dgvWeiserRieseStruct
+            // 
+            this.dgvWeiserRieseStruct.AllowDrop = true;
+            this.dgvWeiserRieseStruct.AllowUserToAddRows = false;
+            this.dgvWeiserRieseStruct.AllowUserToDeleteRows = false;
+            this.dgvWeiserRieseStruct.AllowUserToResizeColumns = false;
+            this.dgvWeiserRieseStruct.AllowUserToResizeRows = false;
+            this.dgvWeiserRieseStruct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgvWeiserRieseStruct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWeiserRieseStruct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWeiserRieseStruct.Location = new System.Drawing.Point(3, 3);
+            this.dgvWeiserRieseStruct.MultiSelect = false;
+            this.dgvWeiserRieseStruct.Name = "dgvWeiserRieseStruct";
+            this.dgvWeiserRieseStruct.Size = new System.Drawing.Size(451, 377);
+            this.dgvWeiserRieseStruct.TabIndex = 2;
+            // 
+            // dgvWeiserRieseInhalt
+            // 
+            this.dgvWeiserRieseInhalt.AllowDrop = true;
+            this.dgvWeiserRieseInhalt.AllowUserToAddRows = false;
+            this.dgvWeiserRieseInhalt.AllowUserToDeleteRows = false;
+            this.dgvWeiserRieseInhalt.AllowUserToOrderColumns = true;
+            this.dgvWeiserRieseInhalt.AllowUserToResizeColumns = false;
+            this.dgvWeiserRieseInhalt.AllowUserToResizeRows = false;
+            this.dgvWeiserRieseInhalt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvWeiserRieseInhalt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvWeiserRieseInhalt.Location = new System.Drawing.Point(3, 3);
+            this.dgvWeiserRieseInhalt.MultiSelect = false;
+            this.dgvWeiserRieseInhalt.Name = "dgvWeiserRieseInhalt";
+            this.dgvWeiserRieseInhalt.ReadOnly = true;
+            this.dgvWeiserRieseInhalt.Size = new System.Drawing.Size(451, 377);
+            this.dgvWeiserRieseInhalt.TabIndex = 0;
+            // 
+            // btnGetAViewData
+            // 
+            this.btnGetAViewData.Location = new System.Drawing.Point(367, 65);
+            this.btnGetAViewData.Name = "btnGetAViewData";
+            this.btnGetAViewData.Size = new System.Drawing.Size(101, 42);
+            this.btnGetAViewData.TabIndex = 4;
+            this.btnGetAViewData.Text = "Auswahl Übertragen";
+            this.btnGetAViewData.UseVisualStyleBackColor = true;
+            // 
+            // btnDiscardSettings
+            // 
+            this.btnDiscardSettings.Location = new System.Drawing.Point(202, 69);
+            this.btnDiscardSettings.Name = "btnDiscardSettings";
+            this.btnDiscardSettings.Size = new System.Drawing.Size(100, 35);
+            this.btnDiscardSettings.TabIndex = 5;
+            this.btnDiscardSettings.Text = "Verwerfen";
+            this.btnDiscardSettings.UseVisualStyleBackColor = true;
             // 
             // FrmWeiserRieseMain
             // 
@@ -402,13 +538,21 @@
             this.Text = "Schnittstelle-Weiser Riese";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRiese)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExtern)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvExternStruct)).EndInit();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRieseStruct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvWeiserRieseInhalt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -438,13 +582,23 @@
         private System.Windows.Forms.ComboBox cbOperant2;
         private System.Windows.Forms.ComboBox cbConnector;
         private System.Windows.Forms.Label Operant;
-        private System.Windows.Forms.DataGridView dgvExtern;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.DataGridView dgvWeiserRiese;
         private System.Windows.Forms.ComboBox cbOriginTable;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnStruct;
-        private System.Windows.Forms.Button btnGetNewData;
+        private System.Windows.Forms.Button btnGetStructAndWholetable;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dgvExternStruct;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dgvExtern;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.DataGridView dgvWeiserRieseStruct;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dgvWeiserRieseInhalt;
+        private System.Windows.Forms.Button btnDiscardSettings;
+        private System.Windows.Forms.Button btnGetAViewData;
     }
 }
