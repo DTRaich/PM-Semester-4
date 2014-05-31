@@ -1,6 +1,7 @@
 ﻿using Supernova.interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -11,19 +12,19 @@ namespace Supernova.helper.Connectors
     {
         string conString;
 
-        public string ConString
+        public virtual string ConString
         {
             get { return conString; }
             set { conString = value; }
         }
 
 
-        public bool connectToDB()
+        public virtual bool connectToDB()
         {
             return true;
         }
 
-        public System.Data.DataTable SelectTable(string TableName, System.Data.DataTable Filter)
+        public virtual DataTable SelectTable(string TableName, System.Data.DataTable Filter)
         {
             return null;
         }
@@ -37,13 +38,13 @@ namespace Supernova.helper.Connectors
         {
             switch (db)
             {
-                case DBTYPE.MySql:
+                case DBTYPE.MySql: MySqlConnector.getInstance();
                    
                     break;
                
             }
-            return new MySqlConnector();
 
+            return MySqlConnector.getInstance();
          }
     }
 }

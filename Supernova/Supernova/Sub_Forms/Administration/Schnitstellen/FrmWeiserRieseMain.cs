@@ -108,6 +108,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         {
            DataTable filter = getFilterStuff();
            connect = ConnectorFactory.getConnector(dbty);
+           connect.ConString = con;
            externTable = connect.SelectTable(tableName, filter);
              
         }
@@ -125,7 +126,41 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             dt.Columns.Add(dc2);
             dt.Columns.Add(dc3);
             dt.AcceptChanges();
+            DataRow dr;
+            DataRow dr2;
+
+            string column1 = txtcolumn1.Text;
+            string column2 = txtcolumn1.Text;
+            string wert1 = txtvalue1.Text;
+            string wert2 = txtvalue2.Text;
             #endregion
+                       
+            if (!String.IsNullOrEmpty(column1) && !String.IsNullOrEmpty(wert1))
+            {
+                 Operant op = (Operant)Enum.Parse(typeof(Operant), cbOperant1.SelectedItem.ToString());
+                dr = dt.NewRow();
+                dr[0] = column1;
+                dr[1] = op ;
+                dr[2] = wert1;
+                if (!String.IsNullOrEmpty(column2) && !String.IsNullOrEmpty(wert2))
+                {
+                    Operant op2 = (Operant)Enum.Parse(typeof(Operant), cbOperant2.SelectedItem.ToString());
+                    Connector con = (Connector)Enum.Parse(typeof(Connector), cbConnector.SelectedItem.ToString());
+                    dr[3] = con;
+                    dr2 = dt.NewRow();
+                    dr2[0] = column2;
+                    dr2[1] = op2;
+                    dr2[2] = wert2;
+                    dt.Rows.Add(dr);
+                    dt.Rows.Add(dr2);
+
+                }
+                else
+                {
+                    dt.Rows.Add(dr);
+                }
+            }
+            dt.AcceptChanges();
             return dt;
         }
        
