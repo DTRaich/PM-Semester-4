@@ -28,6 +28,10 @@ namespace Supernova.helper.Connectors
         {
             return null;
         }
+        public virtual DataTable SelectStruct(string TableName)
+        {
+            return null;
+        }
         protected string getConnector(string p)
         {
             Connector c = (Connector)Enum.Parse(typeof(Connector), p);

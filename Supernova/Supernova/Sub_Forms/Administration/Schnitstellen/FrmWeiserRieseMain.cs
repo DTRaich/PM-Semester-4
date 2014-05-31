@@ -97,6 +97,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             if (!String.IsNullOrEmpty(tableName) && !String.IsNullOrEmpty(connectString))
             {
                 LoadTable(DB, connectString, tableName);
+                
             }
             else
             {
@@ -111,12 +112,20 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
            connect = ConnectorFactory.getConnector(dbty);
            connect.ConString = con;
            externTable = connect.SelectTable(tableName, filter);
+           DataTable Struktur = connect.SelectStruct(tableName);
            dgvExtern.DataSource = null;
            dgvExtern.DataSource = externTable;
+
+           dgvExternStruct.DataSource = null;
+           dgvExternStruct.DataSource = Struktur;
 
            for (int i = 0; i < dgvExtern.Columns.Count; i++)
            {
                dgvExtern.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+           }
+           for (int i = 0; i < dgvExternStruct.Columns.Count; i++)
+           {
+               dgvExternStruct.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
            }
 
              
@@ -214,24 +223,35 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         {
             ValidationData val = new ValidationData();
             Tables tabl = (Tables)Enum.Parse(typeof(Tables), cbOriginTable.SelectedItem.ToString());
-            DataTable dt;
-
+            DataTable structur;
+            DataTable inhalt;
             if (tabl == Tables.Abteilungen)
             {
-                dt = val.GetAllColumnsDepartment();
+                structur = val.GetAllColumnsDepartment();
+                inhalt = val.GetRowDepartment();
             }
             else
             {
-                dt = val.GetAllColumnsUser();
+                structur = val.GetAllColumnsUser();
+                inhalt = val.GetRowUser();
             }
             DataColumn dc = new DataColumn("Referenz-Spalte");
-            dt.Columns.Add(dc);
+            structur.Columns.Add(dc);
             dgvWeiserRieseStruct.DataSource = null;
-            dgvWeiserRieseStruct.DataSource = dt;
+            dgvWeiserRieseStruct.DataSource = structur;
+
+            dgvWeiserRieseInhalt.DataSource = null;
+            dgvWeiserRieseInhalt.DataSource = inhalt;
+            dgvWeiserRieseInhalt.Columns[0].Visible = false;
+
 
             for (int i = 0; i < dgvWeiserRieseStruct.Columns.Count; i++)
             {
                 dgvWeiserRieseStruct.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            for (int i = 0; i < dgvWeiserRieseInhalt.Columns.Count; i++)
+            {
+                dgvWeiserRieseInhalt.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
         }
@@ -242,6 +262,11 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
 
         #endregion
+
+        private void txtConnect_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         #region rightside methods
 

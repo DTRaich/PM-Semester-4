@@ -26,6 +26,36 @@ namespace Supernova.helper.Connectors
             return instance;
         }
 
+        public override DataTable SelectStruct(string TableName)
+        {
+            DataTable dt = new DataTable();
+
+            MySqlConnection connection = new MySqlConnection(conString);
+            try
+            {
+                connection.Open();
+                
+                string comand ="SELECT COLUMN_NAME,IS_NULLABLE , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH as MAX_LENGTH";
+                comand = comand + " FROM information_schema.columns WHERE table_name= '" + TableName+ "' ";
+                comand = comand + " order by ORDINAL_POSITION";
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Auf die Tabelle konnte nicht zugegriffen werden");
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
 
 
         public override string ConString

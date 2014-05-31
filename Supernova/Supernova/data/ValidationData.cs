@@ -58,6 +58,7 @@ namespace Supernova.data
             return dt;
         }
 
+        #region riese
         public DataTable GetAllColumnsUser()
         {
             DataTable dt = new DataTable();
@@ -135,5 +136,71 @@ namespace Supernova.data
             return dt;
         }
 
+
+        public DataTable GetRowDepartment()
+        {
+            DataTable dt = new DataTable();
+
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+
+                string comand = "SELECT * from Departments where DEPARTMENTS_ID = 0";
+             
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return dt;
+        }
+
+        public DataTable GetRowUser()
+        {
+            DataTable dt = new DataTable();
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                connection.Open();
+
+                string comand = "SELECT * from user where USER_ID = 0";
+
+                MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
+                adap.Fill(dt);
+                         
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return dt;
+        }
+
+        #endregion
     }
 }
