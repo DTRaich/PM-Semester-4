@@ -52,7 +52,7 @@ namespace Supernova.helper
         {
             int[] Strat = new int[5];
 
-            DataTable dt = aloader.LoadCategory();
+            DataTable dt = aloader.LoadStrategy();
 
             for (int i = 0; i <= 4; i++)
             {
@@ -64,7 +64,7 @@ namespace Supernova.helper
         {
             String[] Strat = new String[5];
 
-            DataTable dt = aloader.LoadCategory();
+            DataTable dt = aloader.LoadStrategy();
 
             for (int i = 0; i <= 4; i++)
             {
