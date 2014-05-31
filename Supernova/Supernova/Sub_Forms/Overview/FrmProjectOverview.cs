@@ -124,6 +124,7 @@ namespace Supernova.Sub_Forms.Overview
             mainGrid.Columns[0].Visible = false;
             mainGrid.Columns["MUSS_Projekt"].Visible = false;
             mainGrid.Columns[mainGrid.Columns.Count-2].Visible = false;
+            mainGrid.Columns[mainGrid.Columns.Count - 3].Visible = false;
 
 
         }
@@ -415,9 +416,12 @@ namespace Supernova.Sub_Forms.Overview
             else
             {
                 int userid = Leader.getLeaderInst().getUserID();
-                int columindex = mainGrid.Columns.Count - 2;
+                int columindexCreat = mainGrid.Columns.Count - 3;
+                int columindexLead = mainGrid.Columns.Count - 2;
 
-                if (userid == Convert.ToInt32(mainGrid[columindex, currentRow].Value.ToString()))
+                int ersteller = Convert.ToInt32(mainGrid[columindexCreat, currentRow].Value.ToString()) ;
+                int leiter = Convert.ToInt32(mainGrid[columindexLead, currentRow].Value.ToString());
+                if (userid == ersteller ||userid == leiter )
                 {
                     retval = true;
                 }
