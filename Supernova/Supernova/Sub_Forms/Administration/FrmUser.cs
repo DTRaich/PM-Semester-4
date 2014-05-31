@@ -422,6 +422,16 @@ namespace Supernova.Sub_Forms.Administration
         {
 
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DataSave saver = new DataSave();
+            saver.UnlockUser(userdata.userID);
+
+            FrmAfirmative unlocked = new FrmAfirmative("User wurder erfolgreich ausgeloggt.", 'i');
+            unlocked.ShowDialog();
+            
+        }
   
     }
 }

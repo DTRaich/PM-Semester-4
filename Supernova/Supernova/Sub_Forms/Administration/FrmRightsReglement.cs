@@ -18,6 +18,7 @@ namespace Supernova.Sub_Forms.Administration
         DataTable rights;
         DataTable rightsMapping;
         DataTable originRightsMapping;
+        int groupID = 0;
         
 
         ParameterLoad pl;
@@ -51,6 +52,7 @@ namespace Supernova.Sub_Forms.Administration
 
         private bool loadTables()
         {
+            groupID = Convert.ToInt32(cbUserGroups.SelectedValue);
             resetGrid();
       
             bool retval = true;
@@ -148,10 +150,25 @@ namespace Supernova.Sub_Forms.Administration
             DataRow dr;
             foreach (DataGridViewRow r in rightsGrid.Rows) 
             {
-                dr = newRights.NewRow();
-                dr[0] = Convert.ToInt32(r.Cells[1].Value);
-                dr[1] = Convert.ToInt32(r.Cells[0].Value);
+                //dr = newRights.NewRow();
+                //dr[0] = Convert.ToInt32(r.Cells[0].Value);
+                //dr[1] = Convert.ToInt32(r.Cells[5].Value);
+                //newRights.Rows.Add(dr);
             }
+            newRights.AcceptChanges();
+            DataSave saver = new DataSave();
+            if (saver.UpdateRights(newRights, groupID))
+            {
+                FrmAfirmative updated = new FrmAfirmative("Die neuen Rechte wurden gespeichert.", 'i');
+                updated.ShowDialog();
+            }
+            else 
+            {
+                FrmAfirmative error = new FrmAfirmative("Die Rechte konnten nicht gespeichert werden.\nBitte wenden sie sich an ihren Administrator.", 'e');
+                error.ShowDialog();
+            }
+
+
             
         }
 

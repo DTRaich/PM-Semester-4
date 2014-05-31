@@ -52,6 +52,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblNachname = new System.Windows.Forms.Label();
             this.lblVorname = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.gb_Load.SuspendLayout();
             this.gb_change.SuspendLayout();
             this.SuspendLayout();
@@ -120,6 +121,7 @@
             // 
             // gb_change
             // 
+            this.gb_change.Controls.Add(this.btnLogOut);
             this.gb_change.Controls.Add(this.btnCancel);
             this.gb_change.Controls.Add(this.btnDelete);
             this.gb_change.Controls.Add(this.mtbPassword);
@@ -303,6 +305,17 @@
             this.lblVorname.TabIndex = 0;
             this.lblVorname.Text = "Vorname";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(497, 198);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(150, 32);
+            this.btnLogOut.TabIndex = 18;
+            this.btnLogOut.Text = "User ausloggen";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +360,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnList;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

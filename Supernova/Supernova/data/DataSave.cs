@@ -256,6 +256,101 @@ namespace Supernova.data
         }
 
 
+        public bool UpdateRights(DataTable newRights, int groupId)
+        {
+            dbError.deleteDBError();
+
+            MySqlConnection connection = new MySqlConnection(conSting);
+            bool retval = true;
+
+            try
+            {
+                foreach (DataRow dr in newRights.Rows)
+                {
+                    string commandText = "Call UpdateRights(@formsID,@gID,@rightsID)";
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = commandText;
+
+                    cmd.Parameters.AddWithValue("formsID", dr[0]);
+                    cmd.Parameters["formsID"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("gID", groupId);
+                    cmd.Parameters["gID"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("rightsID", dr[1]);
+                    cmd.Parameters["rightsID"].Direction = ParameterDirection.Input;
+
+                    connection.Open();
+                    cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    connection.Close();
+
+                    retval = true;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+            return retval;
+        }
+
+        public bool UnlockUser(int userID)
+        {
+            dbError.deleteDBError();
+
+            MySqlConnection connection = new MySqlConnection(conSting);
+            bool retval = true;
+
+            try
+            {
+                string commandText = "Call UnlockUSER(@userid)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("userid", userID);
+                cmd.Parameters["userid"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                retval = false;
+                dbError.setDBError("Dieser User kann gerade nicht ausgeloggt werden. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+            return retval;
+        }
+
+        
+
+
         #endregion
 
         # region departments
