@@ -146,7 +146,9 @@ namespace Supernova.data
             try
             {
                 connection.Open();
-                string comand = "Select GR_FORMS,GR_RIGHTS,GR_GROUP from group_rights where GR_GROUP = " + groupID;
+                string com1 ="Select GR_FORMS,F_DESCRIPTION,GR_RIGHTS,GR_GROUP,R_NAME from group_rights,forms,rights where GR_GROUP = " + groupID;
+                string com2 ="  AND GR_FORMS = FORMS_ID AND GR_RIGHTS = RIGHTS_ID";
+                string comand = com1 + com2;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
             }
@@ -736,6 +738,7 @@ namespace Supernova.data
             }
             return dt;
         }
+
 
        
       

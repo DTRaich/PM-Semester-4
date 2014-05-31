@@ -34,6 +34,7 @@
             this.cbUserGroups = new System.Windows.Forms.ComboBox();
             this.gpContent = new System.Windows.Forms.GroupBox();
             this.rightsGrid = new System.Windows.Forms.DataGridView();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlPanel.SuspendLayout();
             this.gpLoad.SuspendLayout();
             this.gpContent.SuspendLayout();
@@ -63,6 +64,7 @@
             // 
             // btnLoadGroups
             // 
+            this.btnLoadGroups.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadGroups.Location = new System.Drawing.Point(465, 19);
             this.btnLoadGroups.Name = "btnLoadGroups";
             this.btnLoadGroups.Size = new System.Drawing.Size(143, 38);
@@ -81,6 +83,7 @@
             // 
             // gpContent
             // 
+            this.gpContent.Controls.Add(this.btnSave);
             this.gpContent.Controls.Add(this.rightsGrid);
             this.gpContent.Location = new System.Drawing.Point(12, 89);
             this.gpContent.Name = "gpContent";
@@ -101,7 +104,17 @@
             this.rightsGrid.Name = "rightsGrid";
             this.rightsGrid.Size = new System.Drawing.Size(522, 242);
             this.rightsGrid.TabIndex = 0;
-            this.rightsGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.rightsGrid_CellValueChanged);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(819, 239);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(96, 35);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "Speichern";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmRightsReglement
             // 
@@ -128,5 +141,6 @@
         private System.Windows.Forms.ComboBox cbUserGroups;
         private System.Windows.Forms.GroupBox gpContent;
         private System.Windows.Forms.DataGridView rightsGrid;
+        private System.Windows.Forms.Button btnSave;
     }
 }

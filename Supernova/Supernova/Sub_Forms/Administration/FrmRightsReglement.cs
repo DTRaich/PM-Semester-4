@@ -13,8 +13,8 @@ namespace Supernova.Sub_Forms.Administration
 {
     public partial class FrmRightsReglement : Form
     {
+        int newRight = 0;
         DataTable userGroups;
-        DataTable forms;
         DataTable rights;
         DataTable rightsMapping;
         DataTable originRightsMapping;
@@ -22,7 +22,6 @@ namespace Supernova.Sub_Forms.Administration
 
         ParameterLoad pl;
         DataLoad loader;
-
 
         public FrmRightsReglement()
         {
@@ -34,12 +33,13 @@ namespace Supernova.Sub_Forms.Administration
             startGridPreparing();
         }
 
+        #region prepare
+        
         private void startGridPreparing()
         {
             if (loadTables())
             {
                 prepareGridView();
-                setValues();
             }
             else 
             { 
@@ -51,58 +51,31 @@ namespace Supernova.Sub_Forms.Administration
 
         private bool loadTables()
         {
+            resetGrid();
+      
             bool retval = true;
+
             rights = pl.loadRights();
-            forms = pl.loadForms();
+
             rightsMapping = loader.loadRightsMappingTable(Convert.ToInt32(cbUserGroups.SelectedValue));
-            if (rights.Rows.Count > 0 && forms.Rows.Count > 0 && rightsMapping.Rows.Count > 0)
+            if (rightsMapping.Rows.Count > 0)
             {
                 originRightsMapping = rightsMapping.Copy();
             }
-            else 
+            else
             {
                 retval = false;
             }
             return retval;
-          
 
-        }
 
-        private void setValues()
-        {
-            rightsGrid.ReadOnly = false;
-            //rightsGrid.BeginEdit(true);
-            foreach (DataGridViewRow dr in rightsGrid.Rows) 
-            {
-                int formsID = Convert.ToInt32(dr.Cells[0].Value);
-
-                DataGridViewComboBoxCell cr = (DataGridViewComboBoxCell)dr.Cells[2];
-                cr.Value = 16;
-                
-
-            }
-            
-            rightsGrid.EndEdit();
-        }
-
-        private int getRightsID(int formsID)
-        {   
-            int rightsID = 0;
-
-            foreach(DataRow dr in rightsMapping.Rows)
-            {
-                if (Convert.ToInt32(dr["GR_FORMS"].ToString()) == formsID)
-                {
-                    rightsID = Convert.ToInt32(dr["GR_RIGHTS"].ToString());
-                }
-            }
-
-            return rightsID;
         }
 
         private void prepareGridView()
         {
-            rightsGrid.DataSource = forms;
+
+            rightsGrid.DataSource = rightsMapping;
+
             DataGridViewComboBoxColumn cl = new DataGridViewComboBoxColumn();
             cl.DataSource = rights;
             cl.ValueMember = "RIGHTS_ID";
@@ -110,42 +83,82 @@ namespace Supernova.Sub_Forms.Administration
             rightsGrid.Columns.Add(cl);
             rightsGrid.Columns[0].Visible = false;
             rightsGrid.Columns[1].HeaderText = "Ansicht";
+            rightsGrid.Columns[4].HeaderText = "Recht";
+            rightsGrid.Columns[2].Visible = false;
+            rightsGrid.Columns[3].Visible = false;
             rightsGrid.Columns[1].ReadOnly = true;
-            rightsGrid.Columns[2].HeaderText = "Recht";
-      
+            rightsGrid.Columns[4].ReadOnly = true;
+
             rightsGrid.EndEdit();
+            
         }
+
+        private void resetGrid()
+        {
+            rightsGrid.Columns.Clear();
+            rightsMapping = null;
+            rightsMapping = new DataTable();
+            rights = null;
+            rights = new DataTable();
+            rightsGrid.DataSource = null;
+
+            
+
+        }
+
 
         private void initializeGroups()
         {
             userGroups = pl.loadUserGroups();
 
             try
-            {   
+            {
 
-            cbUserGroups.DataSource = userGroups;
-            cbUserGroups.ValueMember = "USER_GROUPS_ID";
-            cbUserGroups.DisplayMember = "UG_NAME";
-               
+                cbUserGroups.DataSource = userGroups;
+                cbUserGroups.ValueMember = "USER_GROUPS_ID";
+                cbUserGroups.DisplayMember = "UG_NAME";
+
             }
             catch (Exception ex)
             {
-                FrmAfirmative DBError = new FrmAfirmative("Fehler in der Datenbank. \n Bitte wenden sie sich an den Administrator.",'e');
+                FrmAfirmative DBError = new FrmAfirmative("Fehler in der Datenbank. \n Bitte wenden sie sich an den Administrator.", 'e');
                 DBError.StartPosition = FormStartPosition.CenterParent;
                 DBError.ShowDialog();
             }
         }
 
+
+        #endregion
+
+
+        #region Click-Events
+
         private void btnLoadGroups_Click(object sender, EventArgs e)
         {
-
-            initializeGroups();
             startGridPreparing();
         }
 
-        private void rightsGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
+            DataTable newRights = new DataTable();
+            DataColumn cl = new DataColumn();
+            newRights.Columns.Add(cl);
+            DataColumn cl2 = new DataColumn();
+            newRights.Columns.Add(cl2);
+            DataRow dr;
+            foreach (DataGridViewRow r in rightsGrid.Rows) 
+            {
+                dr = newRights.NewRow();
+                dr[0] = Convert.ToInt32(r.Cells[1].Value);
+                dr[1] = Convert.ToInt32(r.Cells[0].Value);
+            }
+            
         }
+
+        #endregion
+
+
+
+
     }
 }
