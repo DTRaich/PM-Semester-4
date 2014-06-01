@@ -484,19 +484,26 @@ namespace Supernova.Sub_Forms.Overview
                 }
             }
 
-            if (File.Exists(@"C:\Users\Public\Documents\ProjectOverview.xls"))
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            
+            sfd.FileName = "ProjectOverview.xls";
+            sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
+            sfd.FilterIndex = 2;
+            sfd.InitialDirectory = @"C:\Users\Public\Documents\";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                File.Delete(@"C:\Users\Public\Documents\ProjectOverview.xls");
-            }
-            xlWorkBook.SaveAs(@"C:\Users\Public\Documents\ProjectOverview.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            xlWorkBook.Close(true, misValue, misValue);
+                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            }            
+
+            xlWorkBook.Close(false, misValue, misValue);
             xlApp.Quit();
 
             releaseObject(xlWorkSheet);
             releaseObject(xlWorkBook);
             releaseObject(xlApp);
-
-            MessageBox.Show("Die Excel-Datei wurde unter 'C:\\Users\\Public\\Documents\\ProjectOverview.xls' abgelegt.");
+             
         }
         private void releaseObject(object obj)
         {

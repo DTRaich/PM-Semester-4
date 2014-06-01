@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpStrategy = new System.Windows.Forms.TabPage();
             this.chartStrategy = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tpCategory = new System.Windows.Forms.TabPage();
             this.chartCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnExcelExport = new System.Windows.Forms.Button();
+            this.btnExcelExportCat = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpStrategy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartStrategy)).BeginInit();
@@ -59,6 +61,7 @@
             // 
             // tpStrategy
             // 
+            this.tpStrategy.Controls.Add(this.btnExcelExport);
             this.tpStrategy.Controls.Add(this.chartStrategy);
             this.tpStrategy.Location = new System.Drawing.Point(4, 22);
             this.tpStrategy.Name = "tpStrategy";
@@ -70,23 +73,23 @@
             // 
             // chartStrategy
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartStrategy.ChartAreas.Add(chartArea1);
-            this.chartStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartStrategy.Legends.Add(legend1);
-            this.chartStrategy.Location = new System.Drawing.Point(3, 3);
+            chartArea4.Name = "ChartArea1";
+            this.chartStrategy.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartStrategy.Legends.Add(legend4);
+            this.chartStrategy.Location = new System.Drawing.Point(3, 35);
             this.chartStrategy.Name = "chartStrategy";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartStrategy.Series.Add(series1);
-            this.chartStrategy.Size = new System.Drawing.Size(764, 302);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartStrategy.Series.Add(series4);
+            this.chartStrategy.Size = new System.Drawing.Size(764, 270);
             this.chartStrategy.TabIndex = 1;
             this.chartStrategy.Text = "chart1";
             // 
             // tpCategory
             // 
+            this.tpCategory.Controls.Add(this.btnExcelExportCat);
             this.tpCategory.Controls.Add(this.chartCategory);
             this.tpCategory.Location = new System.Drawing.Point(4, 22);
             this.tpCategory.Name = "tpCategory";
@@ -98,20 +101,39 @@
             // 
             // chartCategory
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartCategory.ChartAreas.Add(chartArea2);
-            this.chartCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartCategory.Legends.Add(legend2);
-            this.chartCategory.Location = new System.Drawing.Point(3, 3);
+            chartArea3.Name = "ChartArea1";
+            this.chartCategory.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartCategory.Legends.Add(legend3);
+            this.chartCategory.Location = new System.Drawing.Point(3, 35);
             this.chartCategory.Name = "chartCategory";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartCategory.Series.Add(series2);
-            this.chartCategory.Size = new System.Drawing.Size(764, 302);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartCategory.Series.Add(series3);
+            this.chartCategory.Size = new System.Drawing.Size(764, 270);
             this.chartCategory.TabIndex = 0;
             this.chartCategory.Text = "chart1";
+            // 
+            // btnExcelExport
+            // 
+            this.btnExcelExport.Location = new System.Drawing.Point(665, 6);
+            this.btnExcelExport.Name = "btnExcelExport";
+            this.btnExcelExport.Size = new System.Drawing.Size(97, 23);
+            this.btnExcelExport.TabIndex = 2;
+            this.btnExcelExport.Text = "Excel Export";
+            this.btnExcelExport.UseVisualStyleBackColor = true;
+            this.btnExcelExport.Click += new System.EventHandler(this.btnExcelExport_Click);
+            // 
+            // btnExcelExportCat
+            // 
+            this.btnExcelExportCat.Location = new System.Drawing.Point(667, 6);
+            this.btnExcelExportCat.Name = "btnExcelExportCat";
+            this.btnExcelExportCat.Size = new System.Drawing.Size(97, 23);
+            this.btnExcelExportCat.TabIndex = 3;
+            this.btnExcelExportCat.Text = "Excel Export";
+            this.btnExcelExportCat.UseVisualStyleBackColor = true;
+            this.btnExcelExportCat.Click += new System.EventHandler(this.btnExcelExportCat_Click);
             // 
             // FrmStrategieAnalysis
             // 
@@ -140,6 +162,8 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStrategy;
         private System.Windows.Forms.TabPage tpCategory;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartCategory;
+        private System.Windows.Forms.Button btnExcelExport;
+        private System.Windows.Forms.Button btnExcelExportCat;
 
     }
 }

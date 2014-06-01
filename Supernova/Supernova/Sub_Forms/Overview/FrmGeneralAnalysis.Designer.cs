@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpCapacity = new System.Windows.Forms.TabPage();
-            this.tpBudget = new System.Windows.Forms.TabPage();
-            this.cboDepartment = new System.Windows.Forms.ComboBox();
-            this.btnLoadDep = new System.Windows.Forms.Button();
             this.chartCapacity = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnLoadDep = new System.Windows.Forms.Button();
+            this.cboDepartment = new System.Windows.Forms.ComboBox();
+            this.tpBudget = new System.Windows.Forms.TabPage();
             this.chartBudget = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnExcelExportCapa = new System.Windows.Forms.Button();
+            this.btnExcelExportBudget = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tpCapacity.SuspendLayout();
-            this.tpBudget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartCapacity)).BeginInit();
+            this.tpBudget.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartBudget)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +63,7 @@
             // 
             // tpCapacity
             // 
+            this.tpCapacity.Controls.Add(this.btnExcelExportCapa);
             this.tpCapacity.Controls.Add(this.chartCapacity);
             this.tpCapacity.Controls.Add(this.btnLoadDep);
             this.tpCapacity.Controls.Add(this.cboDepartment);
@@ -72,24 +75,21 @@
             this.tpCapacity.Text = "Kapazität";
             this.tpCapacity.UseVisualStyleBackColor = true;
             // 
-            // tpBudget
+            // chartCapacity
             // 
-            this.tpBudget.Controls.Add(this.chartBudget);
-            this.tpBudget.Location = new System.Drawing.Point(4, 22);
-            this.tpBudget.Name = "tpBudget";
-            this.tpBudget.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBudget.Size = new System.Drawing.Size(666, 320);
-            this.tpBudget.TabIndex = 1;
-            this.tpBudget.Text = "Budget";
-            this.tpBudget.UseVisualStyleBackColor = true;
-            // 
-            // cboDepartment
-            // 
-            this.cboDepartment.FormattingEnabled = true;
-            this.cboDepartment.Location = new System.Drawing.Point(8, 6);
-            this.cboDepartment.Name = "cboDepartment";
-            this.cboDepartment.Size = new System.Drawing.Size(121, 21);
-            this.cboDepartment.TabIndex = 0;
+            chartArea4.Name = "ChartArea1";
+            this.chartCapacity.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartCapacity.Legends.Add(legend4);
+            this.chartCapacity.Location = new System.Drawing.Point(8, 31);
+            this.chartCapacity.Name = "chartCapacity";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartCapacity.Series.Add(series4);
+            this.chartCapacity.Size = new System.Drawing.Size(650, 281);
+            this.chartCapacity.TabIndex = 2;
+            this.chartCapacity.Text = "chart1";
             // 
             // btnLoadDep
             // 
@@ -101,37 +101,61 @@
             this.btnLoadDep.UseVisualStyleBackColor = true;
             this.btnLoadDep.Click += new System.EventHandler(this.btnLoadDep_Click);
             // 
-            // chartCapacity
+            // cboDepartment
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartCapacity.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartCapacity.Legends.Add(legend3);
-            this.chartCapacity.Location = new System.Drawing.Point(8, 31);
-            this.chartCapacity.Name = "chartCapacity";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartCapacity.Series.Add(series3);
-            this.chartCapacity.Size = new System.Drawing.Size(650, 281);
-            this.chartCapacity.TabIndex = 2;
-            this.chartCapacity.Text = "chart1";
+            this.cboDepartment.FormattingEnabled = true;
+            this.cboDepartment.Location = new System.Drawing.Point(8, 6);
+            this.cboDepartment.Name = "cboDepartment";
+            this.cboDepartment.Size = new System.Drawing.Size(121, 21);
+            this.cboDepartment.TabIndex = 0;
+            // 
+            // tpBudget
+            // 
+            this.tpBudget.Controls.Add(this.btnExcelExportBudget);
+            this.tpBudget.Controls.Add(this.chartBudget);
+            this.tpBudget.Location = new System.Drawing.Point(4, 22);
+            this.tpBudget.Name = "tpBudget";
+            this.tpBudget.Padding = new System.Windows.Forms.Padding(3);
+            this.tpBudget.Size = new System.Drawing.Size(666, 320);
+            this.tpBudget.TabIndex = 1;
+            this.tpBudget.Text = "Budget";
+            this.tpBudget.UseVisualStyleBackColor = true;
             // 
             // chartBudget
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartBudget.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartBudget.Legends.Add(legend4);
+            chartArea3.Name = "ChartArea1";
+            this.chartBudget.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartBudget.Legends.Add(legend3);
             this.chartBudget.Location = new System.Drawing.Point(8, 31);
             this.chartBudget.Name = "chartBudget";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartBudget.Series.Add(series4);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartBudget.Series.Add(series3);
             this.chartBudget.Size = new System.Drawing.Size(650, 281);
             this.chartBudget.TabIndex = 3;
             this.chartBudget.Text = "chart2";
+            // 
+            // btnExcelExportCapa
+            // 
+            this.btnExcelExportCapa.Location = new System.Drawing.Point(561, 6);
+            this.btnExcelExportCapa.Name = "btnExcelExportCapa";
+            this.btnExcelExportCapa.Size = new System.Drawing.Size(97, 23);
+            this.btnExcelExportCapa.TabIndex = 3;
+            this.btnExcelExportCapa.Text = "Excel Export";
+            this.btnExcelExportCapa.UseVisualStyleBackColor = true;
+            this.btnExcelExportCapa.Click += new System.EventHandler(this.btnExcelExportCapa_Click);
+            // 
+            // btnExcelExportBudget
+            // 
+            this.btnExcelExportBudget.Location = new System.Drawing.Point(561, 6);
+            this.btnExcelExportBudget.Name = "btnExcelExportBudget";
+            this.btnExcelExportBudget.Size = new System.Drawing.Size(97, 23);
+            this.btnExcelExportBudget.TabIndex = 4;
+            this.btnExcelExportBudget.Text = "Excel Export";
+            this.btnExcelExportBudget.UseVisualStyleBackColor = true;
+            this.btnExcelExportBudget.Click += new System.EventHandler(this.btnExcelExportBudget_Click);
             // 
             // FrmGeneralAnalysis
             // 
@@ -146,8 +170,8 @@
             this.Text = "Budget und Ressourcen ";
             this.tabControl1.ResumeLayout(false);
             this.tpCapacity.ResumeLayout(false);
-            this.tpBudget.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartCapacity)).EndInit();
+            this.tpBudget.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartBudget)).EndInit();
             this.ResumeLayout(false);
 
@@ -162,5 +186,7 @@
         private System.Windows.Forms.ComboBox cboDepartment;
         private System.Windows.Forms.TabPage tpBudget;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBudget;
+        private System.Windows.Forms.Button btnExcelExportCapa;
+        private System.Windows.Forms.Button btnExcelExportBudget;
     }
 }
