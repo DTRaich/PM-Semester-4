@@ -134,8 +134,24 @@ namespace Supernova.Sub_Forms.Overview
         private void tsmDelete_Click(object sender, EventArgs e)
         {
             DataSave saver = new DataSave();
-            saver.DeleteProject(currentProjectID);
-            InitializeCustom();
+            FrmAfirmative delete = new FrmAfirmative("Möchten sie das ausgewählte Projekt löschen?", 'd');
+            if (delete.ShowDialog() == DialogResult.OK)
+            {                
+                bool retval = saver.DeleteProject(currentProjectID);
+                if (retval)
+                {
+                    FrmAfirmative deleted = new FrmAfirmative("Das Projekt wurde erfolgreich gelöscht. \n ", 'i');
+                    deleted.ShowDialog();
+                    InitializeCustom();
+           
+                }
+                else
+                {
+                    FrmAfirmative notDeleted = new FrmAfirmative("Das Projekt konnte nicht gelöscht werden.\nBitte überprüfen Sie ob der Benutzer als Projektleiter eingetragen wurde.", 'e');
+                    notDeleted.ShowDialog();
+                }
+            }
+            ;
         }
 
         private void tsmDetail_Click(object sender, EventArgs e)

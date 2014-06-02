@@ -37,6 +37,8 @@
             this.abteilungskapazitätToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.budgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schnittstellenverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,8 +49,6 @@
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.dbErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.rechteverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.schnittstellenverwaltungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.sStateStrip.SuspendLayout();
             this.SuspendLayout();
@@ -108,31 +108,45 @@
             // kriterienPriorisierenToolStripMenuItem
             // 
             this.kriterienPriorisierenToolStripMenuItem.Name = "kriterienPriorisierenToolStripMenuItem";
-            this.kriterienPriorisierenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.kriterienPriorisierenToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.kriterienPriorisierenToolStripMenuItem.Text = "Kriterien priorisieren";
             this.kriterienPriorisierenToolStripMenuItem.Click += new System.EventHandler(this.kriterienPriorisierenToolStripMenuItem_Click);
             // 
             // abteilungskapazitätToolStripMenuItem
             // 
             this.abteilungskapazitätToolStripMenuItem.Name = "abteilungskapazitätToolStripMenuItem";
-            this.abteilungskapazitätToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.abteilungskapazitätToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.abteilungskapazitätToolStripMenuItem.Text = "Abteilungskapazität";
             this.abteilungskapazitätToolStripMenuItem.Click += new System.EventHandler(this.abteilungskapazitätToolStripMenuItem_Click);
             // 
             // budgetToolStripMenuItem
             // 
             this.budgetToolStripMenuItem.Name = "budgetToolStripMenuItem";
-            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.budgetToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.budgetToolStripMenuItem.Text = "Budget";
             this.budgetToolStripMenuItem.Click += new System.EventHandler(this.budgetToolStripMenuItem_Click);
             // 
             // benutzerAnlegenToolStripMenuItem
             // 
             this.benutzerAnlegenToolStripMenuItem.Name = "benutzerAnlegenToolStripMenuItem";
-            this.benutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.benutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
             this.benutzerAnlegenToolStripMenuItem.Text = "Benutzerverwaltung";
             this.benutzerAnlegenToolStripMenuItem.Visible = false;
             this.benutzerAnlegenToolStripMenuItem.Click += new System.EventHandler(this.benutzerAnlegenToolStripMenuItem_Click);
+            // 
+            // rechteverwaltungToolStripMenuItem
+            // 
+            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
+            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
+            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click_1);
+            // 
+            // schnittstellenverwaltungToolStripMenuItem
+            // 
+            this.schnittstellenverwaltungToolStripMenuItem.Name = "schnittstellenverwaltungToolStripMenuItem";
+            this.schnittstellenverwaltungToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.schnittstellenverwaltungToolStripMenuItem.Text = "Schnittstellenverwaltung";
+            this.schnittstellenverwaltungToolStripMenuItem.Click += new System.EventHandler(this.schnittstellenverwaltungToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
             // 
@@ -156,7 +170,7 @@
             // 
             this.passwordÄndernToolStripMenuItem.Name = "passwordÄndernToolStripMenuItem";
             this.passwordÄndernToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.passwordÄndernToolStripMenuItem.Text = "Password ändern";
+            this.passwordÄndernToolStripMenuItem.Text = "Passwort ändern";
             this.passwordÄndernToolStripMenuItem.Click += new System.EventHandler(this.passwordÄndernToolStripMenuItem_Click);
             // 
             // ausloggenToolStripMenuItem
@@ -212,20 +226,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(945, 381);
             this.pnlMain.TabIndex = 2;
-            // 
-            // rechteverwaltungToolStripMenuItem
-            // 
-            this.rechteverwaltungToolStripMenuItem.Name = "rechteverwaltungToolStripMenuItem";
-            this.rechteverwaltungToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.rechteverwaltungToolStripMenuItem.Text = "Rechteverwaltung";
-            this.rechteverwaltungToolStripMenuItem.Click += new System.EventHandler(this.rechteverwaltungToolStripMenuItem_Click_1);
-            // 
-            // schnittstellenverwaltungToolStripMenuItem
-            // 
-            this.schnittstellenverwaltungToolStripMenuItem.Name = "schnittstellenverwaltungToolStripMenuItem";
-            this.schnittstellenverwaltungToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.schnittstellenverwaltungToolStripMenuItem.Text = "Schnittstellenverwaltung";
-            this.schnittstellenverwaltungToolStripMenuItem.Click += new System.EventHandler(this.schnittstellenverwaltungToolStripMenuItem_Click);
             // 
             // FrmMain
             // 

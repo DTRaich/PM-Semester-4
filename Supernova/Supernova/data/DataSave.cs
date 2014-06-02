@@ -1059,8 +1059,9 @@ namespace Supernova.data
         }
 
 
-        public void DeleteProject(int id)
+        public bool DeleteProject(int id)
         {
+            bool retval = true;
             dbError.deleteDBError();
             MySqlConnection connection = new MySqlConnection(conSting);
 
@@ -1080,11 +1081,13 @@ namespace Supernova.data
 
                 connection.Close();
 
+
             }
             catch (Exception ex)
             {
 
                 dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+                retval = false;
 
             }
             finally
@@ -1094,6 +1097,7 @@ namespace Supernova.data
                     connection.Close();
                 }
             }
+            return retval;
         }
     }
 }
