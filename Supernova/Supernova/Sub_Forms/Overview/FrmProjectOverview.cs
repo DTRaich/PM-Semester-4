@@ -222,6 +222,12 @@ namespace Supernova.Sub_Forms.Overview
                 frm.StartPosition = FormStartPosition.CenterParent;
                 frm.ShowDialog();
             }
+            else
+            {
+                FrmAfirmative frm = new FrmAfirmative("Keine Projekte ausgewählt",'e');
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog();
+            }
            
         }
         private void btnExcelExport_Click(object sender, EventArgs e)
