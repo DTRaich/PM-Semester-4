@@ -120,6 +120,8 @@ namespace Supernova
            if (e.KeyChar == (char)13)
             {
                 Login();
+                Leader.getLeaderInst().LoadProjektView();
+
             }
         }
 

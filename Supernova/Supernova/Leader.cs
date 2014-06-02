@@ -26,6 +26,7 @@ namespace Supernova
 
         #endregion
         private static Leader lead;
+        private Leader() { }
         private Leader(Panel pnl)
         {
             this.mainPanel = pnl;
@@ -262,6 +263,7 @@ namespace Supernova
         internal void RemoveLogin()
         {
             mainPanel.Controls.Clear();
+
         }
 
         void mainPanel_ControlRemoved(object sender, ControlEventArgs e)
