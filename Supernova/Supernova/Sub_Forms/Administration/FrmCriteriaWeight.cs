@@ -232,6 +232,7 @@ namespace Supernova.Sub_Forms.Administration
                 }
 
                 activationSource.AcceptChanges();
+                activationGrid.Columns.Clear();
                 activationGrid.DataSource = activationSource;
                 activationGrid.Columns[0].Visible = false;
                 activationGrid.Columns[2].Visible = false;
@@ -240,6 +241,8 @@ namespace Supernova.Sub_Forms.Administration
                 activationGrid.ScrollBars = ScrollBars.Vertical;
                 originActivation = activationSource.Copy();
 
+                activationSource = originActivation.Copy();
+                activationGrid.DataSource = activationSource;
             }
             catch (Exception ex)
             {
@@ -579,6 +582,10 @@ namespace Supernova.Sub_Forms.Administration
             catch (Exception ex)
             {
             }
+        }
+
+        private void activationGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
 
         

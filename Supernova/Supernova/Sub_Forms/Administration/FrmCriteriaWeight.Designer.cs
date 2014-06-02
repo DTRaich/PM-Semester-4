@@ -243,6 +243,7 @@
             this.activationGrid.Name = "activationGrid";
             this.activationGrid.Size = new System.Drawing.Size(249, 296);
             this.activationGrid.TabIndex = 0;
+            this.activationGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.activationGrid_CellClick);
             // 
             // FrmCriteriaWeight
             // 
