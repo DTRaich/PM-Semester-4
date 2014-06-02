@@ -53,53 +53,90 @@ namespace Supernova.Sub_Forms.Overview
             xlApp = new Excel.ApplicationClass();
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
+            
+            
+            //musst be blank (X)
             //xlWorkSheet.Cells[1, 1] = "X";
             xlWorkSheet.Cells[1, 2] = "Y";
+            
             //xlWorkSheet.Cells[1, 3] = "Bubbles";
 
             int i=1;
-            double[,] matrix = new double[5,3]{{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
-            foreach (DataRow dr in dragTable.Rows)
-            {
-                i++;
-                double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
-                //matrix[i, 0] = value[0];
-                //matrix[i, 1] = value[1];
-                //matrix[i, 2] = value[2];
-                xlWorkSheet.Cells[i, 1] = value[0];
-                xlWorkSheet.Cells[i, 2] = value[1];
-                xlWorkSheet.Cells[i, 3] = value[2];
-            }
-            //for (int j = 0; j <= 4; j++)
+            double[,] matrix = new double[5,3]{{9,2,3},{3,2,7},{5,7,9},{6,3,8},{2,9,9}};
+            //foreach (DataRow dr in dragTable.Rows)
             //{
-            //    xlWorkSheet.Cells[j + 2, 1] = matrix[j, 0];
-            //    xlWorkSheet.Cells[j + 2, 2] = matrix[j, 1];
-            //    xlWorkSheet.Cells[j + 2, 3] = matrix[j, 2];
+            //    i++;
+            //    double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
+            //    //matrix[i, 0] = value[0];
+            //    //matrix[i, 1] = value[1];
+            //    //matrix[i, 2] = value[2];
+            //    if (value[0] == 0)
+            //    {
+            //        xlWorkSheet.Cells[i, 1] = 1;
+            //    }
+            //    else
+            //    {
+            //        xlWorkSheet.Cells[i, 1] = value[0];
+            //    }
+            //    if (value[1] == 0)
+            //    {
+            //        xlWorkSheet.Cells[i, 2] = 1;
+            //    }
+            //    else
+            //    {
+            //        xlWorkSheet.Cells[i, 2] = value[1];
+            //    }
+            //    if (value[2] == 0)
+            //    {
+            //        xlWorkSheet.Cells[i, 3] = 1;
+            //    }
+            //    else
+            //    {
+            //        xlWorkSheet.Cells[i, 3] = value[2];
+            //    }
+            //    //xlWorkSheet.Cells[i, 2] = value[1];
+            //    //xlWorkSheet.Cells[i, 3] = value[2];
             //}
+
+
+            // excel in weiser riese 
+            //detail table export
+ 
+            
+            for (int j = 0; j <= 4; j++)
+            {
+                xlWorkSheet.Cells[j + 2, 1] = matrix[j, 0];
+                xlWorkSheet.Cells[j + 2, 2] = matrix[j, 1];
+                xlWorkSheet.Cells[j + 2, 3] = matrix[j, 2];
+            }
             
             Excel.Range chartRange;
 
             Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
             Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 100, 300, 250);
+            
             Excel.Chart chartPage = myChart.Chart;
-            chartRange = xlWorkSheet.get_Range("A1", "C6");
+            
+            
 
+            chartRange = xlWorkSheet.get_Range("A1:C6", misValue);
             chartPage.SetSourceData(chartRange, misValue);
-            chartPage.ChartType = Excel.XlChartType.xlBubble3DEffect;
+            
+            chartPage.ChartType = Excel.XlChartType.xlBubble;
+            
 
+            //Savedialog
             SaveFileDialog sfd = new SaveFileDialog();
-
             sfd.FileName = "BubbleChart.xls";
             sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
             sfd.FilterIndex = 2;
             sfd.InitialDirectory = @"C:\Users\Public\Documents\";
-
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             }            
             
+            //close Excel
             xlWorkBook.Close(false, misValue, misValue);
             xlApp.Quit();
 
