@@ -226,6 +226,20 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         #region drag drop inhalt
 
+        private void dgvWeiserRieseInhalt_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void dgvWeiserRieseInhalt_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(DataRowView)))
+            {
+
+                DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));
+
+            }
+        }
         private void dgvExtern_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -241,21 +255,9 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
                 }
             }
         }
-        private void dgvWeiserRiese_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Copy;
-        }
+     
 
-        private void dgvWeiserRiese_DragDrop(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(typeof(DataRowView)))
-            {
-
-                DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));
-
-            }
-
-        }
+        
         #endregion
         #region rightside click
 
@@ -303,12 +305,43 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
 
         #endregion
-             
+
 
         #region rightside methods
 
         #endregion
 
+
+
+        #region tab pages locker
+      
+
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl2.SelectedIndex == e.TabPageIndex)
+            {
+                // nix
+            }
+            else
+            {
+                tabControl2.SelectedIndex = e.TabPageIndex;
+            }
+        }
+
+        private void tabControl2_Selected(object sender, TabControlEventArgs e)
+        {
+            if (tabControl1.SelectedIndex == e.TabPageIndex)
+            {
+                // nix
+            }
+            else
+            {
+                tabControl1.SelectedIndex = e.TabPageIndex;
+            }
+        }
+
+        #endregion
 
 
     }

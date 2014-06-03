@@ -121,6 +121,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(470, 282);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
@@ -399,6 +400,7 @@
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(465, 409);
             this.tabControl2.TabIndex = 2;
+            this.tabControl2.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl2_Selected);
             // 
             // tabPage3
             // 
@@ -456,6 +458,8 @@
             this.dgvWeiserRieseInhalt.ReadOnly = true;
             this.dgvWeiserRieseInhalt.Size = new System.Drawing.Size(451, 377);
             this.dgvWeiserRieseInhalt.TabIndex = 0;
+            this.dgvWeiserRieseInhalt.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseInhalt_DragDrop);
+            this.dgvWeiserRieseInhalt.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseInhalt_DragEnter);
             // 
             // groupBox2
             // 
