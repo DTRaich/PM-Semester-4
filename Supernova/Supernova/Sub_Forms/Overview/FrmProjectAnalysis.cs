@@ -34,8 +34,7 @@ namespace Supernova.Sub_Forms.Overview
                 chartKostRisk.Series.Add(working);
                 chartKostRisk.Series[workingS].ChartType = SeriesChartType.Bubble;
                 chartKostRisk.Series[workingS].MarkerStyle = MarkerStyle.Circle;
-                chartKostRisk.Series[workingS].Points.AddXY(value[0], value[1], value[2]);
-                
+                chartKostRisk.Series[workingS].Points.AddXY(value[0], value[1], value[2]);                
             }
 
         }
@@ -52,44 +51,22 @@ namespace Supernova.Sub_Forms.Overview
             object misValue = System.Reflection.Missing.Value;
 
             xlApp = new Excel.ApplicationClass();
-            xlWorkBook = xlApp.Workbooks.Open("BubbleChartTemp.xlsx", 0, false, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+            String path = System.IO.Path.GetFullPath("BubbleChartTemp.xlsx");
+            xlWorkBook = xlApp.Workbooks.Open(@path);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
             
             
-            //musst be blank (X)
-            //xlWorkSheet.Cells[1, 1] = "X";
-            xlWorkSheet.Cells[1, 2] = "Y";
-            
-            //xlWorkSheet.Cells[1, 3] = "Bubbles";
-
-            int i=1;
-            double[,] matrix = new double[5,3]{{9,2,3},{3,2,7},{5,7,9},{6,3,8},{2,9,9}};
-            
-
-            // excel in weiser riese 
-            //detail table export
- 
-            
-            for (int j = 0; j <= 4; j++)
+            int i=4;
+            foreach (DataRow dr in dragTable.Rows)
             {
-                xlWorkSheet.Cells[j + 2, 1] = matrix[j, 0];
-                xlWorkSheet.Cells[j + 2, 2] = matrix[j, 1];
-                xlWorkSheet.Cells[j + 2, 3] = matrix[j, 2];
+                double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
+
+                xlWorkSheet.Cells[i, 2] = dr[0].ToString();
+                xlWorkSheet.Cells[i, 3] = value[0];
+                xlWorkSheet.Cells[i, 4] = value[1];
+                xlWorkSheet.Cells[i, 5] = value[2];
+                i++;
             }
-            
-            Excel.Range chartRange;
-
-            Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
-            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 100, 300, 250);
-            
-            Excel.Chart chartPage = myChart.Chart;
-            
-            
-
-            chartRange = xlWorkSheet.get_Range("A1:C6", misValue);
-            chartPage.SetSourceData(chartRange, misValue);
-            
-            chartPage.ChartType = Excel.XlChartType.xlBubble;
             
 
             //Savedialog
