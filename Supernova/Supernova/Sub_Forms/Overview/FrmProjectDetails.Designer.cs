@@ -50,7 +50,7 @@
             this.detailsGrid.Name = "detailsGrid";
             this.detailsGrid.ReadOnly = true;
             this.detailsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.detailsGrid.Size = new System.Drawing.Size(555, 150);
+            this.detailsGrid.Size = new System.Drawing.Size(592, 150);
             this.detailsGrid.TabIndex = 0;
             // 
             // lblName

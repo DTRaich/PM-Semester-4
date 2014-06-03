@@ -18,6 +18,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         DBTYPE DB;
         CONNECTOR connect;
         DataTable externTable;
+        Tables currentTable;
 
         public FrmWeiserRieseMain()
         {
@@ -305,11 +306,15 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             {
                 structur = val.GetAllColumnsDepartment();
                 inhalt = val.GetRowDepartment();
+                currentTable = Tables.Abteilungen;
+               
             }
             else
             {
                 structur = val.GetAllColumnsUser();
                 inhalt = val.GetRowUser();
+                currentTable = Tables.Benutzer;
+
             }
             DataColumn dc = new DataColumn("Referenz-Spalte");
             structur.Columns.Add(dc);
@@ -335,7 +340,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         {
             OwnSaver ownsaver = new OwnSaver(DB);
             DataTable toSaveTable = getToSaveData();
-            ownsaver.SaveStructur(toSaveTable);
+            ownsaver.SaveStructur(toSaveTable, currentTable);
            
            
         }
