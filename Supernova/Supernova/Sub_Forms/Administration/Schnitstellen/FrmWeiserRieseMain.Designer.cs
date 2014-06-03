@@ -497,6 +497,7 @@
             this.btnGetAViewData.TabIndex = 4;
             this.btnGetAViewData.Text = "Auswahl Übertragen";
             this.btnGetAViewData.UseVisualStyleBackColor = true;
+            this.btnGetAViewData.Click += new System.EventHandler(this.btnGetAViewData_Click);
             // 
             // btnGetStructAndWholetable
             // 

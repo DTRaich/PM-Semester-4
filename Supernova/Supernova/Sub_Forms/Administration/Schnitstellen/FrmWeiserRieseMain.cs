@@ -245,6 +245,11 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         private bool CheckTableMatches(DataRowView TableView, int currentRow)
         {
+            bool retval = true;
+            DataGridViewRow gridRow = dgvWeiserRieseStruct.Rows[currentRow];
+            if(!TableView.Row[1].ToString().Equals("DSD2"))
+            {
+            }
             return true;
         }  
         #endregion
@@ -286,7 +291,10 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         #endregion
         #region rightside click
 
+        private void btnGetAViewData_Click(object sender, EventArgs e)
+        {
 
+        }
         private void btnStruct_Click(object sender, EventArgs e)
         {
             ValidationData val = new ValidationData();
@@ -361,6 +369,17 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             else
             {
                 tabControl2.SelectedIndex = e.TabPageIndex;
+                if (e.TabPageIndex == 0)
+                {
+                    btnGetAViewData.Visible = false;
+                    btnGetStructAndWholetable.Visible = true;
+
+                }
+                else
+                {
+                    btnGetAViewData.Visible = true;
+                    btnGetStructAndWholetable.Visible = false;
+                }
             }
         }
 
@@ -373,10 +392,23 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             else
             {
                 tabControl1.SelectedIndex = e.TabPageIndex;
+                if (e.TabPageIndex == 0)
+                {
+                    btnGetAViewData.Visible = false;
+                    btnGetStructAndWholetable.Visible = true;
+
+                }
+                else
+                {
+                    btnGetAViewData.Visible = true;
+                    btnGetStructAndWholetable.Visible = false;
+                }
             }
         }
 
         #endregion
+
+        
 
         
 
