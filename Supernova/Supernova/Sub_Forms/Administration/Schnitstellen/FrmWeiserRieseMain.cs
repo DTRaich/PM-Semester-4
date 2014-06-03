@@ -182,7 +182,50 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             return dt;
         }
         #endregion 
-        #region drag and Drop
+
+        #region drag and Drop structur
+
+        private void dgvWeiserRieseStruct_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+
+        }
+
+        private void dgvExternStruct_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DataGridView.HitTestInfo info = dgvExternStruct.HitTest(e.X, e.Y);
+                if (info.RowIndex >= 0)
+                {
+                    DataRowView view = (DataRowView)dgvExternStruct.Rows[info.RowIndex].DataBoundItem;
+                    if (view != null)
+                    {
+                        dgvExternStruct.DoDragDrop(view, DragDropEffects.Copy);
+                    }
+                }
+            }
+        }
+
+        private void dgvWeiserRieseStruct_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(DataRowView)))
+            {
+
+                DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));
+
+            }
+
+        }
+
+      
+
+      
+        #endregion
+
+
+        #region drag drop inhalt
+
         private void dgvExtern_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -196,11 +239,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
                         dgvExtern.DoDragDrop(view, DragDropEffects.Copy);
                     }
                 }
-            }           
+            }
         }
-
-
-
         private void dgvWeiserRiese_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Copy;
@@ -211,14 +251,15 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             if (e.Data.GetDataPresent(typeof(DataRowView)))
             {
 
-                DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));             
+                DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));
 
             }
 
         }
         #endregion
-      
         #region rightside click
+
+
         private void btnStruct_Click(object sender, EventArgs e)
         {
             ValidationData val = new ValidationData();
@@ -262,11 +303,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
 
         #endregion
-
-        private void txtConnect_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+             
 
         #region rightside methods
 

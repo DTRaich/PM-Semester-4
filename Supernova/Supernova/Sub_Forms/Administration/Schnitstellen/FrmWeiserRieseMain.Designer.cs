@@ -149,6 +149,7 @@
             this.dgvExternStruct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvExternStruct.Size = new System.Drawing.Size(456, 250);
             this.dgvExternStruct.TabIndex = 0;
+            this.dgvExternStruct.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvExternStruct_MouseDown);
             // 
             // tabPage2
             // 
@@ -322,7 +323,6 @@
             this.txtConnect.Size = new System.Drawing.Size(334, 23);
             this.txtConnect.TabIndex = 7;
             this.txtConnect.Text = "Database=DEMO_RIESE;Data Source=188.226.215.238;User Id=user1;Password=password";
-            this.txtConnect.TextChanged += new System.EventHandler(this.txtConnect_TextChanged);
             // 
             // lblDone
             // 
@@ -426,6 +426,8 @@
             this.dgvWeiserRieseStruct.Name = "dgvWeiserRieseStruct";
             this.dgvWeiserRieseStruct.Size = new System.Drawing.Size(451, 377);
             this.dgvWeiserRieseStruct.TabIndex = 2;
+            this.dgvWeiserRieseStruct.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseStruct_DragDrop);
+            this.dgvWeiserRieseStruct.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseStruct_DragEnter);
             // 
             // tabPage4
             // 
