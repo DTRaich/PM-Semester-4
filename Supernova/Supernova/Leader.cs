@@ -219,7 +219,7 @@ namespace Supernova
 
             return frm;
         }
-
+        
 
         private List<Form> getFormsListNewProject()
         {

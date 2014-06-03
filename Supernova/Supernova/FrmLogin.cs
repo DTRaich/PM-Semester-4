@@ -105,7 +105,8 @@ namespace Supernova
                         {
                             // nach login, userid wird gesetzt
                             lead.setUserID(userid);
-                            lead.RemoveLogin();                           
+                            lead.RemoveLogin();
+                            lead.LoadProjektView();
                         }
                     }
 
@@ -120,8 +121,7 @@ namespace Supernova
            if (e.KeyChar == (char)13)
             {
                 Login();
-                Leader.getLeaderInst().LoadProjektView();
-
+               
             }
         }
 
