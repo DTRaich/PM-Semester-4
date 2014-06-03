@@ -28,12 +28,13 @@ namespace Supernova.Sub_Forms.Overview
             //Series working;
             foreach (DataRow dr in dragTable.Rows)
             {
-                Series working = new Series(dr[1].ToString());
                 double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
+                String workingS = dr[1].ToString() + ", NPV: " + value[2];
+                Series working = new Series(workingS);
                 chartKostRisk.Series.Add(working);
-                chartKostRisk.Series[dr[1].ToString()].ChartType = SeriesChartType.Bubble;
-                chartKostRisk.Series[dr[1].ToString()].MarkerStyle = MarkerStyle.Circle;
-                chartKostRisk.Series[dr[1].ToString()].Points.AddXY(value[0], value[1], value[2]);
+                chartKostRisk.Series[workingS].ChartType = SeriesChartType.Bubble;
+                chartKostRisk.Series[workingS].MarkerStyle = MarkerStyle.Circle;
+                chartKostRisk.Series[workingS].Points.AddXY(value[0], value[1], value[2]);
                 
             }
 
@@ -51,7 +52,7 @@ namespace Supernova.Sub_Forms.Overview
             object misValue = System.Reflection.Missing.Value;
 
             xlApp = new Excel.ApplicationClass();
-            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkBook = xlApp.Workbooks.Open("BubbleChartTemp.xlsx", 0, false, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
             
             
@@ -63,41 +64,7 @@ namespace Supernova.Sub_Forms.Overview
 
             int i=1;
             double[,] matrix = new double[5,3]{{9,2,3},{3,2,7},{5,7,9},{6,3,8},{2,9,9}};
-            //foreach (DataRow dr in dragTable.Rows)
-            //{
-            //    i++;
-            //    double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
-            //    //matrix[i, 0] = value[0];
-            //    //matrix[i, 1] = value[1];
-            //    //matrix[i, 2] = value[2];
-            //    if (value[0] == 0)
-            //    {
-            //        xlWorkSheet.Cells[i, 1] = 1;
-            //    }
-            //    else
-            //    {
-            //        xlWorkSheet.Cells[i, 1] = value[0];
-            //    }
-            //    if (value[1] == 0)
-            //    {
-            //        xlWorkSheet.Cells[i, 2] = 1;
-            //    }
-            //    else
-            //    {
-            //        xlWorkSheet.Cells[i, 2] = value[1];
-            //    }
-            //    if (value[2] == 0)
-            //    {
-            //        xlWorkSheet.Cells[i, 3] = 1;
-            //    }
-            //    else
-            //    {
-            //        xlWorkSheet.Cells[i, 3] = value[2];
-            //    }
-            //    //xlWorkSheet.Cells[i, 2] = value[1];
-            //    //xlWorkSheet.Cells[i, 3] = value[2];
-            //}
-
+            
 
             // excel in weiser riese 
             //detail table export
