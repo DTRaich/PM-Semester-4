@@ -144,9 +144,7 @@ namespace Supernova.helper.Connectors
             {
                 connection.Open();
 
-                string comand = "SELECT COLUMN_NAME,IS_NULLABLE , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH as MAX_LENGTH";
-                comand = comand + " FROM information_schema.columns WHERE table_name= '" + ColumnName + "' ";
-                comand = comand + " order by ORDINAL_POSITION";
+                string comand = getCommandFromColumTable(ColumnNames);
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
 
@@ -165,6 +163,16 @@ namespace Supernova.helper.Connectors
 
             return dt;
             
+        }
+
+        private string getCommandFromColumTable(DataTable ColumnNames)
+        {
+            string select = "Select ";
+            foreach (DataRow dr in ColumnNames.Rows)
+            {
+            }
+
+            return select;
         }
  
     }

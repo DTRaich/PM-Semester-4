@@ -498,7 +498,7 @@ namespace Supernova.Sub_Forms.Overview
                 xlWorkSheet.Cells[1, i] = mainGrid.Columns[i].Name.ToString();
             }
 
-            for (i = 0; i <= mainGrid.RowCount -2; i++)
+            for (i = 0; i <= mainGrid.RowCount -1; i++)
             {
                 for (j = 1; j < mainGrid.ColumnCount - 3; j++)
                 {

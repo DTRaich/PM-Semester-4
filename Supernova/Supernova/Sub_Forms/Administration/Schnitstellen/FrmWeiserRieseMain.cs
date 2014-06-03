@@ -338,9 +338,19 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         }
         private void btnGetNewData_Click(object sender, EventArgs e)
         {
-            OwnSaver ownsaver = new OwnSaver(DB);
+            
             DataTable toSaveTable = getToSaveData();
-            ownsaver.SaveStructur(toSaveTable, currentTable);
+            if (toSaveTable.Rows.Count > 0)
+            {
+
+                OwnSaver ownsaver = new OwnSaver(DB);
+                ownsaver.SaveStructur(toSaveTable, currentTable);
+            }
+            else
+            {
+                FrmAfirmative error = new FrmAfirmative("Fehler\n Keine Änderungen festgestellt", 'e');
+                error.ShowDialog();
+            }
            
            
         }
