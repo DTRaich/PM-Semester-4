@@ -293,7 +293,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         private void btnGetAViewData_Click(object sender, EventArgs e)
         {
-
+           
         }
         private void btnStruct_Click(object sender, EventArgs e)
         {
@@ -333,13 +333,20 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         }
         private void btnGetNewData_Click(object sender, EventArgs e)
         {
-
+            OwnSaver ownsaver = new OwnSaver(DB);
+            DataTable toSaveTable = getToSaveData();
+            ownsaver.SaveStructur(toSaveTable);
+           
+           
         }
 
+     
         private void btnExcelImport_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("excel importer du lutscher");
+            StartExcelImporter();
         }
+
+       
         private void btnDiscardSettings_Click(object sender, EventArgs e)
         {
             dgvWeiserRieseInhalt.DataSource = null;
@@ -352,10 +359,36 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         #region rightside methods
 
+        private DataTable getToSaveData()
+        {
+            DataTable toSave = new DataTable();
+            DataColumn dc = new DataColumn("FROM");
+            DataColumn dc2 = new DataColumn("TO");
+            toSave.Columns.Add(dc);
+            toSave.Columns.Add(dc2);
+            toSave.AcceptChanges();
+            DataRow dr;
+
+            foreach (DataGridViewRow gridrow in dgvWeiserRieseStruct.Rows)
+            {
+                DataGridViewCell dgcell = gridrow.Cells[dgvWeiserRieseStruct.Columns.Count - 1];
+                if (dgcell.Value != null || dgcell.Value.ToString().Equals(string.Empty))
+                {
+                    dr = toSave.NewRow();
+                    dr[0] = gridrow.Cells[0].Value;
+                    dr[1] = dgcell.Value;
+                }
+            }
+
+            return toSave;
+        }
+
+        private void StartExcelImporter()
+        {
+            MessageBox.Show("excel importer du lutscher");
+        }
         #endregion
-
-
-
+        
         #region tab pages locker
       
 
@@ -409,10 +442,6 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         #endregion
 
         
-
-        
-
-      
 
 
     }

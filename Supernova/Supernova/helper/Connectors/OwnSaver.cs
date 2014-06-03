@@ -9,10 +9,18 @@ namespace Supernova.helper.Connectors
 {
     class OwnSaver
     {
-        public void test()
+        private DBTYPE DB;
+        private CONNECTOR connect;
+        public OwnSaver(DBTYPE DB)
         {
-          
+            // TODO: Complete member initialization
+            this.DB = DB;
         }
         
+
+        public void SaveStructur(DataTable toSaveTable)
+        {
+            // 
+        }
     }
 }

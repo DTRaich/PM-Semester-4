@@ -5,9 +5,7 @@ using System.Text;
 
 namespace Supernova.helper.Connectors
 {
-    //class DivEnums
-    //{
-    //}
+   
     public enum DBTYPE
     {
         Oracle,
@@ -35,5 +33,12 @@ namespace Supernova.helper.Connectors
     {
         Abteilungen,
         Benutzer  
+        
     }
+
+    public enum userTablValues
+    {
+        U_GROUP = 24  // entspricht projektleiter
+    }
+   
 }
