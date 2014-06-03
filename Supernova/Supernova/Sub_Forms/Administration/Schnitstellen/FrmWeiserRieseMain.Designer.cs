@@ -438,7 +438,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(457, 383);
+            this.tabPage4.Size = new System.Drawing.Size(457, 322);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Inhalt";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -457,7 +457,7 @@
             this.dgvWeiserRieseInhalt.MultiSelect = false;
             this.dgvWeiserRieseInhalt.Name = "dgvWeiserRieseInhalt";
             this.dgvWeiserRieseInhalt.ReadOnly = true;
-            this.dgvWeiserRieseInhalt.Size = new System.Drawing.Size(451, 377);
+            this.dgvWeiserRieseInhalt.Size = new System.Drawing.Size(451, 316);
             this.dgvWeiserRieseInhalt.TabIndex = 0;
             this.dgvWeiserRieseInhalt.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseInhalt_DragDrop);
             this.dgvWeiserRieseInhalt.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseInhalt_DragEnter);
@@ -487,6 +487,7 @@
             this.btnDiscardSettings.TabIndex = 5;
             this.btnDiscardSettings.Text = "Verwerfen";
             this.btnDiscardSettings.UseVisualStyleBackColor = true;
+            this.btnDiscardSettings.Click += new System.EventHandler(this.btnDiscardSettings_Click);
             // 
             // btnGetAViewData
             // 

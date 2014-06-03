@@ -57,7 +57,14 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             txtConnect.Text = string.Empty;
             txtTabelle.Text = string.Empty;
             txtvalue1.Text = string.Empty;
-            txtvalue2.Text = string.Empty;    
+            txtvalue2.Text = string.Empty;
+
+            dgvExtern.DataSource = null;
+            dgvExtern.Columns.Clear();
+            dgvExternStruct.DataSource = null;
+            dgvExternStruct.Columns.Clear();
+            externTable = null;
+            externTable = new DataTable();
         }
         #endregion
         #region methods leftside
@@ -211,6 +218,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         {
             Point clientPoint = dgvWeiserRieseStruct.PointToClient(new Point(e.X, e.Y));
             int  currentRow =   dgvWeiserRieseStruct.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
+          //  int currentcolumn = dgvWeiserRieseStruct.HitTest(clientPoint.X, clientPoint.Y).ColumnIndex;
 
             if (currentRow != -1 && e.Data.GetDataPresent(typeof(DataRowView)))
             {
@@ -232,12 +240,12 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         #region DragDropperHelper
         private void insertColumnNameinStructTable(string p, int currentRow)
         {
-            throw new NotImplementedException();
+            dgvWeiserRieseStruct[dgvWeiserRieseStruct.Columns.Count - 1, currentRow].Value = p;
         }
 
         private bool CheckTableMatches(DataRowView TableView, int currentRow)
         {
-            throw new NotImplementedException();
+            return true;
         }  
         #endregion
 
@@ -324,7 +332,13 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         {
             MessageBox.Show("excel importer du lutscher");
         }
-
+        private void btnDiscardSettings_Click(object sender, EventArgs e)
+        {
+            dgvWeiserRieseInhalt.DataSource = null;
+            dgvWeiserRieseInhalt.Columns.Clear();
+            dgvWeiserRieseStruct.DataSource = null;
+            dgvWeiserRieseStruct.Columns.Clear(); 
+        }
         #endregion
 
 
@@ -363,6 +377,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         }
 
         #endregion
+
+        
 
       
 
