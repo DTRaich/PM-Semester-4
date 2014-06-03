@@ -209,20 +209,37 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         private void dgvWeiserRieseStruct_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(DataRowView)))
+            Point clientPoint = dgvWeiserRieseStruct.PointToClient(new Point(e.X, e.Y));
+            int  currentRow =   dgvWeiserRieseStruct.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
+
+            if (currentRow != -1 && e.Data.GetDataPresent(typeof(DataRowView)))
             {
-
                 DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));
-
+                if(CheckTableMatches(TableView, currentRow))
+                {
+                    insertColumnNameinStructTable(TableView.Row[0].ToString(), currentRow);
+                }
+                else
+                {
+                    FrmAfirmative error = new FrmAfirmative("Fehler \nDatei-Typ oder Länge ist nicht passend", 'e');
+                    error.ShowDialog();
+                }
             }
 
         }
 
-      
-
-      
         #endregion
+        #region DragDropperHelper
+        private void insertColumnNameinStructTable(string p, int currentRow)
+        {
+            throw new NotImplementedException();
+        }
 
+        private bool CheckTableMatches(DataRowView TableView, int currentRow)
+        {
+            throw new NotImplementedException();
+        }  
+        #endregion
 
         #region drag drop inhalt
 
