@@ -69,6 +69,7 @@
             this.btnStruct = new System.Windows.Forms.Button();
             this.cbOriginTable = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnExcelImport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -395,10 +396,10 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(13, 123);
+            this.tabControl2.Location = new System.Drawing.Point(13, 184);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(465, 409);
+            this.tabControl2.Size = new System.Drawing.Size(465, 348);
             this.tabControl2.TabIndex = 2;
             this.tabControl2.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl2_Selected);
             // 
@@ -408,7 +409,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(457, 383);
+            this.tabPage3.Size = new System.Drawing.Size(457, 322);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Struktur";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -426,7 +427,7 @@
             this.dgvWeiserRieseStruct.Location = new System.Drawing.Point(3, 3);
             this.dgvWeiserRieseStruct.MultiSelect = false;
             this.dgvWeiserRieseStruct.Name = "dgvWeiserRieseStruct";
-            this.dgvWeiserRieseStruct.Size = new System.Drawing.Size(451, 377);
+            this.dgvWeiserRieseStruct.Size = new System.Drawing.Size(451, 316);
             this.dgvWeiserRieseStruct.TabIndex = 2;
             this.dgvWeiserRieseStruct.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseStruct_DragDrop);
             this.dgvWeiserRieseStruct.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvWeiserRieseStruct_DragEnter);
@@ -463,6 +464,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnExcelImport);
             this.groupBox2.Controls.Add(this.btnDiscardSettings);
             this.groupBox2.Controls.Add(this.btnGetAViewData);
             this.groupBox2.Controls.Add(this.btnGetStructAndWholetable);
@@ -472,7 +474,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(474, 113);
+            this.groupBox2.Size = new System.Drawing.Size(474, 174);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Referenz";
@@ -531,6 +533,16 @@
             this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tabelle";
+            // 
+            // btnExcelImport
+            // 
+            this.btnExcelImport.Location = new System.Drawing.Point(6, 123);
+            this.btnExcelImport.Name = "btnExcelImport";
+            this.btnExcelImport.Size = new System.Drawing.Size(118, 46);
+            this.btnExcelImport.TabIndex = 6;
+            this.btnExcelImport.Text = "Excel Import";
+            this.btnExcelImport.UseVisualStyleBackColor = true;
+            this.btnExcelImport.Click += new System.EventHandler(this.btnExcelImport_Click);
             // 
             // FrmWeiserRieseMain
             // 
@@ -607,5 +619,6 @@
         private System.Windows.Forms.DataGridView dgvWeiserRieseInhalt;
         private System.Windows.Forms.Button btnDiscardSettings;
         private System.Windows.Forms.Button btnGetAViewData;
+        private System.Windows.Forms.Button btnExcelImport;
     }
 }

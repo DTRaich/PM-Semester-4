@@ -303,6 +303,10 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         }
 
+        private void btnExcelImport_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("excel importer du lutscher");
+        }
 
         #endregion
 
@@ -342,6 +346,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         }
 
         #endregion
+
+      
 
 
     }
