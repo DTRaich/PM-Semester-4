@@ -493,14 +493,14 @@ namespace Supernova.Sub_Forms.Overview
             xlWorkBook = xlApp.Workbooks.Add(misValue);
 
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            for (i = 1; i < mainGrid.ColumnCount - 2; i++)
+            for (i = 1; i < mainGrid.ColumnCount - 3; i++)
             {
                 xlWorkSheet.Cells[1, i] = mainGrid.Columns[i].Name.ToString();
             }
 
             for (i = 0; i <= mainGrid.RowCount -2; i++)
             {
-                for (j = 1; j < mainGrid.ColumnCount - 2; j++)
+                for (j = 1; j < mainGrid.ColumnCount - 3; j++)
                 {
                     xlWorkSheet.Cells[i + 2, j ] = mainGrid[j, i].Value.ToString();
                 }
