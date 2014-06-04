@@ -24,6 +24,10 @@ namespace Supernova.Sub_Forms.Projects
             InitializeComponent();
             this.projektdaten = projektdaten;
 
+            textBox1.Text = Convert.ToString(1);
+            textBox2.Text = Convert.ToString(1);
+            textBox3.Text = Convert.ToString(1);
+            textBox4.Text = Convert.ToString(1);
             if (projektdaten.ProjectID != 0)
             {
                 fillAllBoxes();
