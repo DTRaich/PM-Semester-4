@@ -32,10 +32,14 @@ namespace Supernova.Sub_Forms.Projects
 
         private void fillAllBoxes()
         {
-            tbTechnicalRisk.Value = projektdaten.technicalRisk;
-            tbFinancialRisk.Value = projektdaten.financialRisk;
-            tbSecurityRisk.Value = projektdaten.securityRisk;
-            tbQualityRisk.Value = projektdaten.qualityRisk;
+            tbTechnicalRisk.Value = 10-projektdaten.technicalRisk;
+            tbFinancialRisk.Value = 10 - projektdaten.financialRisk;
+            tbSecurityRisk.Value = 10- projektdaten.securityRisk;
+            tbQualityRisk.Value = 10- projektdaten.qualityRisk;
+            textBox1.Text = Convert.ToString(10 - projektdaten.technicalRisk);
+            textBox2.Text = Convert.ToString(10 - projektdaten.financialRisk);
+            textBox3.Text = Convert.ToString(10 - projektdaten.securityRisk);
+            textBox4.Text = Convert.ToString(10 - projektdaten.qualityRisk);
         }
 
         public bool checkAndValidateForm()
@@ -46,10 +50,10 @@ namespace Supernova.Sub_Forms.Projects
 
         private void collectData()
         {
-            projektdaten.technicalRisk = tbTechnicalRisk.Value;
-            projektdaten.financialRisk = tbFinancialRisk.Value;
-            projektdaten.securityRisk = tbSecurityRisk.Value;
-            projektdaten.qualityRisk = tbQualityRisk.Value;
+            projektdaten.technicalRisk = 10 - tbTechnicalRisk.Value;
+            projektdaten.financialRisk = 10 - tbFinancialRisk.Value;
+            projektdaten.securityRisk = 10- tbSecurityRisk.Value;
+            projektdaten.qualityRisk = 10- tbQualityRisk.Value;
         }
 
         private void tbTechnicalRisk_ValueChanged(object sender, EventArgs e)
