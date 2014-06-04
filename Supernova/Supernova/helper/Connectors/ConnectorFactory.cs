@@ -33,7 +33,7 @@ namespace Supernova.helper.Connectors
             return null;
         }
 
-        public virtual DataTable SelectFromColumns(DataTable ColumnNames)
+        public virtual DataTable SelectFromColumns(DataTable ColumnNames, string TableName)
         {
             return null;
         }

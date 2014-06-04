@@ -46,23 +46,25 @@ namespace Supernova.Sub_Forms.Overview
 
         private void ExcelExport(){
            
+
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-
             xlApp = new Excel.ApplicationClass();
-            String path = System.IO.Path.GetFullPath("BubbleChartTemp.xlsx");
-            xlWorkBook = xlApp.Workbooks.Open(@path);
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            
+
+            string DemoPath = System.Windows.Forms.Application.StartupPath + "\\helper\\BubbleChartTemp.xlsx";// Applica
+            xlWorkBook  = xlApp.Workbooks.Open(DemoPath);
+
+                        // Select the first worksheet.
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[1];
+                 
             
             int i=4;
             foreach (DataRow dr in dragTable.Rows)
             {
                 double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
 
-                xlWorkSheet.Cells[i, 2] = dr[0].ToString();
+                xlWorkSheet.Cells[i, 2] = dr[1].ToString();
                 xlWorkSheet.Cells[i, 3] = value[0];
                 xlWorkSheet.Cells[i, 4] = value[1];
                 xlWorkSheet.Cells[i, 5] = value[2];
@@ -72,17 +74,17 @@ namespace Supernova.Sub_Forms.Overview
 
             //Savedialog
             SaveFileDialog sfd = new SaveFileDialog();
-            sfd.FileName = "BubbleChart.xls";
-            sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
+            sfd.FileName = "BubbleChart.xlsx";
+            sfd.Filter = "Excel files (*.xlsx)|*.xlxs|All Files(*.*)|*.*";
             sfd.FilterIndex = 2;
             sfd.InitialDirectory = @"C:\Users\Public\Documents\";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                xlWorkBook.SaveAs(sfd.FileName);
             }            
             
             //close Excel
-            xlWorkBook.Close(false, misValue, misValue);
+            xlWorkBook.Close();
             xlApp.Quit();
 
             releaseObject(xlWorkSheet);
