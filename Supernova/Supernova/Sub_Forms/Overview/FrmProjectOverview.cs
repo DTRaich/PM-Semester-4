@@ -172,8 +172,8 @@ namespace Supernova.Sub_Forms.Overview
         private void tsmHaveTo_Click(object sender, EventArgs e)
         {
             ValidationData valDat = new ValidationData();
-
-            DataTable val = valDat.SaveAndValidateHaveTo(currentProjectID,currentHaveTo);
+            valDat.PrepareHaveTotry(currentProjectID, currentHaveTo);
+            DataTable val = valDat.SaveAndValidateHaveTo(currentProjectID, currentHaveTo);
 
             if (val.Rows.Count > 0)
             {

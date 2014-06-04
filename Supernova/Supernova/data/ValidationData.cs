@@ -58,6 +58,50 @@ namespace Supernova.data
             return dt;
         }
 
+        public void PrepareHaveTotry(int proID, int haveTo)
+        {
+
+
+            dbError.deleteDBError();
+            MySqlConnection connection = new MySqlConnection(conSting);
+            try
+            {
+                string commandText = "Call PrepareHaveToTry(@project,@have)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = commandText;
+
+                cmd.Parameters.AddWithValue("project", proID);
+                cmd.Parameters["project"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("have", haveTo);
+                cmd.Parameters["have"].Direction = ParameterDirection.Input;
+
+
+                connection.Open();
+                cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                dbError.setDBError("Die Datenbank ist gerade nicht verfügbar. Bitte wenden sie sich an ihren Administrator.");
+
+            }
+            finally
+            {
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+
+
+
+        }
+
+
         #region riese
         public DataTable GetAllColumnsUser()
         {
