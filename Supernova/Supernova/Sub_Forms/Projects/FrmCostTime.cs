@@ -203,7 +203,7 @@ namespace Supernova.Sub_Forms.Projects
         private void collectData()
         {
             projektdaten.ProjectStartDate = new DateTime(Convert.ToInt32(cbStartYear.SelectedValue), Convert.ToInt32(cbStartMonth.SelectedValue), 1);
-            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedValue), Convert.ToInt32(cbEndMonth.SelectedValue), 30);
+            projektdaten.ProjectEndDate = new DateTime(Convert.ToInt32(cbEndYear.SelectedValue), Convert.ToInt32(cbEndMonth.SelectedValue), 28);
             projektdaten.costsyear1 = year1;
             projektdaten.costyear2 = year2;
             projektdaten.costyeae3 = year3;
