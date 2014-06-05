@@ -67,6 +67,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRessources";
             this.Text = "Abteilungskapazitäten";
+            this.Shown += new System.EventHandler(this.FrmRessources_Shown);
+            this.VisibleChanged += new System.EventHandler(this.FrmRessources_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.capaGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

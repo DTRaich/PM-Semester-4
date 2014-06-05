@@ -39,6 +39,31 @@ namespace Supernova.Sub_Forms.Projects
            capaGrid.Columns[0].Visible = false;
            capaGrid.Columns[1].ReadOnly = true;
            capaGrid.Columns[1].HeaderText = "Abteilung";
+
+         
+        }
+
+        private void makeReadonly()
+        {
+            capaGrid.Columns[2].ReadOnly = true;
+            capaGrid.Columns[3].ReadOnly = true;
+            capaGrid.Columns[4].ReadOnly = true; 
+
+            if (projektdaten.ProjectDuration <= 12)
+            {
+                capaGrid.Columns[2].ReadOnly = false; 
+            }
+            else
+            {
+                if (projektdaten.ProjectDuration <= 24)
+                {
+                    capaGrid.Columns[3].ReadOnly = false; 
+                }
+                else
+                {
+                    capaGrid.Columns[4].ReadOnly = false; 
+                }
+            }
         }
 
         public bool checkAndValidateForm()
@@ -115,6 +140,16 @@ namespace Supernova.Sub_Forms.Projects
             {
                 e.Handled = true;
             }
+        }
+
+        private void FrmRessources_VisibleChanged(object sender, EventArgs e)
+        {
+            makeReadonly();
+        }
+
+        private void FrmRessources_Shown(object sender, EventArgs e)
+        {
+            makeReadonly();
         }
     }
 }

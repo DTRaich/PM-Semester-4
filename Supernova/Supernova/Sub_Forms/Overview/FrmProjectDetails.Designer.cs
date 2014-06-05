@@ -78,7 +78,7 @@
             this.txtName.Location = new System.Drawing.Point(194, 74);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(138, 20);
+            this.txtName.Size = new System.Drawing.Size(304, 20);
             this.txtName.TabIndex = 3;
             // 
             // txtPoints
