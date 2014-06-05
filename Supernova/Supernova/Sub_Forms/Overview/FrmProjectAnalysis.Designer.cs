@@ -45,6 +45,8 @@
             chartArea1.AxisY.Title = "Kosten";
             chartArea1.Name = "ChartArea1";
             this.chartKostRisk.ChartAreas.Add(chartArea1);
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartKostRisk.Legends.Add(legend1);
             this.chartKostRisk.Location = new System.Drawing.Point(0, 35);

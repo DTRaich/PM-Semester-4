@@ -29,7 +29,7 @@ namespace Supernova.Sub_Forms.Overview
             foreach (DataRow dr in dragTable.Rows)
             {
                 double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
-                String workingS = dr[1].ToString() + ", NPV: " + value[1];
+                String workingS = dr[1].ToString() + ", \nNPV: " + value[1];
                 Series working = new Series(workingS);
                 chartKostRisk.Series.Add(working);
                 chartKostRisk.Series[workingS].ChartType = SeriesChartType.Bubble;
