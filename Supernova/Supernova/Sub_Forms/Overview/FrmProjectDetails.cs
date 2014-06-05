@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Supernova.data;
 using Excel = Microsoft.Office.Interop.Excel;
+using Supernova.Sub_Forms.General;
 
 namespace Supernova.Sub_Forms.Overview
 {
@@ -57,55 +58,63 @@ namespace Supernova.Sub_Forms.Overview
 
         private void ExcelExport()
         {
-            Excel.Application xlApp;
-            Excel.Workbook xlWorkBook;
-            Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-
-            Int16 i, j;
-
-            xlApp = new Excel.ApplicationClass();
-            xlWorkBook = xlApp.Workbooks.Add(misValue);
-
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-            xlWorkSheet.Cells[1, 1] = lblName.Text;
-            xlWorkSheet.Cells[1, 2] = currentProjectName;
-            xlWorkSheet.Cells[1, 3] = lblPoints.Text;
-            xlWorkSheet.Cells[1, 4] = currentPoints;
-            
-            for (i = 0; i < detailsGrid.ColumnCount ; i++)
+            try
             {
-                xlWorkSheet.Cells[2, i+1] = detailsGrid.Columns[i].Name.ToString();
-            }
+                Excel.Application xlApp;
+                Excel.Workbook xlWorkBook;
+                Excel.Worksheet xlWorkSheet;
+                object misValue = System.Reflection.Missing.Value;
 
-            for (i = 0; i <= detailsGrid.RowCount -1; i++)
-            {
-                for (j = 0; j < detailsGrid.ColumnCount; j++)
+                Int16 i, j;
+
+                xlApp = new Excel.ApplicationClass();
+                xlWorkBook = xlApp.Workbooks.Add(misValue);
+
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                xlWorkSheet.Cells[1, 1] = lblName.Text;
+                xlWorkSheet.Cells[1, 2] = currentProjectName;
+                xlWorkSheet.Cells[1, 3] = lblPoints.Text;
+                xlWorkSheet.Cells[1, 4] = currentPoints;
+
+                for (i = 0; i < detailsGrid.ColumnCount; i++)
                 {
-                    xlWorkSheet.Cells[i + 3, j+1] = detailsGrid[j, i].Value;
+                    xlWorkSheet.Cells[2, i + 1] = detailsGrid.Columns[i].Name.ToString();
                 }
+
+                for (i = 0; i <= detailsGrid.RowCount - 1; i++)
+                {
+                    for (j = 0; j < detailsGrid.ColumnCount; j++)
+                    {
+                        xlWorkSheet.Cells[i + 3, j + 1] = detailsGrid[j, i].Value;
+                    }
+                }
+
+
+                SaveFileDialog sfd = new SaveFileDialog();
+
+                sfd.FileName = "ProjectDetails" + currentProjectName + ".xls";
+                sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
+                sfd.FilterIndex = 2;
+                sfd.InitialDirectory = @"C:\Users\Public\Documents\";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                }
+
+                xlWorkBook.Close(false, misValue, misValue);
+                xlApp.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlApp);
             }
-
-
-            SaveFileDialog sfd = new SaveFileDialog();
-
-            sfd.FileName = "ProjectDetails"+currentProjectName+".xls";
-            sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
-            sfd.FilterIndex = 2;
-            sfd.InitialDirectory = @"C:\Users\Public\Documents\";
-
-            if (sfd.ShowDialog() == DialogResult.OK)
+            catch (Exception ex)
             {
-                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                FrmAfirmative error = new FrmAfirmative("Fehler \nExcel-Erstellung war nicht möglich\n Bitte prüfen Sie ob Excel richtig installiert ist", 'e');
+                error.ShowDialog();
             }
-
-            xlWorkBook.Close(false, misValue, misValue);
-            xlApp.Quit();
-
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
 
         }
         private void releaseObject(object obj)

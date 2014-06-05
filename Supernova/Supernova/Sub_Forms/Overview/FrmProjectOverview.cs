@@ -487,44 +487,58 @@ namespace Supernova.Sub_Forms.Overview
             Excel.Worksheet xlWorkSheet;
             object misValue = System.Reflection.Missing.Value;
 
-            Int16 i, j;
-
-            xlApp = new Excel.ApplicationClass();
-            xlWorkBook = xlApp.Workbooks.Add(misValue);
-
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            for (i = 1; i < mainGrid.ColumnCount - 3; i++)
-            {
-                xlWorkSheet.Cells[1, i] = mainGrid.Columns[i].Name.ToString();
-            }
-
-            for (i = 0; i <= mainGrid.RowCount -1; i++)
-            {
-                for (j = 1; j < mainGrid.ColumnCount - 3; j++)
-                {
-                    xlWorkSheet.Cells[i + 2, j ] = mainGrid[j, i].Value.ToString();
-                }
-            }
-
-
-            SaveFileDialog sfd = new SaveFileDialog();
             
-            sfd.FileName = "ProjectOverview.xls";
-            sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
-            sfd.FilterIndex = 2;
-            sfd.InitialDirectory = @"C:\Users\Public\Documents\";
-
-            if (sfd.ShowDialog() == DialogResult.OK)
+            try
             {
-                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            }            
 
-            xlWorkBook.Close(false, misValue, misValue);
-            xlApp.Quit();
 
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
+                Int16 i, j;
+                xlApp = new Excel.ApplicationClass();
+                xlWorkBook = xlApp.Workbooks.Add(misValue);
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                for (i = 1; i < mainGrid.ColumnCount - 3; i++)
+                {
+                    xlWorkSheet.Cells[1, i] = mainGrid.Columns[i].Name.ToString();
+                }
+
+                for (i = 0; i <= mainGrid.RowCount - 1; i++)
+                {
+                    for (j = 1; j < mainGrid.ColumnCount - 3; j++)
+                    {
+                        xlWorkSheet.Cells[i + 2, j] = mainGrid[j, i].Value.ToString();
+                    }
+                }
+
+
+                SaveFileDialog sfd = new SaveFileDialog();
+
+                sfd.FileName = "ProjectOverview.xls";
+                sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
+                sfd.FilterIndex = 2;
+                sfd.InitialDirectory = @"C:\Users\Public\Documents\";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                }
+
+                xlWorkBook.Close(false, misValue, misValue);
+                xlApp.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlApp);
+                
+            }
+            catch (Exception ex)
+            {
+                FrmAfirmative error = new FrmAfirmative("Fehler \nExcel-Erstellung war nicht möglich\n Bitte prüfen Sie ob Excel richtig installiert ist", 'e');
+                error.ShowDialog();
+            }
+            finally
+            {
+               
+            }
              
         }
         private void releaseObject(object obj)

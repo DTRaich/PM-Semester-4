@@ -1,4 +1,5 @@
 ﻿using Supernova.helper;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,57 +89,64 @@ namespace Supernova.Sub_Forms.Overview
 
         private void ExcelExport(int[] Value, String[] Name, String Term)
         {
-            Excel.Application xlApp;
-            Excel.Workbook xlWorkBook;
-            Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-
-            xlApp = new Excel.ApplicationClass();
-            xlWorkBook = xlApp.Workbooks.Add(misValue);
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-
-            //add data 
-            xlWorkSheet.Cells[1, 1] = "";
-            xlWorkSheet.Cells[2, 1] = Term.ToString();
-
-            int n = 0;
-            for (int j = 2; j <= Value.Length+1; j++)
+            try
             {
-                xlWorkSheet.Cells[j, 1] = Name[n].ToString();
-                xlWorkSheet.Cells[j, 2] = Value[n].ToString();                
-                n++;
+                Excel.Application xlApp;
+                Excel.Workbook xlWorkBook;
+                Excel.Worksheet xlWorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+
+                xlApp = new Excel.ApplicationClass();
+                xlWorkBook = xlApp.Workbooks.Add(misValue);
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                //add data 
+                xlWorkSheet.Cells[1, 1] = "";
+                xlWorkSheet.Cells[2, 1] = Term.ToString();
+
+                int n = 0;
+                for (int j = 2; j <= Value.Length + 1; j++)
+                {
+                    xlWorkSheet.Cells[j, 1] = Name[n].ToString();
+                    xlWorkSheet.Cells[j, 2] = Value[n].ToString();
+                    n++;
+                }
+
+
+                Excel.Range chartRange;
+
+                Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
+                Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(180, 10, 300, 250);
+                Excel.Chart chartPage = myChart.Chart;
+                int leng = Value.Length + 1;
+                chartRange = xlWorkSheet.get_Range("A1", "b" + leng);
+                chartPage.SetSourceData(chartRange, misValue);
+                chartPage.ChartType = Excel.XlChartType.xlColumnClustered;
+
+                SaveFileDialog sfd = new SaveFileDialog();
+
+                sfd.FileName = Term + "Statisik.xls";
+                sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
+                sfd.FilterIndex = 2;
+                sfd.InitialDirectory = @"C:\Users\Public\Documents\";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                }
+
+                xlWorkBook.Close(false, misValue, misValue);
+                xlApp.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlApp);
             }
-
-
-            Excel.Range chartRange;
-
-            Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
-            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(180, 10, 300, 250);
-            Excel.Chart chartPage = myChart.Chart;
-            int leng = Value.Length + 1;
-            chartRange = xlWorkSheet.get_Range("A1", "b"+leng);
-            chartPage.SetSourceData(chartRange, misValue);
-            chartPage.ChartType = Excel.XlChartType.xlColumnClustered;
-
-            SaveFileDialog sfd = new SaveFileDialog();
-
-            sfd.FileName = Term+"Statisik.xls";
-            sfd.Filter = "Excel files (*.xls)|*.xls|All Files(*.*)|*.*";
-            sfd.FilterIndex = 2;
-            sfd.InitialDirectory = @"C:\Users\Public\Documents\";
-
-            if (sfd.ShowDialog() == DialogResult.OK)
+            catch (Exception ex)
             {
-                xlWorkBook.SaveAs(sfd.FileName, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                FrmAfirmative error = new FrmAfirmative("Fehler \nExcel-Erstellung war nicht möglich\n Bitte prüfen Sie ob Excel richtig installiert ist", 'e');
+                error.ShowDialog();
             }
-
-            xlWorkBook.Close(false, misValue, misValue);
-            xlApp.Quit();
-
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
-
         }
         private void releaseObject(object obj)
         {

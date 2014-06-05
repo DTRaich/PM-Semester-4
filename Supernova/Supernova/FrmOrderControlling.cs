@@ -84,6 +84,7 @@ namespace Supernova
             FrmAfirmative cancel  = new FrmAfirmative("Abbrechen?\nProjekterstellung abbrechen?\n",'c');
             if (cancel.ShowDialog() == DialogResult.OK)
             {
+                Leader.getLeaderInst().LoadProjektView();
                 this.Close();
             }
         }

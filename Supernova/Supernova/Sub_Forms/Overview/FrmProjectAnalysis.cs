@@ -1,4 +1,5 @@
 ﻿using Supernova.helper;
+using Supernova.Sub_Forms.General;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,52 +45,65 @@ namespace Supernova.Sub_Forms.Overview
             ExcelExport();
         }
 
-        private void ExcelExport(){
+        private void ExcelExport()
+        {
            
 
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
             xlApp = new Excel.ApplicationClass();
-
-            string DemoPath = System.Windows.Forms.Application.StartupPath + "\\helper\\BubbleChartTemp.xlsx";// Applica
-            xlWorkBook  = xlApp.Workbooks.Open(DemoPath);
-
-                        // Select the first worksheet.
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[1];
-                 
-            
-            int i=4;
-            foreach (DataRow dr in dragTable.Rows)
+            try
             {
-                double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
+                string DemoPath = System.Windows.Forms.Application.StartupPath + "\\helper\\BubbleChartTemp.xlsx";// Applica
+                xlWorkBook = xlApp.Workbooks.Open(DemoPath);
 
-                xlWorkSheet.Cells[i, 2] = dr[1].ToString();
-                xlWorkSheet.Cells[i, 3] = value[0];
-                xlWorkSheet.Cells[i, 4] = value[1];
-                xlWorkSheet.Cells[i, 5] = value[2];
-                i++;
+                // Select the first worksheet.
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[1];
+
+
+                int i = 4;
+                foreach (DataRow dr in dragTable.Rows)
+                {
+                    double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
+
+                    xlWorkSheet.Cells[i, 2] = dr[1].ToString();
+                    xlWorkSheet.Cells[i, 3] = value[0];
+                    xlWorkSheet.Cells[i, 4] = value[1];
+                    xlWorkSheet.Cells[i, 5] = value[2];
+                    i++;
+                }
+
+
+                //Savedialog
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.FileName = "BubbleChart.xlsx";
+                sfd.Filter = "Excel files (*.xlsx)|*.xlxs|All Files(*.*)|*.*";
+                sfd.FilterIndex = 2;
+                sfd.InitialDirectory = @"C:\Users\Public\Documents\";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    xlWorkBook.SaveAs(sfd.FileName);
+                }
+
+                xlWorkBook.Close();
+                xlApp.Quit();
+
+                releaseObject(xlWorkSheet);
+                releaseObject(xlWorkBook);
+                releaseObject(xlApp);
             }
-            
-
-            //Savedialog
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.FileName = "BubbleChart.xlsx";
-            sfd.Filter = "Excel files (*.xlsx)|*.xlxs|All Files(*.*)|*.*";
-            sfd.FilterIndex = 2;
-            sfd.InitialDirectory = @"C:\Users\Public\Documents\";
-            if (sfd.ShowDialog() == DialogResult.OK)
+            catch (Exception ex)
             {
-                xlWorkBook.SaveAs(sfd.FileName);
-            }            
-            
-            //close Excel
-            xlWorkBook.Close();
-            xlApp.Quit();
+                FrmAfirmative error = new FrmAfirmative("Fehler \nExcel-Erstellung war nicht möglich\n Bitte prüfen Sie ob Excel richtig installiert ist", 'e');
+                error.ShowDialog();
+            }
+            finally
+            {
+                //close Excel
+               
+            }
 
-            releaseObject(xlWorkSheet);
-            releaseObject(xlWorkBook);
-            releaseObject(xlApp);
         }
 
         private void releaseObject(object obj)

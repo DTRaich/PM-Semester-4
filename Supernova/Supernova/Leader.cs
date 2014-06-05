@@ -248,6 +248,8 @@ namespace Supernova
             {
                 forms.Close();
             }
+
+            GC.Collect();
         }
         #endregion
 
