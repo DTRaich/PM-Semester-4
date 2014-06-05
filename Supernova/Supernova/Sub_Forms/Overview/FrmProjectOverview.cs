@@ -104,7 +104,9 @@ namespace Supernova.Sub_Forms.Overview
 
         private void LoadMainGrid()
         {
+            resetMainGrid();
             source = dl.LoadGenerealOverview();
+
             source.Columns.Add("Muss-Projekt", System.Type.GetType("System.Boolean"));
 
             foreach (DataRow dataRow in source.Rows)
@@ -242,6 +244,7 @@ namespace Supernova.Sub_Forms.Overview
 
         private void getFilter()
         {
+            resetMainGrid();    
             int categoryid = 0;
             int strategyid = 0;
             int userid = 0;
@@ -259,11 +262,37 @@ namespace Supernova.Sub_Forms.Overview
             {
                 userid = Leader.getLeaderInst().getUserID();
             }
-            source = null;
-            mainGrid.DataSource = null;
+                  
             source = dl.LoadOverviewFilter(categoryid, strategyid, userid, haveto);
             mainGrid.DataSource = source;
+            source.Columns.Add("Muss-Projekt", System.Type.GetType("System.Boolean"));
 
+            foreach (DataRow dataRow in source.Rows)
+            {
+                if (dataRow["MUSS_Projekt"].ToString().Equals("1"))
+                {
+                    dataRow["Muss-Projekt"] = true;
+                }
+                else
+                {
+                    dataRow["Muss-Projekt"] = false;
+                }
+            }
+            mainGrid.DataSource = source;
+            mainGrid.ReadOnly = true;
+            mainGrid.Columns[0].Visible = false;
+            mainGrid.Columns["MUSS_Projekt"].Visible = false;
+            mainGrid.Columns[mainGrid.Columns.Count - 2].Visible = false;
+            mainGrid.Columns[mainGrid.Columns.Count - 3].Visible = false;
+
+        }
+
+        private void resetMainGrid()
+        {
+            source = null;
+            source = new DataTable();
+            mainGrid.DataSource = null;
+            mainGrid.Columns.Clear();
         }
         
 
@@ -317,28 +346,34 @@ namespace Supernova.Sub_Forms.Overview
 
         private void getCurrentStuff()
         {
-            int row = mainGrid.CurrentRow.Index;
-
-         
-
-            if (row != -1)
+            try
             {
-                currentProjectID = Convert.ToInt32(mainGrid[0, row].Value);
-                currentPoints = Convert.ToDouble(mainGrid[7, row].Value);
-                currentProjectName = mainGrid[1, row].Value.ToString();
-                currentHaveTo = Convert.ToInt32(mainGrid["MUSS_Projekt", row].Value);
-                currentRow = row;
+                int row = mainGrid.CurrentRow.Index;
 
-                // drehen, damit richtiges abgespeichert werden kann
-                if (currentHaveTo == 0)
-                {
-                    currentHaveTo = 1;
-                }
-                else
-                {
-                    currentHaveTo = 0;
-                }
 
+
+                if (row != -1)
+                {
+                    currentProjectID = Convert.ToInt32(mainGrid[0, row].Value);
+                    currentPoints = Convert.ToDouble(mainGrid[7, row].Value);
+                    currentProjectName = mainGrid[1, row].Value.ToString();
+                    currentHaveTo = Convert.ToInt32(mainGrid["MUSS_Projekt", row].Value);
+                    currentRow = row;
+
+                    // drehen, damit richtiges abgespeichert werden kann
+                    if (currentHaveTo == 0)
+                    {
+                        currentHaveTo = 1;
+                    }
+                    else
+                    {
+                        currentHaveTo = 0;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
             }
         }
           
