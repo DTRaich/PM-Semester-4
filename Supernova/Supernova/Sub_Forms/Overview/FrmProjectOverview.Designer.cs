@@ -94,7 +94,9 @@
             this.mainGrid.ContextMenuStrip = this.cmsGridMenu;
             this.mainGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainGrid.Location = new System.Drawing.Point(3, 153);
+            this.mainGrid.MultiSelect = false;
             this.mainGrid.Name = "mainGrid";
+            this.mainGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.mainGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mainGrid.Size = new System.Drawing.Size(944, 221);
             this.mainGrid.TabIndex = 0;
@@ -109,7 +111,7 @@
             this.tsmHaveTo,
             this.tsmDelete});
             this.cmsGridMenu.Name = "cmsGridMenu";
-            this.cmsGridMenu.Size = new System.Drawing.Size(201, 114);
+            this.cmsGridMenu.Size = new System.Drawing.Size(201, 92);
             this.cmsGridMenu.Text = "Menu";
             this.cmsGridMenu.Opening += new System.ComponentModel.CancelEventHandler(this.cmsGridMenu_Opening);
             // 

@@ -29,12 +29,12 @@ namespace Supernova.Sub_Forms.Overview
             foreach (DataRow dr in dragTable.Rows)
             {
                 double[] value = ah.getProjectAnalysis(Convert.ToInt32(dr[0].ToString()));
-                String workingS = dr[1].ToString() + ", NPV: " + value[2];
+                String workingS = dr[1].ToString() + ", NPV: " + value[1];
                 Series working = new Series(workingS);
                 chartKostRisk.Series.Add(working);
                 chartKostRisk.Series[workingS].ChartType = SeriesChartType.Bubble;
                 chartKostRisk.Series[workingS].MarkerStyle = MarkerStyle.Circle;
-                chartKostRisk.Series[workingS].Points.AddXY(value[0], value[1], value[2]);                
+                chartKostRisk.Series[workingS].Points.AddXY(value[0], value[2], value[1]);                
             }
 
         }
