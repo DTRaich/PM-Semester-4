@@ -141,6 +141,7 @@ namespace Supernova
             {
                 FrmAfirmative affir = new FrmAfirmative("Projekt wurde erfolgreich gespeichert", 'i');
                 affir.ShowDialog();
+                Leader.getLeaderInst().LoadProjektView();
                 this.Close(); 
             }
             else
