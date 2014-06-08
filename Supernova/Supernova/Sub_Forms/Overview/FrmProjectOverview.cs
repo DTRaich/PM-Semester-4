@@ -407,10 +407,11 @@ namespace Supernova.Sub_Forms.Overview
 
               if (retval)
               {
-                  if (dragTable.Rows.Count == 5 && checkCountOFList())
+                  if (checkCountOFList())
                   {
-                      FrmAfirmative frm = new FrmAfirmative("Zuviele Projekte\nZu viele Projekt ausgewählt setzten Sie zuerst Projekte inaktiv", 'e');
+                      FrmAfirmative frm = new FrmAfirmative("Sie haben zu viele Projekt ausgewählt. \nBitte setzten Sie zuerst Projekte inaktiv.", 'e');
                       frm.ShowDialog();
+                      retval = false;
                   }
                   else
                   {
@@ -420,7 +421,7 @@ namespace Supernova.Sub_Forms.Overview
               }
               else
               {
-                  FrmAfirmative frm = new FrmAfirmative("Projekt bereits vorhanden\nDas ausgewählte Projekt ist bereits ausgewählt",'e');
+                  FrmAfirmative frm = new FrmAfirmative("Projekt bereits vorhanden\n\nDas gewählte Projekt ist bereits ausgewählt.",'e');
                   frm.ShowDialog();
               }
                
@@ -448,7 +449,7 @@ namespace Supernova.Sub_Forms.Overview
         private bool checkCountOFList()
         {
             int c = clbBox.CheckedItems.Count;
-            if(c < 5)
+            if(c > 4)
             {
                 return true;
             }else
@@ -567,7 +568,7 @@ namespace Supernova.Sub_Forms.Overview
             }
             catch (Exception ex)
             {
-                FrmAfirmative error = new FrmAfirmative("Fehler \nExcel-Erstellung war nicht möglich\n Bitte prüfen Sie ob Excel richtig installiert ist", 'e');
+                FrmAfirmative error = new FrmAfirmative("Fehler \nExcel-Erstellung war nicht möglich.\nBitte prüfen Sie ob Excel richtig installiert ist.", 'e');
                 error.ShowDialog();
             }
             finally
