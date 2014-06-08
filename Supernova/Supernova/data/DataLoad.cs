@@ -740,8 +740,6 @@ namespace Supernova.data
         }
 
 
-       
-      
 
         #region overview
         public DataTable LoadGenerealOverview()

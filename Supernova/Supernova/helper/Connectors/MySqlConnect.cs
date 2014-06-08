@@ -145,6 +145,7 @@ namespace Supernova.helper.Connectors
                 connection.Open();
 
                 string comand = getCommandFromColumTable(ColumnNames);
+                comand = comand + " from " + TableName;
                 MySqlDataAdapter adap = new MySqlDataAdapter(comand, connection);
                 adap.Fill(dt);
 
@@ -170,8 +171,10 @@ namespace Supernova.helper.Connectors
             string select = "Select ";
             foreach (DataRow dr in ColumnNames.Rows)
             {
+                select = select + " , " + dr[0].ToString();
             }
 
+          
             return select;
         }
  

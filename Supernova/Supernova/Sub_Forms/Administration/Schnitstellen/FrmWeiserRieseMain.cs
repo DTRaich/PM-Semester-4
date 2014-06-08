@@ -19,6 +19,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         CONNECTOR connect;
         DataTable externTable;
         Tables currentTable;
+        string  fromTable;
 
         public FrmWeiserRieseMain()
         {
@@ -46,7 +47,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            DB = (DBTYPE)Enum.Parse(typeof(DBTYPE), cbDBTYPE.SelectedItem.ToString());
+            DB = (DBTYPE)Enum.Parse(typeof(DBTYPE), cbDBTYPE.SelectedItem.ToString());            
             SelectTable(DB);
            
         }
@@ -101,6 +102,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
         private void SelectTable(DBTYPE DB)
         {
             string tableName = txtTabelle.Text;
+            fromTable = tableName;
             string connectString = txtConnect.Text;
             if (!String.IsNullOrEmpty(tableName) && !String.IsNullOrEmpty(connectString))
             {
@@ -344,7 +346,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             {
 
                 OwnSaver ownsaver = new OwnSaver(DB);
-                ownsaver.SaveStructur(toSaveTable, currentTable);
+                ownsaver.SaveStructur(toSaveTable, currentTable, fromTable);
             }
             else
             {
