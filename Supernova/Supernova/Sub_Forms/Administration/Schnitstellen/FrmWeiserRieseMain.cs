@@ -1,4 +1,5 @@
 ﻿using Supernova.data;
+using Supernova.helper;
 using Supernova.helper.Connectors;
 using Supernova.Sub_Forms.General;
 using System;
@@ -226,7 +227,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             if (currentRow != -1 && e.Data.GetDataPresent(typeof(DataRowView)))
             {
                 DataRowView TableView = (DataRowView)e.Data.GetData(typeof(DataRowView));
-                if(CheckTableMatches(TableView, currentRow))
+                DataGridViewRow curRow = (DataGridViewRow)dgvWeiserRieseStruct.Rows[currentRow];
+                if (CheckTableMatches(TableView, curRow))
                 {
                     insertColumnNameinStructTable(TableView.Row[0].ToString(), currentRow);
                 }
@@ -246,12 +248,45 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             dgvWeiserRieseStruct[dgvWeiserRieseStruct.Columns.Count - 1, currentRow].Value = p;
         }
 
-        private bool CheckTableMatches(DataRowView TableView, int currentRow)
+        private bool CheckTableMatches(DataRowView TableView, DataGridViewRow currentRow)
         {
-            bool retval = true;
-            DataGridViewRow gridRow = dgvWeiserRieseStruct.Rows[currentRow];
-            if(!TableView.Row[1].ToString().Equals("DSD2"))
+            DBerror error = DBerror.getInstanze();
+            try
             {
+                
+                error.deleteDBError();
+                string errortext = string.Empty;
+                // wenn nicht gleicher datentyp
+                if (!currentRow.Cells[2].Value.ToString().Equals(TableView[2].ToString()))
+                {
+                    errortext = "Falscher Daten-Typ \n";
+                    error.setDBError(errortext);
+                    return false;
+                }
+
+                // Datenlänge 
+                if (Convert.ToDouble(currentRow.Cells[3].Value) < Convert.ToDouble(TableView[3].ToString()))
+                {
+                    errortext = errortext + "Maximale Länge der Daten zu hoch \n";
+                    error.setDBError(errortext);
+                    return false;
+                }
+                // nullable 
+                string origin = currentRow.Cells[1].Value.ToString();
+                string foreign = TableView[1].ToString();
+                if (origin.Equals("NO") && foreign.Equals("YES"))
+                {
+                    
+                    errortext = errortext + "Null Fehler \n";
+                    error.setDBError(errortext);
+                    return false;
+                }
+
+            }
+            catch
+            {
+                error.setDBError("Kritischer Fehler in DragDrop Routine");
+                return false;
             }
             return true;
         }  
@@ -347,6 +382,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
                 OwnSaver ownsaver = new OwnSaver(DB);
                 ownsaver.SaveStructur(toSaveTable, currentTable, fromTable);
+                FrmAfirmative error = new FrmAfirmative("Daten wurden übernommen", 'i');
+                error.ShowDialog();
             }
             else
             {
@@ -389,14 +426,15 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
             foreach (DataGridViewRow gridrow in dgvWeiserRieseStruct.Rows)
             {
                 DataGridViewCell dgcell = gridrow.Cells[dgvWeiserRieseStruct.Columns.Count - 1];
-                if (dgcell.Value != null || dgcell.Value.ToString().Equals(string.Empty))
+                if (dgcell.Value != null && !dgcell.Value.ToString().Equals(string.Empty))
                 {
                     dr = toSave.NewRow();
                     dr[0] = gridrow.Cells[0].Value;
                     dr[1] = dgcell.Value;
+                    toSave.Rows.Add(dr);
                 }
             }
-
+            toSave.AcceptChanges();
             return toSave;
         }
 

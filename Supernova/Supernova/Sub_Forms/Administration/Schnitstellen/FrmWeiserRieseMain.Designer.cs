@@ -63,13 +63,13 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvWeiserRieseInhalt = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnExcelImport = new System.Windows.Forms.Button();
             this.btnDiscardSettings = new System.Windows.Forms.Button();
             this.btnGetAViewData = new System.Windows.Forms.Button();
             this.btnGetStructAndWholetable = new System.Windows.Forms.Button();
             this.btnStruct = new System.Windows.Forms.Button();
             this.cbOriginTable = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnExcelImport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -479,6 +479,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Referenz";
             // 
+            // btnExcelImport
+            // 
+            this.btnExcelImport.Location = new System.Drawing.Point(6, 123);
+            this.btnExcelImport.Name = "btnExcelImport";
+            this.btnExcelImport.Size = new System.Drawing.Size(118, 46);
+            this.btnExcelImport.TabIndex = 6;
+            this.btnExcelImport.Text = "Excel Import";
+            this.btnExcelImport.UseVisualStyleBackColor = true;
+            this.btnExcelImport.Visible = false;
+            this.btnExcelImport.Click += new System.EventHandler(this.btnExcelImport_Click);
+            // 
             // btnDiscardSettings
             // 
             this.btnDiscardSettings.Location = new System.Drawing.Point(202, 69);
@@ -535,16 +546,6 @@
             this.label5.Size = new System.Drawing.Size(55, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tabelle";
-            // 
-            // btnExcelImport
-            // 
-            this.btnExcelImport.Location = new System.Drawing.Point(6, 123);
-            this.btnExcelImport.Name = "btnExcelImport";
-            this.btnExcelImport.Size = new System.Drawing.Size(118, 46);
-            this.btnExcelImport.TabIndex = 6;
-            this.btnExcelImport.Text = "Excel Import";
-            this.btnExcelImport.UseVisualStyleBackColor = true;
-            this.btnExcelImport.Click += new System.EventHandler(this.btnExcelImport_Click);
             // 
             // FrmWeiserRieseMain
             // 

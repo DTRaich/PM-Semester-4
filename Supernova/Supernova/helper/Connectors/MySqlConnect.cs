@@ -169,9 +169,19 @@ namespace Supernova.helper.Connectors
         private string getCommandFromColumTable(DataTable ColumnNames)
         {
             string select = "Select ";
+            int count = 0;
             foreach (DataRow dr in ColumnNames.Rows)
             {
-                select = select + " , " + dr[0].ToString();
+                if (count == 0)
+                {
+                    select = select + " " + dr[1].ToString();
+                }
+                else
+                {
+
+                    select = select + " , " + dr[1].ToString();
+                }
+                count++;
             }
 
           

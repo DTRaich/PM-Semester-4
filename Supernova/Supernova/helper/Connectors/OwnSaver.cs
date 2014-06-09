@@ -69,6 +69,7 @@ namespace Supernova.helper.Connectors
 
             user.userGroupID = 24;
             user.userID = 0;
+            user.departmentID = 0;
             user.firstname = string.Empty;
             user.lastname = string.Empty;
             user.email = string.Empty;
