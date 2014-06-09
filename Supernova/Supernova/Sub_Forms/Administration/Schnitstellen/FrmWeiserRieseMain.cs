@@ -265,11 +265,17 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
                 }
 
                 // Datenlänge 
-                if (Convert.ToDouble(currentRow.Cells[3].Value) < Convert.ToDouble(TableView[3].ToString()))
+                try
                 {
-                    errortext = errortext + "Maximale Länge der Daten zu hoch \n";
-                    error.setDBError(errortext);
-                    return false;
+                    if (Convert.ToDouble(currentRow.Cells[3].Value) < Convert.ToDouble(TableView[3].ToString()))
+                    {
+                        errortext = errortext + "Maximale Länge der Daten zu hoch \n";
+                        error.setDBError(errortext);
+                        return false;
+                    }
+                }
+                catch (Exception)
+                {
                 }
                 // nullable 
                 string origin = currentRow.Cells[1].Value.ToString();
@@ -283,7 +289,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
                 }
 
             }
-            catch
+            catch(Exception ex)
             {
                 error.setDBError("Kritischer Fehler in DragDrop Routine");
                 return false;
@@ -382,8 +388,8 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
                 OwnSaver ownsaver = new OwnSaver(DB);
                 ownsaver.SaveStructur(toSaveTable, currentTable, fromTable);
-                FrmAfirmative error = new FrmAfirmative("Daten wurden übernommen", 'i');
-                error.ShowDialog();
+                //FrmAfirmative error = new FrmAfirmative("Daten wurden übernommen", 'i');
+                //error.ShowDialog();
             }
             else
             {
@@ -440,7 +446,7 @@ namespace Supernova.Sub_Forms.Administration.Schnitstellen
 
         private void StartExcelImporter()
         {
-            MessageBox.Show("excel importer du lutscher");
+            //MessageBox.Show("excel importer du lutscher");
         }
         #endregion
         
