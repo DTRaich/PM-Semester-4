@@ -23,7 +23,7 @@ namespace Supernova.helper
             {
                 DepSeries[y] = Convert.ToInt32(dt1.Rows[0][i].ToString());
                 y++;
-                DepSeries[y] = Convert.ToInt32(dt1.Rows[0][i].ToString());
+                DepSeries[y] = Convert.ToInt32(dt2.Rows[0][i].ToString());
                 y++;
             }
 
