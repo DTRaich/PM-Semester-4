@@ -33,6 +33,12 @@ namespace Supernova.Sub_Forms.Help
                     break;
                 case "passwort_aendern": ShowPasswortAendern();
                     break;
+                case "projekte_anzeigen": ShowProjekteAnzeigen();
+                    break;
+                case "projekte_erstellen": ShowProjekteErstellen();
+                    break;
+                case "kriterien_priorisieren": ShowKriterienPriorisieren();
+                    break;
             }
 
         }
@@ -60,6 +66,21 @@ namespace Supernova.Sub_Forms.Help
         private void ShowPasswortAendern()
         {
             rtbText.Rtf = texter.GetPasswortAendern();
+        }
+
+        private void ShowProjekteAnzeigen()
+        {
+            rtbText.Rtf = texter.GetProjekteAnzeigen();
+        }
+
+        private void ShowProjekteErstellen()
+        {
+            rtbText.Rtf = texter.GetProjekteErstellen();
+        }
+
+        private void ShowKriterienPriorisieren()
+        {
+            rtbText.Rtf = texter.GetKriterienPriorisieren();
         }
     }
 }
