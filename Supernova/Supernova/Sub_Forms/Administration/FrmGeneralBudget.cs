@@ -51,28 +51,35 @@ namespace Supernova.Sub_Forms.Administration
         private void btnSave_Click(object sender, EventArgs e)
         {
             DataSave saver = new DataSave();
-
-            double budget1 = Convert.ToDouble(mtbBudget1.Text);
-            double budget2 = Convert.ToDouble(mtbBudget2.Text);
-            double budget3 = Convert.ToDouble(mtbBudget3.Text);
-
-            saver.SaveBudget(budgetid, budget1, budget2, budget3);
-            //----
-            DataLoad dl = new DataLoad();
-
-            DataTable val = dl.LoadGenerealOverview();
-
-            if (val.Columns.Count == 8)
+            try
             {
-                FrmHaveToErrorPopUp errorHave = new FrmHaveToErrorPopUp(val, -1);
-                errorHave.StartPosition = FormStartPosition.CenterParent;
-                errorHave.ShowDialog();
+
+                double budget1 = Convert.ToDouble(mtbBudget1.Text);
+                double budget2 = Convert.ToDouble(mtbBudget2.Text);
+                double budget3 = Convert.ToDouble(mtbBudget3.Text);
+
+                saver.SaveBudget(budgetid, budget1, budget2, budget3);
+                //----
+                DataLoad dl = new DataLoad();
+
+                DataTable val = dl.LoadGenerealOverview();
+
+                if (val.Columns.Count == 8)
+                {
+                    FrmHaveToErrorPopUp errorHave = new FrmHaveToErrorPopUp(val, -1);
+                    errorHave.StartPosition = FormStartPosition.CenterParent;
+                    errorHave.ShowDialog();
+                }
+                else
+                {
+                    //---
+                    FrmAfirmative saved = new FrmAfirmative("Das Jahresbudget wurde gespeichert.", 'i');
+                    saved.ShowDialog();
+                }
             }
-            else
+            catch (FormatException ex)
             {
-                //---
-                FrmAfirmative saved = new FrmAfirmative("Das Jahresbudget wurde gespeichert.", 'i');
-                saved.ShowDialog();
+                MessageBox.Show(" Bitte die Zahl rechsbündig formatieren");
             }
            
            
