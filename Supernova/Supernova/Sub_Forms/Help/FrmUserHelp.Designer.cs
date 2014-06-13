@@ -94,6 +94,7 @@
             treeNode13.Text = "Passwort ändern";
             treeNode14.Name = "account";
             treeNode14.Text = "Account";
+            treeNode15.Checked = true;
             treeNode15.Name = "Node0";
             treeNode15.Text = "Hilfe";
             this.tvUserHelp.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {

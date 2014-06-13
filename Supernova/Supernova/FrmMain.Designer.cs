@@ -45,7 +45,6 @@
             this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfekatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.überToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.dbErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnlMain = new System.Windows.Forms.Panel();
@@ -183,8 +182,7 @@
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.hilfekatalogToolStripMenuItem,
-            this.überToolStripMenuItem});
+            this.hilfekatalogToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.adminToolStripMenuItem.Text = "Hilfe";
@@ -192,16 +190,9 @@
             // hilfekatalogToolStripMenuItem
             // 
             this.hilfekatalogToolStripMenuItem.Name = "hilfekatalogToolStripMenuItem";
-            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.hilfekatalogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hilfekatalogToolStripMenuItem.Text = "Hilfekatalog";
             this.hilfekatalogToolStripMenuItem.Click += new System.EventHandler(this.hilfekatalogToolStripMenuItem_Click);
-            // 
-            // überToolStripMenuItem
-            // 
-            this.überToolStripMenuItem.Name = "überToolStripMenuItem";
-            this.überToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.überToolStripMenuItem.Text = "Über";
-            this.überToolStripMenuItem.Click += new System.EventHandler(this.überToolStripMenuItem_Click);
             // 
             // sStateStrip
             // 
@@ -268,7 +259,6 @@
         private System.Windows.Forms.ToolStripMenuItem benutzerinformationenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwordÄndernToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hilfekatalogToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem überToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ausloggenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem kriterienPriorisierenToolStripMenuItem;

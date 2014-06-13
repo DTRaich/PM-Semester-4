@@ -17,6 +17,7 @@ namespace Supernova.Sub_Forms.Help
         public FrmUserHelp()
         {
             InitializeComponent();
+            tvUserHelp.Nodes[0].Expand();
         }
 
         private void tvUserHelp_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -39,8 +40,24 @@ namespace Supernova.Sub_Forms.Help
                     break;
                 case "kriterien_priorisieren": ShowKriterienPriorisieren();
                     break;
+                case "budget": ShowBudget();
+                    break;
+                case "rechteverwaltung": ShowRelease2();
+                    break;
+                case "schnittstellenverwaltung": ShowRelease2();
+                    break;
             }
 
+        }
+
+        private void ShowBudget()
+        {
+            rtbText.Rtf = texter.GetBudget();
+        }
+
+        private void ShowRelease2()
+        {
+            rtbText.Rtf = "Release 2 : Hilfetext bei vollständiger Implementierung";
         }
 
         private void ShowLogin()
