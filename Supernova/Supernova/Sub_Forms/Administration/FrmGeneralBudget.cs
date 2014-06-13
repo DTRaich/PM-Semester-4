@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Supernova.data;
 using Supernova.Sub_Forms.General;
+using Supernova.Sub_Forms.Overview;
 
 namespace Supernova.Sub_Forms.Administration
 {
@@ -56,9 +57,24 @@ namespace Supernova.Sub_Forms.Administration
             double budget3 = Convert.ToDouble(mtbBudget3.Text);
 
             saver.SaveBudget(budgetid, budget1, budget2, budget3);
+            //----
+            DataLoad dl = new DataLoad();
 
-            FrmAfirmative saved = new FrmAfirmative("Das Jahresbudget wurde gespeichert.", 'i');
-            saved.ShowDialog();
+            DataTable val = dl.LoadGenerealOverview();
+
+            if (val.Columns.Count == 8)
+            {
+                FrmHaveToErrorPopUp errorHave = new FrmHaveToErrorPopUp(val, -1);
+                errorHave.StartPosition = FormStartPosition.CenterParent;
+                errorHave.ShowDialog();
+            }
+            else
+            {
+                //---
+                FrmAfirmative saved = new FrmAfirmative("Das Jahresbudget wurde gespeichert.", 'i');
+                saved.ShowDialog();
+            }
+           
            
         }
     }

@@ -31,6 +31,10 @@ namespace Supernova.Sub_Forms.Overview
            this.val = val;
            PrepareGrid();
            clickedProjektS = clickedProjekt;
+           if (clickedProjekt == -1)
+           {
+               button1.Visible = false;
+           }
         }
 
         private void PrepareGrid()
@@ -84,6 +88,10 @@ namespace Supernova.Sub_Forms.Overview
 
         private void revertDesision(int id)
         {
+            if (clickedProjektS == -1)
+            {
+
+            }
             ValidationData vl = new ValidationData();
 
             try
@@ -117,8 +125,20 @@ namespace Supernova.Sub_Forms.Overview
 
         private void FrmHaveToErrorPopUp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formclosing = true;
-            revertDesision(clickedProjektS);
+            if (!normalRevert)
+            {
+
+                if (clickedProjektS != -1)
+                {
+                    formclosing = true;
+                    revertDesision(clickedProjektS);
+                }
+                else
+                {
+                    e.Cancel = true;
+
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
