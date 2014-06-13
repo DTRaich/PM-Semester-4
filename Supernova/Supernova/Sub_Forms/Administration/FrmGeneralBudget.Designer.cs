@@ -85,7 +85,7 @@
             // mtbBudget1
             // 
             this.mtbBudget1.Location = new System.Drawing.Point(486, 126);
-            this.mtbBudget1.Mask = "0000000000,00";
+            this.mtbBudget1.Mask = "0000000000.00";
             this.mtbBudget1.Name = "mtbBudget1";
             this.mtbBudget1.Size = new System.Drawing.Size(82, 20);
             this.mtbBudget1.TabIndex = 4;
@@ -94,7 +94,7 @@
             // mtbBudget2
             // 
             this.mtbBudget2.Location = new System.Drawing.Point(486, 196);
-            this.mtbBudget2.Mask = "0000000000,00";
+            this.mtbBudget2.Mask = "0000000000.00";
             this.mtbBudget2.Name = "mtbBudget2";
             this.mtbBudget2.Size = new System.Drawing.Size(82, 20);
             this.mtbBudget2.TabIndex = 5;
@@ -103,7 +103,7 @@
             // mtbBudget3
             // 
             this.mtbBudget3.Location = new System.Drawing.Point(486, 276);
-            this.mtbBudget3.Mask = "0000000000,00";
+            this.mtbBudget3.Mask = "0000000000.00";
             this.mtbBudget3.Name = "mtbBudget3";
             this.mtbBudget3.Size = new System.Drawing.Size(82, 20);
             this.mtbBudget3.TabIndex = 6;

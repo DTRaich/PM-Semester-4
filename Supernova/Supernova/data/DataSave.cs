@@ -1006,7 +1006,7 @@ namespace Supernova.data
         }
         #endregion
 
-        public bool SaveBudget(int BudgetID, decimal year1, decimal year2, decimal year3)
+        public bool SaveBudget(int BudgetID, double year1, double year2, double year3)
         {
             dbError.deleteDBError();
             MySqlConnection connection = new MySqlConnection(conSting);
