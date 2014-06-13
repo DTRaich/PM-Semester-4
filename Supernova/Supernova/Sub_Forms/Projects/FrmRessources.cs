@@ -51,16 +51,19 @@ namespace Supernova.Sub_Forms.Projects
 
             if (projektdaten.ProjectDuration <= 12)
             {
-                capaGrid.Columns[2].ReadOnly = false; 
+                capaGrid.Columns[2].ReadOnly = false;
             }
             else
             {
                 if (projektdaten.ProjectDuration <= 24)
                 {
+                    capaGrid.Columns[2].ReadOnly = false;
                     capaGrid.Columns[3].ReadOnly = false; 
                 }
                 else
                 {
+                    capaGrid.Columns[2].ReadOnly = false;
+                    capaGrid.Columns[3].ReadOnly = false; 
                     capaGrid.Columns[4].ReadOnly = false; 
                 }
             }
