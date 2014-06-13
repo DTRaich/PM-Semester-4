@@ -69,8 +69,8 @@ namespace Supernova.Sub_Forms.Overview
 
                     xlWorkSheet.Cells[i, 2] = dr[1].ToString();
                     xlWorkSheet.Cells[i, 3] = value[0];
-                    xlWorkSheet.Cells[i, 4] = value[1];
-                    xlWorkSheet.Cells[i, 5] = value[2];
+                    xlWorkSheet.Cells[i, 4] = value[2];
+                    xlWorkSheet.Cells[i, 5] = value[1];
                     i++;
                 }
 
