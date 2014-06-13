@@ -18,6 +18,7 @@ namespace Supernova.Sub_Forms.Help
         {
             InitializeComponent();
             tvUserHelp.Nodes[0].Expand();
+            ShowLogin();
         }
 
         private void tvUserHelp_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)

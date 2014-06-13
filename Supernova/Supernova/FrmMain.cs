@@ -42,6 +42,7 @@ namespace Supernova
             projekteToolStripMenuItem.Enabled = true;
             accountToolStripMenuItem.Enabled = true;
             adminToolStripMenuItem1.Visible = false;
+            helpToolStripMenuItem.Enabled = true;
             
             switch (right)
             {
@@ -188,6 +189,7 @@ namespace Supernova
             projekteToolStripMenuItem.Enabled = false;
             accountToolStripMenuItem.Enabled = false;
             adminToolStripMenuItem1.Visible = false;
+            helpToolStripMenuItem.Enabled = false;
 
             kriterienPriorisierenToolStripMenuItem.Visible = true;
             budgetToolStripMenuItem.Visible = true;

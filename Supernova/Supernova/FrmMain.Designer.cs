@@ -43,7 +43,7 @@
             this.benutzerinformationenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ausloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfekatalogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sStateStrip = new System.Windows.Forms.StatusStrip();
             this.dbErrorLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,7 +59,7 @@
             this.projekteToolStripMenuItem,
             this.adminToolStripMenuItem1,
             this.accountToolStripMenuItem,
-            this.adminToolStripMenuItem});
+            this.helpToolStripMenuItem});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(945, 24);
@@ -179,13 +179,14 @@
             this.ausloggenToolStripMenuItem.Text = "Ausloggen";
             this.ausloggenToolStripMenuItem.Click += new System.EventHandler(this.ausloggenToolStripMenuItem_Click);
             // 
-            // adminToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hilfekatalogToolStripMenuItem});
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.adminToolStripMenuItem.Text = "Hilfe";
+            this.helpToolStripMenuItem.Enabled = false;
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.helpToolStripMenuItem.Text = "Hilfe";
             // 
             // hilfekatalogToolStripMenuItem
             // 
@@ -253,7 +254,7 @@
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.ToolStripMenuItem projekteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projektErstellenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projekteAnzeigenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem benutzerinformationenToolStripMenuItem;
