@@ -220,9 +220,17 @@ namespace Supernova.Sub_Forms.Overview
             DataTable analyse = getAnaylseProject();
             if (analyse.Rows.Count > 0)
             {
-                FrmProjectAnalysis frm = new FrmProjectAnalysis(analyse);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog();
+                if (checkCountOFList())
+                {
+                    FrmAfirmative frm = new FrmAfirmative("Sie haben zu viele Projekt ausgewählt. \nBitte setzten Sie zuerst Projekte inaktiv.", 'e');
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    FrmProjectAnalysis frm = new FrmProjectAnalysis(analyse);
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                }
             }
             else
             {
